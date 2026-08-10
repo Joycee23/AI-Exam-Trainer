@@ -216,10 +216,9 @@
       "A. 12 lần",
       "B. 3 x 4 x 5 = 60 lần",
       "C. Tổ hợp 3^4 = 81 lần",
-      "D. 4 x 4 x 4 = 64 trường hợp, mỗi cái chạy 5 lần CV -> 64 x 5 = 320 lần huấn luyện (Train) ĐỘC LẬP",
-      "E. 4^3 = 64, x 5 = 320"
+      "D. 4 x 4 x 4 = 64 trường hợp, mỗi cái chạy 5 lần CV -> 64 x 5 = 320 lần huấn luyện (Train) ĐỘC LẬP"
     ],
-    "answer": 4,
+    "answer": 3,
     "explanation": "Có 3 nút vặn (Siêu tham số). Nút 1 có 4 giá trị. Nút 2 có 4 giá trị. Nút 3 có 4 giá trị. Vậy tổng số tổ hợp Cấu hình là 4 x 4 x 4 = 64 bản thể Model khác nhau. Vì làm 5-Fold CV (chạy 5 vòng thi cho mỗi bản thể), tổng số lần Fit (Huấn luyện) là 64 x 5 = 320 lần. Rất tốn tính toán!",
     "tip": "Grid Search CV vét cạn = Cực kỳ tốn CPU/thời gian. (Tổ hợp của TẤT CẢ các tùy chọn nhân với số Fold).",
     "tags": ["hyperparameter-tuning", "grid-search", "cross-validation"]
