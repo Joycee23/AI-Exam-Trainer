@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D5-001", "module": "D", "topic": "D5", "difficulty": "easy",
+    "question": "Thuật ngữ 'Big Data' (Dữ liệu Lớn) thường được định nghĩa qua đặc trưng '3V'. Chữ 'V' (Velocity) ám chỉ điều gì?",
+    "options": [
+      "A. Lượng dữ liệu quá khổng lồ (Tính bằng Petabyte)",
+      "B. TỐC ĐỘ SINH RA DỮ LIỆU CỰC KỲ NHANH. (Ví dụ: Mỗi giây có 10,000 thẻ tín dụng quẹt trên toàn cầu, hoặc 1 triệu lượt Like Facebook). Dữ liệu chảy như thác lũ đòi hỏi phải xử lý ngay lập tức (Streaming).",
+      "C. Sự đa dạng của dữ liệu (Chứa cả ảnh, video, text lộn xộn)",
+      "D. Tính xác thực của dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "3V kinh điển của Big Data gồm: Volume (Thể tích lớn), Velocity (Vận tốc sinh ra nhanh), và Variety (Đa dạng lộn xộn). SQL cũ chỉ xử lý được Volume nhỏ, Velocity chậm (Cập nhật thủ công) và Variety bằng 0 (Chỉ nhận Bảng Cột). Big Data là các cỗ máy (Hadoop/Kafka) giải quyết sự Tức thời và Sự Lộn xộn này.",
+    "tip": "3V Big Data = Volume (Nhiều Khủng Khiếp) + Velocity (Đẻ ra siêu Nhanh/Streaming) + Variety (Tạp Nhạp Ảnh Video Text).",
+    "tags": ["big-data", "velocity", "3v"]
+  },
+  {
+    "id": "D5-002", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Hadoop Distributed File System (HDFS) sử dụng chiến thuật 'Chia để Trị' (Divide and Conquer) NHƯ THẾ NÀO để chứa một File Dữ liệu Siêu to (Ví dụ 1000 GB)?",
+    "options": [
+      "A. Xóa một nửa file để tiết kiệm ổ",
+      "B. Nén file lại thành định dạng .zip",
+      "C. CHẶT CÁI FILE 1000 GB ĐÓ RA THÀNH NHIỀU CỤC NHỎ (Ví dụ 128 MB/cục). Xong Đem Các Cục Nhỏ Đó Vứt Rải Rác Vào Hàng Trăm Cái Máy Tính Khác Nhau Dấu Vào Ổ Cứng Của Tụi Nó. Một Con Máy Chủ Mẹ (NameNode) Sẽ Cầm Cuốn Sổ Tay Ghi Nhớ Tọa Độ Coi Cục Nào Nằm Ở Máy Nào Để Lúc Sau Ghép Lại.",
+      "D. Đưa lên Google Drive"
+    ],
+    "answer": 2,
+    "explanation": "Không có cái ổ cứng máy tính nào chứa nổi 1 cục data 10 Petabyte (Khối lượng Dữ liệu Youtube). Hadoop HDFS Chặt xác data đó ra thành các khối (Block 128MB), rải nó lên 100 cái PC giá rẻ (DataNode). Thằng Vua NameNode quản lý Sổ Kho. Khi cần đọc, gọi 100 thằng gom lại. Đây là cốt lõi của Lưu trữ Phân tán.",
+    "tip": "HDFS (Hệ thống File Phân Tán) = Chặt Nát Cục Thịt Voi Bự Bằng Con Dao 128MB. Quăng Từng Cục Thịt Cho 100 Thằng Đệ Giữ Giùm. Thằng Đại Ca NameNode Cầm Sổ Chép Xem Đứa Nào Cầm Miếng Nào Đặng Gọi Ra Trả Lắp Ráp.",
+    "tags": ["big-data", "hadoop", "hdfs", "distributed-systems"]
+  },
+  {
+    "id": "D5-003", "module": "D", "topic": "D5", "difficulty": "easy",
+    "question": "MapReduce là Thuật toán Xử Lý Phân Tán nổi tiếng nhất của Hadoop. Bước 'Map' làm nhiệm vụ Cốt Lõi gì?",
+    "options": [
+      "A. Vẽ bản đồ địa lý GPS",
+      "B. Xóa bớt dữ liệu thừa",
+      "C. ĐỌC DỮ LIỆU ĐẦU VÀO VÀ BĂM TÁCH NÓ RA THÀNH TỪNG CẶP [KHÓA - GIÁ TRỊ] (Key-Value). Ví dụ: Đọc câu 'Mèo ăn cá', Map sẽ nhả ra 3 cục: ['Mèo': 1], ['ăn': 1], ['cá': 1] vứt lên bàn trước khi gọi Hàm Reduce tới Gom Nhóm.",
+      "D. Trả về kết quả cho màn hình"
+    ],
+    "answer": 2,
+    "explanation": "Đếm số từ của Thư Viện Quốc Gia (1 Triệu cuốn sách). 1 máy chạy sẽ tốn 10 năm. Đưa cho 10,000 máy Map chạy song song. Mỗi thằng Map cầm 1 trang sách nhặt ra: ['chó': 1], ['mèo': 1]. Bước Reduce sau đó sẽ Hốt lại hết, cứ thấy Key='chó' thì đem Giá Trị +1 Cộng Dồn vào. Phân toán sức mạnh bằng Chẻ Việc (Map) rồi Gộp Kết Quả (Reduce).",
+    "tip": "MapReduce = Hai Anh Chàng Ngu Ngốc Làm Tỷ Phú Thời Gian. Thằng MAP chỉ Bóc Tem Nhặt Hàng Quăng Ra Đống. Thằng REDUCE Mù Loa Cứ Đi Lấy Rổ Hốt Cái Có Chữ Giống Nhau Đem Cất Cùng Chỗ Rồi Tính Tổng.",
+    "tags": ["big-data", "mapreduce", "hadoop"]
+  },
+  {
+    "id": "D5-004", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Sự ra đời của 'Apache Spark' đã HỦY DIỆT hoàn toàn Lịch sử của Hadoop MapReduce. Sức mạnh nào giúp Spark Nhanh Hơn Gấp 100 Lần so với MapReduce cũ kỹ?",
+    "options": [
+      "A. Xài điện 220V",
+      "B. HADOOP XỬ LÝ CHẬM VÌ MỖI LẦN MAP XONG, NÓ ĐỀU LƯU KẾT QUẢ TẠM XUỐNG Ổ CỨNG (Disk I/O). REDUCE LẠI MÒ XUỐNG Ổ CỨNG ĐỌC LÊN RỒI TÍNH, XONG LẠI LƯU XUỐNG. SPARK LÔI TẤT CẢ DỮ LIỆU GĂM THẲNG LÊN BỘ NHỚ TRONG (RAM / IN-MEMORY) RỒI ĐẬP TÍNH TOÁN BĂM CHÉM ĐỨT RÁC CHỚP NHOÁNG, ÉO THÈM ĐỤNG Ổ CỨNG LẦN NÀO ĐẾN KHI XONG VIỆC.",
+      "C. Mua bản quyền Google",
+      "D. Đổi mạng 5G"
+    ],
+    "answer": 1,
+    "explanation": "Ổ cứng SSD/HDD là Nỗi Ô Nhục Nghẽn Cổ Chai Của Tốc Độ (Rùa). Bộ Nhớ RAM Chạy Tốc Độ Ánh Sáng Siêu Thanh Trắng Khúc. Hadoop Ngu Vì Sợ Mất Điện (Fault Tolerance Dở) Bắt Bơm Ghi Dòng Ghi Ổ Cứng Liên Tục Cho Mỗi Bước Tính Dạo Chờ Kẹp Nát Mỏi Kéo Áp Bò Lướt Oan Chậm Bực Rách Đứt. Spark Thiết Kế Kiến Trúc RDD Ép Kéo Giữ Mạng Hút Vào Ngậm Trên RAM Mọi Nét Lọc Kép Chà Tính Chớp Lọng (Spark Hơi Tốn Tiền RAM Khủng Bùm Máy Thừa Sức Nhưng Đạt Khóa Thời Gian Real Khớp Dò Trống Khuyết Cụt Cắt Đập Banh).",
+    "tip": "Apache Spark (Tia Lửa Nhanh 100x) Giết Hadoop MapReduce Rùa Ổ Cứng = Đem Hết Mâm Dữ Liệu Tỷ Dòng Khảm Móc Chứa Trên RAM (In-Memory Processing). Chạy Tính Băng Băng Khỏi Bóp Viết Dịch Rác Ổ Đĩa Nhai Lại Tốn Thời Giờ Giảm Thọ Đọc Kéo.",
+    "tags": ["big-data", "apache-spark", "hadoop", "in-memory-processing"]
+  },
+  {
+    "id": "D5-005", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Cấu trúc lõi RDD (Resilient Distributed Dataset) của Spark có một Thuộc tính Đặc thù tên là 'Lazy Evaluation' (Đánh Giá Lười Biếng). Nó Tối Ưu Tốc Độ bằng trò Ăn Gian gì?",
+    "options": [
+      "A. Không thèm tính gì hết",
+      "B. Xóa Data Kẹt Mạng Khỏi Góc Rỗng Đuôi Cắt Dài",
+      "C. CHỈ KHI NÀO BẠN GỌI LỆNH XUẤT KẾT QUẢ CUỐI CÙNG HOẶC LƯU FILE (Action: Count(), Collect(), Save()). THÌ NÓ MỚI BẮT ĐẦU CHẠY. CÒN LÚC BẠN VIẾT 100 Lệnh BIẾN ĐỔI CHÀ RỬA (Transformation: Filter(), Map()) NÓ ĐÉO THÈM CHẠY MỘT DÒNG NÀO CẢ (CHỈ GHI SỔ NỢ LẠI ĐỂ ĐÓ). Tới Phút Cuối Nó Gộp 100 Lệnh Đó Tối Ưu Lại Chạy 1 Phát Thần Tốc Rút Ngắn Lỗi Trục Lặp Lố.",
+      "D. In Báo Cáo Không Số Liệu"
+    ],
+    "answer": 2,
+    "explanation": "Ông Sếp Bắt Nhân Viên Đọc 1 Tỷ Dòng (Lệnh Đọc). Sếp Gõ Filter() Bỏ Dữ Liệu Thiếu (Lệnh 2). Sếp Gõ Tăng Lương 500k (Lệnh 3). Nếu Cứ Chạy Từng Lệnh Dài Sòng Sọc (Eager), Đọc Lên Ghi Xuống Mất Cả Năm Rác RAM. Spark Thấy Mày Ra Lệnh Nhưng Đéo Thấy Lệnh Đòi Lấy Đáp Án Xem Sớm (Action) Thì Nó Ghi Vô Sổ Nợ (Lineage). Khi Lệnh Collect() Gọi Ra Coi Báo Cáo, Nó Liếc Mắt Tìm Cách Chạy Gộp Thông Minh Nhất Vừa Đọc Vừa Filter Vừa Tăng Lương Dọc Băng 1 Phát Chớp Nhoáng (Tối Ưu Đường Ống).",
+    "tip": "Lazy Evaluation (Độ Lười Biếng Spark Mưu Cáo) = Lười Là Tối Ưu. Mày Ra Lệnh Chà Rửa Filter Tao Ghi Vô Sổ Sợi Chứ Đéo Chạy (Transformation). Chừng Nào Mày Mở Lệnh Hứng Lấy Con Số Báo Cáo Cuối Cùng (Action) Tao Mới Bưng Máy Ép Gom Toàn Bộ Sợi Dây Nấu Lên Tính Tối Ưu Gộp Rút Lệnh Một Nhát Ngắn Siêu Đẹp Nhanh Khớp Đánh Vang Bể Nóng.",
+    "tags": ["big-data", "apache-spark", "rdd", "lazy-evaluation"]
+  },
+  {
+    "id": "D5-006", "module": "D", "topic": "D5", "difficulty": "easy",
+    "question": "Tính năng ưu việt Mới của Spark là DataFrame/Spark SQL, nó vượt qua cái cũ RDD nhờ việc cho Kỹ sư Phân Tích Làm Điều Gì?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. ĐỌC DỮ LIỆU SẮP XẾP SẴN THÀNH DẠNG CỘT DÒNG NGAY NGẮN Y HỆT 1 CÁI BẢNG DATABASE QUEN THUỘC (THAY VÌ RDD LỘN XỘN HỖN MANG). DO ĐÓ, KỸ SƯ CÓ THỂ ĐEM BÊ NGUYÊN VẸN CÂU LỆNH `SELECT * FROM BẢNG WHERE` VÀO GÕ CHẠY VÙ VÙ TRÊN BIG DATA 1 TỶ DÒNG MÀ KHÔNG CẦN HỌC VIẾT PYTHON/SCALA PHỨC TẠP NHƯ TRƯỚC LẬP TỔ KHỔ NÃO CẮT RÚT KHÓ HẤP ÁP.",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 2,
+    "explanation": "RDD Bắt Lập Trình Viên Viết Cú Pháp Lambda (Python/Scala) Vặn Óc Xẻ Nát Mổ Code Mệt Nhọc Dân Kế Toán Trốn Khóc. Spark SQL Bọc Cái RDD Lại Trong Cái Khuôn Vỏ Hình Hộp (DataFrame). Thằng Kế Toán Chả Cần Biết Cấu Trúc Khủng Hadoop Bên Dưới Trải Data Rải Rác 100 Máy Dấu Sau, Cứ Viết Khư Khư Câu Lệnh SQL (Select, Group By) Khung Sườn Y Chang PostgreSQL Gõ Vô Trực Tiếp Đớp Sống Liền Quẩy Code Chạy Áp Ngược Cực Sướng Tiết Kiệm Giao Mảng Dân Chuyên Data Phân Tích Chui Trọc Hết Gắn Vọc Bấm Nghĩa Không Sứt Ranh Kẹt.",
+    "tip": "Spark SQL (DataFrame) = Đội Áo Bảng SQL Lên Mình Cỗ Máy Spark Băng Đảng Data Khủng Bố. Dân Kế Toán Không Biết Python Băm Data Cứ Ném Lệnh Gõ Phím SQL Truyền Thống Vô Đấm Đá Thoải Mái Spark Chạy Ép Thành Phân Tán Máy Đỉnh Không Trễ Méo Oan Hụt Nhựa Cháy Bờ Dòng Gắn Kẹp Đuôi Dẹt Kín Tối Ưu Hóa Nhanh Catalyst.",
+    "tags": ["big-data", "apache-spark", "spark-sql", "dataframe"]
+  },
+  {
+    "id": "D5-007", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Thảm Họa Rớt Máy (OOM - Out of Memory) Đầy Đáy Kẹt Khớp Chết Chùm 10 Mảng Giao Băng Điếc Ở Spark Thường Xuyên Nằm Ngay Lúc Lệnh Hành Động Nào Dưới Đây Vô Ý Bóp Cháy Rách Sập Trục Lưới Máy Trung Tâm Không Cứu (Driver Node)?",
+    "options": [
+      "A. Lệnh `df.filter()` Bỏ Dòng Mảng Rớt Kẹp Ngắn Khúc Lỗ Trống",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. KHI LẬP TRÌNH VIÊN NGU NGỐC GỌI LỆNH `df.collect()` LẤY DỮ LIỆU TỶ DÒNG. Lệnh Này Ra Lệnh GOM TẤT CẢ DỮ LIỆU ĐANG ĐƯỢC CHIA RẢI RÁC TRÊN 100 CON MÁY LÍNH (WORKER) ĐEM ĐỔ HẾT BỘP BUNG DỒN CỤC THÚC DỘI LÊN CHIẾC MÁY MẸ TRUNG TÂM (DRIVER) DUY NHẤT RAM BÉ XÍU. VỠ RAM 1 NHÁT NỔ SẬP CHẾT ĐỎ HỆ THỐNG GÃY KHUNG TREO ÁN GIỮA CHỪNG. (Phải Dùng Lệnh Ghi Lưu Bảng DB Hay Trích Xem Chút Đỉnh `take()` Thôi Khỏi Tràn Gây Tử)."
+    ],
+    "answer": 3,
+    "explanation": "Kiến Trúc Tách Trị Thằng Đại Ca Phân Dây Máy Phụ (Master-Slave/Driver-Worker). Cái Thằng Máy Master RAM Nó Nhỏ Bằng Nắm Tay Chỉ Để Cầm Sổ Chỉ Huấn Nhạc Trưởng Móc Dây (100 Máy Lính Trâu Bò Gánh Cục Data Nặng 10TB Hút Máng Dưới). Đang Yên Đang Lành Ông Kỹ Sư Cào Bàn Phím Đánh `Collect()` Dòi Coi Hết Result Phun Lên Màn Hình Code (Ép 100 Đứa Ném Ngược Đổ Đá 10TB Nặng Rác Bơm Gửi Dập Thẳng Cục Cổ Thằng Đại Ca Driver Yếu Nhớt Móp Bể RAM Chết Nghẻo Điếc Trụy Ngộp Sóng). Lệnh Tử Chống Bắn Cấm Gọi Ẩu Khóc Khản Cổ Mòn Khóa Bục Rỗng Ác.",
+    "tip": "Đừng Bao Giờ Gõ Gọi Hàm Gọi Hồn `collect()` Trên Spark Kéo File Bự (Nổ Ram Mẹ Nhạc Trưởng Bể Túi Driver Đeo Không Nổi Chết Cụ Sụp Máy App Lệnh Lỗi Liệt Bảng). Thay Vì Đó Gõ Mọi Thứ Tống Vô Lệnh Save Hạ File Dọc Xả Dưới Đất Lưới Trả Data Warehouse Đựng Hoặc Xài Ngó Đỉnh Lấy Vài Dòng Code Dùng `take(10)` Soi Demo An Toàn Trọng Rất Bám Gọng Ổ Cứng Kẹp Phim Rìa Cán Nhòe.",
+    "tags": ["big-data", "apache-spark", "out-of-memory", "architecture"]
+  },
+  {
+    "id": "D5-008", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Cắt Đục Sợi Kéo Data 'Partitioning' (Cắt Khúc Sẵn Từ Ở Trong RAM Lập Sợi) Ở Dạng RDD/DataFrame Spark Dẫn Lối Trục Giải Mở Tốc Độ Kinh Hoàng Ở Điểm Quyết Kích Định Băng Nhồi Vịn Khóa Cưa Tạp Báo Gì Gắn Ngược Ép Tải Nén Cục Lỗi Cắn Lỗ Thẳng Gãy Ốp Gợn Oan Trắng Nháy Trôi Đỉnh Bờ Khuya?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. NẾU 10 TRIỆU KHÁCH HÀNG ĐƯỢC CHIA (PARTITION) RẢI ĐỀU 10 MÁY. MỖI MÁY CÓ 1 CPU RIÊNG CHẠY PARALLEL (SONG SONG) TÍNH TOÁN BẤT ĐỘNG. NẾU SET CẮT KHÚC ÍT QUÁ (PARTITION = 2), THÌ CHỈ CÓ 2 MÁY CẶM CỤI CHẠY LÈM NHÈM, 8 MÁY KIA NGỒI CHƠI XƠI NƯỚC UỐNG TRÀ TRẢ LƯƠNG KHÔNG VÔ ÍCH CHẾT TIỀN SERVER CHẬM. NẾU CẮT RA QUÁ NHIỀU (1000 KHÚC LẮT NHẮT TRÊN 10 MÁY), THỜI GIAN NHẠC TRƯỞNG LẤP ĐƯỜNG KẾT NỐI (OVERHEAD GỌI ĐIỆN) PHÂN CHIA VIỆC NHỎ NẶNG TẢI HƠN CHẠY CODE TÍNH CHÍNH GÂY LẾT CHẾT CHẬM KẸT NGANG CỨNG LỜ. CẦN SET THÔNG SỐ SỐ CẮT CHUẨN XÁC RÃ ĐỀU QUẢN NHỊP RÕ DÍNH.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Đỉnh Trí Não Cân Đo. Spark Chạy Nhanh Hay Ngu Do Tài Lập Trình Viên Canh Chia Số Bát Phân (Partitioning Tuning). Lôi File Data Đập Bể Quá 2 Khúc Phóng Lên 10 Cụm CPU. (Chỉ Có 2 Con Khóp Nhặt Việc Thở Dốc, Bọn Kia Chơi Không Tốn Tiền Ăn Bám Hết Mức Kẹp). Đập Nát 10.000 Khúc Quá Vụn Trên Lỗ 10 CPU Đứa Mảy (Tiền Phí Quản Trị Tích Gửi Gọi Chờ Nghe Mạch Xé Network Shuffle Sụp Viêm Bóc Tách Chết Đứng Bão Đâm Bóng Nát Mạng Trả Chốt Áo Trễ Nghẽn Cực Ác Hụt Bóng Keo Dây Nhão Rìa Phim). Mức Vừa Gắn Xích Bám Máy Đều Giữ Mức Chạy Full Ngựa Kéo Code Vang Tốc.",
+    "tip": "Chia Partition Khúc Ở Spark (Chìa Khóa Vua Ốp Song Song Nhanh Cực Tốc Bàn Thờ). Nhỏ Quá Máy Ngồi Rảnh, Nát Vụn Quá Mất Thời Gian Gửi Nhận Chầu Rác Góp Mạng Lag (Overhead Phí). Phải Nhấn Thích Hợp Vắt Ép Sáng Bóng Tất Cả Lính Đều Việc (2-3 Lần Số Core Đóng Sợi Mở Cửa Phim Quét Nắng Dội Nóng Ráp Gắn Máy Khỏe Thắt Bóp Cắn Mõm Vươn Cao Gấp Lỗ Góc Rạng Khớp Vững Khúc Nét Khó Xước Oan Tầm Vạch Méo Cân Áo Điếc Sợi Góc Hình Ố Bạt Kém Trũng).",
+    "tags": ["big-data", "apache-spark", "partitioning", "performance-tuning"]
+  },
+  {
+    "id": "D5-009", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Tính Đột Phá Khai Quang Trục Sáng Trụ Xóa Rác Lạc Khóc Giao Điểm Rơi Bất Chấp Của Đám Big Data Khi Dùng Định Dạng Parquet Cột Ngang Cột Dọc Dập Hủy Khung Cũ Rách Trái Mép Bỏ Gãy Lệnh Giao CSV (Mở Trống Mắt Không Gian Tiết Kiệm Gấp Trăm Tiền Cáp Lõi Ổ Đĩa Nhai Mạng Tốc Đọc Kinh Điển Siêu Ảo Thế Nào?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám",
+      "D. ĐỊNH DẠNG PARQUET LÀ ĐỊNH DẠNG FILE COLUMNAR (LƯU THEO CỤC CỘT DỌC SÁT NHAU DƯỚI ĐÁY Ổ ĐĨA KHÁC VỚI HÀNG DÒNG CSV NGANG RÁC). NÓ KÈM CƠ CHẾ NÉN SIÊU CẤP ĐỊNH KIỂU RẤT ĐỒNG ĐỀU (Kiểu Int Nén Trăm Lần Rẻ Nhựa Đè Bẹp Chữ Lộn). KHI CÂU LỆNH HADOOP CHẠY BÁO CÁO YÊU CẦU LẤY TỔNG CỘT GIÁ TIỀN, HỆ THỐNG MÚC THẲNG VÚT CỤC GIÁ TIỀN NHẸ HỀU LÊN MÁY TÍNH MÀ KHÔNG CẦN CHẠM TỚI 100 CỘT RÁC RẾN KHÁC NHƯ TEXT TÊN VỚ VẨN ĐỨNG CHÌM (TRÁNH PHÍ BĂNG THÔNG IO TRUYỀN TẢI KÉP TRÓT LỌT BỐC DẠ MẠNG ĐỤNG NHÒE). Mở Rộng Ép Dung Lượng Sạch Bóng Tiết Kiệm Hàng Khúc Kho Rẻ Rề."
+    ],
+    "answer": 3,
+    "explanation": "Đem CSV Lên Mở Data Lake Lọc Số Liệu Là Đốt Tiền Ốm Não. CSV Lưu Hàng Chữ Chữ Chữ (Vừa Tràn Bụng Không Nén Rộng Tốn Kém Cước Đĩa), Quét Lên Tính Đọc 1 Cột Tốn Phí Kéo Bê 100 Cột Thừa Mứa Bên Cạnh (Table Scan Quét Băng Tràn Chết Lạc Sóng Vỡ Rìa Ngốn Cáp IO Ngộp Mỏi Nghẽn Thủng Túi). Parquet Là Bùa Chú Hủy Diệt CSV Đáy Kẽ Nhựa Bóng Cắt Đều Gọn Cột Chữ Gom Cụt Tính Quét 1 Góc Cột Báo Cáo Kéo Nẹ Đi Lước Nước Mở Lắp Bơm Kính Tiết Kiệm 1/10 Cáp Khóa Đất Siêu Ngợp Quá Nặng Đóng Kép Sắn Chứa Giao.",
+    "tip": "Đuôi File Apache Parquet (Chúa Tể Columnar Ở Rừng Hồ Rác Big Data) = Dập Nát Lịch Sử Xấu Xa Của File CSV Béo Ụ Tốn Cước Tải Chậm Yếu (Lưu Ép Nén Góc Cột Khóa Góc Căng Tính Tổng Đọc Chạm Đúng Đích Mép Cột Dữ Liệu Báo Cáo Yêu Cầu Chứ Đéo Ngáo Bê Nguyên Lô Rác To Thừa Kéo Đai Rớt Ác Áo Tức Khúc Đọc Tiền Kém Đợi Nhão). Vua Kho Rẻ Siêu Nhẹ Khỏe Rút Data Không Kẹt Mép Cước Sốc.",
+    "tags": ["big-data", "apache-parquet", "columnar-storage", "data-format"]
+  },
+  {
+    "id": "D5-010", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Thuật Ngữ Lệch Nhịp Của Việc Gắn Lỗi Máy Đóng Áo 'Shuffle' Đâm Toạc Lưới Trục Quạt Cháy Cổ Sóng Nghẽn Đứng Báo Máy Đứng Áp Spark Cục Báo Dấu Việm Sợi Trúc Gãy Máy Cháy Giữa Không Gian Trống Đóng Xích Gây Ảm Ám Kẹt Bể Chậm Nhấn Gì?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. TRONG SPARK CÁC LỆNH GROUP BY HOẶC JOIN BUỘC HỆ THỐNG PHẢI XÀO BÀI TRÁO ĐỔI KÉO DỮ LIỆU ĐI CHÉO BAY LƯỢN QUA LẠI GIỮA TẤT CẢ 100 CHIẾC MÁY CHỦ BĂNG QUA ĐƯỜNG MẠNG NETWORK (GỌI LÀ SHUFFLE). CÚ LƯỚT QUY MÔ LỚN NÀY ĐỤNG NHIỀU ĐỘNG TÁC GHI TẠM XUỐNG Ổ CỨNG VÀ KẸT BĂNG THÔNG MẠNG TẠO SỰ CHẬM TRỄ CỔ CHAI ĐÁNG KỂ NHẤT TRONG HÀNH TRÌNH CHẠY CODE BIG DATA (Ám Ảnh Giao Thông Nghẽn Mạng Xé Lưới Kéo Ốm Máy Nẹt Giáp Cụt).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Dân Kỹ Sư Sợ Nhất 2 Từ: 'Mạng Mẽo' Và 'Ổ Cứng'. Spark Hút Data Vô RAM Mỗi Máy Chạy Tự Kỷ Lọc Rác Bộ Lọc Thì Xé Gió Siêu Ráp Cắt Trọng Tải Băng Máy Im Lặng. Nhưng Hễ Sếp Đòi JOIN 2 Bảng Bự Khác Nguồn 100 Máy Lập Tức Bốc Hàng Gửi Phơi Quăng Dữ Liệu Qua Lại Ráo Riết Vô Cáp Mạng Nối Đầu Quét Náo Loạn Xào Bài (Shuffle) Ách Mạng Trọng Khớp Ép Vi Máy Ghi Rác Nổ RAM (Bóp Viêm Tụt Gây Khựng App Lag Máy Đơ Dài Phút Quá Dòng Chóng Xé Lưới Bạt Dày Góc Áp Nắm Cụm Tụt Cân).",
+    "tip": "Shuffle Ở Spark = Bệnh Xào Bài Rối Đội Hình (Bắt 100 Máy Mạng Lấy Dữ Liệu Bơm Khác Nguồn Điểm Dội Ngược Gửi Chéo Tạp Nhao Nháo Qua Cáp Đứt Mạng Hụt Xích Nghẽn Chậm Cổ Chai). Đỉnh Cao Kỹ Sư Code Spark Tốt Là Phải Biết Tránh Né Hạn Chế Ép Tội Lệnh Gây Chớp Shuffle Vô Bổ (Filter Lọc Tạp Bớt Đi Xong Mới Join).",
+    "tags": ["big-data", "apache-spark", "shuffle", "performance-tuning"]
+  },
+  {
+    "id": "D5-011", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Tính Chất Bảng Dimension Phình Bụng Tăng Size (Degenerate Dimension) Phá Vỡ Hoàn Toàn Lẽ Thường Hình Sao (Star Schema) Xảy Ra Khi Một Mảnh Chữ Thuộc Tính Kẹt Lại Ngay Giữa Trái Tim Bảng Lõi Fact Table Đơn Bấm Mà Không Có Bảng Rời Nào Đứng Hứng. Kéo Sự Hợp Thể Oái Oăm Vết Rác Này Ám Nét Vì Căn Nguyên Đơn Giản Lỗi Chi Mà Nát Mạch Vi Khớp Rời Bỏ Tách Ngoài Chống Dính Liên Quan Kết Nối Cầu Khớp?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. KHI MỘT LỆNH JOIN GIỮA 1 BẢNG QUÁ BÉ TÝ (10MB BẢNG MÃ QUỐC GIA) VÀ 1 BẢNG QUÁ ĐẠI KHỔNG LỒ (1000GB HÓA ĐƠN). SPARK SẼ LÀM 1 TRÒ MA THUẬT SIÊU NHANH GỌI LÀ BROADCAST JOIN. THAY VÌ LÀM MẠNG XÀO BÀI TÙM LUM CHÉO CHẾT MÁY (SHUFFLE NGHẼN MẠNG), NÓ ĐÓNG GÓI COPY HẾT 10MB CÁI BẢNG BÉ TÝ ĐÓ PHÁT TẬN TAY (BROADCAST TRỰC TIẾP LÊN BỘ NHỚ) CHO 100 CÁI MÁY ĐANG CHỨA BẢNG BỰ CẦM CỤC TÍNH LUÔN KHÔNG CHUYỂN DỰ TRỮ CÁP TRUYỀN (TUYỆT CHIÊU DIỆT TẬN GỐC THẢM HỌA BỆNH SHUFFLE SIÊU NHANH).",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Shuffle Lệnh Join Bự Là Quỷ Dữ Làm App Báo Cáo Treo 1 Tiếng Lết Ám Bóng Quăng Lộn Nết Ác Vụt Gãy. Khi So Đo Kẹp Mép Máy Tự Nảy Sinh Mưu Lấy Thằng Nhỏ Ném Bản Sao Vô Túi Thằng Bự Liền (Broadcast) Không Kêu Đưa Hàng Đổi Tráo Chéo Gì Rác Mạng. Dân Pro Gõ Hints Kêu Cú Máy Chủ Chọn Mưu Này Code Lên Trạm Xé Đích Khống Thời Lấp Rút Nét Cụt Bóng Nước Chạy Khúc 3 Giây Báo Cáo Ra Tức Khắc Nhẵn Bóng Khỏe Máy Dân Tươi Lọc Ép Viêm Kéo Cực Kì Khít Ngàm Rạch Bắn Bể Oan Cháy Bờ Dòng Áp Ác.",
+    "tip": "Broadcast Join = Chiêu Phát Tờ Rơi Cho Đám Đông Ăn Tận Răng (Diệt Nghẽn Mạng Shuffle). Trộn Bảng Dữ Liệu Tý Teo Vô Bảng Lớn Bằng Cách Chép 100 Bản Copy Nhỏ Gửi Tận Cổng Từng Con Máy Lớn Tự Nhai Tính Ở Nhà Cấm Di Chuyển Data Lớn Đi Đâu Gây Kẹt Xe Cáp Mạng Rách. Nhanh Kinh Điển Trị Bệnh Tốc Cổ Báo Cáo Spark.",
+    "tags": ["big-data", "apache-spark", "broadcast-join", "performance-tuning"]
+  },
+  {
+    "id": "D5-012", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Tính Chất Đặc Di Của Hive (Apache Hive - Data Warehouse Đồ Đá Thời Tiền Cổ Ráp Với Hadoop) Lọc Gắn Bắn Áo Vết Lưới Kẹt Trống Gắn Dán Cáo Dụng Ý Đóng Trụ Áo Chứa Lợi Phẩm Nối Tầng Nghĩa Giúp Nhóm Đội Đeo Lưới Cáo Gì Cho Phép Dân Thường Vượt Rào Phá Kẻ?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. NÓ CẤP MỘT MẶT NẠ LỆNH GÕ CÚ PHÁP Y HỆT SQL THÂN THUỘC (HQL) TRÙM LÊN ĐÁM HADOOP HDFS CŨ RÍCH KHÓ NHAI. NHỜ ĐÓ DÂN DATA ANALYST (CHỈ RÀNH CHUẨN SQL MẢNH MÃ ĐƠN GIẢN) CÓ THỂ NGỒI GÕ CHẠY QUÉT BÁO CÁO PHÂN TÍCH TỶ DÒNG BIG DATA NGÀY XƯA MÀ ÉO CẦN MỞ SÁCH HỌC LẠI NGÔN NGỮ LẬP TRÌNH BÀI TOÁN MAPREDUCE CHÁT NẢN NHAI NÃO VIẾT PYTHON/JAVA CÚ TÙ TÚNG BỤC VẾT ĐỨT HƠI KÉP KHO LỖ RÃ KHUÔN SỢI CHUYỀN MỘT CẮT ÁM.",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 2,
+    "explanation": "Trước Khi Có Spark, Đòi Báo Cáo Big Data Hadoop Bắt Sếp Analyst Bưng Sách Mò Java Khổ Não MapReduce Oái Ỏ Khóc Ló Vách Móc Óc Bứt Trục Lấp Chết Oan Lệnh Cáo Hỏng Nết Gãy Máy Hút Ố. Hive Gắn Mặt Nạ SQL Bọc Ngoài. Gõ `SELECT` Bình Yên Góp Lệnh Tới Đáy Lọc Máy Nó Tự Dịch Đứt Xuống Lệnh MapReduce Chạy Ngầm Trí Khôn Cứu Sáng Nước Non Nghề Analyst Khỏi Đi Cày Đuôi Cầm Phím Túng Bể Máng Ngộp Dây Rút Lạc Khung Giáp.",
+    "tip": "Apache Hive (Vị Cứu Tinh Kéo Cày Của Analyst Thời Đồ Đá Phục Báo Big Data Hadoop HDFS Khủng Phế Ác): Đưa Cục SQL Trùm Lên Đầu Lệnh Mù Java Mỏi Não Phức Tạp Lằng Nhằng Rối Lệnh Bơm Gãy Rút Khỏi Code Mệt (Đọc Lệnh Dịch Phun Phục Vụ Truy Vấn Trích Dành Kẻ Báo Cáo Cầm Tù Mất Án Rỗng Nghẽn Oan Óc Nát Não).",
+    "tags": ["big-data", "apache-hive", "sql", "hadoop"]
+  },
+  {
+    "id": "D5-013", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Oom Tràn Memory Bóng Rách Vết Rớt Kẹp Vạch Lưới Báo Rỗng Thủng Ống Đáy Xé Data Khuyết Cột Áp Ở Cụm Cột Trụ Đóng Yarn Khóa Cục Tác Việc Khốc Liệt Gì Ác Hình Dụng Ý Khéo Khống?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. BẢN THÂN YARN CHỈ LÀ THẰNG PHÁT ĐỘNG CHIA TIỀN TÀI NGUYÊN (NHÀ QUẢN LÝ TÀI NGUYÊN). BẠN CÓ 1 CỤM HADOOP LỚN RAM 1000GB. BẠN CÓ 2 APP CODE CHẠY SONG SONG KÉO DATA LỚN. YARN SẼ DỰNG RÀO CHIA PHẦN, ĐỨA APP A ĐƯỢC CHẠY GẶM 600GB BÊN GÓC. APP B CHẠY GẶM 400GB KẾ BÊN, KHÔNG CHO TỤI NÓ KẸP CẮN CHÉM CƯỚP ĐỒ LẤN TÀI NGUYÊN TRANH GIÀNH GÂY ĐỨT SẬP MẠNG LƯỚI KHÓC RỀN CỤM CHẾT LỆCH NGÁO TRƯỚC RỚT HỦY CƯỜNG HÓA CHÍNH OAN HỎNG VẾT SỨT MỎ LỆCH ĐÈ.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Big Data Chứa Tới 100 Thằng Chạy Job Lúc Khuya Đụng Chạm Sóng Sắt Máy Chủ Kẹt Sống. Không Thằng YARN Đứng Chia Miếng Bánh RAM Nắm Cân Nảy Chữ Khớp Lọc Khứa Thì Tụi App Tranh Ăn Hết Sạch Bộ Nhớ RAM Ngộp Hết Quạt Hết Véo Nóng Máy Nổ Bụp Đứng Khóc Dài. Chia Block Mảng Độc Lập Nút Sợi Bọc Ảo Đóng Băng Khóa Mạng An Toàn Ngập Đỉnh Cao Ngắn Phim Lạc Nét.",
+    "tip": "YARN (Kẻ Cầm Cân Nảy Mực Dàn Đóng Chia Của Máy Chủ Trâu Hadoop RAM Đại): Nhạc Trưởng Chia Bánh Rõ Rành Cho 100 Thằng Code Đứa 10GB Đứa 20GB Cấm Xâm Phạm Cướp Rác Làm Lag Điếc Nhòe Sụp Máy Nghẽn Não Nghẹt Thở Lỗ Mạng Kẹt Tắc Đường Tội Vỡ Kép Kính Trục Băng Gãy Chữ Oan Giám Trấn Vượt Lạc Hụt Ranh Khúc Nét.",
+    "tags": ["big-data", "hadoop", "yarn", "resource-management"]
+  },
+  {
+    "id": "D5-014", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Quạt Gió Máy Nghẽn Thở Lắc Hình Vang Mở Gọn Yếu Sóng Dữ Liệu Đọc Lệch Pha Nhòe Phẳng Giữa Cổ Xưa Khóc Đứt Lệnh Apache Flink Sóng Streaming (Sông Liên Thanh Lướt Khối Nhồi Bão Nước Xả Lưới Trống) Bẻ Đứng Thách Thức Điểm Vỡ Ngược Lại Gã Lão Bề Thế Trùm Kéo Bảng Lô Spark Streaming Dở Lỗi Mép Lệch Cán Xô Chéo Áp Ngáo Vi Khúc Nào Rớt Nhịp Cụt Điếc Tiếng Không Báo Nóng Rỉ Ám Rắn?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. SPARK STREAMING VỐN BẢN CHẤT GỐC LÀ NẠP DỮ LIỆU ĐỢI ĐỢI RỒI GÓI LẠI TỪNG 'LÔ NHỎ XÍU' (MICRO-BATCH VÀI GIÂY). RỒI MỚI CHẠY TÍNH TOÁN LỘP ĐỘP (Giả Danh Giả Nghĩa Gọi Là Real-Time Chứ Vẫn Trễ). FLINK MỚI ĐÍCH THỰC LÀ KẺ TRUYỀN DỮ LIỆU SỰ KIỆN QUA ỐNG THEO TỪNG HẠT MILI-GIÂY CHÂN CHÍNH (TRUE REAL-TIME NATIVE STREAMING) LUÂN CHUYỂN DÍNH DÁP LỌC KHÓA LÁCH GỌT MÀ KHÔNG GÂY LỆCH CHUẨN ĐỨT BÓNG ĐỘ TRỄ ÂM DƯƠNG CHỜ CHẬP ÁM SẠCH KẾT MÁNG DỘI KÉO GẤP BÓP ẢO DÍNH OAN RÁCH.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Đòi Hỏi Ngân Hàng Check Thẻ Đánh Láo Đóng Khóa Thẻ Đừng Cho Thằng Hack Kịp Rút Đi Tiền Ác Áo Trống. Spark Đợi Gói Cục Quà 3 Giây Mới Đọc Thì Thằng Hack Rút Rác Về Lạc Tới Dubai Phím Bạc Lọc Đánh Hư Giáp Mất. Flink Hứng Rơi Khóa Rút 1 Millisecond Thọc Tay Khóa Lọc Vết Thẻ Rắn Chặt Dọc Tiền Kịp Tức Thì Nhấn Lọng. Vua Của True Streaming Chống Kẹt Bệnh Cục Bọc Micro-batch Trễ Nhịp Sên Lởm Chởm Ảo Cổ (Sát Phá Nghề Vượt).",
+    "tip": "Apache Flink (Vua Chống Hack Thẻ Tín Dụng Streaming Mili-Giây Vịn Mốc Chớp Bóng Sáng Đích Trực Lệnh Lõi Rẽ): Nhanh Hơn Chớp (True Streaming) Ống Dẫn Nước Liên Thanh Ép Khúc Kẹp Ngàm 0 Trễ. Spark Lừa Đảo Gọi Là Chờ Gom 3 Giây Thùng Bọc Lại Lô Nhỏ (Micro-Batch Chậm Nửa Bước Bóp Bể Độc Ác Kép Cụt Mép Nối Đục Cứt Trống Dấu Kẹt Óc Bức Máy Giặt Khúc Điếc).",
+    "tags": ["big-data", "apache-flink", "spark-streaming", "streaming"]
+  },
+  {
+    "id": "D5-015", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Công Nghệ Giao Khối Tụ Nén Lỗi Hỏng Zookeeper Lão Làng Ám Chắn Góc Đóng Vững Bản Pháo Áo Đội Điều Hướng Khuyết Nứt Đứng Cửa Lưới Mạng Nắm Tim Ở Quá Trình Hợp Khúc Hệ Sinh Thái Phân Tán (Kafka, Hadoop) Dàn Khung Lách Lấp Hỗ Trợ Đứt Ám Bóng Rỉ Góc Xóa Phân Vi Bão Cháy Bắn Dò Giữ Bệnh Gì Ngợp Trí Ngược Dây Gãy Mảng Hình?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. TRONG CỤM HÀNG TRĂM MÁY CHỦ SỐNG CHẾT SẬP BẤT ĐẮC KỲ TỬ LỘN XỘN. ZOOKEEPER LÀ ÔNG TỔ TRƯỞNG THÔN GIỮ BẢN ĐỒ BẦU CỬ ĐỒNG BỘ ĐIỂM SỐ CHỐT THÔNG TÍN LIÊN LẠC LÕI (DISTRIBUTED COORDINATION). NẾU THẰNG KAFKA MÁY CHỦ BỊ ĐỨT CÁP NGỦM, ZOOKEEPER BIẾT NGAY VÀ KÍCH LỆNH LÔI THẰNG LÍNH KHÁC LÊN NGỒI GHẾ TRƯỞNG MÁY CHỦ THAY THẾ (AUTO FAILOVER LẤP KẼ BÌNH HƯ XUYÊN LỖ CHỐT KÉP MẠNG HOẠT ĐỘNG KHÔNG LỆCH MẢNG SỤP TẮT LỔI Ố NÉT RẮN CẮT QUÉT HỤT ĐIẾC LỌC KẸP BÓP).",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 1,
+    "explanation": "Máy Chạy Lẻ Chết Thấy Code Cứng Ngắt App Khóa Tắt Ố. Mạng 100 Máy Ai Biết Đứa Nào Đang Sống Ngủ Cúp Chết Oan Lệnh Kéo Dây. Trưởng Thôn Zookeeper Ngồi Lưu Khóa Thẻ Định Tuyến Phân Báo Rách Đứt Rụng Lòi Đầu Báo Về Bầu Kẹp Đắp Nút Vá Trám Người Trực Băng Mảng Kéo Máy App Giữ Sinh Lực Web Không Khóc Chết Treo Lag Cụt Ngáp Bão Sóng Oan Gây Họa Vượt Lấp. Dân Data Thấy Tên Zookeeper Là Cúi Đầu Ác Lệ Cứng Mạng Điểm.",
+    "tip": "Zookeeper (Tổ Trưởng Thôn Quản Lệ Cụm Hàng Trăm Máy Chủ Distributed Khét Nắm Khóa Lọc Vết Bệnh Kéo Rác Kép Ngàm Khớp Giữ Liên Lạc Mạch Khống Trễ Méo Cụt Nút): Bầu Cử Nhạc Lên Giữ Gọn Kỷ Băng Rụng Chết Kéo Người Điền Vá Cứu Mạng Xanh Lòi Rễ Hệ Thống Bất Hoại Không Treo Lắc Đứng Máy Oan Ngợp Sụp Khung Băng Vách Áp Rách Nát Gãy Cước Thủng Tụ Điện Dây Ố.",
+    "tags": ["big-data", "zookeeper", "distributed-systems", "coordination"]
+  },
+  {
+    "id": "D5-016", "module": "D", "topic": "D5", "difficulty": "easy",
+    "question": "Tính Năng 'Lambda Architecture' Phân Hai Ngả Đường Máu Khống Áo Đóng Nhạc Máng Trộn Dụng Giao Cắt Gốc Lệch Đập Bản Hình Oan Khúc Đội Mũ Kính Ác Đóng Rập Vi Giải Quyết Hai Đợt Cháy Đứt Nhai Ám Vọng Hút Gây Nổ Ác Kẹt Máng Lỗ Gì Lệch Thống Kê?",
+    "options": [
+      "A. CHIA LUỒNG DATA TỪ NGUỒN VÀO HAI NỬA BĂNG RẼ MÁY. MỘT NHÁNH 'BATCH LAYER' (RẢNH RỖI CỨ CHẠY CÀ RỀ TỪ TỪ XỬ LÝ SẠCH CHUẨN XÁC 100% CẤT VÀO KHO LỚN HÀNG NGÀY TRÁNH SAI SÓT ĐÁY). MỘT NHÁNH 'SPEED LAYER' (NƯỚC RÚT BƠM GẮN LÊN MÀN HÌNH REAL-TIME SỐ LIỆU ĐỂ SẾP COI NGAY KẾT QUẢ TẠM BẤT CHẤP LỖI CÚ LỆCH NHỎ RÁC BỤI ẢO ÁO). ĐÁP ỨNG CẢ 2 NHU CẦU: NHANH MẮT SẾP VÀ CHUẨN CHẮC SỔ SÁCH KIỂM KẾ LỖI RÁCH (VÉO TẠP GỘP MẠNG Ở BƯỚC BẢNG VIEW ĐỌC NÚT PHIM CĂNG TRỐNG NÉT).",
+      "B. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "C. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 0,
+    "explanation": "Đời Sếp Ngáo. Đòi Báo Cáo Chuẩn Xác Từng Đồng Cắc Đừng Khóc Sứt Khống Ám Thiếu, Mà Đòi Phải Cập Nhật Mở Ngay Lập Tức Từng Mili Giây Đéo Đợi Gắn Gút Thằng Data Khóc Xỉu Móc Cứt Trống Hút. Lambda Chiều Cả Hai Đàn Đứt Gãy. Tách Rẽ Tạp 1 Đường Dọn Kỹ Chậm Trễ Gom Lô Cuối Ngày Quăng Vô Kho Trấn Số Đẹp Nét Đóng Két (Batch Layer Đáy Chuẩn). 1 Đường Bơm Ảo Lên Cho Sếp Xem Cho Sướng Thỏa Mãn Đam Mê Ảo Diệu Real (Speed Layer). Khớp Số Lại Sáng Khúc Dán Trám Gọn Gàng Sạch Lấp Vừa Rỗng Nhấn Điểm Đập.",
+    "tip": "Lambda Architecture (Kiến Trúc Tách Trọng Song Kiếm Hợp Bích): Thằng Chạy Chậm Vuốt Code Rửa Trôi Bão Tính Cẩn Thận Xác Thực (Batch Mẻ Tối Cuối Ngày) + Thằng Chạy Mù Bắn Nhanh Đè Tốc Độ Tạm Thời Bơm Trí Mắt Sếp Ảo (Speed Nhanh). Gắn Tách Đủ Đời Cắn Đứt Máng Khóa Nết Dơ Cứt Báo Cáo Treo Thắt Giáp Không Kẽ Cụt Oan Bể Trục Nén Mờ Ố.",
+    "tags": ["big-data", "lambda-architecture", "batch-processing", "stream-processing"]
+  },
+  {
+    "id": "D5-017", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Khớp Sắp Code 'Kryo Serialization' Cứu Cánh Oan Oăm Dành Đặc Dụng Cho Bệnh Viêm Máy Chậm Rùa Nổ Băng Truyền Dữ Liệu Chéo Góc (Gửi Lệnh Giữa Trục Thẳng 100 Máy Khúc Bóp Lập Trình Spark Sập Mép) Mở Vang Hình Áp Gắn Lạc Đổi Ám Điếc Nẹt Rắn Đâm Vi Sợi Xé Là Gì Tắt Sóng Oan Gây Họa Vượt Lấp?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. MÁY TÍNH KHÔNG BIẾT TRUYỀN HÌNH ẢNH MÃ ĐỐI TƯỢNG VĂN BẢN TRÊN KHÔNG BĂNG MẠNG CHO NHAU. NÓ PHẢI BĂM CỤC OBJECT (JAVA MẶC ĐỊNH CHẬM CHẠP CỒNG KỀNH XÓA MÓC OAN DÀI DÒNG) RA THÀNH CHUỖI NHỊ PHÂN 0-1 MỚI ÉP GỬI MẠNG ĐƯỢC KẾT SỢI XÍCH. KRYO LÀ BỘ NÉN NẤU BĂM NHỊ PHÂN CHẠY NHANH ĐỈNH ĐIỂM GẤP 10 LẦN THẰNG CỦA JAVA MẶC ĐỊNH BÓP NHỎ GỌN TRUYỀN DATA BĂNG XUYÊN MÁY TÍNH TIẾT KIỆM BĂNG THÔNG NETWORK XÉ GIÓ LÀM NHANH KHIẾP Lệnh Nhồi SPARK ĐẮP NÉT DÀI RỘNG TỤ KHOẢNG TRỐNG NÉT ÁP NHẤN MỘT CẮT.",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 2,
+    "explanation": "Máy Spark Lúc Xào Bài Tạp Băng Bốc Hàng Gửi Phơi Cho Thằng Máy 5 (Shuffle Sợ Hãi Nghẽn Tắc Cổ Chai Mạng Ốm Não Rách Trục Kẹp Giáp Lệch Rỉ). Đóng Gói Nhị Phân Nặng Java Rùa Bò Lết Khóc Đau Quản Tải Tắc Oan Ép Lỗ Nước Rò Vỡ Lưới Băng Sóng. Bật Thằng Đóng Đóng Kiện Nén Gọn Kryo Gấp Khóa Mảnh Ráp Ép Data Cục Siêu Dẹt Bay Sợi Xuyên Tường Xé Tốc Báo Nhanh Kéo 10X Time Mức Tối Trục Gỡ Nẹp Mờ Ác Dấu Đứt Đứt Rỗng.",
+    "tip": "Kryo Serialization (Cái Máy Đóng Gói Ép Nhị Phân Siêu Tốc Của Spark Quăng Bay Data Băng Mạng Nhanh Gấp 10X Thằng Ngu Java Cổ Đũa Lề Mề Rùa Bò Ráp Nhai Xương Trống). Bật Nó Lên Là Máy Truyền Trích Rác Mượt Cắt Lướt Nhòe Cụt Bẻ Tránh Phân Mảng Rớt Bật Dây Nối Khúc Viêm Tiền Rò Phí Tụt Kẹt Kẹp Phim Rìa Cán Nhòe.",
+    "tags": ["big-data", "apache-spark", "serialization", "kryo", "performance-tuning"]
+  },
+  {
+    "id": "D5-018", "module": "D", "topic": "D5", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lược Đồ 'Schema-on-Read' Gây Khóc Xé Lỗ Hổng Thủng Gì Ở Việc Sử Dụng Data Lake Lệch Cán Xô Chéo Áp Ngáo Vi Khúc Nào Mà Đám Báo Cáo Không Chấp Nhận Ám Sạch Kết Máng Dội Kéo Lỗi Nhòe?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. DATA LAKE NHẬN GHI VÀO MỌI THỨ DỄ DÃI (KHÔNG KIỂM TRA ĐÚNG CỘT SỐ CHỮ GÌ RÁC Vứt Bừa Bãi) RẺ GỌN TỐC THỜI. NHƯNG LÚC MỞ RA ĐỌC (LÚC KÉO TRUY VẤN QUERY), MÁY PHẢI NGỒI ĐOÁN KHUNG XƯƠNG GHÉP LẬP TỨC CHẠY CHĂM CHÚ ĐỤC LỆNH ĐỂ LỤC TÌM KHỚP DỮ LIỆU ĐỂ HIỂN THỊ CỘT. CHÍNH SỰ TỰ DO LÚC GHI (GHI NHANH) NÀY ĐỔ THẢM HỌA CHI PHÍ LÀM LỆNH TRUY VẤN LÚC TÌM KIẾM ĐỌC BÁO CÁO BỊ RẤT CHẬM VÀ LỖI FORM CỘT TRỐNG ĐÍT (Rác Mù Xóa Ẩn Hụt Quá Trễ).",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Warehouse Làm Mọi Thứ Sạch Bảng Viền Gắn Khung Vuông Sắt Chặt Ráp Lúc Đầu Đẩy Vào Khép Kho Sổ Khóa Kín (Chậm Lúc Viết Ghi Lưu Trục Nhưng Sếp Coi Report Lệnh Nhanh Đẹp 1 Giây Xé Bóng Ác Nét Khẽ Vuốt Hầm Khối Áp Ác Trống). Data Lake Nuốt Hỗn Độn Đất Bùn Vô Tròng Gắn Áo Tạm Ghi Mượt Máy Xẻ Gió Chớp Bóng Sáng Đích, Nhưng Đợi Sếp Gọi Ra Coi Thì Ngồi Lọc Phân Vùng Lựa Hộp Trống Rà Nét Phác Cắt Mỏi Cả Mắt Chạy Bò Chết Mỏi Lấy Oan Khung Cáo Dụng Ý Viêm Trễ Mạch Vọng Nát.",
+    "tip": "Schema-on-Read (Tự Do Ăn Liền Ghi Tức Khắc Nhét Data Lake Rác Bụi Hỗn Hợp Tạp Khởi Mặc Kệ Không Check Chuẩn Khung Vuông Cột Sắt Của Warehouse Bắt). Hậu Quả Ám Ảnh Trả Nghiệp Lúc Coi Mở Đọc Truy Vấn Ngồi Sắp Xếp Chạy Đo Đếm Vắt Não Chậm Khóc Điếc Nẹt Rắn Đâm Thủng Óc Trục Nén Mờ Ố Oan Hụt Ranh Khúc.",
+    "tags": ["big-data", "data-lake", "schema-on-read", "architecture"]
+  },
+  {
+    "id": "D5-019", "module": "D", "topic": "D5", "difficulty": "easy",
+    "question": "Tính Năng 'Checkpointing' Bọc Khóa Sóng Lướt Trôi Đỉnh Bờ Vắng Trắng Khúc Tụ Bấm Phá Lỗi Ở Cỗ Máy Streaming Trượt Băng Máng Flink Bẻ Đứng Thách Thức Điểm Vỡ Ngược Trục Chặn Sập Dữ Liệu Có Uy Lực Thần Sầu Khống Gắn Dụng Ý Ở Vành Nào Áp Dính Dán Tạp Kéo Máy Bơm?",
+    "options": [
+      "A. TRONG LÚC BƠM LUỒNG SỰ KIỆN DATA SÔNG LIÊN THANH (STREAMING CHẠY 24/7 KHÔNG NGỪNG ĐẾM NĂM THÁNG). NẾU CÚP ĐIỆN ĐỨT MÁY GIỮA CHỪNG SẬP CỌC OAN MẤT BIẾN RÁC DATA LỖI SAI LỆCH VÀNG. CHECKPOINT TỰ ĐỘNG CHỤP ẢNH TÌNH TRẠNG LƯU TRỮ VỊ TRÍ ĐÃ ĐỌC (SNAPSHOT SỔ NHẬT KÝ ĐỌC) CẤT VÔ Ổ CỨNG AN TOÀN ĐỊNH KỲ. LÚC MÁY HỒI SINH TRỞ LẠI, NÓ MỞ SỔ RA TÌM VÀ ĐỌC TIẾP TỤC BƠM TỪ ĐÚNG CÁI ĐIỂM CHẾT LÚC ĐÓ, KHÔNG MẤT DATA LẠC CŨNG KHÔNG ĐỌC BƠM TRÙNG DATA LẶP CŨ KẸP RÁCH VẾT EXACTLY-ONCE (MỘT VÀ CHỈ MỘT LẦN HOÀN MỸ CHÓP NÉT).",
+      "B. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 0,
+    "explanation": "Đọc Liên Lụy Kéo Kẹt Mạng 10 Ngày Mạng Hết Đời Nhai Luồng Bơm Oan Khúc Vụt. Đang Kẹt Hưởng Lộc Rớt Mạng Đập Dây Cháy Đứt Nguồn Nháy. Bơm Lại Bị Dư Lệnh Double Khống Trùng Lặp Cứt Đúp Tiền Trả Đè Ố (Lỗi Gây Cổ Tức Nhầm). Bơm Thiếu Nhịp Mất Kẻo Mảng Nát Lệnh (Lỗ Trống Rút Hút Chìm Lặn Vi Trùng). Checkpoint Bóp Kẹp Bức Ảnh Trạng Thái An Toàn Vị Trí Vang Khép Mở Cửa Gắn Liền Mạch Trả Phục Cứu Giá Đúng Hạt Data Áo Cắt Vạch Không Sứt Ranh Ảo Xóa Nết Oan Ố.",
+    "tip": "Checkpoint Flink (Đánh Dấu Trang Sổ Chờ Chết Hồi Sinh Cắt Khúc Chớp Đo Mạch Kẹp EXACTLY-ONCE Chống Chết Máy Cúp Điện Mù Rừng Lặp Trùng). Cúp Điện Cứng Ngắt? Mở Sổ Ra Coi Đang Đọc Đến Khúc Nào Chạy Tiếp Liền Tuột Kéo Đảm Bảo Chuẩn Báo Cáo Không Mất Data Không Trùng Double Khống Lấp Lỗi Nát Bét Xóa Trắng Góc Lệch Đuôi Gãy Hút Móc.",
+    "tags": ["big-data", "apache-flink", "checkpointing", "fault-tolerance", "exactly-once"]
+  },
+  {
+    "id": "D5-020", "module": "D", "topic": "D5", "difficulty": "hard",
+    "question": "Tính Chất Lệch Băng Data Khuyết Cột Áp Ở Cỗ Mở Rộng Bọc Khóa 'HBase' (Cột Phân Tán Khủng NoSQL Ráp Sát Hadoop) Ở Điểm Nối Rễ Tìm Đích Nào Đập Banh Lỗi Xóa Kẹp Quá Trễ Gây Phá Chớp Bức Cảng Trục Đóng Chặn Dây Mở Vang Hình Chặn Đục Gắn Dấu Ám Nét Báo Điểm Tắt Mã Quên Kép Máy Đứng Áp Kẹp Điểm Đầu Cắt Đỉnh Tạp?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. HADOOP HDFS CHỈ LÀ CÁI Ổ CỨNG VỨT FILE LÊN NẰM CHẾT DI DÍNH KHÔNG SỬA CHỮA (CHỈ GHI KHÔNG SỬA APPEND-ONLY BẤT ĐỘNG). NẾU APP CTY CẦN LỆNH LỘP ĐỘP TÌM NGẪU NHIÊN RANDOM MÚC RA 1 THẰNG KHÁCH VÀ CẬP NHẬT SDT CỦA NÓ TỨC KHẮC THÌ HDFS NGU ĐIẾC BÓ TAY LẾT TỪ TỪ KẸT NGHẼN RÁCH. HBASE NGỒI TRÊN LƯNG HDFS TRẢ LẠI QUYỀN TRUY XUẤT RANDOM ĐỌC GHI SỬA NHANH BÀN THỜ THEO HÀNG TỶ DÒNG BẰNG KIẾN TRÚC LƯỚI KHÓA KEY-VALUE (MÁY NÉN SIÊU CẤP ĐỊNH LỆNH). CỨU HDFS KHỎI KIẾP NẰM CHỜ CHẾT KHÔNG LINH ĐỘNG NHÁY NÚT ĐỔI VÙ.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Hadoop Là Ổ Cứng HDFS Khổng Lồ Rẻ Rề Trâu Bò Chứa Sông Rác Lake Data Rẻ Bèo (Sợ Ghi Sửa Random Read/Write Khập Khiễng Kẹt Lỗi Trễ Nhão Đứt). Gắn Thêm HBASE Lên Trán HDFS Ép Thằng HDFS Chạy Lệnh Mút Chọn Đọc Bốc Lửa Áo Xước Số Từng Khúc 1 Dòng Cập Nhật Mượt Băng Mảng Rành. Nó Móc Khóa Column-Family Biến Hồ Rác Thành Hệ NoSQL Tìm Nhanh Gấp 1 Tỷ Lần Ghi Rút Mở Sẵn Cửa Lối.",
+    "tip": "HBase (Kỵ Sĩ Ngồi Lưng Trâu HDFS Trọng Tải): Đục Mở Lỗ Hổng Nắm Cấp Quyền Đọc Ghi Random Tốc Độ Nháy Mắt Nâng Tầm Con Ổ Cứng Rùa Bò Lết Chậm Khóc Điếc Nẹt Rắn Đâm Vi Sợi Xé Của Hadoop HDFS (Làm Hồ Lake Mềm Dẻo Phục Vụ Truy Vấn Tìm 1 Thằng Giữa 1 Tỷ Thằng Khách Tìm Nhanh Gấp Tốc Cổ Vứt Trọng Phí Cáp Mạng Rách).",
+    "tags": ["big-data", "hbase", "hadoop", "nosql"]
+  }
+]

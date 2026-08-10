@@ -1,0 +1,277 @@
+[
+  {
+    "id": "B4-001", "module": "B", "topic": "B4", "difficulty": "easy",
+    "question": "Trong NumPy, cấu trúc dữ liệu cốt lõi nhất là gì?",
+    "options": [
+      "A. Dictionary",
+      "B. DataFrame",
+      "C. ndarray (N-dimensional array)",
+      "D. Series"
+    ],
+    "answer": 2,
+    "explanation": "NumPy (Numerical Python) xoay quanh cấu trúc ndarray (mảng N chiều). Nó chứa các phần tử CÙNG KIỂU DỮ LIỆU (thường là số), cho phép thực hiện tính toán vector hóa siêu nhanh nhờ được viết bằng C dưới nền.",
+    "tip": "NumPy = ndarray (mảng số liệu N chiều, cùng kiểu). Pandas = DataFrame (bảng, nhiều kiểu).",
+    "tags": ["numpy", "ndarray", "basics"]
+  },
+  {
+    "id": "B4-002", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Tại sao mảng NumPy (ndarray) lại thực thi phép toán nhanh hơn rất nhiều so với List tiêu chuẩn của Python?",
+    "options": [
+      "A. Vì NumPy chạy trên GPU",
+      "B. Vì ndarray lưu trữ dữ liệu liên tục trong bộ nhớ (contiguous memory) và dùng vector hóa (vectorization) thay vì vòng lặp for của Python",
+      "C. Vì NumPy loại bỏ hoàn toàn kiểu dữ liệu float",
+      "D. Vì NumPy sử dụng thuật toán nén ZIP"
+    ],
+    "answer": 1,
+    "explanation": "Python List chứa các con trỏ (pointers) trỏ đến các object nằm rải rác trong RAM. NumPy array chứa trực tiếp các con số C-type xếp liền kề nhau. CPU có thể đọc một mạch và áp dụng phép toán SIMD (Single Instruction, Multiple Data) cực nhanh mà không cần overhead của Python loop.",
+    "tip": "NumPy nhanh nhờ 2 chữ: Liên tục (Contiguous Memory) + Vector hóa (Vectorization).",
+    "tags": ["numpy", "performance", "vectorization"]
+  },
+  {
+    "id": "B4-003", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Tính năng 'Broadcasting' trong NumPy dùng để làm gì?",
+    "options": [
+      "A. Gửi dữ liệu qua mạng LAN",
+      "B. Phát tín hiệu lỗi (raise Exception)",
+      "C. Tự động mở rộng (kéo giãn) các mảng có hình dạng (shape) khác nhau để có thể thực hiện phép toán số học với nhau",
+      "D. In toàn bộ mảng ra màn hình console"
+    ],
+    "answer": 2,
+    "explanation": "Ví dụ: mảng A có shape (3,3), số b = 5. Thay vì báo lỗi, Broadcasting 'kéo giãn' b thành mảng (3,3) toàn số 5 trong tâm trí CPU, rồi cộng A + b. Điều này giúp viết code gọn và tính toán tối ưu bộ nhớ.",
+    "tip": "Broadcasting = Thuật giãn xương. Giúp mảng bé phình to ra cho khớp với mảng lớn để tính toán.",
+    "tags": ["numpy", "broadcasting"]
+  },
+  {
+    "id": "B4-004", "module": "B", "topic": "B4", "difficulty": "easy",
+    "question": "Để tìm kích thước (số hàng, số cột) của một NumPy array, ta dùng thuộc tính nào?",
+    "options": ["A. arr.size", "B. arr.length", "C. arr.shape", "D. arr.dim"],
+    "answer": 2,
+    "explanation": "`arr.shape` trả về một Tuple thể hiện kích thước các chiều. Ví dụ `(3, 4)` nghĩa là 3 hàng, 4 cột. `arr.size` trả về tổng số phần tử (3*4=12).",
+    "tip": "Shape = Hình dáng (ví dụ (3, 4)). Size = Tổng số ô.",
+    "tags": ["numpy", "shape"]
+  },
+  {
+    "id": "B4-005", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Sự khác biệt giữa `arr.reshape(-1, 1)` và `arr.reshape(1, -1)` đối với một mảng 1 chiều (1D array) là gì?",
+    "options": [
+      "A. Không khác biệt",
+      "B. (-1, 1) biến thành vector CỘT (n dòng, 1 cột), còn (1, -1) biến thành vector HÀNG (1 dòng, n cột)",
+      "C. Cả hai đều báo lỗi nếu mảng có lẻ phần tử",
+      "D. Chuyển đổi giữa int và float"
+    ],
+    "answer": 1,
+    "explanation": "Tham số `-1` trong reshape mang ý nghĩa 'NumPy hãy tự tính kích thước chiều này giùm tôi'. `(-1, 1)` ép mảng phải có đúng 1 cột -> Vector dọc. `(1, -1)` ép mảng có đúng 1 hàng -> Vector ngang. Kỹ thuật này cực kỳ hay dùng trong Scikit-Learn.",
+    "tip": "`-1` = 'Tự tính đi!'. `reshape(-1, 1)` = Bắt buộc 1 cột (Dọc).",
+    "tags": ["numpy", "reshape"]
+  },
+  {
+    "id": "B4-006", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Hàm `np.arange()` và `np.linspace()` khác nhau ở điểm cốt lõi nào khi tạo mảng?",
+    "options": [
+      "A. arange dựa trên Bước nhảy (Step), linspace dựa trên Tổng số điểm (Num points)",
+      "B. Cả hai giống hệt nhau",
+      "C. arange chỉ tạo số nguyên, linspace chỉ tạo số âm",
+      "D. arange chạy nhanh gấp 10 lần"
+    ],
+    "answer": 0,
+    "explanation": "`np.arange(start, stop, step)` tạo mảng bằng cách cộng dồn Bước nhảy. `np.linspace(start, stop, num)` tạo mảng bằng cách lấy đều `num` điểm từ start đến stop. Linspace luôn bao gồm điểm stop (mặc định), arange thì không.",
+    "tip": "arange = Khoảng cách Cố định (step). linspace = Số lượng điểm Cố định (num).",
+    "tags": ["numpy", "arange", "linspace"]
+  },
+  {
+    "id": "B4-007", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Phép nhân ma trận (Matrix Multiplication - Dot product) giữa 2 mảng NumPy 2 chiều A và B được thực hiện bằng toán tử nào trong Python 3.5+?",
+    "options": [
+      "A. A * B",
+      "B. A @ B",
+      "C. A % B",
+      "D. A ^ B"
+    ],
+    "answer": 1,
+    "explanation": "Toán tử `@` (hay hàm `np.dot(A, B)`) thực hiện phép nhân ma trận đại số tuyến tính (hàng nhân cột). Toán tử `*` chỉ thực hiện nhân từng phần tử tương ứng (element-wise multiplication, hay Hadamard product).",
+    "tip": "`A * B` = Nhân từng ô một. `A @ B` = Nhân Ma Trận (Đại số tuyến tính).",
+    "tags": ["numpy", "matrix-multiplication"]
+  },
+  {
+    "id": "B4-008", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Trong Pandas, cấu trúc dữ liệu DataFrame có thể được coi là gì?",
+    "options": [
+      "A. Một mảng 3 chiều",
+      "B. Một tập hợp các Pandas Series dùng chung một Index (hàng)",
+      "C. Một mảng chỉ chứa String",
+      "D. Một biến thể của List"
+    ],
+    "answer": 1,
+    "explanation": "DataFrame là cấu trúc dữ liệu bảng 2 chiều. Mỗi cột trong DataFrame thực chất là một đối tượng `pd.Series`. Tất cả các Series này được gióng hàng với nhau bằng một Index chung (chỉ mục hàng).",
+    "tip": "DataFrame = Bảng. Series = Cột. 1 DataFrame = Nhiều Cột (Series) ghép lại.",
+    "tags": ["pandas", "dataframe", "series"]
+  },
+  {
+    "id": "B4-009", "module": "B", "topic": "B4", "difficulty": "easy",
+    "question": "Để đọc một tệp tin CSV vào Pandas DataFrame, ta dùng hàm nào?",
+    "options": [
+      "A. pd.load_csv()",
+      "B. pd.open_csv()",
+      "C. pd.read_csv()",
+      "D. pd.import_csv()"
+    ],
+    "answer": 2,
+    "explanation": "`pd.read_csv('filename.csv')` là hàm phổ biến nhất thế giới Data Science để tải dữ liệu. Pandas còn hỗ trợ read_excel, read_sql, read_json...",
+    "tip": "Đọc dữ liệu: `pd.read_...()`. Lưu dữ liệu: `df.to_...()`.",
+    "tags": ["pandas", "read_csv", "io"]
+  },
+  {
+    "id": "B4-010", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Sự khác biệt giữa `df.loc[]` và `df.iloc[]` trong Pandas là gì?",
+    "options": [
+      "A. `loc` dùng cho hàng, `iloc` dùng cho cột",
+      "B. `loc` tìm kiếm dựa trên TÊN NHÃN (Label/Index name), `iloc` tìm kiếm dựa trên VỊ TRÍ SỐ NGUYÊN (Integer Position, từ 0)",
+      "C. `loc` trả về Series, `iloc` trả về DataFrame",
+      "D. Không có gì khác biệt"
+    ],
+    "answer": 1,
+    "explanation": "Chữ 'i' trong `iloc` viết tắt cho 'integer'. Dù index của bạn là tên người ('Alex', 'Bob') hay số ngẫu nhiên (10, 25), `iloc[0]` luôn lấy dòng đầu tiên. Còn `loc['Alex']` sẽ tìm dòng có Nhãn là 'Alex'.",
+    "tip": "`iloc` = Integer (Vị trí đếm từ 0). `loc` = Label (Tên của dòng/cột đó).",
+    "tags": ["pandas", "loc", "iloc", "indexing"]
+  },
+  {
+    "id": "B4-011", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Để xem 5 dòng ĐẦU TIÊN và 5 dòng CUỐI CÙNG của DataFrame, ta dùng bộ hàm nào?",
+    "options": [
+      "A. df.start() và df.end()",
+      "B. df.first() và df.last()",
+      "C. df.top() và df.bottom()",
+      "D. df.head() và df.tail()"
+    ],
+    "answer": 3,
+    "explanation": "`df.head(n)` mặc định lấy 5 dòng đầu (đầu = head). `df.tail(n)` mặc định lấy 5 dòng cuối (đuôi = tail). Đây là bước đầu tiên luôn làm sau khi read_csv để kiểm tra dữ liệu.",
+    "tip": "Đầu = Head. Đuôi = Tail.",
+    "tags": ["pandas", "head", "tail", "eda"]
+  },
+  {
+    "id": "B4-012", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Pandas có khái niệm 'Boolean Indexing'. Biểu thức `df[df['Age'] > 30]` trả về cái gì?",
+    "options": [
+      "A. Một cột chứa True/False",
+      "B. Một DataFrame mới CHỈ BẢO GỒM các dòng mà ở đó người có độ tuổi (Age) lớn hơn 30",
+      "C. Lỗi cú pháp, phải dùng hàm filter()",
+      "D. Cập nhật tất cả tuổi thành 30"
+    ],
+    "answer": 1,
+    "explanation": "Bản thân `df['Age'] > 30` trả về một Series gồm True/False (gọi là Mask). Khi bọc mảng Mask này vào trong `df[...]`, Pandas sẽ giữ lại các hàng True và loại bỏ các hàng False. Đây là cách xịn nhất để Lọc (Filter) dữ liệu.",
+    "tip": "Mask = Mặt nạ True/False. `df[Mask]` = Lọc những chỗ True.",
+    "tags": ["pandas", "boolean-indexing", "filtering"]
+  },
+  {
+    "id": "B4-013", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Để kiểm tra số lượng các giá trị BỊ THIẾU (Missing values/NaN) trong từng cột của DataFrame, hàm nào thường được sử dụng kết hợp?",
+    "options": [
+      "A. df.isnull().sum()",
+      "B. df.check_nan()",
+      "C. df.count(NaN)",
+      "D. df.info(missing=True)"
+    ],
+    "answer": 0,
+    "explanation": "`df.isnull()` (hoặc `df.isna()`) trả về một DataFrame chứa True/False (True nếu là NaN). Gọi hàm `.sum()` sau đó sẽ cộng dồn các cột (True tính là 1, False tính là 0), cho ta số lượng NaN ở mỗi cột.",
+    "tip": "`df.isnull().sum()` là thần chú đếm Missing Value.",
+    "tags": ["pandas", "missing-data", "isnull"]
+  },
+  {
+    "id": "B4-014", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Khi xử lý Missing Value bằng cách XÓA bỏ dòng bị thiếu, nếu dùng lệnh `df.dropna(inplace=True)`, tham số `inplace=True` có ý nghĩa gì?",
+    "options": [
+      "A. Trả về một DataFrame mới, giữ nguyên df cũ",
+      "B. Xóa và áp dụng thay đổi TRỰC TIẾP lên DataFrame `df` gốc trong bộ nhớ, không cần gán lại biến (không trả về gì)",
+      "C. Di chuyển các dòng lỗi sang một file khác",
+      "D. Tự động thay NaN bằng 0"
+    ],
+    "answer": 1,
+    "explanation": "Mặc định (inplace=False), hầu hết các hàm Pandas trả về một BẢN SAO mới. Bạn phải gán `df = df.dropna()`. Nếu đặt `inplace=True`, nó sẽ sửa đổi trực tiếp object đó và trả về `None`. Cần dùng cẩn thận để tránh mất dữ liệu.",
+    "tip": "`inplace=True` = Đập đi xây lại tại chỗ, không cần gán `df = ...`.",
+    "tags": ["pandas", "dropna", "inplace"]
+  },
+  {
+    "id": "B4-015", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Hàm `df.groupby('City')['Revenue'].sum()` thực hiện chuỗi thao tác nào?",
+    "options": [
+      "A. Split - Apply - Combine (Chia nhóm theo City, Tính tổng Revenue cho mỗi nhóm, Ghép kết quả lại)",
+      "B. Sắp xếp City theo Alphabet và tính tổng tích lũy",
+      "C. Xóa các City có Revenue bằng 0",
+      "D. Gộp cột City và Revenue làm 1"
+    ],
+    "answer": 0,
+    "explanation": "`groupby` là linh hồn của Data Wrangling, tuân theo mô hình 'Split-Apply-Combine'. Đầu tiên nó chia dữ liệu thành các cục (Split) dựa trên các giá trị duy nhất của cột 'City'. Sau đó áp dụng hàm `.sum()` lên cột 'Revenue' của mỗi cục (Apply). Cuối cùng ghép ra một Series kết quả (Combine).",
+    "tip": "GroupBy = Gom nhóm giống SQL (GROUP BY). Quy trình: Chia nhỏ -> Tính toán -> Gộp lại.",
+    "tags": ["pandas", "groupby", "aggregation"]
+  },
+  {
+    "id": "B4-016", "module": "B", "topic": "B4", "difficulty": "easy",
+    "question": "Để lấy ra TẤT CẢ TÊN CỘT của một DataFrame, ta gọi thuộc tính nào?",
+    "options": [
+      "A. df.col_names",
+      "B. df.columns",
+      "C. df.keys()",
+      "D. df.header"
+    ],
+    "answer": 1,
+    "explanation": "`df.columns` trả về một đối tượng Index chứa danh sách tên của tất cả các cột. Rất hữu ích khi ta muốn lấy danh sách dạng list bằng `df.columns.tolist()`.",
+    "tip": "`df.columns` = Tên Cột. `df.index` = Tên Hàng.",
+    "tags": ["pandas", "columns", "eda"]
+  },
+  {
+    "id": "B4-017", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Hàm `df.apply(func, axis=1)` hoạt động như thế nào?",
+    "options": [
+      "A. Áp dụng hàm `func` lên TỪNG CỘT của DataFrame",
+      "B. Áp dụng hàm `func` lên TỪNG DÒNG (row) của DataFrame",
+      "C. Áp dụng hàm `func` lên toàn bộ DataFrame cùng 1 lúc",
+      "D. Tạo một đồ thị 1 trục"
+    ],
+    "answer": 1,
+    "explanation": "Trong Pandas, `axis=0` (mặc định) là di chuyển dọc theo các hàng (tức là thao tác trên Cột). `axis=1` là di chuyển dọc theo các cột (tức là thao tác trên từng Hàng). `apply(axis=1)` sẽ truyền từng hàng (Series) vào hàm `func`.",
+    "tip": "Trong Pandas: `axis=0` = Dọc (Theo cột). `axis=1` = Ngang (Theo Hàng).",
+    "tags": ["pandas", "apply", "axis"]
+  },
+  {
+    "id": "B4-018", "module": "B", "topic": "B4", "difficulty": "medium",
+    "question": "Sự khác biệt giữa `pd.concat()` và `pd.merge()` là gì?",
+    "options": [
+      "A. Không khác biệt",
+      "B. concat() kết dính các DataFrame lại với nhau (theo chiều dọc/ngang) như gắn băng keo. merge() thực hiện thao tác JOIN tương tự SQL dựa trên các Cột khóa (Keys) chung.",
+      "C. merge() dùng để nối chuỗi, concat() dùng để nhân số",
+      "D. concat() xóa dòng trùng lặp, merge() thì không"
+    ],
+    "answer": 1,
+    "explanation": "`concat` đơn thuần dán 2 bảng lại cạnh nhau (axis=1) hoặc chồng lên nhau (axis=0). `merge` thông minh hơn, nó tìm cột ID chung để gióng hàng dữ liệu, giống hệ `INNER JOIN`, `LEFT JOIN` trong SQL.",
+    "tip": "Concat = Dán đè/Nối đuôi. Merge = JOIN bằng Khóa chính (SQL).",
+    "tags": ["pandas", "merge", "concat", "join"]
+  },
+  {
+    "id": "B4-019", "module": "B", "topic": "B4", "difficulty": "easy",
+    "question": "Muốn đếm tần suất xuất hiện (số lần lặp lại) của CÁC GIÁ TRỊ trong một cột `df['Category']`, hàm thần thánh nào được dùng?",
+    "options": [
+      "A. df['Category'].frequency()",
+      "B. df['Category'].count_unique()",
+      "C. df['Category'].value_counts()",
+      "D. df['Category'].group_count()"
+    ],
+    "answer": 2,
+    "explanation": "`value_counts()` trả về một Series, trong đó Index là các giá trị độc nhất, và Value là số lần chúng xuất hiện (mặc định sắp xếp giảm dần). Đây là hàm cực kỳ quan trọng khi làm EDA.",
+    "tip": "`value_counts()`: Câu lệnh xịn nhất để biết trong cột có bao nhiêu class, mỗi class có bao nhiêu người.",
+    "tags": ["pandas", "value_counts", "eda"]
+  },
+  {
+    "id": "B4-020", "module": "B", "topic": "B4", "difficulty": "hard",
+    "question": "Pandas lưu trữ chuỗi văn bản (String) dưới dạng kiểu dữ liệu (dtype) nào mặc định?",
+    "options": [
+      "A. string",
+      "B. text",
+      "C. object",
+      "D. varchar"
+    ],
+    "answer": 2,
+    "explanation": "Mặc định, NumPy/Pandas dùng dtype `object` (nghĩa là con trỏ trỏ tới Python Object chung chung) để lưu trữ chuỗi, mixed types hoặc các list. Điều này làm thao tác với text chậm. (Lưu ý: Pandas 1.0+ đã ra mắt kiểu `StringDtype` mới nhưng vẫn dùng `object` làm mặc định vì tương thích ngược).",
+    "tip": "Thấy dtype là `object` -> 99% nó là Chuỗi văn bản (String) hoặc dữ liệu rác (mixed).",
+    "tags": ["pandas", "dtypes", "object"]
+  }
+]

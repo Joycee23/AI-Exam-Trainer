@@ -1,0 +1,257 @@
+[
+  {
+    "id": "A3-001", "module": "A", "topic": "A3", "difficulty": "easy",
+    "question": "Xác suất của biến cố chắc chắn (certain event) và biến cố không thể (impossible event) lần lượt là:",
+    "options": ["A. 1 và -1", "B. 100 và 0", "C. 1 và 0", "D. 0 và 1"],
+    "answer": 2,
+    "explanation": "Theo tiên đề xác suất (Kolmogorov axioms), xác suất của biến cố chắc chắn bằng 1 (P(S) = 1) và xác suất của biến cố không thể bằng 0 (P(∅) = 0).",
+    "tip": "Xác suất luôn nằm trong khoảng [0, 1].",
+    "tags": ["probability", "axioms"]
+  },
+  {
+    "id": "A3-002", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Cho hai biến cố A và B xung khắc (mutually exclusive). Khẳng định nào sau đây là ĐÚNG?",
+    "options": [
+      "A. P(A ∩ B) = P(A) * P(B)",
+      "B. P(A ∪ B) = P(A) + P(B)",
+      "C. P(A | B) = P(A)",
+      "D. P(A ∪ B) = 1"
+    ],
+    "answer": 1,
+    "explanation": "Hai biến cố xung khắc không thể xảy ra đồng thời, nghĩa là P(A ∩ B) = 0. Khi đó quy tắc cộng P(A ∪ B) = P(A) + P(B) - P(A ∩ B) trở thành P(A ∪ B) = P(A) + P(B).",
+    "tip": "Xung khắc (Mutually exclusive) -> Giao nhau bằng 0 -> Cộng trực tiếp xác suất.",
+    "tags": ["probability", "mutually-exclusive", "addition-rule"]
+  },
+  {
+    "id": "A3-003", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Cho hai biến cố A và B độc lập (independent) với P(A) > 0 và P(B) > 0. Khẳng định nào sau đây ĐÚNG?",
+    "options": [
+      "A. P(A ∩ B) = 0",
+      "B. P(A ∪ B) = P(A) + P(B)",
+      "C. P(A ∩ B) = P(A) * P(B)",
+      "D. P(A | B) = 0"
+    ],
+    "answer": 2,
+    "explanation": "Định nghĩa của hai biến cố độc lập là sự kiện này xảy ra không ảnh hưởng đến xác suất của sự kiện kia. Về mặt toán học, điều này tương đương với quy tắc nhân: P(A ∩ B) = P(A) * P(B).",
+    "tip": "Độc lập (Independent) -> Nhân trực tiếp xác suất (P(A và B) = P(A)*P(B)).",
+    "tags": ["probability", "independence", "multiplication-rule"]
+  },
+  {
+    "id": "A3-004", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Sự khác biệt cốt lõi giữa hai biến cố ĐỘC LẬP và XUNG KHẮC là gì?",
+    "options": [
+      "A. Không có khác biệt, chúng là một.",
+      "B. Độc lập liên quan đến quy tắc cộng, Xung khắc liên quan đến quy tắc nhân.",
+      "C. Hai biến cố xung khắc không thể độc lập (nếu P(A), P(B) > 0).",
+      "D. Hai biến cố độc lập luôn luôn xung khắc."
+    ],
+    "answer": 2,
+    "explanation": "Nếu A, B xung khắc thì P(A ∩ B) = 0. Nếu A, B độc lập và có xác suất > 0 thì P(A ∩ B) = P(A)*P(B) > 0. Do đó, hai biến cố (có xác suất > 0) không thể vừa độc lập vừa xung khắc. Nếu xảy ra A thì chắc chắn không xảy ra B, vậy là A ảnh hưởng B (không độc lập).",
+    "tip": "Xung khắc có nghĩa là nếu cái này xảy ra, cái kia chắc chắn KHÔNG xảy ra (ảnh hưởng cực lớn). Vậy chúng KHÔNG BAO GIỜ độc lập.",
+    "tags": ["probability", "independence", "mutually-exclusive"]
+  },
+  {
+    "id": "A3-005", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Định lý Bayes (Bayes' Theorem) cho phép chúng ta tính toán điều gì?",
+    "options": [
+      "A. Xác suất biên (Marginal probability)",
+      "B. Xác suất có điều kiện P(A|B) từ P(B|A), P(A) và P(B)",
+      "C. Giá trị kỳ vọng của biến ngẫu nhiên",
+      "D. Phương sai của quần thể"
+    ],
+    "answer": 1,
+    "explanation": "Định lý Bayes liên hệ xác suất có điều kiện của A khi biết B với xác suất có điều kiện của B khi biết A. Công thức là P(A|B) = P(B|A) * P(A) / P(B).",
+    "tip": "Bayes = Đảo ngược xác suất có điều kiện. Tính P(Nguyên nhân | Kết quả) từ P(Kết quả | Nguyên nhân).",
+    "tags": ["probability", "bayes-theorem"]
+  },
+  {
+    "id": "A3-006", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Trong công thức Bayes: P(A|B) = [P(B|A) * P(A)] / P(B), đại lượng P(A) được gọi là gì?",
+    "options": [
+      "A. Posterior (Xác suất hậu nghiệm)",
+      "B. Likelihood (Hàm khả năng)",
+      "C. Prior (Xác suất tiền nghiệm)",
+      "D. Evidence (Bằng chứng)"
+    ],
+    "answer": 2,
+    "explanation": "P(A) là Prior probability (Xác suất tiền nghiệm) - niềm tin ban đầu trước khi có dữ liệu B. P(B|A) là Likelihood. P(B) là Evidence. P(A|B) là Posterior (niềm tin sau khi đã quan sát B).",
+    "tip": "Prior = Trước khi có Data. Posterior = Sau khi cập nhật Data. Likelihood = Data khớp với giả thuyết mức nào.",
+    "tags": ["probability", "bayes-theorem", "terminology"]
+  },
+  {
+    "id": "A3-007", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Công thức xác suất toàn phần (Law of Total Probability) để tính P(B) khi biết không gian mẫu được chia thành các phân hoạch A_1, A_2, ..., A_n là:",
+    "options": [
+      "A. P(B) = Σ P(A_i) + P(B|A_i)",
+      "B. P(B) = Σ P(B|A_i)",
+      "C. P(B) = Σ P(B|A_i) * P(A_i)",
+      "D. P(B) = Σ P(A_i|B) * P(B)"
+    ],
+    "answer": 2,
+    "explanation": "Định luật xác suất toàn phần nói rằng xác suất của B bằng tổng các xác suất của B xảy ra cùng với từng trường hợp A_i. Vì P(B ∩ A_i) = P(B|A_i) * P(A_i), ta cộng tất cả lại.",
+    "tip": "Total Probability: Cắt vấn đề làm n trường hợp (A_i), tính xác suất B trong từng trường hợp rồi cộng lại (nhân với trọng số P(A_i)).",
+    "tags": ["probability", "total-probability"]
+  },
+  {
+    "id": "A3-008", "module": "A", "topic": "A3", "difficulty": "easy",
+    "question": "Tung 2 con xúc xắc cân đối. Xác suất để tổng số chấm bằng 7 là bao nhiêu?",
+    "options": ["A. 1/6", "B. 1/7", "C. 7/36", "D. 1/12"],
+    "answer": 0,
+    "explanation": "Không gian mẫu có 36 kết quả (6x6). Các cặp có tổng = 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) -> Có 6 kết quả. Xác suất = 6/36 = 1/6.",
+    "tip": "Tổng 7 là tổng có nhiều khả năng xảy ra nhất khi tung 2 xúc xắc (6/36).",
+    "tags": ["probability", "combinatorics"]
+  },
+  {
+    "id": "A3-009", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Kỳ vọng toán học (Expected Value) E[X] của biến ngẫu nhiên rời rạc X được tính bằng:",
+    "options": [
+      "A. Tổng các giá trị của X",
+      "B. Trung bình cộng của lớn nhất và nhỏ nhất",
+      "C. Σ [ x_i * P(X = x_i) ]",
+      "D. Σ [ (x_i - E[X])^2 * P(X = x_i) ]"
+    ],
+    "answer": 2,
+    "explanation": "Kỳ vọng (hay giá trị trung bình) của một biến ngẫu nhiên rời rạc là tổng của mỗi giá trị có thể có nhân với xác suất xuất hiện của giá trị đó.",
+    "tip": "Expected Value (Kỳ vọng) = Tổng (Giá trị x Xác suất tương ứng). Nó giống như trung bình gia quyền.",
+    "tags": ["probability", "expected-value"]
+  },
+  {
+    "id": "A3-010", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Phương sai (Variance) Var(X) của biến ngẫu nhiên X mô tả đại lượng nào?",
+    "options": [
+      "A. Giá trị thường xuất hiện nhất",
+      "B. Mức độ phân tán của các giá trị X xung quanh giá trị kỳ vọng",
+      "C. Độ nghiêng của phân phối",
+      "D. Khoảng cách giữa giá trị lớn nhất và nhỏ nhất"
+    ],
+    "answer": 1,
+    "explanation": "Phương sai đo lường sự biến thiên (dispersion) hoặc mức độ phân tán (spread) của dữ liệu so với giá trị trung bình (E[X]). Var(X) = E[(X - E[X])^2].",
+    "tip": "Variance càng lớn -> Dữ liệu càng phân tán xa giá trị trung bình. Variance = 0 -> Mọi giá trị bằng nhau.",
+    "tags": ["probability", "variance"]
+  },
+  {
+    "id": "A3-011", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Tính chất của hàm Kỳ vọng (Expectation). Nếu a, b là hằng số và X, Y là biến ngẫu nhiên, khẳng định nào LUÔN ĐÚNG?",
+    "options": [
+      "A. E[XY] = E[X] * E[Y]",
+      "B. E[aX + bY] = a*E[X] + b*E[Y]",
+      "C. Var(aX) = a*Var(X)",
+      "D. Var(X + Y) = Var(X) + Var(Y)"
+    ],
+    "answer": 1,
+    "explanation": "Kỳ vọng là một toán tử tuyến tính (Linear operator). Tính chất tuyến tính E[aX + bY] = a*E[X] + b*E[Y] luôn đúng với mọi biến X, Y bất kể chúng có độc lập hay không.",
+    "tip": "Kỳ vọng LUÔN tuyến tính. Phương sai chỉ tuyến tính Var(X+Y) = Var(X) + Var(Y) khi X, Y là ĐỘC LẬP.",
+    "tags": ["probability", "expected-value", "linearity"]
+  },
+  {
+    "id": "A3-012", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Covariance (Hiệp phương sai) Cov(X, Y) bằng 0 có nghĩa là gì?",
+    "options": [
+      "A. X và Y hoàn toàn độc lập với nhau",
+      "B. X và Y không có mối tương quan tuyến tính (linear correlation)",
+      "C. X và Y có tương quan nghịch",
+      "D. X và Y là hằng số"
+    ],
+    "answer": 1,
+    "explanation": "Cov(X, Y) = 0 chỉ chứng tỏ X và Y không có quan hệ TUYẾN TÍNH. Chúng vẫn có thể có quan hệ phi tuyến tính mạnh (ví dụ Y = X^2). Tuy nhiên, nếu X và Y độc lập thì chắc chắn Cov(X,Y) = 0.",
+    "tip": "Covariance = 0 -> Không có tương quan TUYẾN TÍNH (Uncorrelated), nhưng chưa chắc đã Độc lập (Independent). Độc lập -> Uncorrelated.",
+    "tags": ["probability", "covariance", "correlation"]
+  },
+  {
+    "id": "A3-013", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Công thức tính Phương sai từ Kỳ vọng: Var(X) bằng:",
+    "options": [
+      "A. E[X^2] - (E[X])^2",
+      "B. (E[X])^2 - E[X^2]",
+      "C. E[(X - E[X])]",
+      "D. E[X] - E[X]^2"
+    ],
+    "answer": 0,
+    "explanation": "Khai triển Var(X) = E[(X - E[X])^2] ta được Var(X) = E[X^2] - (E[X])^2. Đây là công thức tính toán phương sai phổ biến và nhanh nhất.",
+    "tip": "Variance = Kỳ vọng của bình phương trừ Bình phương của kỳ vọng.",
+    "tags": ["probability", "variance"]
+  },
+  {
+    "id": "A3-014", "module": "A", "topic": "A3", "difficulty": "easy",
+    "question": "Hoán vị (Permutation) khác Tổ hợp (Combination) ở điểm nào quan trọng nhất?",
+    "options": [
+      "A. Hoán vị dùng cho số lớn, Tổ hợp dùng cho số nhỏ",
+      "B. Hoán vị quan tâm đến THỨ TỰ, Tổ hợp KHÔNG quan tâm thứ tự",
+      "C. Hoán vị không cho phép lặp lại, Tổ hợp cho phép lặp lại",
+      "D. Hoán vị chia cho n!, Tổ hợp nhân cho n!"
+    ],
+    "answer": 1,
+    "explanation": "Hoán vị chọn k phần tử từ n phần tử CÓ sắp xếp thứ tự (ví dụ: bầu lớp trưởng, lớp phó). Tổ hợp chọn k phần tử KHÔNG phân biệt thứ tự (ví dụ: chọn 1 nhóm 2 người).",
+    "tip": "Permutation (P) = Position (Có thứ tự). Combination (C) = Committee (Không thứ tự).",
+    "tags": ["probability", "combinatorics"]
+  },
+  {
+    "id": "A3-015", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Có bao nhiêu cách xếp 5 người ngồi vào 5 ghế thành 1 hàng ngang?",
+    "options": ["A. 5", "B. 25", "C. 120", "D. 3125"],
+    "answer": 2,
+    "explanation": "Số cách xếp n người vào n vị trí là hoán vị của n, tính bằng n!. 5! = 5 * 4 * 3 * 2 * 1 = 120.",
+    "tip": "Xếp hàng n người = n! (n giai thừa).",
+    "tags": ["probability", "combinatorics", "permutation"]
+  },
+  {
+    "id": "A3-016", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Bất đẳng thức Markov (Markov's Inequality) cho biết điều gì về biến ngẫu nhiên X KHÔNG ÂM?",
+    "options": [
+      "A. P(X >= a) <= E[X] / a (với a > 0)",
+      "B. P(|X - E[X]| >= a) <= Var(X) / a^2",
+      "C. E[X] >= 0",
+      "D. Giới hạn trên của Phương sai"
+    ],
+    "answer": 0,
+    "explanation": "Bất đẳng thức Markov cung cấp một cận trên (upper bound) cho xác suất mà một biến ngẫu nhiên KHÔNG ÂM nhận giá trị lớn hơn hoặc bằng hằng số dương a. Công thức: P(X ≥ a) ≤ E[X] / a.",
+    "tip": "Markov's Inequality: Dùng cho X không âm, chỉ cần biết Kỳ vọng E[X].",
+    "tags": ["probability", "markov-inequality", "bounds"]
+  },
+  {
+    "id": "A3-017", "module": "A", "topic": "A3", "difficulty": "hard",
+    "question": "Bất đẳng thức Chebyshev (Chebyshev's Inequality) được ứng dụng để làm gì?",
+    "options": [
+      "A. Chứng minh hai biến cố độc lập",
+      "B. Tìm cận trên của xác suất một giá trị rơi quá xa kỳ vọng, dựa vào phương sai",
+      "C. Tính chính xác xác suất của phân phối chuẩn",
+      "D. Đổi biến ngẫu nhiên rời rạc thành liên tục"
+    ],
+    "answer": 1,
+    "explanation": "Chebyshev's Inequality: P(|X - μ| ≥ kσ) ≤ 1/k^2. Cung cấp giới hạn xác suất mà X lệch khỏi kỳ vọng (μ) một khoảng k lần độ lệch chuẩn (σ), áp dụng cho BẤT KỲ phân phối nào có kỳ vọng và phương sai hữu hạn.",
+    "tip": "Chebyshev: Áp dụng cho mọi phân phối (không chỉ phân phối chuẩn). Cho biết xác suất 'outlier' bị giới hạn bởi phương sai.",
+    "tags": ["probability", "chebyshev-inequality", "bounds"]
+  },
+  {
+    "id": "A3-018", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Một biến ngẫu nhiên liên tục X có Hàm mật độ xác suất (PDF) là f(x). Khẳng định nào ĐÚNG?",
+    "options": [
+      "A. f(x) luôn nhỏ hơn hoặc bằng 1",
+      "B. Xác suất P(X = c) (c là hằng số) luôn luôn bằng 0",
+      "C. f(x) có thể nhận giá trị âm",
+      "D. f(x) là xác suất để X = x"
+    ],
+    "answer": 1,
+    "explanation": "Đối với biến liên tục, diện tích dưới đường cong tại một điểm cụ thể là 0 (vì chiều rộng của một điểm = 0). Xác suất chỉ được định nghĩa trên một khoảng [a, b] bằng tích phân của f(x). Do đó P(X=c) = 0.",
+    "tip": "Hàm mật độ PDF (f(x)) KHÔNG PHẢI là xác suất, nó có thể > 1. Xác suất tại 1 điểm của biến liên tục luôn bằng 0.",
+    "tags": ["probability", "continuous-random-variable", "pdf"]
+  },
+  {
+    "id": "A3-019", "module": "A", "topic": "A3", "difficulty": "easy",
+    "question": "Xác suất để rút được một quân Át (Ace) từ bộ bài Tây 52 lá chuẩn là:",
+    "options": ["A. 1/13", "B. 1/52", "C. 4/13", "D. 1/4"],
+    "answer": 0,
+    "explanation": "Bộ bài có 52 lá, trong đó có 4 lá Át. Xác suất = Số kết quả mong muốn / Tổng không gian mẫu = 4/52 = 1/13.",
+    "tip": "Rút 1 lá bất kỳ thì xác suất của 1 hạng (Rank) là 1/13 (vì có 13 hạng: 2, 3... K, A).",
+    "tags": ["probability", "basic"]
+  },
+  {
+    "id": "A3-020", "module": "A", "topic": "A3", "difficulty": "medium",
+    "question": "Nếu kiện A xảy ra với tỷ lệ (Odds) là 3:1 (hay 3 to 1 in favor). Xác suất của A là bao nhiêu?",
+    "options": ["A. 33.3%", "B. 75%", "C. 25%", "D. 300%"],
+    "answer": 1,
+    "explanation": "Odds 3:1 có nghĩa là 3 phần thắng, 1 phần thua. Tổng số phần là 3 + 1 = 4. Xác suất thắng = Thắng / Tổng = 3/4 = 75%.",
+    "tip": "Odds = P / (1-P). Xác suất P = Odds_win / (Odds_win + Odds_loss).",
+    "tags": ["probability", "odds"]
+  }
+]

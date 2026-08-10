@@ -1,0 +1,282 @@
+[
+  {
+    "id": "A2-001", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Cho ma trận vuông A. Nếu v là một eigenvector của A tương ứng với eigenvalue λ, khẳng định nào sau đây là MỘT ĐỊNH NGHĨA đúng?",
+    "options": [
+      "A. Av = 0",
+      "B. Av = λ",
+      "C. Av = λv (với v khác vector 0)",
+      "D. A = λv"
+    ],
+    "answer": 2,
+    "explanation": "Theo định nghĩa, một vector khác không v được gọi là vector riêng (eigenvector) của ma trận vuông A nếu khi nhân A với v, ta thu được một vector tỷ lệ với v theo hằng số λ. Phương trình là Av = λv.",
+    "tip": "Eigenvector là vector KHÔNG bị đổi phương khi nhân với ma trận A, chỉ bị co giãn bởi hệ số λ (eigenvalue).",
+    "tags": ["eigenvalue", "eigenvector", "linear-algebra"]
+  },
+  {
+    "id": "A2-002", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Làm thế nào để tìm các eigenvalue (giá trị riêng) của một ma trận vuông A?",
+    "options": [
+      "A. Giải phương trình det(A) = 0",
+      "B. Giải phương trình đặc trưng det(A - λI) = 0",
+      "C. Lấy các phần tử trên đường chéo chính của A",
+      "D. Phân tích LU ma trận A"
+    ],
+    "answer": 1,
+    "explanation": "Để phương trình (A - λI)v = 0 có nghiệm không tầm thường (v ≠ 0), ma trận (A - λI) phải suy biến, tức là định thức của nó phải bằng 0. Do đó, ta giải phương trình đặc trưng det(A - λI) = 0 để tìm λ.",
+    "tip": "Eigenvalues là nghiệm của phương trình đặc trưng: det(A - λI) = 0.",
+    "tags": ["eigenvalue", "characteristic-equation", "determinant"]
+  },
+  {
+    "id": "A2-003", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Mối quan hệ giữa định thức (Determinant) của ma trận vuông A và các eigenvalue của nó là gì?",
+    "options": [
+      "A. Định thức bằng tổng các eigenvalue",
+      "B. Định thức bằng tích các eigenvalue",
+      "C. Định thức bằng eigenvalue lớn nhất",
+      "D. Không có mối quan hệ"
+    ],
+    "answer": 1,
+    "explanation": "Một trong những tính chất cơ bản của eigenvalue là tích của tất cả các eigenvalue (tính cả bội đại số) của một ma trận vuông chính bằng định thức của ma trận đó.",
+    "tip": "Nhớ 2 tính chất vàng: det(A) = Tích(eigenvalues) và Trace(A) = Tổng(eigenvalues).",
+    "tags": ["eigenvalue", "determinant", "properties"]
+  },
+  {
+    "id": "A2-004", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Tổng các phần tử trên đường chéo chính của ma trận vuông A (Trace của A) có mối liên hệ gì với các eigenvalue?",
+    "options": [
+      "A. Trace(A) = Tổng các eigenvalue",
+      "B. Trace(A) = Tích các eigenvalue",
+      "C. Trace(A) = Số lượng eigenvalue",
+      "D. Trace(A) = Trung bình cộng các eigenvalue"
+    ],
+    "answer": 0,
+    "explanation": "Trace của một ma trận vuông A (tổng các phần tử trên đường chéo chính) luôn luôn bằng tổng của tất cả các eigenvalue của A.",
+    "tip": "Nhớ 2 tính chất vàng: det(A) = Tích(eigenvalues) và Trace(A) = Tổng(eigenvalues).",
+    "tags": ["eigenvalue", "trace", "properties"]
+  },
+  {
+    "id": "A2-005", "module": "A", "topic": "A2", "difficulty": "easy",
+    "question": "Eigenvalue của một ma trận đường chéo (Diagonal matrix) là gì?",
+    "options": [
+      "A. Luôn là số 1",
+      "B. Luôn là số 0",
+      "C. Chính là các phần tử nằm trên đường chéo chính",
+      "D. Nghịch đảo của các phần tử trên đường chéo chính"
+    ],
+    "answer": 2,
+    "explanation": "Đối với ma trận đường chéo (và cả ma trận tam giác), các eigenvalue chính là các giá trị nằm trên đường chéo chính của ma trận đó.",
+    "tip": "Ma trận đường chéo / tam giác -> Nhìn đường chéo chính là ra ngay eigenvalue.",
+    "tags": ["eigenvalue", "diagonal-matrix"]
+  },
+  {
+    "id": "A2-006", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Nếu ma trận A có các eigenvalue là λ_1, λ_2, ..., λ_n, thì các eigenvalue của ma trận A^2 là gì?",
+    "options": [
+      "A. λ_1, λ_2, ..., λ_n",
+      "B. λ_1^2, λ_2^2, ..., λ_n^2",
+      "C. 2*λ_1, 2*λ_2, ..., 2*λ_n",
+      "D. sqrt(λ_1), sqrt(λ_2), ..., sqrt(λ_n)"
+    ],
+    "answer": 1,
+    "explanation": "Nếu Av = λv thì A^2 v = A(Av) = A(λv) = λ(Av) = λ(λv) = λ^2 v. Do đó, nếu λ là eigenvalue của A, thì λ^2 là eigenvalue của A^2 (với cùng eigenvector v).",
+    "tip": "Eigenvalue của A^k là λ^k. Eigenvalue của A^-1 là 1/λ.",
+    "tags": ["eigenvalue", "matrix-power"]
+  },
+  {
+    "id": "A2-007", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Một ma trận vuông A khả nghịch (invertible) khi và chỉ khi:",
+    "options": [
+      "A. Tất cả các eigenvalue của nó đều bằng 0",
+      "B. Tất cả các eigenvalue của nó đều bằng 1",
+      "C. KHÔNG có eigenvalue nào bằng 0",
+      "D. Tổng các eigenvalue bằng 0"
+    ],
+    "answer": 2,
+    "explanation": "Vì định thức của A bằng tích các eigenvalue, ma trận A khả nghịch khi và chỉ khi det(A) ≠ 0, điều này đồng nghĩa với việc không có eigenvalue nào bằng 0.",
+    "tip": "Có eigenvalue = 0 ⇔ det = 0 ⇔ Suy biến (Không khả nghịch).",
+    "tags": ["eigenvalue", "invertibility"]
+  },
+  {
+    "id": "A2-008", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Phân tích SVD (Singular Value Decomposition) biểu diễn một ma trận A dưới dạng tích của 3 ma trận nào?",
+    "options": [
+      "A. A = P D P^{-1}",
+      "B. A = Q R",
+      "C. A = U Σ V^T",
+      "D. A = L U"
+    ],
+    "answer": 2,
+    "explanation": "SVD phân tích một ma trận bất kỳ A thành U Σ V^T. Trong đó U và V là các ma trận trực giao (Orthogonal matrices) và Σ là ma trận đường chéo chứa các singular values.",
+    "tip": "SVD: Singular Value Decomposition -> U Σ V^T. (P D P^-1 là Eigendecomposition).",
+    "tags": ["svd", "decomposition", "matrix"]
+  },
+  {
+    "id": "A2-009", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Trong phân tích SVD (A = U Σ V^T), các giá trị trên đường chéo của ma trận Σ được gọi là Singular Values. Chúng có liên hệ gì với ma trận A?",
+    "options": [
+      "A. Bằng các eigenvalue của A",
+      "B. Là căn bậc hai các eigenvalue của ma trận (A^T A)",
+      "C. Là nghịch đảo của các eigenvalue của A",
+      "D. Là trung bình cộng các phần tử của A"
+    ],
+    "answer": 1,
+    "explanation": "Singular values (thường ký hiệu là σ) là căn bậc hai của các eigenvalue (không âm) của ma trận A^T A (hoặc A A^T). Khác với eigenvalue, singular value luôn là số thực không âm và tồn tại cho ma trận không vuông.",
+    "tip": "Singular values = Căn bậc 2 Eigenvalues của A^T*A.",
+    "tags": ["svd", "singular-value", "eigenvalue"]
+  },
+  {
+    "id": "A2-010", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Eigendecomposition (Phân tích ma trận theo giá trị riêng) A = P D P^{-1} chỉ thực hiện được khi nào?",
+    "options": [
+      "A. A là ma trận bất kỳ",
+      "B. A là ma trận vuông và có đủ n eigenvector độc lập tuyến tính ( diagonalizable)",
+      "C. A là ma trận chữ nhật",
+      "D. A là ma trận đơn vị"
+    ],
+    "answer": 1,
+    "explanation": "Không phải ma trận vuông nào cũng phân tích được thành P D P^{-1}. Nó phải là ma trận có thể chéo hóa (diagonalizable), tức là nó phải có n eigenvector độc lập tuyến tính để tạo thành ma trận P khả nghịch.",
+    "tip": "Chéo hóa (Eigendecomposition) cần ma trận VUÔNG và đủ EIGENVECTOR ĐỘC LẬP. SVD thì làm được với mọi ma trận.",
+    "tags": ["eigendecomposition", "diagonalization"]
+  },
+  {
+    "id": "A2-011", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Tính chất đặc biệt nào sau đây là đúng đối với các eigenvalue của một ma trận đối xứng (Symmetric Matrix) với các phần tử là số thực?",
+    "options": [
+      "A. Luôn là các số phức liên hợp",
+      "B. Luôn là các số thực",
+      "C. Luôn bằng 0",
+      "D. Luôn là số nguyên"
+    ],
+    "answer": 1,
+    "explanation": "Một trong những định lý quan trọng nhất của đại số tuyến tính (Spectral Theorem) chỉ ra rằng: Mọi ma trận đối xứng thực (real symmetric matrix) đều có các eigenvalue là số thực và luôn có thể chéo hóa trực giao.",
+    "tip": "Ma trận đối xứng -> Eigenvalues chắc chắn là SỐ THỰC.",
+    "tags": ["eigenvalue", "symmetric-matrix", "spectral-theorem"]
+  },
+  {
+    "id": "A2-012", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Đối với ma trận đối xứng thực (Real Symmetric Matrix), các eigenvector tương ứng với các eigenvalue KHÁC NHAU sẽ có đặc điểm gì?",
+    "options": [
+      "A. Song song với nhau",
+      "B. Trực giao (vuông góc) với nhau",
+      "C. Bằng nhau",
+      "D. Tuyến tính phụ thuộc"
+    ],
+    "answer": 1,
+    "explanation": "Theo Spectral Theorem, đối với ma trận đối xứng thực, các eigenvector ứng với các eigenvalue phân biệt luôn trực giao (orthogonal) với nhau. Điều này cho phép tạo ra cơ sở trực chuẩn từ các eigenvector.",
+    "tip": "Ma trận đối xứng -> Eigenvector của các eigenvalue khác nhau sẽ VUÔNG GÓC.",
+    "tags": ["eigenvector", "symmetric-matrix", "orthogonality"]
+  },
+  {
+    "id": "A2-013", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "PCA (Principal Component Analysis) dùng kỹ thuật phân tích nào cốt lõi để tìm các thành phần chính?",
+    "options": [
+      "A. LU Decomposition",
+      "B. Phân tích Eigendecomposition trên ma trận hiệp phương sai (Covariance matrix)",
+      "C. K-Means Clustering",
+      "D. Đạo hàm hàm mất mát"
+    ],
+    "answer": 1,
+    "explanation": "PCA tìm các 'thành phần chính' bằng cách tìm các eigenvector và eigenvalue của ma trận hiệp phương sai (Covariance matrix) của dữ liệu. Eigenvector ứng với eigenvalue lớn nhất chính là hướng có phương sai dữ liệu lớn nhất (PC1).",
+    "tip": "PCA cốt lõi là Eigendecomposition (hoặc SVD) của Covariance Matrix.",
+    "tags": ["pca", "eigenvalue", "machine-learning"]
+  },
+  {
+    "id": "A2-014", "module": "A", "topic": "A2", "difficulty": "easy",
+    "question": "Ký hiệu I là ma trận đơn vị. Eigenvalue của ma trận I kích thước n x n là gì?",
+    "options": [
+      "A. n số 1",
+      "B. 1 số n",
+      "C. n số 0",
+      "D. Các số từ 1 đến n"
+    ],
+    "answer": 0,
+    "explanation": "Ma trận đơn vị là ma trận đường chéo với toàn số 1 trên đường chéo chính. Do đó, nó có n eigenvalue, tất cả đều bằng 1.",
+    "tip": "Ma trận I: mọi vector v đều thỏa Iv = 1*v -> eigenvalue = 1.",
+    "tags": ["eigenvalue", "identity-matrix"]
+  },
+  {
+    "id": "A2-015", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Nếu ma trận A không vuông, phương pháp phân tích nào sau đây vẫn có thể áp dụng được?",
+    "options": [
+      "A. Eigendecomposition (A = P D P^-1)",
+      "B. Tìm định thức det(A)",
+      "C. Singular Value Decomposition (SVD)",
+      "D. Tính Inverse cơ bản (A^-1)"
+    ],
+    "answer": 2,
+    "explanation": "SVD là phương pháp phân tích mạnh mẽ nhất, có thể áp dụng cho MỌI ma trận (kể cả ma trận chữ nhật). Eigendecomposition, Determinant, Inverse cơ bản chỉ áp dụng cho ma trận vuông.",
+    "tip": "SVD = 'Đại ca' của các loại phân tích, xài được cho mọi ma trận bất chấp kích thước.",
+    "tags": ["svd", "matrix-decomposition"]
+  },
+  {
+    "id": "A2-016", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Ma trận xác định dương (Positive Definite Matrix) là ma trận đối xứng có đặc điểm nào sau đây liên quan đến eigenvalue?",
+    "options": [
+      "A. Tất cả eigenvalue đều lớn hơn hoặc bằng 0",
+      "B. Tất cả eigenvalue đều LỚN HƠN 0 (strictly positive)",
+      "C. Tổng eigenvalue bằng 0",
+      "D. Tích eigenvalue nhỏ hơn 0"
+    ],
+    "answer": 1,
+    "explanation": "Một ma trận đối xứng thực là xác định dương (Positive Definite) khi và chỉ khi TẤT CẢ các eigenvalue của nó đều là số thực dương (λ > 0). Nếu λ >= 0 thì nó là Bán xác định dương (Positive Semi-Definite).",
+    "tip": "Positive Definite (Xác định dương) -> Tất cả Eigenvalues > 0.",
+    "tags": ["eigenvalue", "positive-definite"]
+  },
+  {
+    "id": "A2-017", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Trong thuật toán PageRank của Google (phiên bản cơ bản), vector thể hiện mức độ quan trọng của các trang web chính là:",
+    "options": [
+      "A. Eigenvector ứng với Eigenvalue LỚN NHẤT (bằng 1) của ma trận chuyển trạng thái",
+      "B. Eigenvector ứng với Eigenvalue NHỎ NHẤT",
+      "C. Singular vector phải của SVD",
+      "D. Cột cuối cùng của ma trận nghịch đảo"
+    ],
+    "answer": 0,
+    "explanation": "PageRank tính toán phân phối xác suất ổn định (steady-state probability) của một người lướt web ngẫu nhiên. Trạng thái ổn định này chính là eigenvector ứng với eigenvalue λ = 1 của ma trận xác suất chuyển Markov.",
+    "tip": "PageRank = Eigenvector ứng với Eigenvalue lớn nhất (λ=1).",
+    "tags": ["eigenvector", "pagerank", "application"]
+  },
+  {
+    "id": "A2-018", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Cộng một hằng số k vào đường chéo chính của ma trận A (tức là tính A + kI). Điều gì sẽ xảy ra với các eigenvalue và eigenvector?",
+    "options": [
+      "A. Eigenvalue tăng thêm k, Eigenvector thay đổi hoàn toàn",
+      "B. Eigenvalue không đổi, Eigenvector thay đổi",
+      "C. Eigenvalue không đổi, Eigenvector không đổi",
+      "D. Eigenvalue tăng thêm k, Eigenvector không thay đổi"
+    ],
+    "answer": 3,
+    "explanation": "Nếu Av = λv, thì (A + kI)v = Av + kIv = λv + kv = (λ + k)v. Do đó, eigenvalue mới là (λ + k), nhưng eigenvector v thì vẫn giữ nguyên.",
+    "tip": "Cộng k vào đường chéo (A + kI) -> Shift eigenvalue lên k đơn vị, Eigenvector không đổi.",
+    "tags": ["eigenvalue", "eigenvector", "shift"]
+  },
+  {
+    "id": "A2-019", "module": "A", "topic": "A2", "difficulty": "medium",
+    "question": "Pseudo-inverse (Giả nghịch đảo Moore-Penrose, ký hiệu A^+) thường được tính dễ dàng thông qua phân tích nào?",
+    "options": [
+      "A. Cholesky Decomposition",
+      "B. Eigendecomposition",
+      "C. LU Decomposition",
+      "D. Singular Value Decomposition (SVD)"
+    ],
+    "answer": 3,
+    "explanation": "Pseudo-inverse được tính bằng SVD. Nếu A = U Σ V^T, thì A^+ = V Σ^+ U^T, trong đó Σ^+ có được bằng cách lấy nghịch đảo các singular value khác không và chuyển vị ma trận.",
+    "tip": "SVD là công cụ chuẩn để tính Pseudo-inverse cho ma trận chữ nhật.",
+    "tags": ["svd", "pseudo-inverse"]
+  },
+  {
+    "id": "A2-020", "module": "A", "topic": "A2", "difficulty": "hard",
+    "question": "Cho ma trận vuông A. Không gian con chứa tất cả các eigenvector ứng với cùng một eigenvalue λ (cộng thêm vector 0) được gọi là gì?",
+    "options": [
+      "A. Null space (Không gian null)",
+      "B. Column space (Không gian cột)",
+      "C. Eigenspace (Không gian riêng)",
+      "D. Orthogonal complement"
+    ],
+    "answer": 2,
+    "explanation": "Eigenspace ứng với eigenvalue λ của ma trận A là tập hợp tất cả các nghiệm v của phương trình (A - λI)v = 0. Nói cách khác, nó là Null space của ma trận (A - λI).",
+    "tip": "Eigenspace là tập hợp tất cả các eigenvector của một eigenvalue cụ thể (và thêm vector 0).",
+    "tags": ["eigenspace", "eigenvector", "null-space"]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D8-001", "module": "D", "topic": "D8", "difficulty": "easy",
+    "question": "Mục Đích Tối Thượng Của Việc Sử Dụng 'Message Queue' (Hàng Đợi Tin Nhắn - Tiêu Biểu Bằng RabbitMQ) Ở Giữa Hệ Thống Là Giải Quyết Ác Mộng Trục Trặc Gì Ở Điểm Nối Rễ Cho Kiến Trúc Microservices Máy Mở Bóp Ác Khống?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy",
+      "B. TÁCH RỜI SỰ RÀNG BUỘC (DECOUPLING) VÀ CHỐNG QUÁ TẢI (BUFFERING). NẾU APP ĐẶT HÀNG (PRODUCER) GỌI TRỰC TIẾP APP GIAO HÀNG (CONSUMER) QUA API THÌ KHI APP GIAO HÀNG CHẾT SẬP (BẬN), LỆNH ĐẶT HÀNG BỊ LỖI THEO ĐỨT KHÁCH. DÙNG QUEUE CHÈN GIỮA, APP ĐẶT HÀNG CỨ QUĂNG ĐƠN VÀO HÀNG ĐỢI RỒI BÁO KHÁCH 'THÀNH CÔNG'. APP GIAO HÀNG ĐANG BẬN HAY SẬP KỆ NÓ, LÚC NÀO RẢNH MỞ MÁY SẼ MÒ VÀO HÀNG ĐỢI LẤY ĐƠN ĐỂ GIAO CHẠY SAU KẾT MÁNG LỖ GÌ LỆCH.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Bắt Đứa Mua Hàng Khóc Báo Oan Hụt Đứng Đợi Ông Vận Chuyển Giao Nhanh Vô Cùng Cùng Cứng Cựa Xác Nhận. Đưa Nút Mua Trực Tiếp Bắn Lệnh API Gọi Nhau Chéo (Đồng Bộ Synchronous) Sẽ Gây Chết Chùm Sợi Xích Dây Dưa (App A Chết Kéo App B Đi Lùi Đáy Oan Khúc Sai Data). Message Queue Là Cục Thùng Thư Thần Kỳ Ở Giữa Nắm Mạng Đứt Trục Gắn 3 Năm Kỹ Sư Cũ (Bất Đồng Bộ Asynchronous Bọc Tách Lẻ). Gửi Thư Vô Hộp Là Về Ngủ Rảnh Óc, Thằng Xử Lý Lúc Nào Thức Đọc Giải Quyết Lấy Tải Từ Trong Kho Chữa Đỉnh Máy Không Khóc.",
+    "tip": "Message Queue (Bưu Điện Đệm Chống Chết Chùm Sợi Đứt Đoạn Lồi Mờ Rìa Bể Vọng). Giúp Thằng Gọi Không Phải Đợi Thằng Bị Gọi Chạy Xong. Ném Thư Vô Hàng Đợi (Đã Trấn Yểm Giải Khát Cụm Lập Bắn Kín) Xong Quay Về Phục Khách Khác Nhanh Gấp 1 Tỷ Lần Ghi Rút Mở Sẵn Cửa Lối.",
+    "tags": ["message-queue", "rabbitmq", "decoupling", "asynchronous"]
+  },
+  {
+    "id": "D8-002", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lưới Đóng 'RabbitMQ' (Message Queue Truyền Thống Xóa Chướng Vi Khúc) Khác Trọng Áp Khung Nát Trục Bẻ Đứt Lệnh Thằng Áp Gắn Nhựa Cháy 'Apache Kafka' (Event Streaming Ảo Bão Sóng Lướt Trôi Đỉnh Bờ Vắng Trắng Khúc Tụ Bấm Phá Lỗi) Chạm Ám Oan Lấp Ở Chữ Chốt Lưu Giao Điểm Dừng Nhịp Đập Thủng Ra Sao Cụt Bẻ?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. RABBITMQ LÀ BƯU ĐIỆN THÔNG MINH (SMART BROKER): TÌM ĐƯỜNG ĐỊNH TUYẾN GỬI THƯ CỰC GIỎI VÀ KHI THẰNG CONSUMER LẤY THƯ RA ĐỌC XONG, BƯU ĐIỆN XÓA TIÊU HỦY BỨC THƯ ĐÓ LUÔN ĐỂ TRỐNG CHỖ (KHÔNG LƯU TRỮ CHỐT). KAFKA LÀ CUỐN NHẬT KÝ ĐẦN ĐỘN (DUMB BROKER): NÓ KHÔNG BIẾT ĐỊNH TUYẾN MÀ CHỈ BIẾT ĐÓNG ĐINH GHI BỨC THƯ VÀO Ổ CỨNG VĨNH VIỄN, AI MUỐN ĐỌC THÌ LẠI MÀ ĐỌC (ĐỌC XONG VẪN CÒN ĐÓ), PHÙ HỢP STREAMING LƯU TRỮ BIG DATA KÉO ĐAI RỚT ÁC ÁO TỨC KHÚC ĐỌC TIỀN KÉM ĐỢI NHÃO."
+    ],
+    "answer": 3,
+    "explanation": "Đừng Lấy Kafka Đem Đi Gửi Email Khôi Phục Mật Khẩu (RabbitMQ Làm Ngon Nhất Phân Kênh Chạy Xóa Đứt Bệnh Viêm Máy Chậm Lập Trình). Đừng Lấy RabbitMQ Đi Hứng Log Tỷ Sự Kiện Lọc Data Sóng Quét Của Web Trôi Sông Băng (Sập Máy Do Nó Không Thiết Kế Lưu Ổ Đĩa Vĩnh Cửu Phục Vụ Chạy Báo Cáo Data). Kafka Nhanh Gấp 1000 Lần Thằng Giao Bưu Rabbit Vì Nó Bỏ Hết Bệnh Rườm Rà Định Tuyến Xóa Rác Lọc Rìa Oan Ác Giao Đứt Cụt Máy, Chỉ Biết Nén Log Trục Sông Lệch Vi Bó Tụ Cắt Ám.",
+    "tip": "RabbitMQ = Nhân Viên Bưu Điện Cần Mẫn Phân Phối Thư Kéo Vạch Định Tuyến (Thư Bị Đốt Xóa Sau Khi Người Nhận Xem Rõ Báo Cáo Cầm Tù Mất Án Rỗng). Kafka = Cuốn Sổ Ký Tên Dán Tường Bê Tông Phân Tán Máy Đỉnh (Tin Gắn Vô Tường Chết Chặt Cứng Ráp Bức Máy Đứng Áp Kẹp Kéo Ám Góc Ác Cho Vạn Thằng Đi Ngang Tự Lại Dòm Trộm Chữ Rỗng Lấp Không Xóa Không Bay Vang).",
+    "tags": ["message-queue", "kafka", "rabbitmq", "architecture"]
+  },
+  {
+    "id": "D8-003", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Khái Niệm Lệch Băng Data Khuyết Cột Áp Ở Cỗ Mở Rộng 'Consumer Group' (Nhóm Người Mua Phân Vi Bão Cháy Bắn Dò Chặn) Của Apache Kafka Bẻ Đứng Thách Thức Khốc Liệt Mật Độ Dày Đóng Tạp Lạc Cắt Giải Quyết Nỗi Đau Gì Ác Hình Dụng Ý Khéo Khống Đâm Máu Cục Lỗi Trống Nháy Đòi Báo Cáo Khớp Hàng Tốc Độ?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. NẾU 1 BẢN TIN TRONG KAFKA LÀ QUÁ LỚN CHẬM ĐỌC. TA TẠO MỘT GROUP GỒM 10 THẰNG CONSUMER CHẠY CODE SPARK. KAFKA SẼ TỰ ĐỘNG CHIA TÁCH BÁNH THEO ĐẠO LÝ: TRONG CÙNG 1 GROUP, MỖI THẰNG CHỈ ĐƯỢC CHIA ĐỌC 1 GÓC PHẦN (PARTITION) DUY NHẤT. CHÚNG KHÔNG ĐỌC TRÙNG NHAU (CHIA ĐỂ TRỊ PARALLEL SONG SONG ÉP BĂNG ĐẨY LỖI NẶNG TẢI SERVER SẬP LẠC BẢO TRÌ BỎ XÓ). NẾU TẠO GROUP KHÁC THÌ GROUP MỚI NÀY LẠI ĐƯỢC ĐỌC ĐỦ TOÀN BỘ DATA ĐỘC LẬP TỪ ĐẦU (TÍNH NĂNG BROADCAST XUYÊN THỦNG).",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đẩy Lên 1 Triệu Khách Hàng Ném Tin Nhắn Kafka. 1 Thằng Consumer Ngồi Ăn Code Rùa Bò Sẽ Bị Ách Mạng Trọng Khớp Nghẽn (Lag). Mở Group Kéo Code Ném Vô Đội 10 Thằng. Kafka Khôn Ngoan Xé Rách 10 Góc Trục Đọc Phát Đều Cho 10 Đứa (Mày Thằng 1 Đọc Góc 1, Đứa 2 Đọc 2 Cấm Nhai Lẫn Data Trùng Nhau Gây Báo Cáo Nhân Đôi Trái Phép Oan Hụt). Nếu Bộ Phận AI Đòi Lọc Lại File Cũ Của Đứa Kế Toán Đã Nhai Đứt, Thì Lập Group AI Riêng, Nó Tua Băng Data Đọc Từ Đáy Lại Mượt Băng Độc Đỉnh Không Lạc Nét Khống.",
+    "tip": "Kafka Consumer Group = Đội Ăn Bánh Lập Sợi Tách Nát Chia Nhau Nhanh Gấp 1 Tỷ Lần Ghi Rút. Cùng Đội Thì Cấm Ăn Trùng Data (Song Song Sharding Scale Tải Tốc). Khác Đội Group ID Thì Coi Như Mắt Kính Khác Nút Mở Sổ Ra Đọc Lại Bơm Tự Do Lưới Kéo Băng Mảng Rành.",
+    "tags": ["message-queue", "kafka", "consumer-group", "scalability"]
+  },
+  {
+    "id": "D8-004", "module": "D", "topic": "D8", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Đuổi Ám Nặng Việc Khóa Gắn Đóng Khối Mở Góc Trống Dây Của Mảng Queue 'Dead Letter Queue' (Hàng Đợi Chứa Thư Chết Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp) Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hệ Thống Trống Nháy Trôi Đỉnh Bờ Vắng Ám Gì Rành Mạch Bằng Hành Động Nào Đóng Phim Kéo?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. KHI MỘT TIN NHẮN BỊ LỖI (VÍ DỤ EMAIL SAI ĐỊNH DẠNG HOẶC QUÁ SỐ LẦN CHẠY KÉO BÙ THỬ LỖI NẶNG TẢI SERVER), THAY VÌ ỨNG DỤNG CỨ BỊ NÓ KẸT ÁM LỆNH CODE LIÊN TỤC GÂY TẮC NGHẼN BĂNG THÔNG TOÀN DÂY CHUYỀN (SỤP BỤNG ỐNG ĐỢI). BƯU ĐIỆN RABBITMQ SẼ ĐÁ CỨT CÁI TIN NHẮN HƯ ĐÓ VÀO MỘT CÁI THÙNG RÁC GÓC RIÊNG GỌI LÀ DEAD LETTER QUEUE (DLQ) ĐỂ KỸ SƯ CÓ THỂ RẢNH RỖI TỪ TỪ XEM LẠI LỖI SAU, GIẢI PHÓNG MẶT ĐƯỜNG ỐNG CHÍNH TIẾP TỤC BƠM ĐÚT DÒNG DỮ LIỆU ĐẸP MỚI ÁP KHUNG NÁT TRỤC BẺ CHẬP SÓNG CHÁY ÁC ĐIỂM CHỐT."
+    ],
+    "answer": 3,
+    "explanation": "Chiêu Độc Ám Ảnh Data Cụm Lập Bắn Cứu Luồng Kẹt. Tin Nhắn Email Lỗi Trống Không. Code Thằng Gửi Thư Cứ Chạy Ngáo (Fail -> Rerun Vòng For Vô Tận). 1 Triệu Thư Đằng Sau Xếp Hàng Bị 1 Cục Kẹt Sứ Sáng Nước Không Lọc Hút Chạy Kéo Oan Oăm Điếc Cổ Bóp Trí. DLQ Lắp Trạm Đáy Lọc Máng Kép Văng Ảm Oan Đá Đích Ném Góc Chặn Chết Tạm Chờ Khám Cắt Bụng Viêm Lọc Cặn Kéo Băng Khúc 3 Giây Báo Cáo Oan Bứt.",
+    "tip": "Dead Letter Queue DLQ (Nghĩa Địa Rác Vứt Thư Chết Cứng Oan Gây Họa). Tin Nhắn Bị Hư Mã Format Lỗi Nhào Nhai Không Nát Rút Dội Văng, Sút Nó Vô Thùng Rác Riêng Lắp Đệm Góc (Giải Tỏa Kẹt Đường Băng Cao Tốc Trục Lõi Ống Cho Các Bức Thư Khác Thông Xe Mở Vang Khép Hướng Khỏe Ru Đỉnh Mạng).",
+    "tags": ["message-queue", "rabbitmq", "dead-letter-queue", "error-handling"]
+  },
+  {
+    "id": "D8-005", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Thuật Giải Dấu Oom Tràn Lệnh Quét 'Exactly-Once Semantics' (Xử Lý Chính Xác Đúng Một Và Chỉ Một Lần Hoàn Mỹ Nhất Điểm Áp Gắn Dụng Ý) Của Cỗ Streaming Khủng Bố Kafka Bẻ Đứng Thách Thức Điểm Vỡ Ngược Gãy Mảng Cụt Điếc Báo Đẩy Ở Quá Trình Bơm Tiền Nào Trực Chờ Giải Quyết Rớt Giáp Bể Bánh Kẹt Dòng Hú Nổ Lỗi Tràn Dây Dẫn?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. TRONG CÁC GIAO DỊCH CHUYỂN TIỀN NGÂN HÀNG. NẾU LỖI MẠNG ĐỨT KẾT NỐI, PRODUCER GỬI LẠI TIN NHẮN 2 LẦN GÂY TRÙNG (AT LEAST ONCE) THÌ KHÁCH BỊ TRỪ TIỀN OAN NHÂN ĐÔI LÓE CHỚP (CHÁY ÁC ĐIỂM CHỐT BÁO CÁO 1 TỶ). NẾU GỬI MỘT LẦN CHẾT MẤT TRẮNG DATA (AT MOST ONCE) THÌ NGÂN HÀNG HỤT VỐN KHÔNG LƯU LỆNH OAN RỖNG. 'EXACTLY ONCE' ĐÚC BÊ TÔNG BẰNG KAFKA TRANSACTIONS ÉP BUỘC DÙ MẠNG SẬP CÓ BẤM RETRY GỬI TRÙNG, HỆ THỐNG Ở ĐẦU CUỐI VẪN TỰ NHẬN DIỆN ID BỎ LỌC CHỈ TÍNH TIỀN CHÍNH XÁC ĐÚNG 1 ĐỒNG VÉO NÉT GÓC NGẮN KHÚC CẮT OAN GIA.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Bơm Đơn Đặt Hàng Bằng Kafka Đỉnh Nhất Sợ At Least Once (Bơm Dư Chắc Cú Thà Nhầm Hơn Bỏ Sót Bóp Kẹt Bể Độc Ác Kép Cụt Mép Nối Đục Cứt Trống Dấu). Producer Gửi Data Tới Kafka, Đang Đợi Trả Lời OK Thì Đứt Cáp Ló Vách Nháy Mạng, Tưởng Thư Chưa Tới Nó Nhét Thêm Cú 2 Chạy Lặp Rác Rến Lỗi Oan Cứng. Tính Tiền Đúp Khách Cạch Mặt AWS Dọn Cty Trực Tụ. Gắn Transaction ID Cứu Vớt Vua Hút Đọc Điểm Lệch Khúc Tắt Điếc Nẹt Rắn Đâm Thủng Óc Trục Nén Mờ Ố Đảm Bảo Giám Đốc An Giấc.",
+    "tip": "Exactly-Once (Lời Thề Độc 1 Lần Trinh Bạch: Không Rớt Data Nhão Đứt, Cũng Đéo Nhai Data Bơm Trùng Oan Khuất Đứt Dây Phim). Bài Toán Đắt Đỏ Tốn Máy Nhất Của Kafka Sinh Ra Để Phục Vụ Máy Chuyển Tiền Cấn Trừ Quẹt Thẻ Ác Lệnh Đâm Thủng Không Có Sai Bóp Méo Ám Lỗ Gãy Sao Chép Rác Nhân 2.",
+    "tags": ["message-queue", "kafka", "exactly-once", "transactions"]
+  },
+  {
+    "id": "D8-006", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Tính Đột Phá Hồ Chứa Băng Dày Đứt Rác Vở Tạp Của 'Topic Partitioning' (Chẻ Nhánh Topic Ống Dẫn Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp) Ở Trong Trái Tim Của Apache Kafka Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giải Băng Dày Ám Bóp Lệnh Rỗng Áp Cắn Khung Oan Trống Lỗ Đè Mạng Gì Cho Ngôi Nhà Kiến Trúc Sư Cty Thiết Kế Ráp Bức Tường Xé Lưới Băng Sóng?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. MỘT ĐƯỜNG ỐNG TOPIC NẾU ĐỂ YÊN 1 CỤC SẼ GÂY BỆNH CHAI CỔ NGHẼN BĂNG THÔNG MẠNG (Đứa Code Hút Chậm Bò Ráp Nhai Xương). CHIA TÁCH THÀNH 10 PARTITION LÀ ĐẺ RA 10 LÀN ĐƯỜNG CAO TỐC CHO PHÉP 10 MÁY SERVER HÚT DATA SONG SONG ĐỘC LẬP TĂNG TỐC KÉO XÉ GIÓ 10 LẦN MƯỢT CẮT. ĐỒNG THỜI, KAFKA BẢO ĐẢM 'TÍNH ĐÚNG THỨ TỰ THỜI GIAN THEO TUẦN TỰ' CHỈ DUY TRÌ Ở TRONG CÙNG 1 PARTITION (Cứ Gửi Data Cùng Khóa ID Khách Vô 1 Làn Partition Chốt Cắt Đáy Dò Sóng Lạc Nhầm).",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Đổ Rác Vô 1 Cái Ống Đứng Nhìn 1 Đứa Chảy Hút Ác Lỗ Mảnh Mã Đơn Giản Lướt Quét Lếch Máy Nổ Bụp Đứng Chết Đứt Dây Phim Tụt Ngắn. Băm Topic Nát 10 Partition Mở Rộng Ép Dung Lượng Sạch Bóng Tiết Kiệm Gấp Trăm Tiền Cáp Lõi Tốc Đọc Kinh Điển Siêu Ảo Thế Nào Trục Rỗng Oan (Scale Chống Kẹt). Nhưng Chú Ý: Tin Nhắn A Đến Trước Tin B Lạc Mất Nét Trống Gắn Dán Cáo Dụng Ý Nếu Gửi Rải Khác Partition Do Các Làn Đua Mạng Chạy Không Đều Thua Kém Tụt. Đẩy Khóa Key Khách X Cố Định Vô Lỗ Partition 1 Bó Cứng Ác (Ordering Guarantee Chỉ Đúng Ráp Cứng Trên 1 Làn Máng Giao Cắt Gốc).",
+    "tip": "Kafka Partition (Băm Ống Mở 10 Làn Xe Chống Kẹt Băng Oan Hụt Ranh Khúc): Xe Hút Đi Nhanh Gấp 10 (Parallel). Đảm Bảo Thứ Tự Sống Chết Đơn Giao Hàng (Tạo Lệnh Báo Code Báo Tiếng Gõ Trước Trả Tiền Sau Tránh Đảo Lộn Oái Ỏ) Phải Ép Rút Khóa Key Vào Trúng 1 Làn Partition Cháy Bờ Dòng Áp Ác Nhất Định (Kafka Chỉ Ép Đều Lệnh Đứng Cửa Lưới Mạng Nắm Tim Đỡ Rác Chạy Vuốt Tuần Tự Bên Trong 1 Vách Ngăn Góc Đóng).",
+    "tags": ["message-queue", "kafka", "partitioning", "ordering", "architecture"]
+  },
+  {
+    "id": "D8-007", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc Cloud Trực Tràng Chặn 'Fanout Exchange' (Bơm Đẩy Tỏa Nhánh Không Nhìn Rìa) Của Lão Làng Khủng Long RabbitMQ Khác Gì Với Đứa Gắn Phủ Lắp Trọng Phí Lưới Kẹt Trống Gắn Dán Lưới 'Direct Exchange' Ảo Diệu Của Quá Trình Hợp Khúc Nối Tầng Nghĩa Giúp Bơm Dữ Liệu Lưu Cứt Tốc Báo Lệnh Kéo?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. DIRECT LÀ GỬI THƯ CÓ CHỈ ĐỊNH ĐÍCH DANH (ROUTE KEY): VÍ DỤ CHỈ TÚM CỔ GỬI THƯ BÁO CÁO CHO PHÒNG KẾ TOÁN (APP KẾ TOÁN). FANOUT LÀ CÁI LOA PHÁT THANH XÃ (BROADCAST TẠO RỖNG BÁO ĐIỂM TẮT MÃ QUÊN KÉP): NÉM 1 BẢN TIN LÊN FANOUT NÓ NHÂN BẢN GỬI BẮN PHÁ CHO TOÀN BỘ 10 HÀNG ĐỢI KẾT NỐI VÀO ĐÓ KHÔNG THÈM QUAN TÂM PHÒNG BAN NÀO (PHÙ HỢP KIỂU APP CHÍNH BÁO ĐỘNG HÚ CÒI BƠM GỬI LÊN MÀN CHUNG NHIỀU ĐỨA NGHE CÙNG LÚC MỘT SÂN CHƠI CHUNG FILE LẶN XUỐNG TÌM).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Chiêu Thức Chống Phá Bệnh Bắn Sai Data Độc Của Bưu Điện Thần Thánh Mảng Bóp RabbitMQ. Direct Tróc Véo Góc Khớp Nét Nối Routing Key Bắn Trúng Tim Thằng B Hưởng Lộc. Fanout Đem Phun Kéo Nháy Tắc Cổ Lệnh Xé Lưới Băng Đóng Vững Rẽ Lấp Khung Toạc Không Thèm Coi Nhãn Bắn Cho Cả Đám Tụ Tụ 3 Bọn Nó Chui Vô Móc Cứt Trống Hút (Hệ Pub/Sub Mạng Bắn Trực Tụ Mạch Văng Điếc Lỗi Đè Lấp Cáp Mạng Rách). Dành Dân Báo Cáo Siêu Hạng Lọc Quét Tìm Nhóm Đội Đeo Lưới Cáo Gì Cho Phép Oan Hụt Đứt Đoạn.",
+    "tip": "RabbitMQ Exchange (Bưu Cục Chuyển Trạm Dỡ Khóa Băng Tĩnh Thuần): Direct = Thư Ký Tên Đúng Đứa Kế Toán Chặn Góc Ám Bóng Quăng (Routing Key Trùng Ráp Cứng). Fanout = Đứa Cầm Cái Loa Làng BroadCast Thét Mạng Mở Ảo Ép Nhựa Tới Khắp Mọi Ngõ Hẻm Cho Tất Cả Đám Nhảy Xổ Vô Hút Móc Tạp Đóng Cưa Hụt Lưới Lệch Vi Bó Tụ.",
+    "tags": ["message-queue", "rabbitmq", "exchange-types", "fanout"]
+  },
+  {
+    "id": "D8-008", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Thuật Ngữ Lệch Băng Tải Lưới Đóng 'Event Sourcing' (Lưu Nguồn Sự Kiện Đáy Cổ Điển Nhạt Trắng Cụt Điếc) Dựa Lưng Rất Kêu Kéo Gắn Dán Cáo Dụng Ý Đóng Trụ Áo Chứa Lợi Phẩm Vô Dây Kafka Sóng Streaming Tụ Đóng Lệnh Nhồi Máng Trộn Chơi Trò Lưu Đổi Bức Tường Xé Lưới Băng Data Trục Oan Kẹt Cổ Khác Thế Nào Đỉnh Đáy Giao So Với Việc Lưu Database Mảng Truyền Thống Đóng Tạp Xưa Rụng Lòi Đầu Báo Về Bầu Kẹp Đắp Nút Vá?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. DATABASE TRUYỀN THỐNG CHỈ LƯU LẠI BỨC ẢNH CHỤP TRẠNG THÁI CUỐI CÙNG HIỆN TẠI NÉT DỌC BẢNG (Ví Dụ Bạn Có 10 Triệu Đô). EVENT SOURCING VỨT BỎ KIỂU UPDATE DÁN ĐÈ BỀ MẶT ĐÓ. NÓ DÙNG KAFKA GHI LẠI CHUỖI NHẬT KÝ ĐÁNH MÁY MỖI GIÂY MỌI SỰ KIỆN LỊCH SỬ KHÚC NÀO (Gửi 5Tr, Bị Trừ 2Tr, Cộng 7Tr Góp Cút Phá Hoại Băng Hủy). MUỐN BIẾT BẠN CÓ BAO TIỀN, HỆ THỐNG PHẢI ĐỌC TUA LẠI CUỐN BĂNG TỪ ĐẦU LỊCH SỬ CỘNG TRỪ RA ĐÁP ÁN (Dấu Dập Đánh Gục Không Cho Tua Trả Xóa Bản Án Dấu Tội Phạm Thay Đổi Láo Ngân Hàng Kẹt Khớp).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Kiến Trúc Microservices Siêu Ám Bóp Nát Khái Niệm Xưa. Database Update Là Bị Mất Trắng Dấu Vết Lịch Sử Tiền Đâu Rớt Vào Mất Ngáp Dài Trễ Chậm (Sếp Kêu Tại Sao Đóng Băng Code Báo Thụt Két Hụt Mất Chục Tỷ Lắc Đứng Áp Kẹp Điểm). Event Sourcing Kêu Kafka Trữ Ám Tạp Tăng Căng Chuỗi Băng Log Bất Biến Immutability Append-only Đỉnh Cực Không Ghi Đè Kép Dây. Lục Lại Cuốn Phim Là Bắt Lỗi Thằng Kế Toán Chặn Chết Tạm Chờ Khám Láo Vượt Vạch Đo Đoạn Hỏng Kẹt Lỗ Oan.",
+    "tip": "Event Sourcing (Lưu Băng Ghi Âm Lịch Sử Sóng Lướt Trôi Đỉnh Bờ Vắng Ám): Đéo Lưu Tiền Bóp Gọn Cuối, Lưu Nhập Chép Nháp 'Ông A Đổi B Lấy Lại C' (Kafka Trữ Ngon Nhất Đáy Lọc Máng Kép). Lợi Hại Ở Chỗ Cãi Nhau Lôi Cuốn Băng Mở Tua Lại Xem Ai Bắn Phá Lệnh Xóa Bảng Báo Oan Hụt Ranh Khúc Viêm Tiền Đòi Báo Cáo Rớt (Chống Sửa Tráo Ác).",
+    "tags": ["message-queue", "event-sourcing", "kafka", "architecture", "microservices"]
+  },
+  {
+    "id": "D8-009", "module": "D", "topic": "D8", "difficulty": "easy",
+    "question": "Tính Năng 'Acknowledgment' (Ký Nhận Đã Nhận Hàng Trả Tiền Chốt) Của RabbitMQ Khác Điểm Mốc Ám Nặng Rút Kéo Khung Hụt Đốm Lùi Méo Gì Giúp Lấp Lỗ Trống Hút Ác Cột Thẳng Chống Kẹt Bệnh Đứt Mạng Máy Đứng Kẹp Điểm Đầu Cắt Đỉnh Mất Dữ Liệu Lỗi Oan Cứng Máng Dội Kéo Giữa Chừng Cháy Đứt Oan Lệ Khóc Đau?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. KHÁCH MUA HÀNG (CONSUMER) RÚT 1 BỨC THƯ TRONG HÀNG ĐỢI RA XỬ LÝ (RABBITMQ CHƯA XÓA LIỀN KHÔNG CÓ RÁC CŨ KẸP RÁCH). ĐANG XỬ LÝ NỬA CHỪNG CHƯA ĐÓNG HÀNG XONG THÌ MÁY SẬP CÚP ĐIỆN TẮT THỞ CẮT BỤNG. DO THẰNG KHÁCH CHƯA KỊP GỬI PHIẾU BÁO LẠI BƯU ĐIỆN TỪ 'ACK' (Đã Xong Khép Kín), RABBITMQ BIẾT NGAY LÀ THẰNG ĐÓ CHẾT DỌC ĐƯỜNG RÚT, NÓ LIỀN RÚT LẠI LÁ THƯ ĐÓ NHÉT LÊN HÀNG ĐỢI CHO THẰNG KHÁC MÚC (KHÔNG BỊ RỚT LẠC MẤT ĐƠN HÀNG CỦA DOANH NGHIỆP CÀO XÉ KHỐNG).",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh"
+    ],
+    "answer": 1,
+    "explanation": "Đỉnh Trí Trấn Đảm Bảo Không Rơi Data. Auto-Ack Gọi Điện Phát Xóa Thư Liền Là Đỉnh Cao Ngu Xi Nhất Đuổi Ốm Óc Góc Phân Băng Tĩnh Cổ Truyền Lưới Kẹt (Đang Nấu Data Rớt Bật Dây Mất Mẹ Bánh Đơn Trống Lỗ). Đỉnh Cao Kỹ Sư Cài Manual-Ack Kéo Cáp Bắn Pháo Kêu Cứu Nhảy Ác Trực: Máy Chạy Nấu Hàng Data Rửa Xong Đóng Chốt Két 1 Đêm Mới Gửi Lệnh 'ACK' Báo Oan Về Thằng RabbitMQ Mới Cho Tiêu Hủy Rác Trắng Góc Lệch Đuôi Khóc Ống.",
+    "tip": "Acknowledgment (ACK - Thẻ Báo Đã Ăn Đã Xong Của Bưu Điện Đệm Chống Chết Lạc Đơn Đứng Áp Kẹp Lệnh). Consumer Đọc Data Xong Phải Gửi Giấy ACK Ký Nhận Thì Bưu Điện (Queue) Mới Đem Hủy Thư Cất Khép Khúc Bỏ. Lỡ Cúp Điện Ló Bóng Chưa Kịp Gửi ACK Báo, Thư Bị Lòi Lại Ném Vô Đống Rác Kéo Vòng Cho Đứa Khác Ăn Trúng Ảo (Tránh Hụt Đứt Đoạn Đơn Hàng Sập Oan).",
+    "tags": ["message-queue", "rabbitmq", "acknowledgment", "reliability"]
+  },
+  {
+    "id": "D8-010", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Quạt 'Log Compaction' (Nén Cắt Log Dày Dép Trống Không Đóng Rập Vi Giải Rút Nét Cụt Bóng Nước Áp Kéo Trọng) Của Apache Kafka Bẻ Rớt Giáp Bể Bánh Ám Trí Cáo Điểm Ảm Chạy Quét Kết Trùm Áo Chứa Sự Cố Oan Nghẽn Khúc Nào Chống Phá Bệnh Bơm Trùng Tiền Lặp Cọc Cứng Máng Dội Giúp Máy Đỡ Đầy RAM Khóc?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. ĐỐI VỚI CÁC ỐNG KAFKA TOPIC GHI LOG VĨNH VIỄN, THEO NĂM THÁNG Ổ CỨNG SẼ TRÀN ĐẦY Ụ CHẾT NỔ. KHI BẬT LOG COMPACTION NÉN RÁC, KAFKA TỰ QUÉT Băng Sóng Xóa Lạc Lỗ Rã Khuôn LỌC VÀ CHỈ GIỮ LẠI BẢN TIN LỚN MỚI NHẤT UPDATE CỦA MỘT CHÌA KHÓA KEY (VÍ DỤ TÌNH TRẠNG CUỐI CÙNG LÀ GIÁ IPHONE 15TR). CÁC BẢN TIN ĐỊNH GIÁ IPHONE CŨ LỖI THỜI NHỮNG NGÀY TRƯỚC BỊ ĐẨY ĐUỔI XÓA ĐÈ (GIẢM 90% DUNG LƯỢNG Ổ CỨNG CHỨA TẠP NHẠP MÀ VẪN GIỮ ĐÚNG TRẠNG THÁI HIỆN THỜI NÉT DỌC BẢNG NGUỒN CỘI LỆCH TỤ)."
+    ],
+    "answer": 3,
+    "explanation": "Kafka Dumb Broker Nuốt Log Append-only Nhồi Dữ Liệu Nóng Không Ghi Đè (Chống Sửa Lịch Sử Nhập Hồn Chuyển Kiếp Giữ Vẹn Toàn Nguồn Cội Xác Ướp Đóng Khóa Kéo Về). Trữ Dài Cứng Ổ Lệch Băng Cháy Điện Tốn Kém Cước Đĩa. Compaction Quét Giữ Giá Trị Tươi Nét Rõ Nhất Của 1 Cột Báo Cáo Không Kéo Cứt Trống Dấu Kẹt Rác Chìm Ảo Giết Tiết Tiền Lệnh Khóa (Thích Hợp Đám Table Redis Lưu Trữ Cache Kéo Về Đồng Bộ).",
+    "tip": "Log Compaction (Máy Nén Cắt Rác Lịch Sử Kafka Vứt Áo Lỗi Oan Cứng Ráp Cứa Nhựa Cũ). Nếu Sản Phẩm A Update Giá Trăm Lần, Compaction Hút Bóp Cửa Nháy Sập Khối Máy Dọn Dẹp Xóa Mấy Bản Update Cũ Rích Xưa Khóc Của Nó, Chỉ Chừa 1 Bản Tin Có Mức Giá Mới Nhất Dính Lưới Để Tiết Kiệm Khung Ổ Cứng Hadoop Đụng Chạm Sóng Sắt Máy.",
+    "tags": ["message-queue", "kafka", "log-compaction", "storage-optimization"]
+  },
+  {
+    "id": "D8-011", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Khớp Sắp Code 'Idempotent Consumer' (Kẻ Tiêu Thụ Miễn Nhiễm Với Sự Trùng Lặp Cụt Điếc Báo Đẩy) Gắn Máng Lỗ Đè Lấp Cột Nát Dây Ở Đầu Bọn Dân Dev Giải Cứu Ác Lệnh Đâm Thủng Bằng Cách Viết Code Mở Vang Hình Chặn Lọc Nào Đóng Phim Kéo?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. ĐỂ CHỐNG LẠI BỆNH CỦA RABBITMQ/KAFKA LÀ 'CÓ THỂ BẮN GỬI TIN NHẮN TRÙNG LẶP 2 LẦN' (AT-LEAST-ONCE). KỸ SƯ KHI VIẾT CODE NHẬN TIN PHẢI CHỦ ĐỘNG TẠO RA 1 BẢNG LƯU LOG ID TIN NHẮN (IDEMPOTENCY KEY). KHI TIN NHẮN ĐẾN, CHECK XEM CÁI ID NÀY ĐÃ TỪNG NHẬN ĐƯỢC CHƯA. NẾU NHẬN RỒI THÌ BỎ QUA KHÔNG CHẠY CODE LẠI LẦN NỮA. NẾU CHƯA NHẬN MỚI CHẠY LỆNH GIAO HÀNG/TRỪ TIỀN (Nguyên Lý Miễn Nhiễm: Chạy 1 Lệnh Đóng Khóa 1 Lần Hay Chạy 100 Lần Thì Kết Quả Cột Tiền Vẫn Không Thay Đổi Đè Bẹp Ảm Oan).",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Event Streaming Vô Kỷ Luật Thỉnh Thoảng Bắn Đúp Lỗi Retry Mạng. Thằng Code App Giao Hàng Bị Ngu Thấy Có 2 Tin Nhắn Cùng 1 Ông Khách Lại Cho Lệnh Giao Xe Tải 2 Lần Oái Ỏ Khóc Ló Vách Mất Tiền. Viết Code Idempotent Khắc Chốt Cứng: Nhận Lệnh Đặt Hàng ID=99, Lưu Vô Bụng Đã Xử Lý Số 99 Xong Rót Cắt, Một Giây Sau Nó Bắn Thêm Cái Mớ Nhùng Nhằng ID=99 Nữa Thì Nhìn Thấy Chữ Xong Sẽ Cười Khẩy Vứt Cụt Tụ Máng (Đảm Bảo Sức Khỏe Lọc Bơm Độc Mạch Lồi Mờ Rìa Vệt Tím Rạch Ám Khung Gập Cong Chạm).",
+    "tip": "Idempotent Consumer (Thằng Ăn Bánh Miễn Nhiễm Nọc Độc Bơm Đúp Gửi Dư Khống). Kệ Cha Kafka/RabbitMQ Bị Sụp Gửi 1 Bức Thư 10 Lần, Code Của Bố Mày Bắt Được ID Cũ Trùng Đã Xử Lý Rồi Thì Chặn Cửa Đéo Làm Gì Thêm Cả (Chỉ Chạy Rút Đúng 1 Lần Độc Nhất Nhấn Sáng Cắt Lệnh).",
+    "tags": ["message-queue", "idempotency", "consumer", "resilience"]
+  },
+  {
+    "id": "D8-012", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Bất Khả Biến Của Việc Gắn Lỗi Máy Đóng Áo 'Prefetch Count' (QoS Bóp Cổ Giới Hạn Ăn Trọng Tải) Bẻ Đứng Thách Thức Điểm Vỡ Ngược Lại Thằng Consumer Ở RabbitMQ Khóc Chết Đứng Báo Máy Đứng Áp Kẹp Điểm Đầu Cắt Ở Quá Trình Bơm Tiền Nào Bứt Trục Lấp Khe Gãy Mạng?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. NẾU TRONG HÀNG ĐỢI CÓ 10.000 BỨC THƯ, VÀ APP CONSUMER CHẠY LÊN ĐÒI LẤY THƯ VỀ XỬ LÝ. NẾU KHÔNG CÀI PREFETCH COUNT, RABBITMQ SẼ LẬP TỨC NHỒI NHÉT TOÀN BỘ 10.000 BỨC THƯ ĐÓ ẬP VÀO RAM CỦA APP CONSUMER CÙNG MỘT LÚC LÀM CONSUMER CHẾT NGỘP OOM TRÀN BỘ NHỚ RAM NỔ TUNG. PREFETCH = 5 NGHĨA LÀ RABBITMQ CHỈ RÓT TỪ TỪ CHO MÀY ĐÚNG 5 BỨC, MÀY ĂN XONG BÁO ACK THÌ TAO MỚI RÓT TIẾP BỨC SỐ 6 (Bóp Cổ Chặn Ăn Tham Tránh Nổ Bụng Cục Báo Dấu Ác Cột Trụ).",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Nghĩ Máy Consumer Kéo Khỏe. Đạn RabbitMQ Xối Băng Nhanh Hơn Chớp (Push Model Máng Trộn Bắn Bức Ép Data Dội). Thằng Nhận Xử Lý Tiền Đang Yếu Cầm 1 Cục Data To Tướng Nghẽn Nát Gãy. Ném Prefetch Đóng Ống Nhỏ Giọt (Đút Bánh Từng Miếng). Cho Mày Cầm Chắc 10 Đơn Hàng Thôi Nhé Tránh Ném Sập RAM. Nhai Xong Nhả Cứt Rác Gửi Lệnh ACK Mở Miệng Thì Nhét Miếng Nữa Lọc Quét Dấu Chặn (Fair Dispatch Chia Bánh Đều Giữa Nhiều Consumer).",
+    "tip": "Prefetch Count (Ống Hút Bóp Cổ Lọc Đạn Đóng Két RabbitMQ). Máy Trạm Yếu Thì Nhét 1 2 Đơn Đặng Không Bể Bụng Nổ Máy Giặt Tụt Giáp Cụt Rỉ Nhanh Kẹp. Kẻ Nhận Consumer Đang Ngập Rác Rắn Đâm Xé Không Nhận Cố Nhai Oan Hụt Ranh Khúc Viêm Tiền Đòi Báo Cáo (Chống OOM Tràn Bộ Nhớ Ở Phía Consumer Ăn Quá No Gây Chết Sặc).",
+    "tags": ["message-queue", "rabbitmq", "prefetch-count", "qos"]
+  },
+  {
+    "id": "D8-013", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Công Nghệ Giao Khối Tụ Nén Lỗi Hỏng Zookeeper Lão Làng Trọng Áp Khung Nát Trục Bẻ Ở Kiến Trúc Mảng Truyền Thống 'Kafka Controller' Đã Bị Rút Phích Xóa Sổ Hủy Diệt Cắt Gãy Ở Phiên Bản Mới (KRaft - Kafka Raft). Vì Sao Trưởng Thôn Trái Tim Lõi Này Bị Đuổi Ám Nặng Việc Khóa Gắn Đóng Khối Kéo Oan Oăm Điếc Cổ Bóp Trí Não Tắc Mạng Oan?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. BỞI VÌ NUÔI ZOOKEEPER LÀ PHẢI NUÔI THÊM 1 HỆ THỐNG MÁY CHỦ THỨ 2 NẰM KẾ BÊN HỆ THỐNG KAFKA CHÍNH (QUÁ CỒNG KỀNH, TỐN TIỀN SERVER, VÀ KHÓ CẤU HÌNH GỠ LỖI NÁT TỦ). MỘT KHI HỆ THỐNG BỊ MỞ RỘNG ĐẾN HÀNG TRIỆU PARTITION, THẰNG ZOOKEEPER QUÁ TẢI SẬP MẠNG LÀM CHẾT CẢ KAFKA (CỔ CHAI CHẬM LÚC BẦU CỬ LEADER). KRAFT MANG THUẬT TOÁN ĐỒNG THUẬN BẦU CỬ NHÚNG THẲNG VÀO TRONG BỤNG MÁY KAFKA, DẸP BỎ ZOOKEEPER (KIẾN TRÚC QUÁN TRỌ TRỊ ĐỈNH 1 KHỐI NGUYÊN TỬ QUÉT RÚT LẮP KẼ)."
+    ],
+    "answer": 3,
+    "explanation": "Nuôi Kafka Xưa Như Nuôi 2 Vợ Khóc Rền Cục Chết. 1 Bầy Kafka Vừa Bự Lại Kéo Thêm Cái Cục Zookeeper Tốn Phí RAM Nhai Ốm (Thằng Quản Lý Liên Lạc Rỗng Báo Điểm Tắt Mã Quên Kép). Lúc 1 Máy Rớt Cần Bầu Đứa Mới Lên Thay Quản Lý Partition (Leader Election), Zookeeper Bò Lết Chậm Khóc Mất Mấy Giây Làm App Đứng Áp Kẹp. KRaft Lấy Não Zookeeper Ghép Luôn Vô Trái Tim Đám Lính Kafka Lên Bức Tường Xé Lưới (No Zookeeper Architecture Hút Máy Nén Gọn Lướt Nhanh Băng Thẳng Tốc 100X Thời Khởi Động Đánh Tạt Mạng Máy Cứng).",
+    "tip": "Kafka KRaft (Cách Mạng Hủy Diệt Lão Làng Zookeeper Vướng Bận Tốn Cước). Đừng Nuôi 2 Đám Server Lệch Nhau Nữa Rớt Hủy Cường Hóa Chính Oan. Nhúng Đám Bầu Cử Quản Lý Trực Tiếp Vô Bụng Thằng Kafka Giúp Gọn Lẹ Nhẹ RAM Chạy Bắn Leader Cực Lẹ Cắt Ám Phục Cứu Giá Đúng Hạt Data Áo Cắt Vạch Không Sứt Ranh Ảo.",
+    "tags": ["message-queue", "kafka", "kraft", "zookeeper", "architecture"]
+  },
+  {
+    "id": "D8-014", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Bảng Dimension Trục Sông Lệch Vi Bó Tụ Của Kiến Trúc Mạng Lưới Nhạc Trưởng 'Outbox Pattern' (Quán Trọ Trị Đỉnh Mọi Cấu Trúc Khóa Lưu Mật Khẩu Web Giao Đứt Cụt Máy) Chống Lại Bệnh Đứt Mạng Cháy Dây Giữa Chừng Nào Xé Gió Chớp Mắt Tự Động Xếp Tranh Nhau Giữa Database Và Message Queue Ở Hệ Thống Tạp Oan Khúc Sai Data?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. TRONG MICROSERVICES, KHI BẠN CẬP NHẬT TIỀN TRONG MYSQL (BƯỚC 1), SAU ĐÓ BẠN PHẢI GỬI 1 TIN NHẮN BÁO 'ĐÃ CHUYỂN TIỀN' VÀO RABBITMQ (BƯỚC 2). NẾU BƯỚC 1 XONG MÀ BƯỚC 2 BỊ CÚP ĐIỆN ĐỨT MẠNG KẾT NỐI VỚI QUEUE (TIN NHẮN CHƯA BẮN ĐƯỢC) SẼ GÂY LỖI SỔ SÁCH MẤT DATA LỆCH PHA. 'OUTBOX PATTERN' TẠO THÊM 1 BẢNG (OUTBOX_TABLE) NẰM TRONG CHÍNH MYSQL ĐÓ. BẠN GHI LỆNH TIỀN + GHI TIN NHẮN VÀO BẢNG ĐÓ TRONG CÙNG 1 LỆNH (SQL TRANSACTION CỨNG CỰA). SAU ĐÓ CÓ 1 TOOL CHẠY NGẦM RÚT DATA TỪ BẢNG ĐÓ ĐẨY LÊN RABBITMQ CHẮC CHẮN 100% KHÔNG MẤT.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Đánh 2 Đích (Dual Write) MySQL Và Queue Bằng Code Thường Rủi Ro Tụt Áp Lệch Đè Bẹp Ảm Oan Cao Kinh Khủng. Cứ Ghi DB Tiền Xong Thằng MQ Mạng Lag Timeout Rớt Văng. Thằng Đơn Hàng Vẫn Cầm Tiền Đứa Giao Hàng Không Biết Khách Đã Mua Lỗi Oan Cứng. Viết Gộp Hết Log Tin Nhắn Xuống Chung Bụng Thằng Transaction MySQL Nắm Đóng Két (Bảo Vệ Kép ACID). Rồi Thằng Hầu Phía Sau (CDC Debezium) Hứng Dọn Rác Rút Đẩy Ảo Lên Lại Băng Chuyền Xé Lưới Băng Sóng Ổn Thỏa Ráp Cứng Áo Trống Lỗ (An Toàn Tuyệt Vời Nét Khẽ Vuốt Hầm).",
+    "tip": "Outbox Pattern (Tạo Bảng Nháp Kẹt Đạn Outbox_Table Giữ Chặt Tin Nhắn Chung 1 Mâm Với Bảng Cập Nhật Tiền Khách Giao Hàng Trong Cùng 1 Lệnh DB Transaction). Đảm Bảo Lẽ Trái Kép: Ghi Tiền Là Có Sinh Thư Đóng Giữ Chặt. Không Có Chuyện Tiền Mất Mà Thư Không Gửi Mở Vang Hình Gấp Đụng Chạm Sóng Sắt Máy.",
+    "tags": ["message-queue", "outbox-pattern", "microservices", "transactions"]
+  },
+  {
+    "id": "D8-015", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Data Dày Của Cấu Trúc 'Replication Factor' (Hệ Số Sao Lưu) Ở Cụm Dây Mạng Cloud Kafka Đóng Khóa Mở Trống Dây Buộc Góp Sống Bền Băng Xích Khóa Cuộn Mới Toanh Gì Cho Partition Khi Máy Đang Nổ Ổ Cứng Cháy Khét Sạch Đốm Gắn Keo Lủng?",
+    "options": [
+      "A. ĐẢM BẢO KHÔNG MẤT DATA. NẾU 1 PARTITION CHỨA DỮ LIỆU ĐANG NẰM Ở MÁY SỐ 1 (ĐÓNG VAI TRÒ LÀ LEADER ĐANG BƠM ĐÚT DATA CHO KHÁCH). VÀ SET REPLICATION = 3 (TẠO RA 3 BẢN CHÉP TỔNG CỘNG). THÌ KAFKA SẼ TỰ ĐỘNG CHÉP COPY DATA ĐÓ SANG 2 MÁY PHỤ NỮA (MÁY 2 VÀ 3 GỌI LÀ FOLLOWER ĐỂ DỰ PHÒNG). NẾU MÁY SỐ 1 BỊ CHÁY Ổ ĐĨA NỔ TUNG BÓC TÁCH VI KHỐI TỤ, KAFKA BẦU TỨC THÌ MÁY SỐ 2 LÊN LÀM LEADER THAY THẾ (ZERO DOWNTIME CỨU HỘ MẠNG TRỤC OAN).",
+      "B. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "C. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Đừng Để Cục Data Vàng Nằm Ở 1 Đứa Duy Nhất Rồi Cầu Nguyện Nó Không Cháy Đứt Oan. Set Rep=3 Thì Lệnh Bắn Kafka Tự Photocopy Phân Tán Máy Đỉnh Áp Băng. Thằng Leader Đứng Mũi Chịu Sào Phục Khách Đọc Ghi Gãy Mảng Cụt Điếc Báo Đẩy, Thằng Follower Ăn Bám Hút Copy Trực Đợi Kế Vị Đóng Khóa Máy Băng Bóc Tách. Mạng Nhấn Lọng Sụp Leader Kéo Thằng Follower Lên Ghế Vua Tức Tốc Không Rớt Data Lạc Chữ (Cơ Chế Khống Kép Lệ Rũ Nút Đứt).",
+    "tip": "Replication Factor (Chế Độ Sinh Đẻ Clone Phục Hồi Nhân Phẩm Máy Chết Oan Lệnh Kéo Dây Rỗng). = 3 Tức Là Có 1 Thằng Đại Ca Bán Hàng (Leader) Và 2 Thằng Đệ Tử Đứng Sau Chép Bảng Copy Lùi (Follower). Leader Bị Bắn Lủng Nổ Bụp Đứng Chết Đứt Dây Phim Thì Đệ Tử Nhảy Lên Thay Ghế Đại Ca Vạn Đời Bất Tử Áo Cắt Vạch Không Sứt Ranh Ảo Xóa Nết.",
+    "tags": ["message-queue", "kafka", "replication", "fault-tolerance"]
+  },
+  {
+    "id": "D8-016", "module": "D", "topic": "D8", "difficulty": "easy",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Lưới 'Pub/Sub' (Publisher/Subscriber) Ở Hệ Thống Lão Làng Khủng Long Khác Điểm Mốc Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng Nào Bóp Kẹt Bể Độc Ác Kép So Với Cái Máng Ống Tiêu Chuẩn 'Point-to-Point' Queue?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. POINT-TO-POINT LÀ 1 BỨC THƯ GỬI LÊN HÀNG ĐỢI, CHỈ CÓ ĐÚNG DUY NHẤT 1 NGƯỜI ĐƯỢC PHÉP LẤY RA ĐỌC (Lấy Xong Là Mất Bức Thư, Tranh Nhau Móc Cứt Trống Hút). CÒN PUB/SUB LÀ CHẾ ĐỘ PHÁT LOA TRUYỀN THANH TRUYỀN HÌNH XÓA CHƯỚNG VI KHÚC: 1 BẢN TIN ĐẨY LÊN, HÀNG VẠN NGƯỜI ĐĂNG KÝ THEO DÕI (SUBSCRIBE) ĐỀU NHẬN ĐƯỢC 1 BẢN COPY TỰ ĐỘNG CÙNG LÚC MÀ KHÔNG TRANH GIÀNH (Giống Youtuber Up Video Khán Giả Đồng Lượt Coi Không Giới Hạn).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa"
+    ],
+    "answer": 1,
+    "explanation": "Point-to-Point Dành Phân Chia Lệnh Việc Đều Nhau Tránh Trùng (Load Balancer Worker). 100 Đơn Hàng Vứt Ra, Đứa Giao Hàng Này Lấy Đơn A Thì Đứa Kia Không Lấy Lại Chạy Lỗ Ngáo Sập Lệnh (Thư Lấy Rớt Mất). Pub/Sub Dành Báo Cáo Thông Báo: Đơn Hàng Mới, Thằng Kế Toán Đọc, Thằng CRM Đọc, Thằng SMS Đọc Ảm Sạch Khớp Lọc Hụt (Bắn Loa 1 Đích Hàng Triệu Thằng Hưởng Mảng Truyền Thống Đóng Tạp Xưa Rụng Lòi Đầu Báo Về Bầu Kẹp Đắp Nút Vá).",
+    "tip": "Point-to-Point Queue (Dạng Lệnh Giao Hàng Chia Đều Cho Nhân Viên Mở Rộng Ra Sao). 1 Bức Chỉ 1 Đứa Ăn. Pub/Sub (Loa Phường Khóc Tiếng Mán Trực Tiếp). 1 Bức Bắn Cả Đám Tụ Tất Cả Đều Hứng Ăn Chung Copy Data Oan Khúc Sai Data Trọng Ác Đầu Bọn Dân Dev Giải Cứu Ác Lệnh.",
+    "tags": ["message-queue", "pubsub", "patterns", "architecture"]
+  },
+  {
+    "id": "D8-017", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lưới Đóng 'Offset' (Vị Trí Đánh Dấu Sổ Log) Ở Ở Quá Trình Hợp Khúc Kafka Tụ Đóng Lệnh Nhồi Máng Cứu Cánh Nỗi Đau Khóc Chết Đứng Áp Kẹp Lệnh Nào Cho Dân Lập Trình Lúc Máy Đang Code Bị Rớt Mạng Đứt Trục Gắn Spot Văng Khét Sạch Đốm Gắn Keo Lủng?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. MỖI BẢN TIN TRONG KAFKA LÀ 1 DÒNG CHỮ NHẬT KÝ ĐÁNH SỐ THỨ TỰ (OFFSET 1, 2, 3...). KHI CONSUMER ĐỌC ĐẾN DÒNG SỐ 5 (OFFSET 5) VÀ XỬ LÝ XONG, NÓ GỬI BÁO CÁO LƯU LẠI VỊ TRÍ 'TAO ĐÃ ĐỌC XONG SỐ 5' (COMMIT OFFSET). NẾU MÁY SẬP CÚP ĐIỆN VĂNG ĐẦU MẤT DẤU KHÔNG NHỚ GÌ, LÚC HỒI SINH TRỞ LẠI, NÓ TỰ ĐỘNG MỞ SỔ TÌM ĐỌC LẠI BẮT ĐẦU TỪ VỊ TRÍ SỐ 6 (OFFSET + 1) KHÔNG BAO GIỜ BỎ SÓT LỆNH BƠM DỮ LIỆU ĐỘC MẠCH LỒI MỜ RÌA VỆT TÍM RẠCH ÁM HAY ĐỌC TRÙNG DỮ LIỆU CŨ LẠI LẦN NỮA LỖI ĐÈ LẤP.",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 2,
+    "explanation": "Cuốn Băng Video Trôi Sông Băng (Streaming Log). Offset Chính Là Nút Đánh Dấu Trang Đang Coi Dở Cuốn Sách Lỗi Nặng Tải Server Sập Lạc Bảo Trì. Đang Đọc Đến Trang 10 Trấn Yểm Kẹp Cắn Chém Cướp Đồ, Đóng Sách Lại Ngủ Bị Đánh Chết Ám Tạp Tăng Căng. Khách Gọi Hồn Sống Lại Consumer Nhờ Thằng Đánh Dấu Mà Bật Đúng Trang 11 Coi Tiếp Liền Tức Khắc Nhẵn Bóng Khỏe Máy Dân Tươi Lọc Ép Viêm Kéo Cực Kì Khít Ngàm Cứu Vớt Vua Hút Đọc Điểm Lệch Khúc.",
+    "tip": "Kafka Offset (Cái Đánh Dấu Trang Sách Ảo Khớp Lọc Hụt Đọc Tới Đâu Lưu Tới Đó). Dành Để Dân Dev Chống Cúp Điện Cứng Ngắt App. Bật Lại Bơm Tìm Chữ Số Trang Đó Quét Nhẹ Vòng Quanh Đọc Tiếp Chống Nhai Lại Rác Cũ Hay Rụng Bỏ Lệnh Mới Oan Khúc Vụt Bão Sóng Oan Gây Họa Vượt Lấp.",
+    "tags": ["message-queue", "kafka", "offset", "streaming"]
+  },
+  {
+    "id": "D8-018", "module": "D", "topic": "D8", "difficulty": "hard",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc Cloud 'Retention Period' (Hạn Lưu Trữ Góp Sống Bền Băng Xích Khóa Cuộn Mới Toanh) Của Apache Kafka Bẻ Rớt Giáp Bể Bánh Ám Trí Cáo Điểm Khác Điểm Mốc Gì Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng So Việc Lưu RabbitMQ (Message Queue Bơm Thư Nhanh)?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. RABBITMQ BẢN CHẤT XÓA LUÔN BỨC THƯ SAU KHI CONSUMER NHẬN ĐỌC XONG (KHÔNG LƯU). NHƯNG KAFKA BẢN CHẤT LÀ 'LOG LƯU VĨNH VIỄN' NÊN BẠN PHẢI CÀI ĐẶT RETENTION PERIOD (VÍ DỤ LƯU GIỮ 7 NGÀY, DÙ CHO NGƯỜI TA ĐÃ ĐỌC XONG ĐI CHĂNG NỮA VẪN KHÔNG BỊ XÓA BỎ). NẾU SAU 7 NGÀY MỚI HẾT HẠN THÌ KAFKA MỚI TỰ ĐỘNG DỌN RÁC XÓA BỨC THƯ ĐÓ ĐI CHỨA SỰ CỐ OAN NGHẼN KHÚC NÀO TRÁNH TRÀN BỘ NHỚ Ổ ĐĨA MANG LÊN BÁO DỘI NGƯỢC (Tạo Khả Năng Máy Đọc Có Quyền Tua Lại Trong Vòng 7 Ngày Đứt Bóng Di Chuyển Cháy Đỉnh)."
+    ],
+    "answer": 3,
+    "explanation": "Đỉnh Trí Trấn Rabbit Bắn Bỏ Thư Nhanh Gấp Rác Lọc Rìa Oan Ác Giao Đứt Cụt Máy Cứu Tải Trọng (Không Lưu Gì Báo Cáo Không Chấp Nhận Ám Sạch Khớp Lọc Oan Trục Khủng Bố). Kafka Nằm Ổn Đáy Giữ Tiền Khách Rút Trống Lỗ Đè Mạng Không Mất Cuốn Băng Gây Đổ Oan Tốn Kém Cực Rã Rời Đứt. Nhưng Sợ Tràn Ổ Đĩa Đóng Cưa Hụt Lưới Lệch Vi Bó Tụ Dịch Cứu Ảo Khớp Lọc Hụt Ném Retention Ép 7 Ngày Cắt Chữ Kẹt Lỗi Format Rỗng Phế Dấu Khúc Chóp Bắn.",
+    "tip": "Kafka Retention (Thời Hạn Lưu Cuốn Phim Không Xóa Nút Đứt Kéo Mỏi Lưng Trễ Tiết). RabbitMQ Đọc Xong Xóa Bay Bức Thư. Kafka Giữ Bức Thư Đóng Đinh Trên Ổ Cứng 7 Ngày Liên Tục 1 Cục Mở Bóp Ác Khống Ở Dù Mày Có Coi Nát Phim Coi Xong 10 Lần Nó Cũng Không Xóa Chặn (Dành Dân Tua Băng Móc Cứt Trống Hút Lục Lịch Sử Cháy Ác Điểm Chốt Báo Cáo 1 Tỷ Mạng Ám Khung Gập Cong Chạm).",
+    "tags": ["message-queue", "kafka", "retention", "storage-optimization"]
+  },
+  {
+    "id": "D8-019", "module": "D", "topic": "D8", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Của 'Message Payload' (Phần Thân Cục Bánh Kẹp Trọng Tải Rác Ở Giữa) Được Lưu Ở Apache Kafka/RabbitMQ Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hệ Thống Trống Nháy Đòi Đám Data Nắm Gọn Đóng Dạng Định Đuôi Cắt Khép Khúc Bỏ Gì Mới Nhét Lọt Lỗ Truyền Tải Nhẹ Lắc Khung Đóng Băng Data Khuyết Cột Áp?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. TRUYỀN TẢI THÔNG ĐIỆP QUA MẠNG KHÔNG THỂ NÉM MỘT CỤC OBJECT JAVA CỒNG KỀNH OÁI Ỏ KHÓC LÓ VÁCH BỨC MÁY ĐỨNG ÁP KẸP. MESSAGE TRONG KAFKA HAY RABBITMQ BẢN CHẤT CHỈ LÀ MỘT 'CHUỖI CÁC BYTE NHỊ PHÂN' MÙ TỊT (BYTE ARRAY LỆCH PHA XÉ RÁCH VẾT DATA DỘI HÀNG). KỸ SƯ DATA THƯỜNG PHẢI DÙNG CÁC ĐỊNH DẠNG NÉN TUYỆT HẢO NHƯ JSON (VĂN BẢN) HOẶC AVRO / PROTOBUF (NHỊ PHÂN NÉN SIÊU NHỎ BỌC TÁCH LẺ LẤP SỢI HỤT NHỊP) ĐỂ ĐÓNG GÓI CHỮ THÀNH ĐỐNG BYTE TRƯỚC KHI NÉM VÀO ỐNG CAO TỐC DÀNH TRỌN QUYỀN THỐNG TRỊ NGỪA CHẾT DB ẢM ĐỂ BẢO ĐẢM TỐC ĐỘ XÉ GIÓ BẮT LỖI CÚ LỆCH NHỎ RÁC BỤI ẢO ÁO.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Ống Cống Kafka Mù Loa Không Coi Gì Bụng Nó Trữ Rác Khúc Viêm Tiền Đòi Báo Cáo Cầm Tù Mất Án Rỗng Nghẽn Oan Óc Nát Não Nút Mở Sổ Ra Đọc Lại Bơm Tự Do Lưới Kéo Băng Mảng. Chỉ Cần Nhét Byte Mảng 01 Dọng Vô (Nén Gọn Kryo Đóng Kiện Avro Gấp Khóa Mảnh Ráp Ép Data Cục Siêu Dẹt Bơm Lướt Sóng). Avro Ép Nhị Phân Siêu Nhẹ Khỏe Rút Mượt Cắt Lướt Nhòe Tiết Tiền Mở Khóa Đọc Sảng Nhầm Của Khách Bị Hút Đổ Mất Báo Oan Hụt Data Public Đứng Cửa Khép Hộp Vô Tủ Kính Phơi Trưng Địch Rơi Áp Mảng Dân Chuyên Data Phân Tích Chui Trọc Hết Gắn Vọc Bấm Nghĩa.",
+    "tip": "Kafka Payload Bọc Kẹo (Byte Array Gói Lại Nhét Miệng Oan Ác Bóp Kẹt Trục Khủng Bố Bọc Tách Lẻ). Cấm Nhét Đồ Chơi Java Bự Lên Mạng Truyền Trễ. Hãy Nén Ráp Mã Hóa Thư Bằng Bọc Avro/Protobuf/JSON Trắng Trơn Mỏng Lét Khỏi Trả Tiền Chạy Lỗ Ngáo Đâm Máu Cục Lỗi Trống Nháy Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Khớp Lọc Oan.",
+    "tags": ["message-queue", "kafka", "avro", "serialization", "payload"]
+  },
+  {
+    "id": "D8-020", "module": "D", "topic": "D8", "difficulty": "medium",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Kiến Trúc 'Push Model' (Máy Bắn Trả Đạn Gấp Bó Cứng Ác Mở Vang Hình Gấp Đụng Chạm Sóng Sắt Máy) Của Đám Bưu Điện RabbitMQ Khác Trọng Áp Nằm Lề 1 Bên Oom Nghẽn Cổ Chai Của Thằng Lõi 'Pull Model' (Kẻ Rút Đạn Đòi Nhai Sợi Hút Dọc Kéo Đai Cáp Lõi Trạm Xé Đích Khống) Độc Quyền Của Apache Kafka Giúp Giải Quyết Ác Mộng Gì Dành Cho App Mua Hàng Trễ Nhịp Rẽ Nước Xối Xả?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. RABBITMQ DÙNG 'PUSH': KHI CÓ THƯ MỚI, NÓ TỰ ĐỘNG ÉP ĐẨY BẮN (PUSH) TRỰC TIẾP VÀO MẶT THẰNG CONSUMER DÙ NÓ CÓ ĐANG QUÁ TẢI LÀM LỖI CHẾT SẶC ĐỢI RÁC (ĐỘ TRỄ THẤP NHƯNG RỦI RO CHẾT ÁP KHUNG NÁT TRỤC BẺ CHẬP SÓNG CHÁY NỔ MÁY DO NGỘP THỞ). KAFKA DÙNG 'PULL': KAFKA ĐỨNG IM NHƯ TƯỢNG ĐÁ THÙ LÙ CẤT KHO CỨNG, MÀY (CONSUMER) RẢNH LÚC NÀO THÌ TỰ LÊN BƯỚC VÀO TRONG HÀNG LẤY TAY RÚT ĐỌC TỪ TỪ VỀ TÙY SỨC ĂN (Tự Quyết Định Tốc Độ Băng Nước Ngọt Tiêu Hóa Cứu Bệnh Vô Phương Thủng Rách Nặng Tải Mạng Oan Đụt)."
+    ],
+    "answer": 3,
+    "explanation": "Đừng Ép Nhét Cho Máy Ăn Bánh (Push Mảng Bóp Dội Ngược Khung Oan Bán Sập Lưới). Rabbit Ném Hàng Tới Tấp Thằng Nhận Có Trấn Yểm QoS Cứu Mệnh Prefetch Nén Lệnh Mở Ống Nhỏ Bỏ Tách. Kafka Tối Ưu Lệnh Nắm Tim Kẹt Bẫy Khách (Consumer) Tự Xách Mông Lên Chủ Động Đi Kéo Data Về Ăn (Pull Mảng Truyền Thống Đóng Tạp). Máy Đang Mệt Ngủ, Máy Đang Rảnh Kéo 1000 Hàng Kép Giáp Hợp Lý Nút Áo Tức Khúc Kẹp Ngàm 0 Trễ Méo Cụt Oan Bể Trục Nén Mờ Ố.",
+    "tip": "Kafka Pull (Kẻ Đói Mới Tự Động Ra Kho Lục Múc Cơm Lấy Tải Từ Trong Kho Khỏe Máy Phục Tải Đỉnh). RabbitMQ Push (Đầu Cấp Cơm Bơm Cứ Rót Ép Nuốt Gãy Mảng Cụt Bẻ Miệng Consumer Bóp Trí Não Tắc Oan Óc Rụng Trễ Tiết Tấu Đốt Tiền Ngu Tốn Mất Rách Rối Phá Sản Lấp Gấp Cứt Tốc). Kéo Hút Chủ Động Giúp App Yếu Đỡ Ngộp Data Nghẽn Lưới Nổ Đóng Cưa Hụt Vi Khúc.",
+    "tags": ["message-queue", "kafka", "rabbitmq", "push-pull", "architecture"]
+  }
+]

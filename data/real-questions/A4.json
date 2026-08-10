@@ -1,0 +1,277 @@
+[
+  {
+    "id": "A4-001", "module": "A", "topic": "A4", "difficulty": "easy",
+    "question": "Phân phối Bernoulli là phân phối cho thử nghiệm có bao nhiêu kết quả có thể xảy ra?",
+    "options": ["A. 1", "B. 2", "C. 3", "D. Vô hạn"],
+    "answer": 1,
+    "explanation": "Phân phối Bernoulli mô tả một thử nghiệm ngẫu nhiên chỉ có đúng 2 kết quả khả dĩ: Thành công (xác suất p) hoặc Thất bại (xác suất 1-p = q).",
+    "tip": "Bernoulli = Lật đồng xu (Đầu/Đuôi, Thành công/Thất bại).",
+    "tags": ["probability-distribution", "bernoulli"]
+  },
+  {
+    "id": "A4-002", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Mối quan hệ giữa Phân phối Nhị thức (Binomial) và Phân phối Bernoulli là gì?",
+    "options": [
+      "A. Không có quan hệ gì",
+      "B. Binomial là tổng của n biến Bernoulli ĐỘC LẬP có cùng xác suất p",
+      "C. Bernoulli là tổng của n biến Binomial",
+      "D. Chúng là một"
+    ],
+    "answer": 1,
+    "explanation": "Phân phối Nhị thức B(n, p) mô tả số lần 'Thành công' trong n phép thử Bernoulli độc lập, mỗi phép thử có xác suất thành công là p.",
+    "tip": "1 lần lật xu = Bernoulli. n lần lật xu = Binomial.",
+    "tags": ["probability-distribution", "binomial", "bernoulli"]
+  },
+  {
+    "id": "A4-003", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Biến ngẫu nhiên X tuân theo phân phối Nhị thức B(n, p). Kỳ vọng E[X] và Phương sai Var(X) lần lượt là:",
+    "options": [
+      "A. np và np",
+      "B. np và np(1-p)",
+      "C. p và p(1-p)",
+      "D. n/p và n/(p^2)"
+    ],
+    "answer": 1,
+    "explanation": "Kỳ vọng E[X] = np. Phương sai Var(X) = npq (với q = 1-p). Đây là những công thức cơ bản và rất hay gặp của phân phối Nhị thức.",
+    "tip": "Kỳ vọng Binomial = n*p. Phương sai = n*p*(1-p).",
+    "tags": ["probability-distribution", "binomial", "expected-value", "variance"]
+  },
+  {
+    "id": "A4-004", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Phân phối Poisson thường được sử dụng để mô hình hóa điều gì?",
+    "options": [
+      "A. Thời gian chờ đợi cho đến khi một sự kiện xảy ra",
+      "B. Số lượng sự kiện xảy ra trong một khoảng thời gian hoặc không gian cố định",
+      "C. Chiều cao của con người",
+      "D. Xác suất thành công của một thử nghiệm"
+    ],
+    "answer": 1,
+    "explanation": "Phân phối Poisson (với tham số λ - trung bình số sự kiện) đếm số lượng sự kiện xuất hiện ngẫu nhiên và độc lập trong một khoảng thời gian (ví dụ: số email nhận được trong 1 giờ, số khách vào cửa hàng trong 1 ngày).",
+    "tip": "Poisson = 'Đếm số lượng sự kiện' (Count occurrences) trong 1 khoảng thời gian/không gian.",
+    "tags": ["probability-distribution", "poisson"]
+  },
+  {
+    "id": "A4-005", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Đặc điểm toán học ĐẶC BIỆT NHẤT của phân phối Poisson (tham số λ) là gì?",
+    "options": [
+      "A. Nó là phân phối liên tục",
+      "B. Kỳ vọng và Phương sai của nó bằng nhau (E[X] = Var(X) = λ)",
+      "C. Xác suất lớn nhất luôn tại X = 0",
+      "D. Nó hoàn toàn đối xứng"
+    ],
+    "answer": 1,
+    "explanation": "Tính chất nổi bật của phân phối Poisson là cả Kỳ vọng toán học (Mean) và Phương sai (Variance) đều bằng chính tham số λ.",
+    "tip": "Poisson: Mean = Variance = λ.",
+    "tags": ["probability-distribution", "poisson", "variance"]
+  },
+  {
+    "id": "A4-006", "module": "A", "topic": "A4", "difficulty": "easy",
+    "question": "Phân phối chuẩn (Normal Distribution / Gaussian) có đồ thị hàm mật độ hình gì?",
+    "options": [
+      "A. Hình chữ nhật",
+      "B. Hình chuông (Bell curve)",
+      "C. Hình nón",
+      "D. Đường thẳng"
+    ],
+    "answer": 1,
+    "explanation": "Đồ thị PDF của phân phối chuẩn nổi tiếng với hình dáng cái chuông (bell-shaped), đối xứng hoàn toàn qua giá trị trung bình (mean).",
+    "tip": "Normal/Gaussian = Bell curve (Đường cong hình chuông).",
+    "tags": ["probability-distribution", "normal-distribution"]
+  },
+  {
+    "id": "A4-007", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Phân phối chuẩn hóa (Standard Normal Distribution) có Kỳ vọng (μ) và Độ lệch chuẩn (σ) là bao nhiêu?",
+    "options": [
+      "A. μ = 1, σ = 0",
+      "B. μ = 0, σ = 0",
+      "C. μ = 0, σ = 1",
+      "D. μ = 1, σ = 1"
+    ],
+    "answer": 2,
+    "explanation": "Biến đổi Z (Z-score) chuyển đổi một phân phối chuẩn bất kỳ thành phân phối chuẩn hóa có trung bình μ = 0 và phương sai σ^2 = 1 (do đó độ lệch chuẩn σ = 1). Ký hiệu N(0, 1).",
+    "tip": "Standard Normal N(0,1): Mean = 0, Std = 1.",
+    "tags": ["probability-distribution", "normal-distribution", "standard-normal"]
+  },
+  {
+    "id": "A4-008", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Trong Phân phối chuẩn, 'Quy tắc thực nghiệm' (Empirical Rule) hay quy tắc 68-95-99.7 chỉ ra rằng khoảng 95% dữ liệu nằm trong khoảng nào?",
+    "options": [
+      "A. μ ± 1σ (Trung bình cộng trừ 1 độ lệch chuẩn)",
+      "B. μ ± 2σ (Trung bình cộng trừ 2 độ lệch chuẩn)",
+      "C. μ ± 3σ (Trung bình cộng trừ 3 độ lệch chuẩn)",
+      "D. μ ± 4σ"
+    ],
+    "answer": 1,
+    "explanation": "Quy tắc 68-95-99.7 cho phân phối chuẩn: 68.27% dữ liệu nằm trong [μ-1σ, μ+1σ], 95.45% nằm trong [μ-2σ, μ+2σ], và 99.73% nằm trong [μ-3σ, μ+3σ].",
+    "tip": "68% (1 sigma), 95% (2 sigma), 99.7% (3 sigma).",
+    "tags": ["probability-distribution", "normal-distribution", "empirical-rule"]
+  },
+  {
+    "id": "A4-009", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Định lý Giới hạn Trung tâm (Central Limit Theorem - CLT) phát biểu điều gì?",
+    "options": [
+      "A. Mọi biến ngẫu nhiên đều tuân theo phân phối chuẩn",
+      "B. Tổng (hoặc trung bình) của số lượng lớn các biến ngẫu nhiên độc lập cùng phân phối sẽ tiến tới phân phối chuẩn, bất kể phân phối gốc là gì",
+      "C. Mẫu càng lớn thì phương sai càng nhỏ tiến tới 0",
+      "D. Chỉ các biến liên tục mới có giới hạn trung tâm"
+    ],
+    "answer": 1,
+    "explanation": "Đây là lý do vì sao Phân phối Chuẩn lại quan trọng nhất trong thống kê và ML. Dù dữ liệu gốc có hình dạng kỳ cục đến đâu, nếu ta lấy trung bình của n mẫu (n đủ lớn, thường n >= 30), phân phối của các TRUNG BÌNH MẪU đó sẽ có dạng hình chuông (chuẩn).",
+    "tip": "CLT = Tổng/Trung bình của nhiều biến ngẫu nhiên sẽ hội tụ về Phân phối Chuẩn (Normal Distribution).",
+    "tags": ["probability-distribution", "central-limit-theorem", "statistics"]
+  },
+  {
+    "id": "A4-010", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Phân phối đều (Uniform Distribution) liên tục trên đoạn [a, b] có hàm mật độ f(x) bằng bao nhiêu với mọi x thuộc [a, b]?",
+    "options": [
+      "A. 1",
+      "B. (a + b) / 2",
+      "C. 1 / (b - a)",
+      "D. b - a"
+    ],
+    "answer": 2,
+    "explanation": "Vì diện tích dưới đồ thị hàm mật độ phải bằng 1, và đồ thị của phân phối đều là hình chữ nhật trải dài từ a đến b (chiều dài là b-a), nên chiều cao của nó (f(x)) phải là 1 / (b - a).",
+    "tip": "Diện tích hcn = rộng x cao = 1. Rộng = b-a => Cao = 1 / (b-a).",
+    "tags": ["probability-distribution", "uniform-distribution", "continuous"]
+  },
+  {
+    "id": "A4-011", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Phân phối Mũ (Exponential Distribution) thường được dùng mô phỏng gì và tính chất đặc biệt nhất của nó là gì?",
+    "options": [
+      "A. Mô phỏng chiều cao; Tính chất đối xứng",
+      "B. Mô phỏng thời gian chờ giữa 2 sự kiện; Tính chất 'Không nhớ' (Memoryless)",
+      "C. Mô phỏng số người; Tính chất tuyến tính",
+      "D. Mô phỏng phân loại; Tính rời rạc"
+    ],
+    "answer": 1,
+    "explanation": "Phân phối mũ mô phỏng thời gian giữa các sự kiện xảy ra liên tiếp trong quá trình Poisson. Tính 'Không nhớ' (Memoryless) nghĩa là: việc bạn đã chờ bao lâu không làm thay đổi xác suất bạn phải chờ thêm một khoảng thời gian t nữa (vd: tuổi thọ bóng đèn không phụ thuộc thời gian nó đã sáng).",
+    "tip": "Exponential (Mũ) = Thời gian chờ. Đặc tính 'Memoryless' (Không có trí nhớ).",
+    "tags": ["probability-distribution", "exponential-distribution", "memoryless"]
+  },
+  {
+    "id": "A4-012", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Nếu X tuân theo phân phối Chuẩn N(μ, σ^2) và ta đặt Z = (X - μ) / σ. Z tuân theo phân phối gì?",
+    "options": [
+      "A. N(μ, 1)",
+      "B. N(0, σ^2)",
+      "C. N(0, 1) - Phân phối chuẩn hóa",
+      "D. Phân phối Student's t"
+    ],
+    "answer": 2,
+    "explanation": "Phép biến đổi Z (Z-score standardization) trừ đi kỳ vọng và chia cho độ lệch chuẩn. Kết quả luôn là một biến ngẫu nhiên tuân theo phân phối chuẩn tắc (Standard Normal) N(0, 1).",
+    "tip": "Z-score = (X - Mean) / Std. Luôn đưa về N(0,1). Đây là kỹ thuật Standardization trong Data Preprocessing.",
+    "tags": ["probability-distribution", "normal-distribution", "z-score"]
+  },
+  {
+    "id": "A4-013", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Hàm Softmax thường được dùng ở lớp cuối của Mạng Neural để đưa kết quả về dạng của phân phối nào?",
+    "options": [
+      "A. Phân phối Chuẩn đa chiều (Multivariate Normal)",
+      "B. Phân phối Nhị thức (Binomial)",
+      "C. Phân phối Hạng mục (Categorical / Multinomial Distribution)",
+      "D. Phân phối Đều (Uniform)"
+    ],
+    "answer": 2,
+    "explanation": "Softmax biến một vector số thực (logits) thành một vector xác suất có tổng bằng 1. Đây chính là cách mô hình hóa phân phối Categorical (Hạng mục) cho bài toán phân loại nhiều lớp (Multi-class classification).",
+    "tip": "Softmax = Biến logits thành vector xác suất của Categorical Distribution.",
+    "tags": ["probability-distribution", "categorical", "softmax", "deep-learning"]
+  },
+  {
+    "id": "A4-014", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Trong AI/ML, Kullback-Leibler (KL) Divergence dùng để đo lường điều gì?",
+    "options": [
+      "A. Khoảng cách Euclidean giữa hai điểm dữ liệu",
+      "B. Sự khác biệt (thông tin bị mất) giữa hai phân phối xác suất P và Q",
+      "C. Tỉ lệ số biến cố độc lập",
+      "D. Trung bình bình phương sai số (MSE)"
+    ],
+    "answer": 1,
+    "explanation": "KL Divergence (D_KL(P||Q)) đo lường lượng thông tin bị mất đi nếu chúng ta dùng phân phối Q để xấp xỉ phân phối gốc P. Nó không đối xứng (D_KL(P||Q) ≠ D_KL(Q||P)) và là nền tảng của hàm loss Cross-Entropy.",
+    "tip": "KL Divergence = Khoảng cách/Sự khác biệt giữa 2 phân phối (Distribution).",
+    "tags": ["probability-distribution", "kl-divergence", "information-theory"]
+  },
+  {
+    "id": "A4-015", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Khoảng tin cậy (Confidence Interval - CI) 95% có ý nghĩa CHÍNH XÁC là gì trong Thống kê tần suất (Frequentist)?",
+    "options": [
+      "A. Có 95% xác suất tham số quần thể nằm trong khoảng vừa tính được.",
+      "B. Nếu ta lấy mẫu lại nhiều lần và tính CI, 95% số khoảng CI được tạo ra sẽ chứa tham số thực của quần thể.",
+      "C. Có 95% dữ liệu quần thể nằm trong khoảng đó.",
+      "D. Chắc chắn 95% mô hình AI dự đoán đúng."
+    ],
+    "answer": 1,
+    "explanation": "Trong thống kê Frequentist, tham số quần thể (population parameter) là MỘT HẰNG SỐ (không ngẫu nhiên). Xác suất chỉ nằm ở việc 'ta lấy mẫu'. Do đó, '95%' không phải là xác suất tham số nằm trong CI hiện tại, mà là 'tỉ lệ trúng đích' của phương pháp nếu lặp lại vô hạn lần.",
+    "tip": "CI 95%: Phương pháp lấy mẫu này sẽ 'chứa' tham số thực ở 95% các lần thí nghiệm, KHÔNG PHẢI là xác suất của tham số.",
+    "tags": ["statistics", "confidence-interval"]
+  },
+  {
+    "id": "A4-016", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Phân phối Student (t-distribution) khác gì với phân phối Chuẩn (Normal) N(0,1)?",
+    "options": [
+      "A. Nó không đối xứng",
+      "B. Nó có phần đuôi (tails) dày hơn (nặng hơn), thích hợp cho mẫu kích thước nhỏ",
+      "C. Nó chỉ có một đuôi dương",
+      "D. Kỳ vọng của nó luôn âm"
+    ],
+    "answer": 1,
+    "explanation": "Phân phối t giống phân phối chuẩn (hình chuông, đối xứng tâm 0), nhưng có đuôi béo hơn (fat tails), tức là xác suất xuất hiện các giá trị xa trung bình cao hơn. Điều này bù đắp cho sự không chắc chắn khi tính phương sai mẫu từ mẫu nhỏ (n < 30). Khi n lớn, phân phối t hội tụ về N(0,1).",
+    "tip": "t-distribution = Giống Normal nhưng 'đuôi béo' (fat tail), dùng khi số mẫu nhỏ.",
+    "tags": ["probability-distribution", "t-distribution", "statistics"]
+  },
+  {
+    "id": "A4-017", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Phân phối của tổng bình phương của k biến ngẫu nhiên độc lập phân phối chuẩn N(0,1) là phân phối gì?",
+    "options": [
+      "A. Phân phối Chuẩn (Normal)",
+      "B. Phân phối t (Student)",
+      "C. Phân phối Chi-bình phương (Chi-square distribution) với k bậc tự do",
+      "D. Phân phối F (F-distribution)"
+    ],
+    "answer": 2,
+    "explanation": "Định nghĩa: Chi-square (χ2) với k bậc tự do (degrees of freedom) chính là phân phối của tổng bình phương của k biến ngẫu nhiên chuẩn hóa chuẩn độc lập. Thường dùng trong kiểm định tính độc lập hoặc độ phù hợp mô hình (Goodness of fit).",
+    "tip": "Tổng bình phương của Z-scores = Phân phối Chi-bình phương.",
+    "tags": ["probability-distribution", "chi-square", "statistics"]
+  },
+  {
+    "id": "A4-018", "module": "A", "topic": "A4", "difficulty": "medium",
+    "question": "Một bài thi trắc nghiệm AI có 10 câu, mỗi câu 4 đáp án. Một học sinh chọn bừa. Xác suất làm đúng đúng 3 câu tuân theo phân phối nào?",
+    "options": [
+      "A. Poisson",
+      "B. Bernoulli",
+      "C. Nhị thức (Binomial)",
+      "D. Đều (Uniform)"
+    ],
+    "answer": 2,
+    "explanation": "Có n=10 phép thử độc lập. Mỗi phép thử có đúng 2 kết quả (Đúng/Sai) với xác suất thành công p = 1/4 (chọn 1 trong 4). Đếm số lần 'Thành công' -> Phân phối Nhị thức B(10, 0.25).",
+    "tip": "Đếm số lần THÀNH CÔNG trong N phép thử = Nhị thức (Binomial).",
+    "tags": ["probability-distribution", "binomial", "application"]
+  },
+  {
+    "id": "A4-019", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Trong Machine Learning, khi giả sử nhiễu (noise) của dữ liệu hồi quy tuyến tính (Linear Regression) tuân theo phân phối chuẩn (Gaussian), phương pháp Maximum Likelihood Estimation (MLE) tương đương với việc cực tiểu hóa hàm loss nào?",
+    "options": [
+      "A. Mean Absolute Error (MAE)",
+      "B. Mean Squared Error (MSE)",
+      "C. Cross Entropy Loss",
+      "D. Hinge Loss"
+    ],
+    "answer": 1,
+    "explanation": "Bằng toán học, cực đại hóa hàm likelihood (Log-Likelihood) của phân phối Gaussian dẫn đến việc loại bỏ các hằng số và lật ngược dấu trừ (thành cực tiểu hóa), phần còn lại chính là tổng bình phương sai số. Do đó: MLE + Gaussian Noise = MSE.",
+    "tip": "Nhiễu chuẩn (Gaussian) tương đương Hàm mất mát L2 (MSE).",
+    "tags": ["probability-distribution", "normal-distribution", "mle", "machine-learning"]
+  },
+  {
+    "id": "A4-020", "module": "A", "topic": "A4", "difficulty": "hard",
+    "question": "Phân phối Dirichlet (Dirichlet Distribution) là phiên bản đa chiều (multivariate) tổng quát hóa của phân phối nào?",
+    "options": [
+      "A. Phân phối Chuẩn (Normal)",
+      "B. Phân phối Beta (Beta distribution)",
+      "C. Phân phối Nhị thức (Binomial)",
+      "D. Phân phối Gamma (Gamma distribution)"
+    ],
+    "answer": 1,
+    "explanation": "Phân phối Beta dùng để mô tả xác suất của một tham số Bernoulli (p). Dirichlet là bản mở rộng của Beta, dùng để mô tả xác suất của các tham số của phân phối Hạng mục (Categorical). Dirichlet thường dùng làm Prior trong Topic Modeling (như LDA).",
+    "tip": "Dirichlet là phân phối của các phân phối (distribution over distributions), bản đa chiều của Beta.",
+    "tags": ["probability-distribution", "dirichlet", "beta"]
+  }
+]

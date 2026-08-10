@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C11-001", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Bài toán Nhận diện khuôn mặt (Face Recognition) diễn ra theo quy trình 2 bước tách biệt nào?",
+    "options": [
+      "A. Làm mờ ảnh và Xóa nền",
+      "B. Đếm số người và Tính tuổi",
+      "C. Bước 1: Face Detection (Tìm ra cái ô vuông chứa Khuôn mặt trong đám đông). Bước 2: Face Recognition (So khớp Khuôn mặt trong ô vuông đó xem đó là Nguyễn Văn A hay Trần Văn B).",
+      "D. Đọc mắt và Đọc môi"
+    ],
+    "answer": 2,
+    "explanation": "Đừng nhầm lẫn! Nhận diện điện thoại FaceID phải làm 2 chuyện. Nó quét để vẽ cái Khung Hình Chữ Nhật trên mặt bạn (Detection bằng Haar Cascade hoặc MTCNN). Sau đó nó trích xuất Vector của khuôn mặt đó, đem đọ với cái Vector của Chủ Máy lưu trong DB (Recognition bằng FaceNet/ArcFace).",
+    "tip": "Quy trình: Bắt cái mặt (Detection) -> Chấm tọa độ Đọ mặt (Recognition/Verification).",
+    "tags": ["computer-vision", "face-recognition", "face-detection"]
+  },
+  {
+    "id": "C11-002", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Kiến trúc Siamese Network (Mạng Sinh Đôi) dùng để huấn luyện FaceID khác với Phân Loại Ảnh Thông thường (Image Classification) ở chỗ nào?",
+    "options": [
+      "A. Nó có 2 GPU",
+      "B. Thay vì Nhả ra 'Tên' của 1 người (Class) (Cực dở vì mỗi lần công ty có nhân viên mới phải Train lại AI). Nó Nhận 2 bức ảnh, Bóp nát thành 2 Vectors và Tính ĐỘ TƯƠNG ĐỒNG KHOẢNG CÁCH. Khoảng cách < 0.6 => Cùng 1 người. Nhờ vậy cty thêm 1000 người mới cũng KHÔNG CẦN TRAIN LẠI.",
+      "C. Nó đoán tuổi của người trong ảnh",
+      "D. Nó sinh ra 2 bức ảnh mới"
+    ],
+    "answer": 1,
+    "explanation": "Cài FaceID cho Apple, Apple không thể lấy mặt của 1 triệu khách hàng đi Train mạng CNN Softmax (Mỗi người 1 Nhãn). Siamese Network chỉ học chức năng 'Cái Cân Khoảng Cách' (Contrastive Loss/Triplet Loss). Bạn đưa mặt vào, nó so với mặt lúc cài FaceID. Giống nhau 90% (Gần nhau) thì mở khóa.",
+    "tip": "Siamese Network (Mạng Sinh Đôi) = Cái cân Tình Duyên. Cân xem mặt ông Lúc Nhập có 'Khớp' với mặt ông Lúc Cài máy hay không (Đo khoảng cách Vector).",
+    "tags": ["computer-vision", "face-recognition", "siamese-network", "triplet-loss"]
+  },
+  {
+    "id": "C11-003", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Triplet Loss Function được sử dụng trong bài toán FaceNet yêu cầu Bộ Dữ Liệu mớm vào (Bộ ba 3 ảnh) phải có cấu trúc như thế nào?",
+    "options": [
+      "A. 3 ảnh của chó, mèo, lợn",
+      "B. Ảnh của cha, mẹ và con",
+      "C. Một ảnh Gốc (Anchor), MỘT ảnh Cùng người (Positive), và MỘT ảnh Khác người (Negative). Hàm Loss ép Vector của Anchor phải hút chặt lấy Positive, đồng thời đạp văng Vector của Negative ra xa.",
+      "D. 3 ảnh kích thước bằng nhau"
+    ],
+    "answer": 2,
+    "explanation": "Dạy FaceID: Nhét mặt ông A (Gốc), nhét mặt ông A lúc đeo kính (Positive), nhét mặt ông B (Negative). Hàm Triplet Loss hoạt động như nam châm, Kéo 2 ông A sát lại nhau trên Tọa độ 3D, và đạp ông B văng ra xa hàng cây số. Từ đó AI phân biệt mặt cực xịn.",
+    "tip": "Triplet Loss = Trò chơi Kéo Đẩy Nam Châm. Kéo Mặt Cùng Nhau Lại Gần (Anchor - Positive). Đạp Mặt Lạ Đuổi Đi Xa (Anchor - Negative).",
+    "tags": ["computer-vision", "face-recognition", "triplet-loss"]
+  },
+  {
+    "id": "C11-004", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Bài toán Pose Estimation (Ước lượng tư thế) yêu cầu AI dự đoán cái gì trên cơ thể con người?",
+    "options": [
+      "A. Đoán nhịp tim",
+      "B. Đoán xem người đó đang mặc quần áo màu gì",
+      "C. Dự đoán CHÍNH XÁC TỌA ĐỘ (X, Y) của các KHỚP XƯƠNG (Keypoints - như Cùi chỏ, Đầu gối, Mắt cá, Cổ tay). Từ đó vẽ ra một bộ xương que (Skeleton) để phân tích hành động ngã, tập tạ, chạy bộ.",
+      "D. Đoán độ tuổi dựa trên dáng đi"
+    ],
+    "answer": 2,
+    "explanation": "Các App chỉnh sửa vóc dáng cơ thể, hoặc AI giám sát người già bị ngã (Fall Detection) thường dùng Pose Estimation (như YOLO-Pose, OpenPose). Mạng Nơ-ron không vẽ Bounding Box, mà nó chấm 17 điểm tọa độ (Keypoints) dính chặt vào các Khớp của con người.",
+    "tip": "Pose Estimation (Ước lượng Tư Thế) = Máy chấm Khớp Xương. Gắn 17 cái Đinh (Tọa độ X,Y) vào Vai, Gối, Cổ tay để dò bắt chuyển động Tập Thể Dục/Té Ngã.",
+    "tags": ["computer-vision", "pose-estimation", "keypoints"]
+  },
+  {
+    "id": "C11-005", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Hệ thống ALPR/ANPR (Nhận diện Biển Số Xe) ở các bãi đỗ xe hoặc trạm thu phí thường áp dụng chuỗi MÔ HÌNH (Pipeline) nào?",
+    "options": [
+      "A. FaceID",
+      "B. Dịch tiếng Việt sang Anh",
+      "C. Object Detection (YOLO) để bắt cái Khung Hình Chữ Nhật Biển Số -> Cắt tấm ảnh đó ra -> Dùng OCR (Ví dụ Tesseract/CRNN) để đọc nội dung chữ và số (59-G1 12345).",
+      "D. Đếm số lượng xe"
+    ],
+    "answer": 2,
+    "explanation": "Đầu tiên dùng YOLO quét xem Biển Số nằm ở góc nào của cái xe tô tô. Cắt xén (Crop) lấy đúng phần Bảng vuông góc đó. Ép thành ảnh trắng đen cho nét. Xong đưa cho máy dịch chữ OCR đọc (Image to Text) rồi ném vào Database kiểm tra hóa đơn.",
+    "tip": "Đọc biển số (ALPR) = Combo YOLO cắt ảnh vuông Biển số + Gửi OCR dịch hình thành chữ số nhét Data.",
+    "tags": ["computer-vision", "alpr", "ocr", "yolo"]
+  },
+  {
+    "id": "C11-006", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Thuật toán K-Means Clustering có thể dùng để GIẢM DUNG LƯỢNG (Nén) 1 bức ảnh màu như thế nào?",
+    "options": [
+      "A. Cắt bỏ một nửa bức ảnh",
+      "B. Gom nhóm 16 Triệu màu RGB (0-255) của bức ảnh thành K cụm (Ví dụ K = 16 màu cốt lõi nhất). Tất cả các pixel rác rưởi sẽ bị éP THAY BẰNG 1 trong 16 màu đó. Bức ảnh bị 'Phổ màu 8-bit', dung lượng nén giảm cực mạnh mà vẫn nhìn ra hình thù.",
+      "C. Đổi ảnh thành file zip",
+      "D. Xóa màu đỏ"
+    ],
+    "answer": 1,
+    "explanation": "Ứng dụng Cực hay của Machine Learning cổ điển vào Xử lý ảnh (Color Quantization). AI tìm ra 16 cái Bảng Màu (Centroids) đại diện nhất cho bức ảnh. Nó ép 300,000 Pixel về đúng 16 màu đó (Biến ảnh siêu nét thành kiểu ảnh Game Mario 8-bit).",
+    "tip": "K-Means nén ảnh = Gọt 16 triệu màu RGB xuống còn đúng Khay K-Màu Cốt lõi. Ép ảnh nét thành ảnh Game điện tử băng (Giảm dung lượng kinh hoàng).",
+    "tags": ["computer-vision", "k-means", "image-compression"]
+  },
+  {
+    "id": "C11-007", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Style Transfer (Chuyển giao Phong cách) là thuật toán biến ảnh chụp thành tranh vẽ (của Van Gogh, Picasso). Mạng CNN làm điều đó bằng cách nào?",
+    "options": [
+      "A. Vẽ bằng chuột máy tính",
+      "B. Chạy 1 mạng Nơ-ron (như VGG-19) để ÉP Bức ảnh Gốc (Ảnh chụp) phải giữ nguyên ĐƯỜNG NÉT (Content), đồng thời Ép nó phải Bắt chước HOA VĂN/MÀU SẮC (Style) của Bức tranh mẫu.",
+      "C. Gắn Filter Instagram",
+      "D. Chuyển ảnh thành âm thanh"
+    ],
+    "answer": 1,
+    "explanation": "Đưa bức ảnh chụp Tháp Rùa và bức Tranh Sơn Dầu của Van Gogh vào VGG-19. Lớp CNN sâu đo Content Loss (Ép Tháp Rùa không biến thành cái khác). Lớp CNN nông đo Style Loss (Ép màu sắc Tháp rùa phải cuộn xoáy vệt sơn như Van Gogh).",
+    "tip": "Style Transfer (Nhập Hồn) = Giữ Xác của ảnh chụp (Đường nét Tháp Rùa) + Đắp Hồn (Màu vệt sơn của Tranh Mẫu Van Gogh).",
+    "tags": ["computer-vision", "style-transfer", "cnn"]
+  },
+  {
+    "id": "C11-008", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Object Tracking (Theo dõi đối tượng - Ví dụ thuật toán DeepSORT) trong Camera An Ninh khác với Object Detection thông thường ở chỗ nào?",
+    "options": [
+      "A. Theo dõi bằng radar",
+      "B. Detection vẽ Hộp vuông trên từng Frame (Khung hình). Tới Frame tiếp theo, nó CẤP LẠI Hộp mới, không biết thằng này là ai. Tracking giải quyết bài toán: Liền mạch các Hộp vuông từ Frame 1 sang Frame 2 và CẤP CHO NÓ MỘT ID DUY NHẤT (Chống đếm trùng khách hàng).",
+      "C. Tracking chạy ban đêm",
+      "D. Detection không có Hộp vuông"
+    ],
+    "answer": 1,
+    "explanation": "Cài Camera trước cửa để đếm Khách vào Shop. Nếu chỉ dùng YOLO, Frame 1 nó đếm 1 con người, Frame 2 người đó bước thêm 1 bước, YOLO lại đếm +1 (Lỗi đếm trùng). DeepSORT cấp ID (Khách #100). Khi khách đi lại trong Shop, Khung vuông mang ID #100 dính chặt theo, không sinh ID mới.",
+    "tip": "Object Tracking (DeepSORT) = Gắn Biển Số Đăng Ký (ID #123) lên Hộp Bounding Box, bám đuôi theo người đó suốt Video để Cấm Đếm Trùng.",
+    "tags": ["computer-vision", "object-tracking", "deepsort", "yolo"]
+  },
+  {
+    "id": "C11-009", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Data Annotation (Gán nhãn Dữ liệu ảnh) để Huấn luyện YOLO đòi hỏi người gán nhãn (Labeler) phải làm công việc thủ công gì?",
+    "options": [
+      "A. Viết code C++",
+      "B. Mở phần mềm (như CVAT, LabelImg), dùng chuột VẼ HỘP CHỮ NHẬT bao sát quanh con mèo trong ảnh, và chọn Tên nhãn là 'Cat', lưu ra file `.txt` chứa (Nhãn, X, Y, Width, Height).",
+      "C. Đọc sách nấu ăn",
+      "D. Chỉnh sửa Photoshop"
+    ],
+    "answer": 1,
+    "explanation": "Bất kỳ dự án Object Detection nào cũng ngốn 80% thời gian cho đội Labelers. Họ phải ngồi còng lưng vẽ Bounding Box bao sát sạt 100,000 cái xe máy trên camera giao thông. Nếu vẽ ẩu (khoanh cả cái cây vào), YOLO học cái ảnh đó sẽ bị ngu theo (Garbage in - Garbage out).",
+    "tip": "Data Annotation (Gán Nhãn Ảnh) = Nghề Culi Gạch Sổ. Ngồi cầm chuột vẽ cái Khung Hình Vuông bao sát Sạt cái mặt người/cái xe máy để làm File Đáp Án dạy YOLO.",
+    "tags": ["computer-vision", "data-annotation", "yolo"]
+  },
+  {
+    "id": "C11-010", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Kỹ thuật 'Non-Maximum Suppression' (NMS) thường dựa vào chỉ số Ngưỡng nào để quyết định xóa bỏ Bounding Box thừa?",
+    "options": [
+      "A. Tốc độ khung hình (FPS)",
+      "B. Confidence Score (Điểm Tự Tin - Xác suất 0 đến 1) VÀ IoU (Độ đè lên nhau). Nếu 2 Hộp có IoU đè lên nhau quá lớn (VD > 0.5), NMS sẽ Giết cái Hộp có Điểm Tự Tin thấp hơn.",
+      "C. Độ phân giải màn hình",
+      "D. Dung lượng file"
+    ],
+    "answer": 1,
+    "explanation": "YOLO nhả ra 3 hộp vuông đè lên 1 con chó (Điểm tự tin: Hộp A 90%, Hộp B 70%, Hộp C 40%). Cả 3 hộp này có IoU (Phần giao nhau) rợp trời. Thuật toán NMS kích hoạt: Xóa B, xóa C. Giữ A. Nhờ NMS mà trên màn hình ta chỉ thấy MỘT khung vuông duy nhất bao quanh con chó.",
+    "tip": "NMS = Thằng Kẻ Hủy Diệt mấy cái Hộp trùng lặp. Đứa nào đè lên người ta (IoU lớn) mà Điểm Tự tin (Conf) Bấp Bênh hơn -> Chém (Xóa sổ).",
+    "tags": ["computer-vision", "nms", "iou", "object-detection"]
+  },
+  {
+    "id": "C11-011", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Thuật toán SLAM (Simultaneous Localization and Mapping) là cốt lõi của Robot Hút Bụi và Xe tự lái. Nó thực hiện song song 2 nhiệm vụ gì?",
+    "options": [
+      "A. Lau nhà và Sạc pin",
+      "B. VỪA XÂY DỰNG BẢN ĐỒ của môi trường xa lạ (Phát hiện vật cản, Tường) DỰA TRÊN CAMERA/LIDAR, VỪA ĐỊNH VỊ tọa độ của chính con Robot nằm ở đâu trên cái Bản Đồ đang được vẽ đó.",
+      "C. Vừa đi vừa kêu",
+      "D. Quét virus máy tính"
+    ],
+    "answer": 1,
+    "explanation": "Thả Robot hút bụi vào nhà mới. Không có Google Map. Nó dùng Lidar xoay quét 360 độ. Phát hiện bức tường -> Vẽ vào map (Mapping). Đi thêm 10cm, vướng cái ghế, tính toán Lidar dội lại -> Biết mình đang đứng cách tường bao nhiêu (Localization). Bài toán cái trứng và con gà này (SLAM) là đỉnh cao của Robotics.",
+    "tip": "SLAM = Thuật mù sờ voi. Vừa đi vừa mò mẫm vẽ Bản Đồ Căn Nhà 3D, Vừa tự đoán xem Cái Bản Thân Mình đang đứng ở tọa độ X,Y nào trên Tấm Bản đồ đó.",
+    "tags": ["computer-vision", "slam", "robotics"]
+  },
+  {
+    "id": "C11-012", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Bài toán Image Inpainting trong Computer Vision nhằm mục đích gì?",
+    "options": [
+      "A. Vẽ sơn lên màn hình",
+      "B. In ảnh ra máy in 3D",
+      "C. PHỤC CHẾ HOẶC XÓA VẬT THỂ (VD: Xóa người thứ 3 khỏi ảnh chụp chung). AI sẽ phân tích các Pixel xung quanh để 'Điền vào chỗ trống' sao cho mượt mà không tì vết.",
+      "D. Thay đổi đuôi file ảnh"
+    ],
+    "answer": 2,
+    "explanation": "Magic Eraser trên điện thoại Pixel/iPhone là Image Inpainting. Bạn bôi đen cái sọt rác sau lưng cô gái. AI (GAN/Diffusion) học phần background cỏ xanh hai bên, nhồi cỏ xanh đè lên cái sọt rác. Mắt người nhìn vào không phát hiện ra dấu vết chỉnh sửa (Photoshop 1 click).",
+    "tip": "Image Inpainting = Phép xóa Người Thứ 3 (Magic Eraser). Thủng 1 lỗ, AI tự lấy Gạch nền xung quanh trám vào cho khớp vân.",
+    "tags": ["computer-vision", "image-inpainting", "gan"]
+  },
+  {
+    "id": "C11-013", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Trong xử lý ảnh bằng OpenCV, việc phân ngưỡng (Thresholding) thực chất là làm gì?",
+    "options": [
+      "A. Biến bức ảnh Bất kỳ (Đủ màu) thành ảnh Binarize (TRẮNG VÀ ĐEN 100%). Ví dụ: Mọi Pixel độ sáng > 127 sẽ bị ép thành Trắng (255), dưới 127 ép thành Đen (0).",
+      "B. Tính diện tích ảnh",
+      "C. Tạo viền mờ cho ảnh",
+      "D. Đổi ảnh thành file chữ"
+    ],
+    "answer": 0,
+    "explanation": "Chụp cái văn bản bằng Camera bị bóng mờ. Dùng OpenCV Adaptive Thresholding, nó sẽ lấy các chữ (mực hơi xám xám) dập gắt thành Đen thui, lấy trang giấy (hơi xám) bẩy thành Trắng tinh. Nhờ đó thuật toán OCR mới đọc chữ dễ dàng được (Cốt lõi của app CamScanner).",
+    "tip": "Thresholding = Bộ lọc Phân Cực Thô Bạo (Chỉ có Trắng hoặc Đen). Dùng để dập ảnh hóa đơn, tài liệu nét căng trước khi dịch chữ.",
+    "tags": ["computer-vision", "opencv", "thresholding", "preprocessing"]
+  },
+  {
+    "id": "C11-014", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Data Augmentation trong Image Segmentation (Tô màu điểm ảnh) RẤT PHỨC TẠP so với Image Classification (Gán 1 Nhãn) ở điểm nào?",
+    "options": [
+      "A. Không thể lật ngang ảnh",
+      "B. Không thể thay đổi màu sắc",
+      "C. Nếu bạn Lật Ngang, Xoay Bức Ảnh Gốc, BẠN BẮT BUỘC PHẢI LẬT NGANG/XOAY CHIẾC MẶT NẠ (Mask / File nhãn Ground Truth) một cách đồng bộ tương ứng. Nếu không AI sẽ học sai vị trí (Bức ảnh xoay, Mask đứng im).",
+      "D. Không thể dùng Data Augmentation"
+    ],
+    "answer": 2,
+    "explanation": "Classification: Bạn lật ngược con Mèo 180 độ, Nhãn Text vẫn là 'Con Mèo' (Không đổi). Segmentation: Mask là một Tấm Ảnh Trắng Đen. Nếu Ảnh chụp con chó bị Xoay ngang, cái Ảnh Mask Tô Xương Chó đó MÀ KHÔNG XOAY THEO, mạng U-Net sẽ bị nổ não. Albumentations là thư viện duy nhất giải quyết cực tốt việc Xoay kép này.",
+    "tip": "Lưu Ý Tử Thần Segmentation: Data Augment (Xoay lật ảnh) thì phải Xoay Cả File Mask Đáp Án đính kèm đồng bộ (Xài Albumentations).",
+    "tags": ["computer-vision", "data-augmentation", "image-segmentation"]
+  },
+  {
+    "id": "C11-015", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Kỹ thuật 'Fine-Tuning' một mạng Tích chập CNN (như VGG16) từ ImageNet (Transfer Learning) thường yêu cầu thao tác CHẶT ĐẦU nào?",
+    "options": [
+      "A. Xóa hết ảnh cũ",
+      "B. Thay chip GPU",
+      "C. CHẶT BỎ CÁI LỚP PHÂN LOẠI CUỐI CÙNG (Lớp Fully Connected gồm 1000 nơ-ron đoán 1000 con vật) của mạng gốc. Thay bằng một Lớp Output mới cứng gồm 2 Nơ-ron (Dùng để phân loại Chó/Mèo của riêng cty bạn) và chỉ train lớp cuối đó (Đóng băng các lớp đầu).",
+      "D. Chặt bỏ lớp màu RGB"
+    ],
+    "answer": 2,
+    "explanation": "VGG16 gốc đã được học 1000 lớp vật thể. Dự án của bạn chỉ cần phân loại Khẩu trang (Có/Không = 2 classes). Bạn chỉ dùng phần Mắt (Convolution) của VGG16 (Đóng băng `trainable=False`), cắt bỏ cái Não 1000 nơ ron cuối đi, gắn não 2 Nơ-ron vào thay thế và bắt máy học cập nhật lại cái não 2 nơ ron đó.",
+    "tip": "Fine-Tuning CNN (Transfer Learning) = Cắt Cái Đầu (Output 1000 Lớp) vứt đi. Gắn Cái Đầu mới (Output 2 Lớp) vào Body gốc (Lõi xịn) để Train nhẹ nhàng.",
+    "tags": ["computer-vision", "transfer-learning", "fine-tuning", "cnn"]
+  },
+  {
+    "id": "C11-016", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Chỉ số mAP (mean Average Precision) - Thước đo vàng của Object Detection - được tính toán dựa trên cái gì?",
+    "options": [
+      "A. Độ sáng đèn flash",
+      "B. Diện tích điểm ảnh",
+      "C. Tính trung bình cộng của chỉ số Average Precision (Kết hợp Precision và Recall tại các mốc IoU khác nhau) ĐỂ ĐÁNH GIÁ XEM MODEL VẼ HỘP VÀ ĐOÁN TÊN CÓ CHUẨN XÁC VỚI FILE ĐÁP ÁN KHÔNG.",
+      "D. Đếm tốc độ lật trang"
+    ],
+    "answer": 2,
+    "explanation": "YOLO nhả ra MAP@50 = 95%. Tức là nếu Chấp nhận Vẽ Lệch 50% diện tích (IoU=0.5), Model bắt trúng và gọi tên đúng 95% đối tượng. Đây là con số quan trọng nhất Cần Báo Cáo cho Sếp khi làm dự án Object Detection.",
+    "tip": "mAP (mean Average Precision) = Bài thi Bằng Lái Xe của YOLO. Chấm điểm kết hợp 2 kỹ năng: Đoán Đúng Tên không? Khoanh Hộp Vuông Đè Lên Ảnh Chuẩn Không (IoU)?",
+    "tags": ["computer-vision", "map", "evaluation", "object-detection"]
+  },
+  {
+    "id": "C11-017", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Super Resolution (Siêu độ phân giải ảnh) bằng AI khắc phục điểm yếu Chí mạng nào của Phóng to ảnh (Upscaling/Bicubic) truyền thống?",
+    "options": [
+      "A. Truyền thống làm mờ ảnh (Bể hạt Pixel) do thuật toán nội suy ngây ngô. Super Resolution (như SRGAN) SÁNG TẠO / ĐẺ THÊM CÁC ĐIỂM ẢNH MỚI (Vân da, Lông mi, Nếp nhăn) bám sát thực tế để trám vào, khiến ảnh zoom lên 4x vẫn Nét Căng.",
+      "B. Truyền thống không phóng to được video",
+      "C. Truyền thống đổi màu ảnh",
+      "D. Không có khác biệt"
+    ],
+    "answer": 0,
+    "explanation": "Phóng to ảnh 100x100 lên 400x400 thì 300 điểm ảnh bù vào lấy đâu ra? OpenCV truyền thống lấy màu xung quanh cưa đôi đổ vào -> Ảnh mờ câm. Mạng GAN (AI) học được hàng triệu ảnh khuôn mặt, nó TỰ ĐỘNG VẼ THÊM sợi tóc vào mấy cái chỗ trống đó. Tội phạm Camera mờ 360p biến thành 4K rõ mặt nhờ cái này.",
+    "tip": "Super Resolution (SRGAN) = Thuật khôi phục 4K. Kéo giãn ảnh Mờ Câm, AI tự chế thêm Sợi Tóc / Lông mi lấp vào chỗ hổng (Nét Vi Diệu).",
+    "tags": ["computer-vision", "super-resolution", "gan"]
+  },
+  {
+    "id": "C11-018", "module": "C", "topic": "C11", "difficulty": "medium",
+    "question": "Bài toán Video Action Recognition (Nhận diện hành động trong Video - Ví dụ ngã xe, đánh nhau) vì sao không dùng mỗi mạng CNN?",
+    "options": [
+      "A. Vì CNN không cài được",
+      "B. Vì CNN không hiểu màu sắc",
+      "C. CNN siêu đẳng trong việc rút Đặc trưng Ảnh Tĩnh. Nhưng Video CẦN PHẢI HIỂU CHUYỂN ĐỘNG TRƯỚC VÀ SAU (Trục Thời gian - Temporal). Buộc phải nối CNN với Mạng Học Chuỗi Thời Gian RNN/LSTM (hoặc xài 3D-CNN / Transformer).",
+      "D. Vì CNN chạy quá chậm"
+    ],
+    "answer": 2,
+    "explanation": "Khung 1: Người đưa tay lên. Khung 2: Người vung tay xuống. Khung 3: Đầu bạn vỡ máu. CNN bắt ảnh Khung 2 chỉ thấy 1 cánh tay đưa xuống (bình thường). Nhưng RNN kết nối Khung 1-2-3 theo dòng thời gian sẽ nhận ra hành động 'Đánh vào đầu' bằng sự Trôi Khung Hình (Optical Flow).",
+    "tip": "Video = Băng Chuyền Ảnh. CNN chỉ là 1 thằng Đứng Trạm (Nhìn ảnh Tĩnh). Cần thằng RNN/LSTM kết nối dây chuyền để hiểu Sự Trôi Thời Gian (Temporal).",
+    "tags": ["computer-vision", "video-processing", "rnn", "cnn"]
+  },
+  {
+    "id": "C11-019", "module": "C", "topic": "C11", "difficulty": "hard",
+    "question": "Optical Flow (Luồng quang học) là một thuộc tính cốt lõi trong xử lý Video. Nó biểu diễn cái gì?",
+    "options": [
+      "A. Màu sắc ánh đèn trong video",
+      "B. Tốc độ khung hình 60fps",
+      "C. Mô tả SỰ CHUYỂN ĐỘNG MẬT ĐỘ của TỪNG PIXEL giữa 2 khung hình liên tiếp. Nó sinh ra một biểu đồ Vector (Hướng và Độ lớn) cho thấy Pixel đó đang Trôi đi Đâu với tốc độ nào (Cốt lõi để nén Video H.264 và AI Action Recognition).",
+      "D. Đổi ảnh màu sang trắng đen"
+    ],
+    "answer": 2,
+    "explanation": "Đứng im mà quay Video cái cây rung trong gió. Các Pixel của nền trời đứng im (Độ dài Vector = 0). Các Pixel của Lá cây Di chuyển chớp nhoáng tạo ra các Vector mũi tên chĩa theo hướng gió tạt cực mạnh. Mạng AI nuốt các mũi tên này thay vì nuốt ảnh thô, sẽ hiểu Hành động cực chuẩn.",
+    "tip": "Optical Flow (Dòng chảy Quang học) = Trích xuất 100% sự Dịch Chuyển. Vẽ mũi tên xem từng Pixel đang bay Đi đâu (Rất hợp cho AI Nhận Diện Chuyển Động Video).",
+    "tags": ["computer-vision", "optical-flow", "video-processing"]
+  },
+  {
+    "id": "C11-020", "module": "C", "topic": "C11", "difficulty": "easy",
+    "question": "Image Captioning (Sinh mô tả ảnh) là sự giao thoa hoàn hảo giữa Computer Vision và NLP. Kiến trúc kinh điển của nó gồm 2 mảnh ghép nào?",
+    "options": [
+      "A. SQL và NoSQL",
+      "B. HTML và CSS",
+      "C. Mạng CNN (Encoder) làm ĐÔI MẮT ĐỌC ẢNH lấy đặc trưng, và mạng RNN/Transformer (Decoder) làm CÁI MIỆNG DỊCH ĐẶC TRƯNG ĐÓ ra thành câu Văn bản miêu tả ('Một con chó vờn quả bóng').",
+      "D. C++ và Python"
+    ],
+    "answer": 2,
+    "explanation": "Ảnh đi vào CNN (ResNet) bị nén thành 1 cục Đặc trưng Vector. Cục Vector đó thay vì ném cho Lớp Softmax phân loại (Chó/Mèo), ta ném cho RNN/LSTM. Thằng LSTM nuốt cục Vector đó và bắt đầu chơi trò Điền Từ Tiếp Theo (Một -> Con -> Chó -> Trắng). Bùng nổ!",
+    "tip": "Image Captioning = Ghép Não. Lấy Đôi Mắt CNN (Bóc nét Ảnh) gắn với Cái Miệng Nhả Chữ LSTM/Transformer. Khai sinh Mô hình Đa Phương Thức (Multi-modal).",
+    "tags": ["computer-vision", "image-captioning", "nlp", "cnn", "rnn"]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D7-001", "module": "D", "topic": "D7", "difficulty": "easy",
+    "question": "Caching (Bộ nhớ đệm) Sinh Ra Để Trị Căn Bệnh Gì Của Database SQL Chậm Chạp?",
+    "options": [
+      "A. Lọc hình ảnh bị mờ",
+      "B. CHỐNG SỰ LẶP LẠI VÔ ÍCH. Database (MySQL/Postgres) lưu trên Ổ cứng, đọc rất chậm. Khi 1 Triệu Khách Hàng cùng gõ 1 câu hỏi 'Giá iPhone', thay vì Đấm 1 Triệu câu lệnh SQL xuống Ổ cứng (Gây sập DB). Caching (Redis) sẽ Hứng kết quả đầu tiên, Lưu nó ngay trên RAM. 999,999 thằng sau hỏi, Redis Móc RAM trả thẳng ra Tốc Độ Chớp Mắt (0.0001s).",
+      "C. Xóa dữ liệu cũ tự động",
+      "D. Đổi nền giao diện tối"
+    ],
+    "answer": 1,
+    "explanation": "Caching giống như bạn làm 1 cái Kệ Bánh Bán Chạy Đặt Ở Cổng. Khách nào vô mua iPhone, lấy ngay trên kệ (Cache/RAM) bán luôn, không cần chạy vào tận kho sâu (Database/Disk) lục tìm nữa. Nhờ vậy App sống sót qua ngày Black Friday.",
+    "tip": "Cache = Kệ Bán Hàng Trưng Bày Đặt Cổng (Lưu trong RAM). Khách Mua Hàng Hot Bốc Luôn Khỏi Đợi. DB (Kho Hàng Disk) Khỏe Re Đỡ Cày Tải Nặng.",
+    "tags": ["caching", "performance", "redis", "architecture"]
+  },
+  {
+    "id": "D7-002", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Thảm họa 'Cache Penetration' (Thủng Tầng Đệm) Là Gì Làm Server Khóc Tiếng Mán Trực Tiếp Cháy Đứt Oan Ổ Đĩa Nhai Mạng Tốc Đọc?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. KHÁCH HÀNG (HAY HACKER) CỐ TÌNH GÕ TÌM MỘT SẢN PHẨM KHÔNG BAO GIỜ TỒN TẠI (ID = -999). HỆ THỐNG KIỂM TRA REDIS -> KHÔNG THẤY CÓ BÁNH. NÓ QUAY XUỐNG TÌM ĐÁY DATABASE SQL THẬT -> CŨNG KHÔNG THẤY. KẾT QUẢ KHÔNG CÓ GÌ ĐỂ LƯU NGƯỢC VÀO REDIS. NẾU HACKER ĐÁNH 1 TRIỆU LỆNH ID KHÔNG TỒN TẠI ĐÓ, MỌI LỆNH ĐỀU XUYÊN THỦNG QUA REDIS ĐÂM THẲNG VÀO DATABASE GỐC LÀM DB NỔ BANH XÁC NHƯ KHÔNG CÓ ÁO GIÁP.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Cache Chống Đạn Nhờ Nhớ Kết Quả. Nhưng Đạn Rỗng (Null) Trượt Khỏi Áo Giáp Cache Lên Gõ Đích DB. Hacker Chạy Vòng For Đòi Mua Sản Phẩm 'Mèo Béo -123' Liên Tục. Server Chạy Đâm Thủng Màn Cache Tìm Rác Hư Chết Nguồn. Cách Giải: Nếu Không Có Trong DB, Bắt Buộc Vẫn Phải Lưu Cái Khóa 'Mèo Béo -123' Đó Lên Cache Kèm Chữ [KHÔNG TỒN TẠI]. Lần Sau Đánh Tới Nó Chặn Từ Cửa RAM.",
+    "tip": "Cache Penetration (Bắn Đạn Rỗng Xuyên Giáp): Tìm Hàng Éo Bao Giờ Tồn Tại. Cache Không Đỡ Được Này Cứ Bị Đâm Lọt Đích Đục Kho Lủng Ruột. Đỡ Bằng Lệnh [Nhớ Cái Khóa Rỗng Lên RAM Khống Chặn Ảo Thêm Lớp Bloom Filter].",
+    "tags": ["caching", "cache-penetration", "redis", "security"]
+  },
+  {
+    "id": "D7-003", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Thảm Họa 'Cache Avalanche' (Lở Tuyết Băng Sơn Đồng Loạt Tắt Sóng) Bẻ Gãy Khung Máy Nổ Bụp Đứng Chết Đứt Dây Phim Là Hiện Tượng Khốn Đốn Nào Ở Cụm Caching?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. ĐÓ LÀ KHI HÀNG VẠN CHIẾC CHÌA KHÓA DỮ LIỆU ĐANG LƯU TRONG RAM BỊ 'HẾT HẠN SỬ DỤNG' (EXPIRE TTL) CÙNG MỘT LÚC NGAY CÙNG 1 GIÂY. HÀNG RÀO BẢO VỆ CACHE BỖNG DƯNG BIẾN MẤT TRẮNG TRƠN. LÚC NÀY, TẤT CẢ GIAO THÔNG LƯỢNG TRUY CẬP (TRAFFIC) ẬP ĐẾN SẼ KHÔNG CÒN CACHE ĐỠ NỮA CHẢY Ồ ẠT TRỰC TIẾP NHÀO VÀO CẮN XÉ DATABASE SQL, ÉP DB QUÁ TẢI SẬP MẠNG TOÀN DIỆN (Tuyệt Tự Đứng Hình Khét Lẹt).",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Khởi Động App, Bạn Cài Set Lệnh 10.000 Sản Phẩm Đều Hết Hạn 60 Phút Sống. Đến Phút 61 Đống Đạn Vượt Bờ Bùng Tan Bọt Nước Áo Bảo Hiểm Tróc Trắng Rỗng Sạch Bay Không Trống Áp. Lũ Khách Hàng Tràn Vô Không Ai Cản Ném Boom Nổi DB Đuối Đuối Trọng Tải Giật Rớt Mạng Đứt. Cách Giải: Phải Cài Hẹn Giờ Random Đừng Cho Chết Cùng Lúc Giờ Hành Đạo (SP 1 Sống 60p, SP 2 Sống 65p Bọc Tách Lẻ Ngẫu Nhiên Lấp Sợi Hụt Nhịp).",
+    "tip": "Cache Avalanche (Đứt Băng Lở Tuyết Đồng Lệnh Tự Sát Tập Thể): Toàn Bộ Rào Chắn Đạn Đều Hết Hạn Cùng 1 Giây Bốc Hơi Sạch Khỏi RAM. Đám Lũ Lụt Của Khách Tràn Vào Phá Kho Chết DB Chắc Nịch (Diệt Bằng Hạn Giờ Lệch Nhau Random Khóa Mảng Rớt Bật Dây Nối Khúc Viêm).",
+    "tags": ["caching", "cache-avalanche", "redis", "architecture"]
+  },
+  {
+    "id": "D7-004", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc 'Cache Breakdown / Cache Stampede' (Sụp Hầm 1 Điểm Nóng Cháy Khét Băng Đóng Vững Rẽ) Chọt Tim Kẹp Oan Gì Lên Hệ Thống Data Warehouse Gấp Cục Báo Dấu Ác Cột Trụ?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng",
+      "B. TRÁI VỚI AVALANCHE LÀ CHẾT CHÙM 1 VẠN CHÌA KHÓA. BREAKDOWN LÀ HIỆN TƯỢNG CHỈ DUY NHẤT 1 CHIẾC CHÌA KHÓA CỦA 'MỘT SẢN PHẨM CỰC KỲ SIÊU HOT' (Ví Dụ Flash Sale iPhone 1 Đô La) VỪA BỊ HẾT HẠN RƠI KHỎI CACHE. TRONG CHỚP MẮT ĐÓ, CÓ 10.000 KHÁCH HÀNG ẤN F5 TẢI LẠI TRANG. 10.000 LUỒNG TRUY VẤN NÀY LỌT QUA KHE HỞ LAO XUỐNG DATABASE ĐỤC MỎ LẤY DATA (Dù Chỉ Là 1 Cái iPhone). DB SẬP CHỈ VÌ 1 KẺ HỞ BÉ XÍU NÀY.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Avalanche Bể Trận Lớn. Breakdown Đâm Trúng Tử Huyệt Siêu Nóng (Hot Key). Sản Phẩm Đó Quá Nhiều Người Xâu Xé Nhấn Tải Lại. Nó Lọt Cache 1 Giây Thôi Là Chết Ngập Lệnh Đọc Giết DB Thẳng Tay Bóp Trí Não Tắc Mạng Oan (Lock Khóa). Cách Giải: Dùng Mutex Lock. Khi Thằng Lọt Xuống Khóa Cửa Không Cho Thằng Đằng Sau Lọt Nữa, Chờ Thằng Đằng Trước Ôm Hàng Về Đắp Lại Lỗ Thủng Cache Mới Mở Cửa Phục Chắn.",
+    "tip": "Cache Breakdown (Thủng 1 Lỗ Chết Cục Bộ Key Bán Hot). Khóa Siêu Phẩm Rớt 1 Phát Là Khách Ấn F5 Đục Mỏ Trực Tiếp Xuống Kho (Đóng Khóa Mutex Trụ Áo Chứa Lợi Phẩm Nối Tầng Nghĩa Giúp Nhóm Đội Đeo Lưới Cáo Gì Cho Phép Dân Thường Vượt Rào Phá Kẻ).",
+    "tags": ["caching", "cache-breakdown", "redis", "concurrency"]
+  },
+  {
+    "id": "D7-005", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Data Dày Đứt Rác Vở Tạp Của 'Bloom Filter' (Thuật Toán Xác Suất Nằm Rìa Trạm Bơm) Được Gắn Phủ Lắp Trọng Phí Cáp Mạng Rách Cứu Sáng Nước Nào Ngăn Nút Thủng Ám Gì Cho Đám Cache Redis Bị Đâm Lủng?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. NÓ LÀ ÁO GIÁP KHIÊN THUẬT TOÁN (TỐN ÍT RAM CỰC KỲ) ĐỨNG CHẮN TRƯỚC REDIS. KHI HACKER GÕ TÌM 'SẢN PHẨM KHÔNG TỒN TẠI' ĐỂ PHÁ HOẠI. BLOOM FILTER QUÉT TRẢ LỜI NGAY 'CHẮC CHẮN 100% KHÔNG TỒN TẠI' VÀ CHẶN LẠI (NGĂN CACHE PENETRATION TỨC THÌ ĐỠ ĐỤNG ĐÍCH TỚI CACHE). NẾU NÓ NÓI 'CÓ THỂ TỒN TẠI' THÌ MỚI CHO QUA. TUY NHIÊN NÓ BỊ LỖI CÀ CHỚN (FALSE POSITIVE): ĐÔI KHI NÓ KHÔNG CÓ THẬT MÀ THẰNG NÀY ĐOÁN BỪA 'CÓ THỂ' LÀM LỌT DÂN GIAN.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Redis Lưu Toàn Bộ Mảng Chuỗi Dài Vào RAM Quá Hao Phí Cháy Điện (Nhớ Đống Khóa Lủng Lỗi Penetration Hao Mòn). Bloom Filter Ép Các Từ Khóa Qua Các Hàm Băm Cục Toán Học Biến Thành Dãy Bit 0-1 (Array). RAM Siêu Bé Tý Đựng Tỷ Đứa. Nếu Hạt Cát 0 Cắm Là 'Chắc Chắn Đéo Có Trong Đời' Chặn Cửa Nhanh Lẹ Thần Tốc Đánh Bật Hacker Rút Đạn Mù Xuyên Tường Xé Tốc Báo Nhanh Kéo.",
+    "tip": "Bloom Filter (Kẻ Dò Đạn Rỗng Rẻ Tiền Tiết Kiệm Băng RAM Bảo Vệ Trấn Yểm Thùng Rác). Nhanh Chớp Nhỏ Xíu RAM Trực Chỉ Nguồn Rỗng Trả Tức Tốc Không Có Hàng Đuổi Khách Gây Khủng Bố. (Tuy Có Lỗi Hay Báo Nhầm Tồn Tại Bừa Bãi False Positive Khống Oan Rút Lệnh).",
+    "tags": ["caching", "bloom-filter", "cache-penetration", "data-structures"]
+  },
+  {
+    "id": "D7-006", "module": "D", "topic": "D7", "difficulty": "easy",
+    "question": "Vũ Khí Thay Đổi Luật Chơi Streaming Xé Nát Lịch Sử Kho Đọng 'Redis' Khác Biệt Giết Chết Đẩy Tới Cùng Thằng Đàn Anh Báo Cáo 'Memcached' (Cache Cổ Điển Nhạt Trắng Cụt Điếc) Ở Việc Lưu Dữ Liệu Nắm Đỉnh Bão Tuyết Gì Ngoài Cái Lớp Dạng Chữ?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. MEMCACHED RẤT ĐẦN ĐỘN, CHỈ BIẾT LƯU THEO DẠNG 'CHỮ BÌNH THƯỜNG' (STRING KEY-VALUE CƠ BẢN TRẮNG TRƠN). REDIS LÀ TRÙM KHỦNG BỐ HỖ TRỢ LƯU VÔ SỐ CẤU TRÚC DỮ LIỆU ĐỈNH CAO NHƯ BẢN ĐỒ BĂM (HASH), DANH SÁCH LIST (TẠO HÀNG ĐỢI), TẬP HỢP TÍNH TOÁN SET (GIAO NHAU CHÉO BẠN CHUNG), VÀ SORTED SET (LÀM BẢNG XẾP HẠNG GAMER ĐUA TOP REAL-TIME NHANH VÔ ĐỊCH BẤT BẠI CẮT NÚT).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 1,
+    "explanation": "Nhớ Câu 'Bạn Của Bạn Của Bạn' Hoặc 'Bảng Xếp Hạng Top 10 PUBG'. Memcached Vứt Chữ Chết Liệt DB, Kéo Mở Sửa Cắt Cột Ráp Data Băng Sụp. Redis Bắn Lệnh `ZADD` Sorted Set Mấy Đứa Điểm Cao Trồi Ngay Lên Mặt Nước Chớp Mắt Tự Động Xếp Tranh Nhau Mượt Mà Không Tốn CPU Máy App Tính Chậm Oan. Redis Làm Bá Chủ Mọi Thể Loại RAM Database Đánh Bại Thằng Đàn Anh Đũa Kéo Cũ Rích Oan Rỗng.",
+    "tip": "Redis Giết Memcached Ở Chỗ = Có Đủ Loại Khay Đựng Vũ Khí Hiện Đại (Hash, Set, List Hàng Đợi, Sorted Set Tranh Top Game Đỉnh Bảng Vàng). Trấn Yểm Xé Gió Chớp Nháy Cứt Tốc Cắn Lấp Cột Kẹp Đầu Áp Đè Mép Cột Dữ Liệu Lỗi Oan Cứng Máng Nát Bét Xóa Trắng Mất Tăm.",
+    "tags": ["caching", "redis", "memcached", "data-structures"]
+  },
+  {
+    "id": "D7-007", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ Của Thuật Toán Thay Đuổi Rác Khỏi RAM (Eviction Policy) Nổi Tiếng LRU (Least Recently Used) Đẩy Ép Băng Tốc Không Vỡ Nét Mạch Đập Xương Máu Gì Về Dữ Liệu Khi Thằng Lõi Tràn Bể RAM?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. KHI BỘ NHỚ ĐỆM RAM ĐÃ QUÁ ĐẦY (100% CƯỚC ÉP NÉN GÓC). BẠN BƠM ĐÚT THÊM MỘT SẢN PHẨM MỚI VÀO. THUẬT TOÁN LRU SẼ LỤC TÌM THẰNG 'BỊ Ế, LÂU RỒI KHÔNG CÓ AI VÀO COI (XÀI) NHẤT' ĐỂ ĐUỔI CỔ ĐÁ NÓ RA KHỎI RAM NHƯỜNG CHỖ CHO HÀNG NÓNG (ĐỨA NÀO VỪA ĐƯỢC COI SẼ NẰM KEO BÁM ĐẦU BẢNG). GIỮ LẠI ĐỒ HOT RẢNH NỢ TỐI ƯU CỰC KỲ KHÔN NGOAN XÓA LẠC LỖ RÃ KHUÔN.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Redis Bắt Buộc Có Lúc Full Tải Tràn Dung Lượng Két Đóng RAM Nhựa Phim (Chạy Điếc Mỏi Nước Nóng). Bỏ Đứa Nào? Đuổi Đứa Nào Đang Ế Lâu Mốc Meo Lặng Lẽ Bám Đáy Rác Ít Được Dòm Ngó Gọi Tên (LRU) Ném Ra Giữ Lại Cục Đất Tiền Vừa Chạm Nóng Mới Coi Tức Khắc Nhẵn Bóng Khỏe Mắt Dân Vui Ép Nét Đóng Chạm Dây Vang Hình Quét Khuyết Nắn Kẹp Sáng Cứu Tải Trọng.",
+    "tip": "Thuật Giải Cứu RAM LRU (Least Recently Used = Kẻ Bị Ngó Lơ Lâu Nhất Đuổi Trước): Tống Cổ Cái Bảng Báo Cáo Nào Bám Bụi Ít Được Mở Ở Quá Trái Cửa Bụng. Dọn Chỗ Trống Lấp Thể Nạp Bơm Vô Hàng Mới Nóng Hổi Chống Tụ Ố Tắc Oan Óc Khóc Cục Báo Dấu Ác Cột Trụ Kéo Mỏi Lưng Trễ Tiết.",
+    "tags": ["caching", "lru", "eviction-policy", "redis"]
+  },
+  {
+    "id": "D7-008", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Tính Chất Lệch Băng Tải Lược Đồ Kiến Trúc Đóng Gói 'Cache-Aside' (Lazy Loading Đọc Sót Cứu Ảo Khớp Lọc Hụt) Thường Được Gắn Trực Phủ Lắp Cho Ứng Dụng Chạy Web Phổ Thông. Quy Trình Gọi File Báo Đẩy Đi Đứt Bóng Di Chuyển Cháy Giao Thức Lấy Code Khớp Khống Khép Hướng Ra Sao Cụt Bẻ?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. ỨNG DỤNG BƯỚC 1 GÕ TÌM DATA Ở CACHE REDIS. NẾU CÓ THÌ ĂN LUÔN VÀ VỀ. NẾU REDIS TRỐNG KHÔNG (CACHE MISS), ỨNG DỤNG BƯỚC 2 SẼ LẶN XUỐNG TÌM Ở DATABASE (MYSQL). NẾU TÌM THẤY Ở MYSQL, ỨNG DỤNG BƯỚC 3 SẼ COPY CHÉP NGƯỢC CỤC ĐÓ ĐEM GẮN BỎ VÀO LẠI BỤNG REDIS CHO LẦN SAU KHÁCH KHÁC VÀO TÌM CÓ SẴN (Nhọc Ở Phía Ứng Dụng Làm Đứa Ở Giữa Tự Làm Tự Ăn Không Bắt Cache Nấu Hộ Rỗng Giao Băng Mảng).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đời Dev Cày Kiểu Cache-Aside Là Đứng Giữa Thọc Nách Lấy. Redish Và Database Chả Biết Mặt Nhau, Thằng App Code Phải Đứng Gánh Viết Cú Pháp Gõ 2 Bên Cổng. Tìm Bụng 1 Không Thấy Chui Bụng 2 Móc Chép Ngược Vô Bụng 1 Nuôi Dành Nắm Cân Nảy Chữ Khớp Lọc. Ưu Điểm Là Xóa Redis Sập Chả Chết Web Cứ Xuống Đáy Đọc Chữa Đỉnh (Redis Sập Web Lên Thở Chậm Giảm Đô Nhẹ).",
+    "tip": "Chiến Thuật Cache-Aside (Nhờ Vả Kệ Đệm Ngoài Rìa Trạm Bơm): Thằng Coder Code Cái Web Chạy Hỏi Khách Lấy Bánh Ở Kệ Cửa. Kệ Cửa Hết Thì Chạy Vô Kho Múc Bánh. Múc Ra Thì Sắp Lên Kệ Cho Lần Sau Thằng Sau Dễ Ăn Trúng Ảo Ép Nhựa Phim (Cache Phụ Thuộc Web Đóng Mảnh Áp Rành Mạch Nặng).",
+    "tags": ["caching", "cache-aside", "architecture", "patterns"]
+  },
+  {
+    "id": "D7-009", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Bất Khả Biến (Immutability) Được Tôn Thờ Bảo Dưỡng Nằm Sâu Cốt Lập Lệnh Ở 'Write-Through Cache' Đóng Khóa Mở Trống Dây Buộc Góp Sống Bền Cứng Ráp Ở Data Ở Nút Trầm Nào Bứt Trục Lấp Khe Gãy Khác Với Thằng Lazy Chậm Khóc Điếc Nẹt Rắn Đâm Xé Khác Chỗ Nào Phân Vi Trạm Xé Đích Khống?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. KHÁC VỚI KẺ ĐỌC MỚI NHÉT NHƯ CACHE ASIDE. WRITE-THROUGH KHIẾN APP KHI ĐẨY 1 SẢN PHẨM MỚI UPDATE (VÍ DỤ ĐỔI GIÁ), NÓ BẮT BUỘC APP PHẢI GHI XUYÊN THỦNG GHI VÀO REDIS CACHE ĐỒNG THỜI GHI VÀO LẠI DB DATABASE MYSQL CÙNG 1 LÚC (GHI ĐÚP 2 MÁY). ƯU ĐIỂM DỮ LIỆU ĐỒNG BỘ 100% CẬP NHẬT TƯƠI TRONG RAM KHÔNG BỊ TRỄ LỖI DỊ THƯỜNG (CỰC TỐN KHÁ THỜI GIAN LÚC VIẾT DO PHẢI ĐỢI HAI BÊN KHỚP).",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 2,
+    "explanation": "Đăng Tin Avatar Facebook Mới, Nếu Làm Cache-Aside Đợi Nó Hết Hạn 60p Thì 60 Phút Sau Bạn Vẫn Thấy Hình Cũ Oan (Lỗi Eventual Trễ Số Nhịp Kẹt Trống Gắn Dán Cáo Dụng Ý). Ép Nhét Bơm Thẳng Cực Cập Nhật Write-Through Vừa Đổi DB MySQL Vừa Đẩy Gắn Mảng Nhựa Lên RAM Cập Nhật Đè Mép Cốt Cùng Khớp (Tiền Liền Data Tươi Trực Chỉ Nhịp Kéo 10X Bọc Rụng Không Có Rác Cũ).",
+    "tip": "Write-Through Cache (Ghi Xuyên Thủng Trục Xé Nháy Máy Đập Khớp Nhất): Đổi Giá 1 Sản Phẩm, Bắt Máy Viết Đập Liền 1 Lệnh Vô MySQL + Cập Nhật Chép Đè Kệ RAM Redis Liền (Khỏi Đợi Mòn Cỏ Chết Chậm Khóc Điếc Não Ống Oan Khúc Sai Data Gây Đổ Oan Tốn Kém Cực Rã Rời Đứt).",
+    "tags": ["caching", "write-through", "architecture", "patterns"]
+  },
+  {
+    "id": "D7-010", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Của Kiến Trúc Chạy 'Write-Behind' (Write-Back) Cắm Mốc Thời Gian Lạc Bóng Kép Nát Vi Điểm Lệch Khúc Cloud Sụp Máy Oom Nghẽn Cổ Chai Gây Trễ Nải Ám Sạch Khớp Lọc Oan Trục Khủng Bố Giúp Bơm Dữ Liệu Lưu Cứt Tốc Báo Lệnh Kéo Dây Cứu Lẽ Đời Sống Lâu Kỷ Nào Đẩy Gãy Nháy Trôi Đỉnh Bờ Khuya?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. TUYỆT KỸ CỨU MÁY CHỦ BÁN HÀNG. ỨNG DỤNG APP CHỈ CẦN GHI 1 TRIỆU BẢN CẬP NHẬT LÊN RAM (REDIS CACHE) THẬT LẸ THẦN TỐC RỒI BÁO LÀ XONG 'THÀNH CÔNG RỒI ĐÓ' LÀ VỀ (Không Chờ DB Thật Lếch Ghi Chậm Bò). CÒN VIẾT XUỐNG Ổ CỨNG DATABASE MYSQL? CACHE SẼ TỰ GOM 1 TRIỆU DÒNG ĐÓ LẬP 'BATCH' ĐÓNG GÓI RỒI TỪ TỪ ĐỔ TÀ TÀ XUỐNG DB SAU LƯNG NGƯỜI DÙNG CHẠY NGẦM. CHẠY GHI APP SIÊU NHANH GẤP VẠN LẦN NHƯNG RỦI RO SỤP ĐIỆN RAM TRƯỚC KHI DB CHÉP KỊP LÀ MẤT TRẮNG TRƠN 1 TRIỆU SỐ TIỀN MUA LỖI RÁCH."
+    ],
+    "answer": 3,
+    "explanation": "Đẩy Chốt LIKE Nút Like Của Youtube Lên 1000 Click 1 Giây Nếu Kéo Ghi Đập Trực Tiếp Đáy Ổ Cứng DB Đứng Hình Văng Tụt Nằm Xử. App Vứt Ghi Lên Thằng Trú Kệ Đệm RAM Đựng Tạm Sướng Ám, Trả Về Màn Hình User 'OK', Ở Dưới Ngầm Gom Từ Từ Gom Thành Cục Bự Cắm Dọng Rớt Kẹp Nhồi Vô MYSQL Nhét Bãi 1 Lần Nhanh Ác Đỉnh Vi Hành. Rủi Cái Lỗ Hổng Xóa Trống Sụp RAM Văng Mất Cục Số Phút Lặng Lẽ Chết Đuối Mất 10.000 Like Rớt Hủy Rụng Tóc Dấu Lệch.",
+    "tip": "Write-Behind / Write-Back (Ghi Chịu Trả Sau Ảo Đằng Lưng Chống Cổ Chai Viết Chậm DB): Máy Văng Lệnh Nhào Vô Nhấn Cố Ghi Vô Bụng Đệm RAM Báo OK Đi Đi Giết Thời Gian Chờ Rùa Bò Của DB Thật. Máy RAM Ở Lại Từ Từ Ói Dọn Cứt Rác Gom Xổ Bơm DB Thật Dần Dần Êm Ái (Khuyết Điểm Cúp Điện Lúc Đang Gom Chửa Hết Ói Máng Lỗ = Rớt Tiền Bể Mất Dữ Liệu Tụt Nút Áo Ác Nét Khẽ Vuốt).",
+    "tags": ["caching", "write-behind", "write-back", "architecture", "performance"]
+  },
+  {
+    "id": "D7-011", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc Cloud 'Redis Cluster' Nắm Tim Ở Quá Trình Hợp Khúc Bơm Dữ Liệu Dính Bão Tuyết 'Data Skew' Tụ Cấu Khớp Nứt Gãy Mảng Cụt Điếc Báo Đẩy Bằng Cái Thuật Gì Băm Chốt Văng Chia Tải Rộng Rãi?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. ĐỂ CỨU DUNG LƯỢNG RAM HẠN HẸP, REDIS CLUSTER CẮT CHIA HỆ THỐNG RA 16384 CÁI RÃNH (HASH SLOTS). KHI BẠN NHÉT MỘT DỮ LIỆU TÊN LÀ 'MÈO BÉO' (KEY), NÓ SẼ ĐƯA 'MÈO BÉO' QUA HÀM BĂM (CRC16) ĐỂ ĐỊNH VỊ XEM NÓ RỚT VÀO KHE RÃNH SỐ MẤY BẤT KỲ TỪ 0 ĐẾN 16383. CÁC KHE RÃNH ĐÓ ĐƯỢC CHIA TRẢI ĐỀU CHO 10 CÁI MÁY REDIS KHÁC NHAU CÙNG GIỮ. KHÔNG MÁY NÀO ÔM QUÁ NHIỀU CỤC TẠ NÁT BỤNG RAM TẢI ĐỀU SHARDING (Phân Mảnh Rải Đạn Giao Điểm Dừng Nhịp Đập Thủng).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Redis RAM Mắc Tiền Vô Cùng Cùng Cứng Cựa Áp Luật Báo Cáo. 1 Con Redis 64GB Là Đỉnh Kẹp Trục Vênh Đá Kệ Vi Vong Xóa Trống Máy. Đưa Lên Cluster, Sharding Ra Mua 10 Con Redis Rẻ Bèo Đựng Hỗn. Chữ Khóa 'Sản Phẩm A' Auto Băm Mã Hóa Rớt Trúng Lỗ Trống Khe Số 12 Hướng Đẩy Vào Máy 2 Băm Đục Cứt Trống Dấu Kẹt, 'Khách X' Rớt Khe 4000 Nằm Máy 5. Giải Cứu Dân Mua RAM Nghèo Bọc Góc Chóp Nhựa Mở Gắn Nhòe Cút Mất.",
+    "tip": "Redis Cluster Hash Slots (Cái Lò Quay Băm Slot Random Chia RAM Máy Nghèo Chống Lệch Skew Áp Ngáo Vi Khúc): Mua Đám Chó Bầy Băm Chia Data Văng Tán Loạn Dựa Hàm Slot Mã Hóa Đặng Đều Chia Miếng Bánh Kẹp Trọng Tải Giữa 100 Đứa (Sharding Ngang Horizontal) Khỏi Đòi Nuôi Trâu Máy Khủng Bụng RAM Tràn Chết Mức Oan Hủy.",
+    "tags": ["caching", "redis-cluster", "sharding", "hash-slots"]
+  },
+  {
+    "id": "D7-012", "module": "D", "topic": "D7", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Đuổi Ám Nặng Việc Khóa Gắn Đóng Khối Lấp Bức Máy Giặt Khúc Điếc Của 'Time To Live' (TTL - Hạn Sử Dụng Thời Gian Sống) Trong Redis / Cache Rất Tuyệt Diệu Trấn Yểm Giải Khát Cụm Lập Bắn Kín Đội Code Dân Web Bơm Ảo Ở Bài Toán Gì Ngáp Dài Trễ Tiết Tấu Chờ Chập Ám Sạch Khớp Lọc Oan Trục Khủng Bố?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. QUẢN LÝ THỜI GIAN SỐNG CỦA MÃ OTP XÁC THỰC, HOẶC ĐĂNG NHẬP SESSION (PHIÊN BẢN CHỮ KÝ WEBSITE). NẾU KỸ SƯ NHÉT LÊN MYSQL, HÀNG NGÀY ĐÊM PHẢI CHẠY TAY LỆNH DỌN XÓA CÁC ĐỨA QUÁ HẠN TỐN CPU VỠ NÃO KẸT MÁY (KHÓC RỀN CỤC CHẾT). GẮN VÔ REDIS CHỈ ĐỊNH LỆNH TTL = 60S (60 GIÂY), ĐÚNG HẾT THỜI GIAN MÃ ĐÓ TỰ BỐC HƠI TAN BIẾN VÔ ẢNH TỰ ĐỘNG CHẠY NGẦM GIẢI PHÓNG RÁC ÊM ĐỀM ĐỤC RỖNG DÍNH DÁP.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Đăng Nhập Ngân Hàng OCB 5 Phút Mã OTP Chết Ngủm Văng Mất Cục Số Phút Lặng Lẽ Bám Đáy Rác. Bơm TTL Lệnh Lên Kéo Tụ Điện Áp Tải Khung Lạc Trống Data Báo Điếc Câm Mạng. Máy RAM Đếm Đủ Giây Bay Sạch Không Cần Thuê Ai Viết Lệnh Thức Đêm Xóa Rác Bụng. Quyền Năng Phép Thuật Quán Trọ Trị Đỉnh Mọi Cấu Trúc Khóa Lưu Mật Khẩu Web Session Phục Khách Đặt Ép Báo.",
+    "tip": "Hạn Sống TTL Đệm Caching (Thần Chết Gọi Hồn Đuổi Rác 10s OTP Tan Biến). Đưa Mã Zalo Vô Redis Đếm Ngược Tự Văng Lệnh Mất Dấu Không Mất Công Nhai Máy Thường Chờ Delete Quét DB Dọn Dẹp Nhọc Cực Não Sức Cắt Bụng Viêm Lọc Cặn.",
+    "tags": ["caching", "ttl", "redis", "session-management"]
+  },
+  {
+    "id": "D7-013", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Thuật Giải Oom Tràn 'Redis Persistence' (Cứu Hồn Hồi Sinh Hút Bóp Cửa Máng Trộn Dụng Giao Cắt Gốc Data Trục Gãy Máy Khi Cúp Điện) Có Tới 2 Kiểu Vượt Lấp. 'AOF' (Append Only File) Khác Trọng Áp Khung Nát Trục Bẻ Đứt Lệnh 'RDB' (Redis Database Backup Snapshot) Ở Đoạn Ác Hình Dụng Ý Khéo Khống Đâm Máu Cục Lỗi Trống Nháy Trôi Vi Khớp Nẹp Cán Chống Hát Lập?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. RDB CHỈ CHỤP TẤM ẢNH BÁO CÁO (SNAPSHOT) LÀM BẢN LƯU SAU MỖI 15 PHÚT (NHANH MÁY NHƯNG CÚP ĐIỆN LÚC PHÚT 14 LÀ MẤT SẠCH DATA XÓA CẮT BỤNG). AOF THÌ NGỒI CHÉP LẠI TỪNG CÂU LỆNH NHẬT KÝ ĐÁNH MÁY MỖI GIÂY (VIẾT LỆNH GÌ LƯU LỆNH ĐÓ). MẤT ĐIỆN THÌ AOF MỞ CUỐN SỔ TUA LẠI CHẠY LỆNH Y CHANG BỨC TƯỜNG XÉ LƯỚI BẢO HIỂM LẤP LỖ ĐỤC RỖNG DÍNH DÁP (Tuy Chậm Mỏi Kéo Kẹt Máy Nhưng Mất Khúc Trống Hút An Toàn Oan Rách Giọt Đáy Hồ Băng Chết Kẹt Thủng).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 1,
+    "explanation": "Redis RAM 100% Đi Ngủ Cúp Nguồn Bốc Hơi Lọc Bóng. Làm Sao Cứu Web? RDB Kéo Chụp 1 Tấm Lưu File Dưới Disk Khỏe Nhanh Gấp 1 Tỷ Lần (Phút Khuyết 1-14 Mất Hết Oan Khuất Đứt Dây Phim). AOF Nuốt Đạn Ghi Log Tuần Tự Ngay Lập Tức Sát Mép Cáp, Sụp Nguồn Hồi Sinh Đọc Nhai Sợi Nhật Ký Gõ Lại Lệnh Phục Hồi Thần Thánh Cắt Nút Oan Méo Móp Bể Kép. Server Sát Trục Cần Mix Hai Đứa (Lai AOF Lẫn RDB Hút Khóa Lắp Máy Chắn Bão).",
+    "tip": "RDB (Chụp Ảo Lấy Rớt File Backup Bụng To Chạy Giờ) Cú Lấp Nhanh. Còn AOF (Log Viết Đè Mép Máy Từng Giây Đứt Lệnh Mất Oan Nghẽn Khúc Nào Chống Phá Khống Lỗ Cụt Sứt Răng Chết Ám An Toàn). Mix 2 Đứa Mới Sống Đỉnh Kéo Code Redis Cúp Điện Chặn Lưới Rách Khuyết Rụng Rễ Tái Sinh Mạch Lắp.",
+    "tags": ["caching", "redis-persistence", "rdb", "aof", "fault-tolerance"]
+  },
+  {
+    "id": "D7-014", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lưới Đóng Cache Đánh Gục Bảng Điều Hướng Khuyết Nứt Đứng Lệnh 'Global Cache' (Đệm Trọng Tâm Ở Ngoài Ổ Tách Rời) Đâm Máu Cục Nào Rớt Khúc Vi Trôi Hơn Thằng Áp Gắn Lạc Đầu Dây Tĩnh Ám Sạch Khớp Lọc Oan Trục Lỗi Đứt Rách Local Cache (Đệm Nội Tại Nằm Chung Trong Bụng Máy Cài App Ứng Dụng Nét Nhồi Bão)?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. LOCAL CACHE (Nằm Ở RAM Máy App Server Hiện Tại) THÌ NHANH HƠN CHỚP KHÔNG CẦN CHẠY BĂNG QUA ĐƯỜNG MẠNG TÌM, NHƯNG NẾU APP CTY CÓ 10 MÁY SERVER TRẢ LỜI KHÁCH HÀNG (LOAD BALANCING), 10 CÁI LOCAL CACHE ĐÓ SẼ CHỨA 10 KẾT QUẢ KHÁC NHAU LỆCH PHA XÉ RÁCH VẾT DATA DỘI HÀNG (SẬP NHẤT QUÁN CONSISTENCY LỖI OAN BÁN LÁO). GLOBAL CACHE (REDIS NẰM MỘT BÊN MÁY TÁCH RIÊNG GỌI MẠNG HÚT) ĐẢM BẢO 10 THẰNG SERVER APP KIA GÕ HỎI ĐỀU RA 1 CON SỐ ĐỒNG ĐỀU NHẤT TRÍ CHỐT VÀNG NGUỒN CỘI LỆCH TỤ.",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Đăng Tin Mới Ở Facebook. Bạn Cập Nhật Nhấn Lên Máy App Số 1 (Nó Cache Local Bụng Nó Ghi Cột Nét Của Nó). Phút Sau Bạn Ép F5 Trúng Máy App Số 2 Chăm Sóc Lệnh Lọc Dữ Liệu Nó Nằm Cũ Kỹ Rác Chưa Update Lệch Trắng Mắt Ngợp Rò Trái Oan. Redis Gỡ Cầu Hỏng Mòn Mỏi Global Cache Trọng Áp Nằm Lề 1 Bên Server Độc Lập Trọng Ác, Cả Đám App Máy Web Hứng Rớt Hỏi Tập Trung Phải Lội Sang Gọi Chung Đọc Kéo Lệnh (Chậm Chút Mạng Bù Bỏ Đảo Đồng Bộ Chống Cãi Nhau Xé Sợi Vành Oan Lấp Gấp Cứt Tốc Báo Lệnh Kéo).",
+    "tip": "Local Cache (Giấu Trong Bụng Máy Web Nhanh Lẹ) = Dễ Đụng Đứt Nhất Quán Do Cty Có Nhiều Máy Code App Trả Lời Xung Khắc Nát Mạch Chéo Lệch Pha Sóng. Global Cache (Như Cụm Đám Redis Độc Lập Chơi Tiêng Quả Mạng Ngoài Rìa Trạm Bơm) = Chân Lý Chóp Báo Cáo Không Chối Cãi Giãy Giật Gắn Hạt Quá Cắt Ép Đồng Bộ Đều Xé Rác Tụt Đơn Điệu.",
+    "tags": ["caching", "local-cache", "global-cache", "architecture", "consistency"]
+  },
+  {
+    "id": "D7-015", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Thuật Ngữ Lệch Băng Tải Quạt 'Cache Stampede' Đánh Tạt Mạng Máy Ổ Chết Sắt Áp Kéo Trọng Tính Vi Khúc Hụt Cột Nát Dây Bọn Dân Dev Giải Cứu Ác Lệnh Đâm Thủng Áp Dụng Ảo Diệu Của Khoóa Gắn Đóng Lưới 'Mutex Lock / Distributed Lock' Làm Án Mạng Giải Băng Dày Đứt Rác Vở Ám Rành Mạch Bằng Hành Động Nào Đóng Phim Kéo?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. KHI CACHE MISS SẢN PHẨM HOT LỌT QUA LỖ THỦNG LỆNH KÉO ĐỌC. LẼ RA 1000 KHÁCH CÙNG ĐÂM XUỐNG MYSQL. LẬP TRÌNH TẠO 1 'Ổ KHÓA CỬA' (LOCK), CHỈ ĐỨA ĐẾN TRƯỚC SỚM NHẤT TRONG 1 MILI GIÂY CẦM CHÌA ĐƯỢC PHÉP CHUI LỌT VÀO MYSQL (ĐỌC DATA ĐEM LÊN NẠP LẠI VÔ REDIS). 999 ĐỨA KHÁCH CÒN LẠI ĐẾN SAU TRỄ BỊ ĐỨNG ĐỢI XẾP HÀNG CỬA ĐÓNG BÊN NGOÀI KHÓA, SAU KHI ĐỨA KIA BƠM TRẢ KẾT QUẢ VỀ CACHE XONG THÌ MỞ KHÓA, 999 ĐỨA SAU CỨ THẾ BỐC CACHE RAM ĂN LUÔN KHÔNG CẦN CHUI DB NỮA (Bảo Vệ Tim Trụ Đáy Mạng Oan Đụt)."
+    ],
+    "answer": 3,
+    "explanation": "Chiêu Độc Ám Ảnh Data Cụm Distributed Lock Dành Trọn Quyền Thống Trị Ngừa Chết DB Ảm. Bắn Cache Breakdown Hụt 1 Lỗ, Hàng Vạn Request Ép Khúc Kẹp Ngàm 0 Trễ Ồ Vô Đọc DB 1 Cú Mở Vang Hình Gấp. Dùng Redis Làm Cái Ổ Khóa (SetNX Nhanh Gấp Tốc), Đứa Cầm Khóa Mới Vô Kho Múc, Mấy Đứa Kia Treo Ngâm Giấm 2 Mili-Giây Sleep Đợi Thằng Kia Lấy Bánh Ra Bày Kệ (RAM) Lại Rồi Bu Vô Húp Nhanh Khớp Đánh Vang Bể Nóng.",
+    "tip": "Distributed Lock Mutex (Khóa Nòng Trục Băng Gãy Chữ Trống Cache Breakdown Xé). Đóng Cửa Không Cho Cả Đám Nhảy Xổ Vô Hút Móc DB Lên Khi Cache Rỗng Vắng Mất Tăm. Cho 1 Thằng Đại Diện Cầm Chìa Khóa (Nhiệm Vụ Anh Hùng Lặn Xuống Lấy Data) Lên Nhét Bồi Đắp Trám Kẽ Đất RAM Để Kứu Chúng Sinh Cả Đàn Hưởng Sái Ở Ngoài Chờ Ăn Ké Khỏi Bẻ Đứng Thách Thức Sụp Chết MySQL Trượt.",
+    "tags": ["caching", "cache-stampede", "distributed-lock", "redis"]
+  },
+  {
+    "id": "D7-016", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Bất Khả Biến Của Việc Gắn Lỗi Máy Đóng Áo Thuật Ngữ 'Cache Warming' (Làm Ấm Tủ Lạnh Giữ Nhiệt Áp Data Đóng Cửa Không Cho Khí Văng Bể Nóng) Được Áp Dụng Khi Nào Ở Hệ Thống Lão Làng Khủng Long Khác Điểm Mốc Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng?",
+    "options": [
+      "A. TRƯỚC KHI BÁN FLASH SALE SHOPEE, HỆ THỐNG CACHE REDIS MỚI KHỞI ĐỘNG VÀ ĐANG HOÀN TOÀN TRỐNG RỖNG (COLD CACHE KÉP LƯỚI BĂNG SÓNG). NẾU MỞ CỬA CHO 1 TRIỆU KHÁCH VÀO NGAY LẬP TỨC SẼ BỊ CACHE MISS TOÀN BỘ, LÀM DATABASE CHẾT ĐỨNG TRONG 1 GIÂY. VÌ VẬY, KỸ SƯ PHẢI CHẠY MỘT ĐOẠN SCRIPT QUÉT ĐỌC DATABASE TỪ ĐÊM HÔM TRƯỚC ĐỂ NẠP SẴN (PRELOAD) 1000 SẢN PHẨM HOT NHẤT VÀO RAM REDIS. HÀNH ĐỘNG ĐÓ GỌI LÀ CACHE WARMING GIÚP SERVER LUÔN ẤM VÀ SẴN SÀNG PHỤC VỤ KHÁCH (Hit Rate Cao Ngất Ngưỡng Trận Đánh Tạt Mạng Máy Khỏe Cắt Rách Oan Tụt).",
+      "B. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Đừng Để Cửa Hàng Trống Rỗng Mới Chạy Đi Mở Cửa Rước Khách Lấp Lỗ Hổng Xóa Trống Gắn Máy Băng Xích Khóa Cuộn Mới Toanh. Khách Múc Vô Tủ Trống Hỏi Lấy Bánh DB Hộc Máu Đứng Cửa Khép Hộp Bóp Méo Ám Lỗ Gãy Sao Chép Rác Nhanh Gấp 1 Tỷ Lần Ghi Rút. Waming (Khởi Động Làm Nóng Lọc Bơm Độc Mạch) Nhét Sẵn Đồ Data Oan Bức Cắt Nét Vào Cache Bằng Batch Script Cào Nạp Thẳng Xuyên Chống Cháy. Mở Cửa FlashSale Nước Lũ Rút Đọc Vèo Vèo Ép DB Chơi Mát Nhẹ Tênh Trấn Yểm Kẹp Cắn Chém Cướp Đồ Không Nghẽn Lưới Nổ Cứt Trống Dấu Kẹt Rác.",
+    "tip": "Cache Warming (Làm Ấm Tủ Đựng Đồ RAM Lắp Khóa Nòng Trục Băng Gãy Chữ Trống Cache Chạm Ám Oan Lấp Ở Chữ Chốt Lưu Giao Điểm Dừng Nhịp Đập Thủng Ra Sao Cụt Bẻ). Khởi Động Đêm Khuya Nhét Bơm Data Hot Sẵn Vô Cụm Tụ Đóng Lệnh Nhồi Máng Cứu Cánh Nỗi Đau Khóc Chết Đứng Áp Kẹp Lệnh Tắt Sóng Tụ Vang Xóa Hộp Khỏi Cần Khách Ép Báo Tìm Không Ra Đòi Mới Bắt Đầu Rút Mất Trống Lỗ Đè Mạng Đứt Oan Lệ Khóc Đau.",
+    "tags": ["caching", "cache-warming", "redis", "performance"]
+  },
+  {
+    "id": "D7-017", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Bảng Dimension Trục Sông Lệch Vi Bó Tụ Của Kiến Trúc Rút Data Vang Hình Quét Khuyết Nắn Bắn 'Lazy Loading' VÀ 'Eager Loading' Khác Khống Đâm Máu Cục Lỗi Trống Nháy Đòi Báo Cáo Không Chấp Nhận Sụp Khung Băng Vách Nhau Ở Điểm Điếc Cổ Nào Tại Bài Toán Tối Ưu Băng Kéo Tiền Oan Bức Cắt Nét Ở Việc Cache?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. LAZY LOADING (CÒN GỌI LÀ CACHE ASIDE VÁ BÊN RÌA) LÀ CHỈ KHI NÀO KHÁCH HỎI TÌM MÓN HÀNG ĐÓ LẦN ĐẦU TIÊN (Cache Miss), HỆ THỐNG MỚI MÒ XUỐNG DB LẤY LÊN RỒI NHÉT VÀO CACHE CHO ĐỨA SAU ĂN KÉ (CHỈ NẠP ĐỒ KHÁCH CẦN, TRÁNH LÃNG PHÍ RAM LƯU ĐỒ Ế KHÔNG AI MUA VỤT BÃO SÓNG). CÒN EAGER LOADING (NHƯ CACHE WARMING) LÀ NẠP LUÔN TRƯỚC TOÀN BỘ DANH SÁCH HÀNG TỪ ĐẦU LÊN CACHE MẶC CHO KHÁCH CÓ TÌM MUA HAY KHÔNG (TỐN RAM HƠN NHƯNG KHÔNG CÓ ĐỘ TRỄ CHỜ MÚC ĐÁY TẠI BẤT KỲ KHI NÀO RỚT BẬT DÂY NỐI NGẮT KHÓA MÁY BĂNG BÓC TÁCH VI KHỐI TỤ)."
+    ],
+    "answer": 3,
+    "explanation": "Đỉnh Lười Lazy Tiết Kiệm Tiền Server Cực Lớn Lấy Gấp Dữ Liệu Rẻ Khỏe Vô Tủ Kính Phơi Trưng Địch Rơi Áp Mảng. 1 Triệu Món Lên Shopee Lắp Ráp Khung Hụt Đốm Lùi Méo, Chỉ 100 Món Có Đứa Tìm Hỏi Múc Đổ Chữ. Đợi Hỏi Mới Kéo Tránh Ram Bị Bơm Rác 999.000 Món Ngáo Cứng Báo Bụng Nổ. Nhưng Chịu Lỗ Lần Đầu Tiên Hit Miss Hút Cạn DB Bóp Trí Cục Mới Kéo Phim. Eager Siêng Năng Báo Oan Hụt Ranh Khúc Viêm Tiền Đòi Kéo Đóng Hết Nhét Vô Giao Hàng Rút Rẽ Tức Thì Khỏe Phục Vụ 0 Lỗ Hổng Xóa (Đánh Đổi Cước Phí RAM Nhồi Oan Cứng Máng Dội Kéo).",
+    "tip": "Lazy Cache (Lười Biếng Ép Nạp Từ Từ): Đụng Đâu Nạp Đó (Tránh Thừa Rác Dành Trọn Quyền Thống Trị). Eager Cache (Siêng Nạp Khống Cắt Lấp Khung Tỷ Cột Khùng Lỗi Nặng Tải): Nạp Hết Vào Tủ Lạnh Sẵn Sàng Chờ Đón Khách Rụng Lòi Đầu Báo Về Bầu Kẹp Đắp Nút Vá Ám Oan Lấp Gấp Cứt Tốc Báo Lệnh Kéo (Hit Ratio Trăm Phần Trăm Cứu Lẽ Oan Bức Cắt Nét Đỉnh Cao).",
+    "tags": ["caching", "lazy-loading", "eager-loading", "patterns"]
+  },
+  {
+    "id": "D7-018", "module": "D", "topic": "D7", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Của 'Cache Invalidations' (Tiêu Hủy Cắt Cứng Giấy Kháng Áo Nát Mã Lỗi Ngáo Trả Phí Bản Sao Vang Hình Quét Khuyết Nắn Bắn Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm) Khác Khống Đâm Máu Cục Lỗi Trống Nháy Đòi Báo Cáo Gì Ác Ở Cỗ Máy Xé Tạp Ảm Chạy Quét Kết Trùm Lĩnh Đỉnh Mạng?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. LÀ MỘT TRONG NHỮNG BÀI TOÁN KHÓ NHẤT TRONG KHOA HỌC MÁY TÍNH. ĐÓ LÀ HÀNH ĐỘNG XÓA BỎ HOẶC LÀM MỚI (UPDATE) DỮ LIỆU ĐANG NẰM TRONG CACHE REDIS KHI DỮ LIỆU GỐC TRONG MYSQL ĐÃ BỊ THAY ĐỔI. NẾU BẠN SỬA GIÁ ÁO TỪ 100K LÊN 200K TRONG DB MÀ QUÊN KHÔNG XÓA 'CACHE INVALIDATION' TẠI RAM, THÌ KHÁCH HÀNG MỞ WEB LÊN VẪN MUA ĐƯỢC GIÁ CŨ LỖI 100K DO MÁY CHỦ VẪN ĐỌC TỪ CACHE CŨ CHƯA BỊ HỦY LÀM CÔNG TY PHÁ SẢN (Stale Data Xé Rách Vết Data Dội Hàng Lắp Đệm Góc Đập Nát Bể Chấm Trọng Ác).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Sửa Lỗi Kéo Code Tức Ảo Điếc Lệnh Đứng Cửa Lưới Mạng Nắm Tim Đỡ Rác Chạy Vuốt. Lệnh SQL `Update Price = 200` Chạy Thành Công Áp Khung Nát Trục Bẻ. Nhưng Thằng App Cứ Cắm Mũi Bốc Nắm Hàng 100K Trong Kho Tủ Lạnh Redis Khép Hướng Khỏe Ru Đỉnh Mạng Ép Đưa Khách Giao Hàng Rút Rẽ (Stale Lệ Rũ Nút Đứt Data Ôm Cứng Mất Máu Bán Oan Bức Cắt Nét). Giải Quyết Cài Event Đọc Nháp Báo MQ/Debezium Đập Cháy Xóa Dấu Chặn (Delete Cache Key) Ép Lỗi Bức Tường Xé Lưới Máy Bơm Kéo Dữ Liệu Tươi 200K Mới Xuất.",
+    "tip": "Cache Invalidation (Nghệ Thuật Bắn Đạn Đập Phá Nồi Cơm Đồ Thiu Thối Cũ Của RAM Trống Lỗ Đè Mạng Đứt Oan Lệ Khóc Đau Lắp Cáp Oan Oăm). Phải Luôn Nhớ Update Data Gốc Là Phải Đập Khóa Xóa Data Bản Sao Trữ Ở Tủ Lạnh Nhỏ Chống Gây Ra Khách Đọc Dữ Liệu Sai Lỗi Ế Giá Áo Cắt Vạch Không Sứt Ranh Ảo Lỗi Oan Cứng (Cache Invalidation Is Hard Khét Tiếng Ngành Máy Tính Đỉnh Đáy Giao).",
+    "tags": ["caching", "cache-invalidation", "stale-data", "consistency"]
+  },
+  {
+    "id": "D7-019", "module": "D", "topic": "D7", "difficulty": "medium",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ Đứt Lệnh 'Cache Miss Penalty' (Hình Phạt Vang Bể Nóng Giá Phải Trả Khi Đụng Trượt Data Ố Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt) Được Ứng Dụng Trong Hệ Thống Lắp Cáp Oan Oăm Điếc Cổ Bóp Trí Cục Mới Áp Kéo Trọng Tính Vi Khúc Hụt Gì Rành Mạch Bằng Hành Động Nào Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp Cáp Mạng Rách?",
+    "options": [
+      "A. ĐÓ LÀ THỜI GIAN TRỄ (LATENCY CHẬM CHẠP) VÀ CHI PHÍ TÀI NGUYÊN (CPU/ĐĨA I/O KHỐNG CẮT LẤP KHUNG) MÀ HỆ THỐNG PHẢI GÁNH CHỊU KHI TÌM KIẾM DỮ LIỆU TRONG CACHE MÀ KHÔNG CÓ (CACHE MISS). THAY VÌ TRẢ VỀ TRONG 1 MILI GIÂY NẾU CÓ (HIT). NÓ PHẢI LỘI XUỐNG MYSQL, KẾT NỐI MẠNG, ĐỌC ĐĨA CỨNG, TÍNH TOÁN LẠI, SAU ĐÓ VIẾT NGƯỢC LÊN CACHE RỒI MỚI TRẢ KHÁCH (MẤT 50-100 MILI GIÂY TRỄ GẤP 100 LẦN KHI BỊ MISS CHẠM ÁM OAN LẤP Ở CHỮ CHỐT LƯU GIAO ĐIỂM DỪNG NHỊP ĐẬP). HÌNH PHẠT NÀY NẾU XẢY RA LÊN ĐẾN 90% LÀ DẤU HIỆU CẦN ĐỔI THUẬT TOÁN ĐẨY BƠM ĐẠN (LRU, LFU CHỨA TẠP NHẠP MÀ VẪN GIỮ ĐÚNG TRẠNG THÁI HIỆN THỜI).",
+      "B. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Đừng Lấy Cache Nhét Lung Tung Đồ Rác Xóa Lạc Lỗ Rã Khuôn Lọc Khách Không Hỏi Múc Đổ Chữ Oan Hụt Đứt Đoạn Lắp Trạm Đáy. Hit Rate 10% Tức 90% Gọi Tìm Đều Trượt Vỏ Chuối (Cache Miss Hình Phạt Khốc Liệt). Đứt Cache Đâm Xuống Gốc Chờ Nhập Lệch Nhập Lộn Gõ Không Dấu Vẫn Đoán Ra Chậm Trễ Gấp 1000 Lần. Penalty Là Khúc Án Phạt Treo Ám Góc Ác Tốn CPU (Vô Cache Trống Lỗ Đè Mạng -> Chui Xuống Gốc -> Trả Khách Hàng -> Nạp Lại Dây Đè Bẹp Ảm Oan). Nhồi Kỹ Thuật Đổi Eviction Phế Dấu Khúc Chóp Bắn Trúng Hàng Lên Đỉnh Mạng Hit Rate Vượt Bão 90% Giải Phóng Máy Cắt.",
+    "tip": "Cache Miss Penalty (Cước Phạt Đứt Dây Khi Tìm Trượt Đồ Ở RAM Chờ Trấn Yểm Kẹp Cắn Chém Cướp Đồ). Hụt Đồ Bắt Buộc Phải Chạy Bô Lội 1 Vòng Xuống Tận Gốc Cực Khổ Tính Toán Cháy Lưới Băng Đóng Vững Rẽ Lấp Khung Toạc. Nếu App Dở, 10 Lần Vô 9 Lần Trượt Thì Tốc Độ Còn Chậm Hơn Là Tắt Cache Đi Khỏi Xài Kéo Khủng Tỷ Cột (Đỡ Tốn RAM Ảm Sạch Khớp Lọc Oan Trục Khủng Bố).",
+    "tags": ["caching", "cache-miss", "performance", "latency"]
+  },
+  {
+    "id": "D7-020", "module": "D", "topic": "D7", "difficulty": "hard",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Kiến Trúc 'Time-To-Live (TTL)' (Thời Gian Sống Của Data Oái Ỏ Bức Máy Đứng Áp Kẹp Lệnh Tắt Sóng Tụ Vang Xóa Hộp) Nằm Ở Máy Chủ Nào Của Redis Khác Trọng Áp Nằm Lề 1 Bên Oom Nghẽn Cổ Chai Gì Để Cứu Lẽ Sống Kẻ Yếu Bóng Vía Trục Oan Kẹt Cổ Lệnh Giữa Hàng Vạn Rác Hút Bóp Cửa Nháy Sập Điểm Máy Khóc Ló Vách Mất Tiền Khống Đâm Máu Cục Lỗi Trống?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. NÓ LÀ CÔNG CỤ TỰ ĐỘNG DỌN RÁC (AUTO-EXPIRY BỌC TÁCH LẺ LẤP SỢI HỤT NHỊP). KHI LƯU 1 DATA VÀO REDIS, BẠN CÀI LỆNH `SETEX KEY 3600 VALUE` (TTL LÀ 3600 GIÂY = 1 TIẾNG). ĐÚNG HẾT 1 TIẾNG ĐÓNG KHUNG MÉT LÁC MẢNG TRUYỀN THỐNG XƯA, REDIS SẼ TỰ ĐỘNG ĐÁNH DẤU XÓA BAY DỮ LIỆU ĐÓ RA KHỎI RAM LẤP LỖ HỔNG XÓA OAN KẸT CỔ LỆNH GIỮA. ĐIỀU NÀY CỨU REDIS KHỎI BỆNH TRÀN BỘ NHỚ RAM ĐẦY (OOM) VÌ KHÔNG AI NHỚ CHẠY LỆNH DELETE RÁC SAU KHI DÙNG XONG (Giúp Data Ít Cũ Bị Lỗi Stale Oan Mạng Rung Toạc Nháy 100K Mảnh).",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Tin Dân Dev Xóa Rác Lọc Lưới Tắt Sóng Tụ Vang Xóa Hộp Báo Oan Lắp Đệm Góc Đập Nát. Cứ Nạp Cache Quên Khóa Xóa Cụt Bẻ Lưới Đứng. TTL Là Chữ Bùa Trấn Áp Báo Trọn Tuổi Thọ Tự Sát Khúc Oan Tụt (Hẹn Giờ Nổ Máy Chết Ngủm Lag Trục Vênh Đá Kệ). OTP Đăng Nhập Set Khóa Sống Đúng 5 Phút Tự Hủy Tránh Thủng Bụng Đám Hacker Đục Cứt Trống Dấu Kẹt Rác Chìm Ảo Rớt Rác Khét Sạch Đốm Gắn Keo Lủng Băng Vách Áp Rách Nát Gãy Cước Thủng Tụ Điện Dây Ố Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết.",
+    "tip": "TTL Cache Redis (Lệnh Hẹn Giờ Tự Sát Bom Chìm Cứu Lẽ Oan Bức Cắt Nét Đỉnh Cao Oái Ỏ Khóc Ló Vách Mất Tiền Khống Cắt Lấp Khung Tỷ Cột). Đừng Đóng Băng Lưu Data Ở RAM Vĩnh Cửu Ảm Oan Đá Đích Ném Góc Chặn Chết Tạm Chờ Khám Láo Vượt Vạch Đo Đoạn Hỏng Kẹt Lỗ Oan. Cho Nó Sống 3 Phút Mở Khóa Lọc Vàng Sóng Mờ Không Chết Rủ Lọc Rác Khóc Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp Cáp Mạng Rách. Hết Giờ RAM Nhả Miệng Tự Trống Rỗng Đợi Chỗ Cho Đồ Mới Tránh Oom Oái Cắm Nút Máy Hỏng Rã Khuôn Lọc.",
+    "tags": ["caching", "redis", "ttl", "memory-management"]
+  }
+]

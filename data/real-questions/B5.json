@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B5-001", "module": "B", "topic": "B5", "difficulty": "easy",
+    "question": "Trong SQL, câu lệnh dùng để LẤY (đọc) dữ liệu từ một bảng là gì?",
+    "options": [
+      "A. EXTRACT",
+      "B. PULL",
+      "C. SELECT",
+      "D. GET"
+    ],
+    "answer": 2,
+    "explanation": "Câu lệnh SELECT được sử dụng để chọn/trích xuất dữ liệu từ một hoặc nhiều bảng trong cơ sở dữ liệu. Kết quả trả về được lưu dưới dạng một bảng kết quả (result-set).",
+    "tip": "Đọc = SELECT. Thêm = INSERT. Sửa = UPDATE. Xóa = DELETE.",
+    "tags": ["sql", "select", "basics"]
+  },
+  {
+    "id": "B5-002", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Khóa chính (Primary Key - PK) trong cơ sở dữ liệu quan hệ (RDBMS) có đặc tính bắt buộc nào?",
+    "options": [
+      "A. Có thể bị bỏ trống (NULL)",
+      "B. Không được phép trùng lặp (Unique) và Không được phép trống (NOT NULL)",
+      "C. Bắt buộc phải là số",
+      "D. Có thể chứa nhiều giá trị trong 1 ô"
+    ],
+    "answer": 1,
+    "explanation": "Primary Key dùng để định danh duy nhất mỗi bản ghi (dòng) trong bảng. Do đó, không thể có 2 dòng trùng PK, và PK không bao giờ được phép để trống (NULL) vì nếu trống thì hệ thống không biết đó là dòng nào.",
+    "tip": "Primary Key = Căn cước công dân. Không ai trùng ai, và không ai được phép không có.",
+    "tags": ["sql", "primary-key", "rdbms"]
+  },
+  {
+    "id": "B5-003", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Sự khác biệt giữa DELETE, TRUNCATE và DROP trong SQL là gì?",
+    "options": [
+      "A. Không khác gì nhau",
+      "B. DELETE xóa từng dòng (có thể Rollback, có điều kiện WHERE). TRUNCATE xóa nhanh toàn bộ data nhưng giữ vỏ bảng (không Rollback). DROP xóa sạch cả vỏ bảng lẫn data.",
+      "C. DROP dùng cho cột, DELETE dùng cho bảng",
+      "D. TRUNCATE chỉ xóa khóa chính"
+    ],
+    "answer": 1,
+    "explanation": "DELETE là lệnh DML (xóa có chọn lọc), ghi log đầy đủ nên chậm và có thể hoàn tác. TRUNCATE là DDL, dọn sạch data chớp nhoáng bằng cách reset con trỏ bảng. DROP là DDL, phá sập và vứt luôn cả cấu trúc bảng ra khỏi DB.",
+    "tip": "DELETE: Cắt từng bông hoa. TRUNCATE: Nhổ sạch cỏ giữ lại chậu. DROP: Đập vỡ luôn cái chậu.",
+    "tags": ["sql", "delete", "truncate", "drop"]
+  },
+  {
+    "id": "B5-004", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Câu lệnh INNER JOIN thực hiện phép kết nối như thế nào?",
+    "options": [
+      "A. Giữ lại tất cả các hàng từ bảng TRÁI",
+      "B. Giữ lại tất cả các hàng từ bảng PHẢI",
+      "C. CHỈ giữ lại các hàng có SỰ TRÙNG KHỚP (match) Khóa ở CẢ HAI bảng",
+      "D. Ghép nối tiếp (UNION) 2 bảng theo chiều dọc"
+    ],
+    "answer": 2,
+    "explanation": "INNER JOIN là phép giao (Intersection). Nếu ID có ở bảng A nhưng không có ở bảng B, thì hàng đó sẽ biến mất khỏi kết quả.",
+    "tip": "INNER JOIN = Lấy phần CHUNG (Giao). LEFT JOIN = Lấy tất cả bên Trái, bên Phải thiếu thì điền NULL.",
+    "tags": ["sql", "joins", "inner-join"]
+  },
+  {
+    "id": "B5-005", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Hàm tổng hợp (Aggregate Functions) nào dưới đây thường BỊ BỎ QUA các giá trị NULL khi tính toán?",
+    "options": [
+      "A. SUM, AVG, MAX, MIN",
+      "B. Chỉ hàm AVG",
+      "C. COUNT(*)",
+      "D. Các hàm tổng hợp luôn báo lỗi nếu gặp NULL"
+    ],
+    "answer": 0,
+    "explanation": "Các hàm SUM, AVG, MAX, MIN tự động lờ đi (bỏ qua) các ô chứa NULL. Tuy nhiên `COUNT(*)` thì đếm MỌI DÒNG (kể cả dòng toàn NULL), trong khi `COUNT(Column_Name)` sẽ bỏ qua giá trị NULL ở cột đó.",
+    "tip": "Toán học với NULL -> Ra NULL. Nhưng HÀM TỔNG HỢP (SUM, AVG) -> Tự động ngơ (ignore) thằng NULL đi.",
+    "tags": ["sql", "aggregate-functions", "null"]
+  },
+  {
+    "id": "B5-006", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Sự khác biệt giữa WHERE và HAVING trong SQL là gì?",
+    "options": [
+      "A. WHERE lọc dữ liệu TRƯỚC KHI gom nhóm (GROUP BY). HAVING lọc dữ liệu SAU KHI gom nhóm (áp dụng lên hàm tổng hợp).",
+      "B. WHERE dùng cho số, HAVING dùng cho chữ",
+      "C. HAVING lọc dữ liệu trước, WHERE lọc sau",
+      "D. HAVING chỉ dùng với lệnh UPDATE"
+    ],
+    "answer": 0,
+    "explanation": "Bạn không thể viết `WHERE SUM(Salary) > 1000`. Bạn phải lọc các dòng hợp lệ bằng WHERE, sau đó `GROUP BY`, tính tổng `SUM(Salary)`, rồi mới dùng `HAVING SUM(Salary) > 1000` để lọc ra các cục nhóm thỏa điều kiện.",
+    "tip": "WHERE = Lọc dòng riêng lẻ. HAVING = Lọc Cục Nhóm (Phải có GROUP BY).",
+    "tags": ["sql", "where", "having", "group-by"]
+  },
+  {
+    "id": "B5-007", "module": "B", "topic": "B5", "difficulty": "easy",
+    "question": "Để tìm các khách hàng có tên bắt đầu bằng chữ 'A', câu điều kiện nào đúng?",
+    "options": [
+      "A. WHERE Name == 'A*'",
+      "B. WHERE Name LIKE 'A%'",
+      "C. WHERE Name STARTS_WITH 'A'",
+      "D. WHERE Name = 'A%'"
+    ],
+    "answer": 1,
+    "explanation": "Toán tử LIKE dùng để so khớp mẫu (pattern matching). Ký tự `%` đại diện cho 0, 1 hoặc nhiều ký tự bất kỳ. Ký tự `_` đại diện cho đúng 1 ký tự.",
+    "tip": "`LIKE 'A%'`: Bắt đầu bằng A. `LIKE '%A'`: Kết thúc bằng A. `LIKE '%A%'`: Chứa chữ A.",
+    "tags": ["sql", "like", "pattern-matching"]
+  },
+  {
+    "id": "B5-008", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Phép toán UNION và UNION ALL khác nhau ở điểm nào?",
+    "options": [
+      "A. UNION gộp cột, UNION ALL gộp hàng",
+      "B. UNION xóa bỏ các dòng bị trùng lặp (distinct). UNION ALL giữ lại TẤT CẢ các dòng, kể cả dòng trùng.",
+      "C. UNION ALL chạy chậm hơn",
+      "D. UNION chỉ dùng cho 2 bảng, ALL cho nhiều bảng"
+    ],
+    "answer": 1,
+    "explanation": "Để loại bỏ trùng lặp, UNION phải thực hiện sắp xếp/hashing ngầm bên dưới, tốn nhiều chi phí. Nếu bạn chắc chắn dữ liệu không trùng hoặc không bận tâm, hãy luôn dùng UNION ALL để hiệu suất nhanh hơn rất nhiều.",
+    "tip": "UNION = Gộp + Lọc trùng (Chậm). UNION ALL = Nhắm mắt gộp hết (Siêu nhanh).",
+    "tags": ["sql", "union", "performance"]
+  },
+  {
+    "id": "B5-009", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Cấu trúc ACID trong Giao dịch (Transaction) Cơ sở dữ liệu đại diện cho 4 từ nào?",
+    "options": [
+      "A. Accuracy, Consistency, Isolation, Durability",
+      "B. Atomicity, Consistency, Isolation, Durability",
+      "C. Async, Commit, Insert, Delete",
+      "D. Automatic, Control, Index, Database"
+    ],
+    "answer": 1,
+    "explanation": "Atomicity (Nguyên tử): Giao dịch chạy trọn vẹn hoặc rollback toàn bộ (Không có chuyện trừ tiền người gửi mà chưa cộng tiền người nhận). Consistency (Nhất quán): Đưa DB từ trạng thái hợp lệ này sang hợp lệ khác. Isolation (Cô lập): Các giao dịch song song không dẫm đạp lên nhau. Durability (Bền vững): Đã Commit thì sập nguồn cũng không mất.",
+    "tip": "ACID = Tiêu chuẩn vàng của DB ngân hàng (Atomicity, Consistency, Isolation, Durability).",
+    "tags": ["database", "acid", "transactions"]
+  },
+  {
+    "id": "B5-010", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Index (Chỉ mục) trong Cơ sở dữ liệu giúp cải thiện điều gì?",
+    "options": [
+      "A. Cải thiện tốc độ GHI (INSERT, UPDATE) dữ liệu",
+      "B. Mã hóa dữ liệu an toàn hơn",
+      "C. Tăng tốc độ ĐỌC/Tìm kiếm (SELECT) dữ liệu",
+      "D. Nén dung lượng ổ cứng"
+    ],
+    "answer": 2,
+    "explanation": "Index giống như Mục lục của cuốn sách. Thay vì quét toàn bộ bảng (Table Scan - đọc từng trang), DB dùng Index (thường là B-Tree) để nhảy thẳng đến dòng chứa dữ liệu. NHƯNG đổi lại, Index tốn dung lượng và làm chậm tốc độ GHI (vì mỗi lần thêm/sửa data, mục lục phải được cập nhật).",
+    "tip": "Index = Mục lục. TĂNG tốc độ Đọc (SELECT). GIẢM tốc độ Ghi (INSERT/UPDATE).",
+    "tags": ["database", "index", "performance"]
+  },
+  {
+    "id": "B5-011", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Sự khác biệt chính giữa Cơ sở dữ liệu Relational (SQL) và NoSQL là gì?",
+    "options": [
+      "A. SQL lưu dữ liệu miễn phí, NoSQL tốn tiền",
+      "B. SQL lưu trữ theo cấu trúc Bảng nghiêm ngặt (Schema-rigid) có liên kết chặt chẽ. NoSQL linh hoạt, thường lưu dạng Document (như JSON) và dễ dàng scale ngang (Horizontal scaling).",
+      "C. SQL nhanh hơn NoSQL trong mọi trường hợp",
+      "D. NoSQL không thể dùng để tìm kiếm"
+    ],
+    "answer": 1,
+    "explanation": "Cơ sở dữ liệu Quan hệ (MySQL, PostgreSQL) bắt buộc định nghĩa Schema rõ ràng (Cột nào, kiểu gì). NoSQL (MongoDB, DynamoDB) là 'Schemaless', 1 dòng có thể có thuộc tính khác dòng kia. SQL tốt cho ACID và dữ liệu có cấu trúc. NoSQL tốt cho Scale khổng lồ và dữ liệu phi cấu trúc.",
+    "tip": "SQL = Tủ hồ sơ chia ngăn vuông vức. NoSQL = Cái thùng giấy, nhét gì cũng được miễn đóng gói (JSON).",
+    "tags": ["database", "nosql", "sql"]
+  },
+  {
+    "id": "B5-012", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Lệnh `LIMIT` (hoặc `TOP` / `FETCH FIRST`) thường dùng để làm gì?",
+    "options": [
+      "A. Giới hạn dung lượng bộ nhớ",
+      "B. Giới hạn SỐ LƯỢNG dòng kết quả trả về",
+      "C. Giới hạn quyền truy cập của User",
+      "D. Giới hạn số ký tự của một cột"
+    ],
+    "answer": 1,
+    "explanation": "`LIMIT 10` (trong MySQL/Postgres) sẽ chỉ trả về 10 dòng đầu tiên của kết quả tìm kiếm. Rất hữu ích kết hợp với `ORDER BY` để tìm 'Top N sản phẩm bán chạy nhất'.",
+    "tip": "LIMIT = Lấy Top N. (Luôn nhớ xài chung với ORDER BY để kết quả có ý nghĩa).",
+    "tags": ["sql", "limit", "pagination"]
+  },
+  {
+    "id": "B5-013", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Hàm Cửa sổ (Window Functions) như `ROW_NUMBER() OVER (...)` khác với GROUP BY ở điểm nào?",
+    "options": [
+      "A. Không khác gì",
+      "B. GROUP BY gom các dòng thành 1 dòng kết quả duy nhất. Window Functions tính toán nhưng VẪN GIỮ NGUYÊN từng dòng chi tiết ban đầu.",
+      "C. Window Functions chỉ dùng cho dữ liệu kiểu chuỗi",
+      "D. GROUP BY chạy nhanh hơn"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Tính tổng lương của phòng. GROUP BY sẽ làm mất chi tiết nhân viên, trả về 1 dòng 'Phòng IT: 1 tỷ'. Dùng `SUM() OVER(PARTITION BY Phong)` sẽ giữ nguyên dòng 10 nhân viên, và tạo ra 1 cột mới điền số 1 tỷ cho mọi người trong phòng đó. Cực mạnh để tính Rank, Running Total.",
+    "tip": "GROUP BY = Bóp nát gom lại. WINDOW FUNCTION = Tạo thêm cột tính toán mà KHÔNG bóp nát dòng.",
+    "tags": ["sql", "window-functions", "advanced"]
+  },
+  {
+    "id": "B5-014", "module": "B", "topic": "B5", "difficulty": "easy",
+    "question": "Thứ tự ĐÚNG của các mệnh đề trong một câu lệnh SQL phức tạp là gì?",
+    "options": [
+      "A. SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY",
+      "B. SELECT, FROM, GROUP BY, WHERE, ORDER BY, HAVING",
+      "C. FROM, WHERE, SELECT, GROUP BY, HAVING, ORDER BY",
+      "D. SELECT, WHERE, FROM, HAVING, GROUP BY, ORDER BY"
+    ],
+    "answer": 0,
+    "explanation": "Cú pháp chuẩn khi viết là: Chọn (SELECT) Từ bảng nào (FROM) Lọc dòng (WHERE) Gom cục (GROUP BY) Lọc cục (HAVING) Sắp xếp (ORDER BY). Tuy nhiên, về mặt Execution (chạy ngầm), CSDL sẽ chạy FROM đầu tiên.",
+    "tip": "S-F-W-G-H-O (Some French Waiters Give Hot Orders) - SELECT FROM WHERE GROUP HAVING ORDER.",
+    "tags": ["sql", "syntax", "order"]
+  },
+  {
+    "id": "B5-015", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Trong ERD (Entity Relationship Diagram), quan hệ 'Một-Nhiều' (One-to-Many) nghĩa là gì?",
+    "options": [
+      "A. 1 bảng nằm trên, nhiều bảng nằm dưới",
+      "B. Một bản ghi ở Bảng A có thể liên kết với nhiều bản ghi ở Bảng B, nhưng một bản ghi ở Bảng B chỉ liên kết với 1 bản ghi ở Bảng A",
+      "C. Cả 2 bảng không liên quan đến nhau",
+      "D. Một bản ghi có thể sinh ra nhiều bản sao"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Một Khách Hàng (Bảng A) có thể có Nhiều Đơn Hàng (Bảng B). Nhưng Một Đơn Hàng cụ thể chỉ thuộc về duy nhất Một Khách Hàng. Để cài đặt, ta đặt Khóa ngoại (Foreign Key) KhachHang_ID vào trong bảng Đơn Hàng.",
+    "tip": "Một Mẹ - Nhiều Con. (Mẹ đẻ nhiều con, nhưng con chỉ có 1 mẹ).",
+    "tags": ["database", "erd", "relationships"]
+  },
+  {
+    "id": "B5-016", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Khái niệm 'Normalization' (Chuẩn hóa) trong thiết kế Database nhằm mục đích GỐC RỄ gì?",
+    "options": [
+      "A. Tăng dung lượng lưu trữ",
+      "B. Hợp nhất tất cả các bảng thành 1 bảng duy nhất (One Big Table)",
+      "C. Giảm thiểu sự dư thừa dữ liệu (Redundancy) và ngăn chặn Dị thường dữ liệu (Data Anomalies) khi Thêm/Sửa/Xóa",
+      "D. Làm cho tên cột có ý nghĩa hơn"
+    ],
+    "answer": 2,
+    "explanation": "Chuẩn hóa (1NF, 2NF, 3NF...) chia nhỏ bảng lớn thành các bảng nhỏ liên kết với nhau. Việc này đảm bảo một thông tin (VD: Tên của Khách hàng) chỉ được lưu ở ĐÚNG 1 NƠI duy nhất. Nếu khách hàng đổi tên, ta chỉ update 1 chỗ. Nếu không chuẩn hóa, ta phải update hàng ngàn dòng, rất dễ xảy ra lỗi.",
+    "tip": "Chuẩn hóa (Normalization) = Chia nhỏ bảng để chống Dư Thừa và Lệch Pha dữ liệu.",
+    "tags": ["database", "normalization", "design"]
+  },
+  {
+    "id": "B5-017", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Hàm COALESCE(col1, col2, 'None') có tính năng gì?",
+    "options": [
+      "A. Nối chuỗi col1 và col2",
+      "B. Tính trung bình 2 cột",
+      "C. Trả về giá trị KHÔNG NULL (Non-null) đầu tiên trong danh sách tham số",
+      "D. Xóa các cột"
+    ],
+    "answer": 2,
+    "explanation": "COALESCE sẽ xét từ trái sang phải. Nếu col1 là NULL, nó sẽ lấy col2. Nếu col2 cũng NULL, nó lấy 'None'. Rất hữu ích để thay thế Missing value trong báo cáo SQL thay vì để trống.",
+    "tip": "COALESCE = Tìm thằng ĐẦU TIÊN còn sống (không bị NULL).",
+    "tags": ["sql", "coalesce", "null"]
+  },
+  {
+    "id": "B5-018", "module": "B", "topic": "B5", "difficulty": "easy",
+    "question": "Toán tử IN trong SQL có chức năng tương đương với điều gì?",
+    "options": [
+      "A. Nhiều điều kiện AND nối nhau",
+      "B. Nhiều điều kiện OR nối nhau",
+      "C. Phép nhân",
+      "D. Kiểm tra chuỗi con"
+    ],
+    "answer": 1,
+    "explanation": "`WHERE Country IN ('VN', 'US', 'UK')` hoàn toàn tương đương với việc viết `WHERE Country = 'VN' OR Country = 'US' OR Country = 'UK'`. Cú pháp IN gọn gàng và dễ đọc hơn rất nhiều.",
+    "tip": "IN (...) = Tập hợp các dấu OR.",
+    "tags": ["sql", "operators", "in"]
+  },
+  {
+    "id": "B5-019", "module": "B", "topic": "B5", "difficulty": "hard",
+    "question": "Common Table Expression (CTE) được khai báo bằng từ khóa `WITH`. Lợi ích CHÍNH của CTE so với Subquery (Truy vấn lồng) là gì?",
+    "options": [
+      "A. Chạy nhanh gấp 10 lần",
+      "B. Giúp mã SQL dễ đọc hơn (Readability) vì cấu trúc từ trên xuống dưới, và có thể tái sử dụng (gọi nhiều lần) trong câu truy vấn chính",
+      "C. Có thể lưu trữ dữ liệu vĩnh viễn vào đĩa",
+      "D. Dùng để thay thế Index"
+    ],
+    "answer": 1,
+    "explanation": "CTE tạo ra một 'bảng ảo tạm thời'. Mặc dù hiệu suất thường bằng với Subquery, nhưng việc dùng `WITH` giúp tách một câu query SQL ngàn dòng thành các block logic nhỏ gọn, có tên rõ ràng. Hơn nữa, nó hỗ trợ Đệ quy (Recursive CTE) - điều subquery không làm được.",
+    "tip": "CTE (WITH ...) = Code SQL trông xịn, sáng sủa, rành mạch như gán biến tạm trong Python.",
+    "tags": ["sql", "cte", "with"]
+  },
+  {
+    "id": "B5-020", "module": "B", "topic": "B5", "difficulty": "medium",
+    "question": "Khi bạn dùng INNER JOIN giữa Bảng A (có 3 dòng chung khóa) và Bảng B (có 2 dòng chung khóa). Kết quả JOIN sẽ tạo ra bao nhiêu dòng (Cross product cho khóa đó)?",
+    "options": [
+      "A. 3 dòng",
+      "B. 5 dòng",
+      "C. 6 dòng",
+      "D. 2 dòng"
+    ],
+    "answer": 2,
+    "explanation": "Trong SQL, nếu Khóa (Key) không phải là Unique/Primary ở cả 2 bảng, phép JOIN sẽ nhân bản (Cartesian product cho riêng nhóm khóa đó). 3 dòng bảng A nhân với 2 dòng bảng B sẽ tạo ra 6 dòng ở kết quả. Đây là lỗi 'Row Duplication' kinh điển gây nổ số trong báo cáo.",
+    "tip": "JOIN mà khóa bị trùng (Duplicate Key) -> Phép Nhân (N x M dòng). Đừng hỏi sao doanh thu bị x2 x3.",
+    "tags": ["sql", "joins", "duplication"]
+  }
+]

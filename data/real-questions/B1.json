@@ -1,0 +1,247 @@
+[
+  {
+    "id": "B1-001", "module": "B", "topic": "B1", "difficulty": "easy",
+    "question": "Trong Python, từ khóa nào dùng để định nghĩa một hàm (function)?",
+    "options": ["A. function", "B. def", "C. func", "D. define"],
+    "answer": 1,
+    "explanation": "Trong Python, từ khóa 'def' được sử dụng để bắt đầu định nghĩa một hàm, theo sau là tên hàm và dấu ngoặc đơn chứa tham số.",
+    "tip": "'def' là viết tắt của 'define' (định nghĩa).",
+    "tags": ["python", "basics", "functions"]
+  },
+  {
+    "id": "B1-002", "module": "B", "topic": "B1", "difficulty": "easy",
+    "question": "Kết quả của phép toán `9 // 2` trong Python là bao nhiêu?",
+    "options": ["A. 4.5", "B. 5", "C. 4", "D. 1"],
+    "answer": 2,
+    "explanation": "Toán tử `//` (floor division) thực hiện phép chia lấy phần nguyên, làm tròn xuống số nguyên gần nhất. 9 / 2 = 4.5, làm tròn xuống là 4.",
+    "tip": "`/` là chia lấy số thực (float). `//` là chia lấy phần nguyên (int). `%` là chia lấy phần dư.",
+    "tags": ["python", "basics", "operators"]
+  },
+  {
+    "id": "B1-003", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Kiểu dữ liệu (Data type) nào sau đây trong Python có tính chất Immutability (không thể thay đổi sau khi khởi tạo)?",
+    "options": ["A. List", "B. Dictionary", "C. Set", "D. String"],
+    "answer": 3,
+    "explanation": "Trong Python, String (chuỗi), Tuple và số (Int, Float) là các kiểu dữ liệu Immutable (bất biến). Bạn không thể thay đổi một ký tự trong chuỗi (VD: s[0] = 'a' sẽ bị lỗi). List, Dict và Set là Mutable.",
+    "tip": "String, Tuple, Int, Float = Bất biến (Immutable). Không thể sửa tại chỗ.",
+    "tags": ["python", "basics", "data-types", "mutability"]
+  },
+  {
+    "id": "B1-004", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Đoạn code `print(bool(\"False\"))` sẽ in ra kết quả gì?",
+    "options": ["A. False", "B. True", "C. 0", "D. Lỗi cú pháp"],
+    "answer": 1,
+    "explanation": "Trong Python, hàm bool() trả về False nếu truyền vào số 0, chuỗi rỗng \"\", danh sách rỗng [], None, hoặc giá trị False. Chữ \"False\" là một chuỗi (string) có độ dài > 0 (không rỗng), do đó bool(\"False\") trả về True.",
+    "tip": "Chuỗi rỗng \"\" -> False. Mọi chuỗi có chữ (dù là chữ 'False' hay '0') -> True.",
+    "tags": ["python", "basics", "boolean", "type-casting"]
+  },
+  {
+    "id": "B1-005", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Điều gì xảy ra khi chạy đoạn code sau?\n```python\ndef foo(x, l=[]):\n    l.append(x)\n    return l\nprint(foo(1))\nprint(foo(2))\n```",
+    "options": [
+      "A. [1] và [2]",
+      "B. [1] và [1, 2]",
+      "C. Lỗi cú pháp do tham số mặc định là list",
+      "D. [1] và []"
+    ],
+    "answer": 1,
+    "explanation": "Trong Python, tham số mặc định (default arguments) chỉ được đánh giá (evaluated) MỘT LẦN DUY NHẤT khi hàm được định nghĩa, không phải mỗi lần hàm được gọi. Do đó, cái list `l` ban đầu được tạo ra sẽ bị dùng chung (share) cho mọi lần gọi hàm không truyền `l`.",
+    "tip": "KHÔNG BAO GIỜ dùng tham số mặc định là kiểu Mutable (như List, Dict). Hãy dùng `None` rồi kiểm tra bên trong hàm.",
+    "tags": ["python", "functions", "mutable-default-argument"]
+  },
+  {
+    "id": "B1-006", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Phát biểu `break` và `continue` khác nhau như thế nào trong vòng lặp (loop)?",
+    "options": [
+      "A. break dừng vòng lặp ngay lập tức, continue bỏ qua phần còn lại của lần lặp hiện tại và chuyển sang lần lặp tiếp theo",
+      "B. break chuyển sang lần lặp tiếp theo, continue dừng toàn bộ chương trình",
+      "C. Cả hai đều có chức năng giống nhau",
+      "D. break dùng cho vòng for, continue dùng cho vòng while"
+    ],
+    "answer": 0,
+    "explanation": "`break` phá vỡ (thoát khỏi) toàn bộ vòng lặp chứa nó. `continue` chỉ kết thúc vòng lặp (iteration) HIỆN TẠI sớm, nhảy thẳng lên điều kiện để xét vòng lặp tiếp theo.",
+    "tip": "Break = Đập vỡ lồng chạy trốn. Continue = Bỏ dở món này, ăn món tiếp theo.",
+    "tags": ["python", "basics", "loops", "control-flow"]
+  },
+  {
+    "id": "B1-007", "module": "B", "topic": "B1", "difficulty": "easy",
+    "question": "Đoạn code sau in ra màn hình bao nhiêu số?\n```python\nfor i in range(1, 5):\n    print(i)\n```",
+    "options": ["A. 5 số", "B. 4 số", "C. 3 số", "D. Lỗi"] ,
+    "answer": 1,
+    "explanation": "Hàm `range(start, stop)` tạo ra chuỗi số từ `start` đến `stop - 1`. Trong trường hợp này là 1, 2, 3, 4 (tổng cộng 4 số).",
+    "tip": "range(A, B) luôn chạy từ A đến B-1. Nó bao gồm Start nhưng không bao gồm Stop.",
+    "tags": ["python", "basics", "loops", "range"]
+  },
+  {
+    "id": "B1-008", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Giá trị của biểu thức `0.1 + 0.2 == 0.3` trong Python là gì?",
+    "options": ["A. True", "B. False", "C. None", "D. Lỗi Type Error"],
+    "answer": 1,
+    "explanation": "Kết quả là False. Do cách biểu diễn số thực dấu phẩy động (floating-point IEEE 754) trong máy tính ở dạng nhị phân, 0.1 và 0.2 không thể được biểu diễn chính xác tuyệt đối. 0.1 + 0.2 thực tế sẽ ra 0.30000000000000004.",
+    "tip": "Đừng bao giờ so sánh bằng (==) với số thực (float). Hãy dùng hàm `math.isclose()`.",
+    "tags": ["python", "basics", "float", "precision"]
+  },
+  {
+    "id": "B1-009", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Keyword `global` trong Python dùng để làm gì?",
+    "options": [
+      "A. Định nghĩa một biến có thể được truy cập từ các module khác",
+      "B. Cho phép sửa đổi một biến toàn cục (global variable) ngay bên trong phạm vi cục bộ (local scope) của một hàm",
+      "C. Khai báo thư viện toàn cầu",
+      "D. Tạo một biến không bao giờ bị xóa bỏ"
+    ],
+    "answer": 1,
+    "explanation": "Mặc định, bạn có thể ĐỌC biến toàn cục trong hàm, nhưng không thể GÁN (sửa) nó (sẽ vô tình tạo ra một biến cục bộ mới). Để GÁN lại giá trị cho biến toàn cục trong hàm, bạn phải khai báo `global tên_biến`.",
+    "tip": "Đọc biến toàn cục thì không cần gì, nhưng SỬA nó thì phải có chữ `global` ở đầu hàm.",
+    "tags": ["python", "basics", "scope", "global"]
+  },
+  {
+    "id": "B1-010", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Tham số `*args` và `**kwargs` trong hàm Python có ý nghĩa gì?",
+    "options": [
+      "A. *args dùng cho số int, **kwargs dùng cho chuỗi",
+      "B. *args nhận số lượng tham số biến đổi dạng positional (truyền giá trị), **kwargs nhận dạng keyword (key=value)",
+      "C. *args là mảng 1 chiều, **kwargs là mảng 2 chiều",
+      "D. Bắt buộc phải đặt tên là args và kwargs thì mới chạy được"
+    ],
+    "answer": 1,
+    "explanation": "`*args` gom các tham số truyền vào theo vị trí (positional arguments) thành một Tuple. `**kwargs` gom các tham số truyền vào theo dạng có tên (keyword arguments) thành một Dictionary. Dấu * và ** mới là bắt buộc, còn tên chữ không bắt buộc (vd có thể dùng *thamso).",
+    "tip": "*args = Hứng mọi tham số lẻ thành Tuple. **kwargs = Hứng mọi tham số key=value thành Dict.",
+    "tags": ["python", "functions", "args", "kwargs"]
+  },
+  {
+    "id": "B1-011", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Tính chất 'Short-circuit evaluation' (Đánh giá đoản mạch) áp dụng thế nào cho biểu thức: `x = A or B`?",
+    "options": [
+      "A. Luôn đánh giá cả A và B rồi mới gán",
+      "B. Nếu A được tính là True, nó gán thẳng giá trị của A cho x mà không thèm chạy/xét B",
+      "C. Nếu A là True, nó trả về True, nếu B là True nó trả về True",
+      "D. Nếu A và B đều True, lỗi sẽ xảy ra"
+    ],
+    "answer": 1,
+    "explanation": "Trong phép `or`, nếu biểu thức đầu tiên (A) là Truthy, toàn bộ biểu thức chắc chắn đúng, Python sẽ DỪNG xét B và trả về nguyên trạng giá trị của A. Nếu A là Falsy, nó mới xét và trả về giá trị của B. Vd: `x = \"Hello\" or 0` -> x bằng \"Hello\".",
+    "tip": "Short-circuit: Tính `or` thấy True là dừng luôn, tính `and` thấy False là dừng luôn.",
+    "tags": ["python", "basics", "short-circuit", "logical-operators"]
+  },
+  {
+    "id": "B1-012", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Đâu là cách đúng để hoán đổi (swap) giá trị của 2 biến a và b trong Python mà không cần dùng biến tạm?",
+    "options": [
+      "A. swap(a, b)",
+      "B. a, b = b, a",
+      "C. a = b; b = a",
+      "D. a.swap(b)"
+    ],
+    "answer": 1,
+    "explanation": "Python hỗ trợ unpacking cực kỳ mạnh mẽ. `a, b = b, a` sẽ gói (pack) b và a thành một Tuple `(b, a)`, sau đó rã (unpack) chúng ngược lại vào a và b, hoán đổi 2 giá trị một cách nhanh chóng và thanh lịch.",
+    "tip": "Hoán đổi giá trị trong Python dễ nhất quả đất: a, b = b, a.",
+    "tags": ["python", "basics", "unpacking", "swap"]
+  },
+  {
+    "id": "B1-013", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Hàm vô danh (Anonymous function) trong Python được tạo bằng từ khóa nào?",
+    "options": ["A. def", "B. anon", "C. lambda", "D. inline"],
+    "answer": 2,
+    "explanation": "Từ khóa `lambda` được dùng để tạo các hàm nhỏ, ẩn danh trên 1 dòng duy nhất. Ví dụ: `add = lambda x, y: x + y`. Nó thường được dùng chung với hàm map, filter.",
+    "tip": "Hàm ngắn 1 dòng không cần tên -> Dùng lambda.",
+    "tags": ["python", "functions", "lambda"]
+  },
+  {
+    "id": "B1-014", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Toán tử `is` và toán tử `==` khác nhau ở điểm nào?",
+    "options": [
+      "A. `is` so sánh GIÁ TRỊ, `==` so sánh KIỂU DỮ LIỆU",
+      "B. Không có khác biệt, đều so sánh giá trị",
+      "C. `==` so sánh GIÁ TRỊ (Value), `is` so sánh ĐỊA CHỈ BỘ NHỚ (Identity)",
+      "D. `is` chỉ dùng cho số, `==` dùng cho chuỗi"
+    ],
+    "answer": 2,
+    "explanation": "`==` kiểm tra xem hai vật có 'trông giống nhau' (cùng nội dung) hay không. `is` kiểm tra xem chúng có THỰC SỰ LÀ MỘT đối tượng nằm ở cùng một địa chỉ trong RAM hay không (so sánh id). Ví dụ `[1] == [1]` là True, nhưng `[1] is [1]` là False vì chúng là 2 list riêng biệt trong bộ nhớ.",
+    "tip": "`==` là so mặt (Value), `is` là so DNA (Memory ID).",
+    "tags": ["python", "basics", "identity-operator", "equality"]
+  },
+  {
+    "id": "B1-015", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Bạn muốn lặp qua một List và cần lấy cả VỊ TRÍ (index) lẫn GIÁ TRỊ (value). Hàm Python tích hợp (built-in) nào tối ưu nhất cho việc này?",
+    "options": [
+      "A. range(len(list))",
+      "B. enumerate(list)",
+      "C. zip(list)",
+      "D. iter(list)"
+    ],
+    "answer": 1,
+    "explanation": "Hàm `enumerate()` trả về các cặp (index, value). Cú pháp `for i, val in enumerate(my_list):` là cách chuẩn Pythonic và hiệu quả nhất để vừa duyệt giá trị vừa biết vị trí, thay vì dùng `range(len())`.",
+    "tip": "Cần lặp lấy cả Index và Value? Luôn dùng `enumerate()`.",
+    "tags": ["python", "loops", "enumerate"]
+  },
+  {
+    "id": "B1-016", "module": "B", "topic": "B1", "difficulty": "easy",
+    "question": "Để bắt và xử lý ngoại lệ (lỗi) trong Python, cú pháp chuẩn là gì?",
+    "options": [
+      "A. try ... catch ...",
+      "B. try ... except ...",
+      "C. attempt ... fail ...",
+      "D. do ... error ..."
+    ],
+    "answer": 1,
+    "explanation": "Python sử dụng khối lệnh `try: ... except Exception: ...` để bắt lỗi, thay vì từ khóa `catch` phổ biến ở các ngôn ngữ C-like (như Java, C++, JS).",
+    "tip": "JS, C++ dùng try-catch. Python dùng try-except.",
+    "tags": ["python", "basics", "exceptions"]
+  },
+  {
+    "id": "B1-017", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Khối `else` khi đi kèm với vòng lặp `for` hoặc `while` (for...else) sẽ được thực thi khi nào?",
+    "options": [
+      "A. Thực thi khi vòng lặp không chạy được lần nào",
+      "B. Thực thi nếu vòng lặp kết thúc bình thường (KHÔNG bị ngắt bởi `break`)",
+      "C. Thực thi khi vòng lặp bị ngắt bởi `break`",
+      "D. Báo lỗi cú pháp, `else` chỉ đi với `if`"
+    ],
+    "answer": 1,
+    "explanation": "Trong Python, vòng lặp for/while có thể đi kèm một khối `else`. Khối này CHỈ chạy nếu vòng lặp duyệt hết sạch các phần tử mà KHÔNG hề chạm phải lệnh `break`. Rất hữu ích cho thuật toán tìm kiếm (tìm không thấy -> else).",
+    "tip": "for-else: `else` có nghĩa là 'Tìm không thấy (không bị break) thì làm cái này'.",
+    "tags": ["python", "loops", "for-else"]
+  },
+  {
+    "id": "B1-018", "module": "B", "topic": "B1", "difficulty": "medium",
+    "question": "Đoạn mã sau trả về kết quả gì?\n`x = [1, 2, 3]; y = x; y.append(4); print(x)`",
+    "options": [
+      "A. [1, 2, 3]",
+      "B. [1, 2, 3, 4]",
+      "C. [4]",
+      "D. Lỗi"
+    ],
+    "answer": 1,
+    "explanation": "Trong Python, phép gán `y = x` không tạo ra một bản sao (copy) của List. Nó chỉ tạo ra một cái TÊN MỚI trỏ vào CÙNG MỘT ĐỊA CHỈ vùng nhớ. Nên khi sửa y, x cũng thay đổi theo vì chúng thực chất là một.",
+    "tip": "Gán Object (List, Dict) bằng dấu `=` là tham chiếu (Reference). Muốn nhân bản thật sự, hãy dùng `x.copy()`.",
+    "tags": ["python", "basics", "reference", "mutability"]
+  },
+  {
+    "id": "B1-019", "module": "B", "topic": "B1", "difficulty": "easy",
+    "question": "Hàm `type()` trong Python trả về cái gì?",
+    "options": [
+      "A. In ra màn hình giá trị của biến",
+      "B. Chuyển đổi dữ liệu sang dạng chuỗi",
+      "C. Trả về kiểu dữ liệu (data type) của đối tượng",
+      "D. Trả về địa chỉ bộ nhớ"
+    ],
+    "answer": 2,
+    "explanation": "Hàm `type(obj)` dùng để xem đối tượng đó thuộc lớp (Class) hay kiểu dữ liệu nào (ví dụ: <class 'int'>, <class 'str'>). Rất hữu ích khi debug.",
+    "tip": "Dùng type(biến) để biết biến đó là chữ, số, hay list.",
+    "tags": ["python", "basics", "type"]
+  },
+  {
+    "id": "B1-020", "module": "B", "topic": "B1", "difficulty": "hard",
+    "question": "Cơ chế Garbage Collection (Dọn rác) chính của Python hoạt động dựa trên phương pháp nào?",
+    "options": [
+      "A. Mark and Sweep (Đánh dấu và quét)",
+      "B. Reference Counting (Đếm số tham chiếu)",
+      "C. Explicit free() (Người dùng tự giải phóng)",
+      "D. Không có dọn rác"
+    ],
+    "answer": 1,
+    "explanation": "CPython quản lý bộ nhớ chủ yếu bằng Reference Counting (Đếm số lượng biến/con trỏ đang trỏ tới đối tượng). Khi số đếm bằng 0, đối tượng tự động bị xóa. Nó có kết hợp thêm thuật toán dò chu trình (Generational GC) để giải quyết các vòng lặp tham chiếu chéo.",
+    "tip": "Cơ chế chính của Python là Đếm Tham Chiếu (Reference Counting). Số người chỉ tay vào mình bằng 0 -> Chết.",
+    "tags": ["python", "advanced", "garbage-collection"]
+  }
+]

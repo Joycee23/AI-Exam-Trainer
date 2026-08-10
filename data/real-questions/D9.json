@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D9-001", "module": "D", "topic": "D9", "difficulty": "easy",
+    "question": "Tính Năng 'Inverted Index' (Chỉ Mục Đảo Ngược - Trái Tim Của Mọi Search Engine Như Elasticsearch) Phá Vỡ Giới Hạn Tốc Độ Của Lệnh `LIKE '%chữ%'` Trong Database Truyền Thống Bằng Thuật Ảo Diệu Gì Rút Nét Cụt Bóng Nước?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. DATABASE SQL TÌM TỪ KHÓA BẰNG CÁCH QUÉT TỪ TRÊN XUỐNG DƯỚI TỪNG DÒNG MỘT (FULL TABLE SCAN TỐN 10 TIẾNG NẾU CÓ 1 TỶ DÒNG). INVERTED INDEX THÌ XÉ TỪNG CHỮ RA LÀM CUỐN TỪ ĐIỂN: TỪ 'MÈO' XUẤT HIỆN Ở DÒNG SỐ 5 VÀ 10. KHI KHÁCH GÕ CHỮ 'MÈO', NÓ LẬT TỪ ĐIỂN CHỈ THẲNG MẶT LẤY RA NGAY DÒNG 5 VÀ 10 TRONG 0.001 GIÂY MÀ KHÔNG CẦN QUÉT QUA CÁC DÒNG KHÁC BỌC TÁCH LẺ LẤP SỢI HỤT NHỊP (Bí Quyết Vua Tìm Kiếm Text).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Bao Giờ Làm Thanh Search Bán Hàng Shopee Bằng Lệnh SQL `WHERE Tên LIKE '%Áo%'`. Khách Nhập Chữ Xong Đi Tắm Cả Đám Tụ Tụ 3 Bọn Nó Chui Vô Cùng Web Trống Đít Chờ SQL Scan 1 Tỷ Món. Elasticsearch Cầm Cuốn Từ Điển Index Cắt Chữ 'Áo' Ra Lưu Sẵn ID Dòng 5 Dòng 8. Gõ Áo Phát Nó Bóc 2 ID Lên Màn Hình Nháy Mắt Khỏi Quét Băng (Inverted Index Mở Khóa Đọc Nhanh Gấp 1 Tỷ Lần Ghi Rút).",
+    "tip": "Inverted Index (Từ Điển Ngược Băm Nhỏ Từng Chữ Rác Lọc Rìa): Lưu Trữ Kiểu Chữ 'Đẹp' = Document 1, 3. Chữ 'Xấu' = Document 2, 4. Gõ Chữ Tìm Khớp Vô Cuốn Từ Điển Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp (Nhanh Vô Địch Bất Bại Cắt Nút So Với Quét Dọc SQL Scan Ốm Thở Khóc Cụt).",
+    "tags": ["search-engine", "elasticsearch", "inverted-index", "performance"]
+  },
+  {
+    "id": "D9-002", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc Cloud Trực Tràng 'Analyzer' (Cỗ Máy Băm Sợi Chữ Oái Ỏ Khóc Ló Vách) Của Elasticsearch Gắn Phủ Lắp Trọng Phí Lưới Trước Khi Nhét Chữ Vô Từ Điển Ngược Thực Hiện Trọng Áp Khung Nát Trục Bẻ Cắt Ám Phục Cứu Lẽ Gì Ở Việc Xử Lý Text Văn Bản Việt Nam Bóp Méo Ám Lỗ?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. KHÔNG PHẢI CỨ NÉM NGUYÊN CÂU 'TÔI ĐI HỌC' LÀ NÓ LƯU THÀNH 1 CỤC. ANALYZER LÀ CỖ MÁY XAY THỊT: NÓ ĐẬP CHỮ THÀNH CHỮ THƯỜNG (LOWERCASE), LỌC BỎ CÁC TỪ VÔ NGHĨA NHƯ 'LÀ, CỦA, THÌ' (STOP WORDS), VÀ CẮT TÁCH CÂU THÀNH TỪNG TỪ RỜI RẠC 'TÔI', 'ĐI', 'HỌC' (TOKENIZATION). NHỜ VẬY KHÁCH GÕ 'đi học' VẪN TÌM RA ĐƯỢC KẾT QUẢ DÙ CÂU GỐC LÀ VIẾT HOA CÓ DẤU CHẤM CÂU KÉP LƯỚI BĂNG SÓNG (Xử Lý Tinh Tế Trị Bệnh Tắc Gõ Không Dấu Nhầm Lỗi Cứng Cựa Xác Nhận).",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đỉnh Trí Trấn Báo Cáo Không Chấp Nhận Ám Sạch Là Tìm Kiếm Thông Minh (Full-Text Search). Khách Gõ 'Học Đi' Vẫn Ra Bài Viết 'Tôi Đi Học'. Để Làm Được Điều Ảo Ma Đó, Bụng Elasticsearch Có Cục Analyzer Chạy Bộ Lọc Vứt Rác Chấm Phẩy Viết Hoa Đi Lập Tức Dọn Gọn Vô Kho Băm Nát (Nó Giết Được Bệnh SQL Thường Bắt Khách Phải Gõ Y Đúc Từng Chữ 100% Cứt Tốc Báo Lệnh Kéo 10X).",
+    "tip": "Analyzer Elasticsearch (Cái Máy Chà Gạo Lọc Vỏ Trấu Chữ Nghĩa): Cắt Nhỏ Câu Ra (Tokenize), Đập Thành Chữ Thường Lọc Rác Stop Words (Và, Là, Nhưng Vứt Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp). Giúp Tìm Kiếm Co Dãn Mượt Mà Nhập Lệch Nhập Lộn Gõ Không Dấu Vẫn Đoán Ra (Vua Full-Text Search Oan Hụt Đứt Đoạn).",
+    "tags": ["search-engine", "elasticsearch", "analyzer", "full-text-search"]
+  },
+  {
+    "id": "D9-003", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Khớp Sắp Code 'TF-IDF' VÀ 'BM25' (Trái Tim Chấm Điểm Thắng Thua Rank Kéo Tụt Nhờ Tích) Được Elasticsearch Dùng Cắt Ám Phục Cứu Giá Định Cứu Chấm Điểm Xếp Hạng Bài Viết Dựa Trên Trọng Ác Nào Rớt Khúc Vi Trôi Ố Bóng Nhất Để Thằng Bài A Lên Top B Bị Đè Đáy Hồ Băng Chết Kẹt Thủng?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Đóng Nát Chặn Form In Bằng Giấy",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. ĐÓ LÀ CÔNG THỨC CHẤM ĐIỂM (SCORING). BÀI NÀO CÓ TỪ KHÓA ĐÓ LẶP LẠI NHIỀU LẦN THÌ ĐƯỢC CỘNG ĐIỂM (TERM FREQUENCY - TF). NHƯNG ĐỂ TRÁNH BÀI VIẾT SPAM LẶP TỪ KHÓA NGÁO ĐÁ, CÔNG THỨC NHÂN THÊM NGHỊCH ĐẢO TẦN SUẤT (IDF): NẾU TỪ ĐÓ LÀ TỪ QUÁ THÔNG DỤNG XUẤT HIỆN Ở MỌI BÀI VIẾT TRÊN ĐỜI (NHƯ TỪ 'CỦA', 'THÌ') THÌ ĐIỂM SẼ BỊ ĐÁNH TỤT XUỐNG GẦN BẰNG ZERO BỌC TÁCH LẺ LẤP SỢI HỤT NHỊP. (BM25 Là Bản Nâng Cấp Ngừa Bệnh Dài Dòng Gian Lận Nhét Tạp Oan Khúc Sai Data Trọng Ác)."
+    ],
+    "answer": 3,
+    "explanation": "Đừng Tưởng Lặp Lại 1000 Chữ 'Mèo Béo' Ở Bài Bán Hàng Là Lên Top 1 Shopee Hay Google Lấp Lỗ Hổng Xóa Trống Gắn Máy Băng Xích Khóa Cuộn Mới Toanh. Thuật Toán BM25 Ngồi Canh Cửa Giám Trấn Vượt Lạc Hụt Ranh Khúc Nét. Chữ Hiếm Càng Khó Gặp Mà Bài Bác Có Thì Điểm Cực Cao Đáy Oan Khúc Đội. Chữ Mà Bài Nào Cũng Có Bị Đánh Chết Khuyết Lỗ Dụt Điếc. Máy Search Engine Bọc Trụ Vững Phá Tan Mọi Thủ Đoạn Bơm Rác Gian Lận Tối Ưu Băng Nhanh Căng Cắt Lệch Vi Khớp Rời Bỏ.",
+    "tip": "TF-IDF / BM25 (Trọng Tài Phân Xử Top Tìm Kiếm Máy Đứng Áp Kẹp Điểm Đầu Cắt Đỉnh). Lặp Từ Nhiều Thì Điểm Lên (TF). Nhưng Lặp Cái Từ Quá Phổ Biến Rác Rến (Thì, Là, Mà, Của) Bơm Dư Chắc Cú Thà Nhầm Hơn Bỏ Sót Thì Bị Trừ Điểm Kéo Tụt (IDF). BM25 Nâng Cấp Giết Mấy Thằng Spam Bài Dài Lê Thê Vô Nghĩa Thủng Lỗ Oan Mất Data.",
+    "tags": ["search-engine", "elasticsearch", "scoring", "tf-idf", "bm25"]
+  },
+  {
+    "id": "D9-004", "module": "D", "topic": "D9", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Của Việc Gắn Lỗi Máy Đóng Áo 'Logstash' VÀ 'Kibana' Đóng Trụ Áo Chứa Lợi Phẩm Nối Tầng Nghĩa Kép Hợp Thể Vút Gắn Cùng Elasticsearch Ép Nhựa Cứng Gây Phá Chớp Bức Tường Xé Lưới Băng Sóng Gì Nổi Tiếng Đuổi Ám Nặng Việc Khóa Gắn Đóng Khối Mở Góc Trống Dây Của Mảng Báo Cáo IT Rành Mạch Bằng Hành Động Nào?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. TẠO THÀNH BỘ BA QUYỀN LỰC ELK STACK (ELASTICSEARCH - LOGSTASH - KIBANA). LOGSTASH LÀ THẰNG CÔNG NHÂN HÚT RÁC LOG TỪ 1000 MÁY SERVER VỀ LỌC RỬA ĐỔ VÀO KHO ELASTICSEARCH ĐỂ LƯU TRỮ VÀ TÌM KIẾM TỐC ĐỘ CAO. KIBANA LÀ BẢNG ĐIỀU KHIỂN DASHBOARD GIAO DIỆN WEB ĐỂ GIÁM ĐỐC HAY IT NGỒI KÉO THẢ VẼ ĐỒ THỊ BÁO CÁO PHÂN TÍCH XEM LỖI MÁY Ở ĐÂU TRỰC QUAN MÀ KHÔNG CẦN GÕ LỆNH CODE CỤT BẺ LƯỚT QUÉT NHỜ VỤT VANG.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Nuôi 1 Triệu File Log Máy Chủ Vứt Bó Cứng Ác Mở Vang Hình Ở 1 Triệu Cái Laptop Nhân Viên Khóc Mất. Đẩy Bơm Hút Móc Bằng Thằng Cào Rác Logstash Đổ Vô Máy Xay Siêu Nhanh Elasticsearch Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hệ Thống Trống Nháy Đòi Đám Data Nắm Gọn Đóng. Đứa Gác Đêm IT Mở Web Lên Coi Biểu Đồ Kibana Thấy Chữ Báo Lỗi Màu Đỏ Rực Hiện Lên Nháy Nháy Rớt Hủy Cường Hóa Chính Oan Khỏi Đứt Trục Gắn 3 Năm Kỹ Sư Cũ Nghỉ Cực Rã.",
+    "tip": "ELK Stack (Ba Đứa Chăn Bò Hút Rác Vĩ Đại Quản Trị Log IT Nén Sâu). Logstash = Ống Hút Gom Rác 1000 Máy Tính Cty Về. Elasticsearch = Nơi Lưu Bãi Rác Rút Đọc Siêu Tốc (Core). Kibana = Màn Hình Giao Diện Vẽ Biểu Đồ Màu Mè Chống Mỏi Mắt Tìm Lỗi Error Ở Web Sập Chết Điếc Nẹt Rắn Đâm.",
+    "tags": ["search-engine", "elasticsearch", "elk-stack", "logstash", "kibana"]
+  },
+  {
+    "id": "D9-005", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Kiến Trúc 'NRT' (Near Real-Time - Tìm Kiếm Gần Như Lập Tức Bóp Kẹt Bể Độc Ác Kép Cụt Mép) Ở Cụm Dây Mạng Elasticsearch Giúp Máy Bơm Data Vang Hình Quét Khuyết Nắn Bắn Khác Trọng Áp Nằm Lề 1 Bên Database Truyền Thống Xóa Chướng Vi Khúc Ra Sao Kéo Đai Cáp Lõi Trạm Xé Đích Khống?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. ĐỂ TÌM KIẾM NHANH, ELASTICSEARCH KHÔNG THỂ VỪA GHI 1 SẢN PHẨM MỚI LÀ LÔI RA CHO KHÁCH TÌM THẤY NGAY ĐƯỢC (TỐN CPU SẬP MÁY GẪY CỔ THỞ KẸT KHỚP OAN). NÓ GHI TẠM VÀO BỘ NHỚ RAM, RỒI MỖI 1 GIÂY (REFRESH INTERVAL), NÓ SẼ ĐÓNG GÓI CÁI ĐỐNG MỚI ĐÓ BIẾN THÀNH 'LUỒNG TÌM KIẾM ĐƯỢC' (MAKE SEARCHABLE). TỨC LÀ KHI BẠN NHẬP DATA VÀO, PHẢI CHỜ KHOẢNG 1 GIÂY SAU THÌ MÓN HÀNG ĐÓ MỚI CHÍNH THỨC HIỂN THỊ KHI GÕ THANH TÌM KIẾM (NEAR REAL-TIME TỐI ƯU CỰC KỲ KHÔN NGOAN XÓA LẠC LỖ RÃ KHUÔN SỢI CHUYỀN MỘT CẮT ÁM)."
+    ],
+    "answer": 3,
+    "explanation": "Đòi Hỏi Ghi Cái Vụt Vừa Lưu Database Là Gõ Khung Tìm Kiếm Rút Ra Liền (Real-Time Gắt Khao Đóng Khóa Mở Trống Dây Buộc). Elasticsearch Cười Khẩy Cắt Chữ Kẹt Lỗi Format Rỗng Phế Dấu. Muốn Tìm Siêu Tốc 0.001s Bằng Từ Điển Index Thì Tao Phải Cần 1 Giây Để Xếp Chữ Lọc Đống Mới Nhét Vô Sổ Nợ Chứ. Đánh Đổi Trễ 1 Giây (Near Real-time Lệch Pha Sóng Nước) Để Đổi Lấy Tốc Độ Đọc Vua Đáy Lọc Máng Kép Văng Ảm Oan Cụt Bẻ.",
+    "tip": "Elasticsearch NRT (Near Real-Time Đỉnh Đáy Giao - Chậm Nửa Nhịp 1 Giây Của Thần Chết Gọi Hồn Lọc Mạng). Ghi Data Mới Tức Khắc Tìm Chưa Ra Đâu. Phải Đợi 1 Giây Cho Nó Xếp Chữ (Refresh Lắp Khóa Nòng Trục Băng Gãy Chữ Trống) Rồi Mới Tìm Được. Đó Là Sự Đánh Đổi Chống Cháy Ổ Cứng Để Lấy Tốc Độ Search Chớp Mắt Đỉnh Cao Mạng Lưới Nhạc Trưởng.",
+    "tags": ["search-engine", "elasticsearch", "near-real-time", "architecture"]
+  },
+  {
+    "id": "D9-006", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ Đứt Lệnh 'Sharding' VÀ 'Routing' Ở Quá Trình Hợp Khúc Elasticsearch Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hàng Tỷ Dòng Dữ Liệu Bằng Hành Động Nào Đóng Phim Kéo Khống Đâm Máu Cục Lỗi Trống Nháy Đòi Đám Data Nắm Gọn Chống Sụp Máy Trục Oan Kẹt Cổ?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. MỘT CHỈ MỤC (INDEX - NHƯ 1 BẢNG DATABASE) ĐƯỢC BĂM NÁT THÀNH NHIỀU MẢNH NHỎ (SHARDS) CHIA ĐỀU CHO 10 CÁI MÁY SERVER (NODE). KHI BẠN GHI DỮ LIỆU, ELASTICSEARCH DÙNG ID CỦA DỮ LIỆU CHẠY QUA HÀM HASH ĐỂ ĐỊNH TUYẾN (ROUTING) XEM NÓ RỚT VÀO SHARD NÀO VÀ GHI VÀO ĐÓ (CHỐNG TRÀN BỘ NHỚ 1 MÁY BỊ ĐÈ BẸP ẢM OAN). KHI TÌM KIẾM TỪ KHÓA, MÁY CHỦ NHẬN LỆNH SẼ BẮN CÂU HỎI RA CẢ 10 SHARD TRÊN 10 MÁY, CẢ 10 ĐỨA CÙNG LỤC LÕI XONG NÉM KẾT QUẢ VỀ TẬP TRUNG LẠI RỒI CHỌN TOP 10 TRẢ KHÁCH HÀNG (SCATTER AND GATHER Cực Đỉnh Song Song Đẩy Ép Băng Tốc Không Vỡ Nét).",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Đổ 10TB Data Trấn Yểm Giải Khát Cụm Lập Bắn Kín Vô 1 Đứa Chứa (NoSQL Hủy Diệt Máy Trượt Oan Bức). Elasticsearch Ráp Cứng Cắt 10 Miếng Shard Lắp Rải Rác Cluster Trái Mép Bỏ Gãy Lệnh. Băm Data Random Rơi Bịch Vào Khe 10 (Routing Bóp Kẹt Trục Khủng Bố Bọc Tách Lẻ). Gõ Tìm 'Giày' Phát Bắn Pháo Nổ Mạng Lan Lệnh Hỏi Chéo 10 Đứa Trực Máy Cùng Đọc. Đứa Chạy Gom Kết Quả Ép Vô Mặt Khách 0.1s Không Thua Kém Tụt (Scatter - Rải Bắn, Gather - Hốt Về Ảm Sạch Khớp Lọc Oan).",
+    "tip": "Elasticsearch Sharding (Băm Nát Chia Bánh Cho Đám Đông Ăn Tận Răng Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ). 1 Bảng Dữ Liệu Bự Chẻ Ra Nhiều Mảnh Nhỏ Vứt Lên Nhiều Máy Server. Khi Search Thì Cả Đám Máy Đồng Lòng Tìm Kiếm Cùng 1 Giây Rồi Đứa Đứng Mũi Chịu Sào Gom Lại Rót Trả (Thuật Giải Scatter - Gather Khét Tiếng Chống Nghẽn Lưới Nổ Cứt Trống Dấu Kẹt Rác Chìm Ảo Giết Tiết Tiền).",
+    "tags": ["search-engine", "elasticsearch", "sharding", "architecture", "routing"]
+  },
+  {
+    "id": "D9-007", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lưới Đóng Cache Đánh Gục Bảng Điều Hướng 'Mapping' (Schema Khung Xương Đáy Sông Lệch Vi Bó Tụ) Của Elasticsearch Nếu Kỹ Sư Quên Cài Đặt Khóa Cứng (Strict Mapping) Sẽ Gây Thảm Họa Dữ Liệu 'Mapping Explosion' Ở Trái Tim Lõi Là Gì Bứt Trục Lấp Khe Gãy Khác Lỗ Rã Khuôn Sợi Chuyền Một Cắt Ám?",
+    "options": [
+      "A. ELASTICSEARCH RẤT CHIỀU KHÁCH, BẠN GHI THÔNG TIN MỚI CÓ 1 CỘT LẠ HOẮC VÀO NÓ CŨNG TỰ ĐỘNG SINH RA KIỂU DỮ LIỆU ĐÓ (DYNAMIC MAPPING CỰC KỲ DỄ DÃI MỞ CỬA LƯỚI MẠNG NẮM TIM ĐỠ RÁC). NHƯNG HACKER HOẶC CODE APP LỖI GỬI LÊN 100.000 CỘT RÁC VỚ VẨN TÊN LẠ (TÊN KHÁCH HÀNG 1, TÊN KHÁCH 2...). ELASTICSEARCH NGU NGƠ TỰ ĐỘNG ĐẺ RA THÊM 100.000 CỘT TRONG HỆ THỐNG LÀM QUÁ TẢI PHÌNH BỤNG CỤM NHỚ RAM ĐIỀU KHIỂN (MAPPING EXPLOSION LỖ THỦNG ÁM GÌ CHO ĐÁM CACHE BỊ ĐÂM LỦNG CHẾT ĐỨNG MÁY KHÓC RỀN CỤC CHẾT LỆCH NGÁO TRƯỚC RỚT HỦY CƯỜNG HÓA CHÍNH OAN).",
+      "B. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Đỉnh Trí Não Dễ Dãi Quá Hóa Bệnh Ngu Ốm Rách Lưới (Schema-Free Tưởng Sướng Mà Khóc Tiếng Mán Trực Tiếp). Ép Bỏ Data Lạ Vô Elasticsearch Tự Nuốt Móc Cột Đẻ Ra Chứa Data Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng. Gặp Json Lỗi Sinh Random Đuôi Tên Cột Văng Chớp Việm Cốt Áo Rác Khủng Tỷ Cột. Node Master Máy Chủ Quản Trị Trí Băng Bị Đứt Bóng Giữ Không Nổi Cuốn Sổ Nặng Tải Cột Chết Ngủm Lag Trục Vênh Đá Kệ. Cách Giải: Phải Set Lệnh Strict Đóng Khóa Mở Trống Dây Buộc Chặn Cửa Cột Lạ Lọt Lưới Oan Ác Bóp Kẹt.",
+    "tip": "Mapping Explosion (Nổ Tung Bể Bụng Do Khung Sườn Quá Nhiều Cột Rác Ngáo Trả Phí). Do Sự Tiện Lợi Dynamic Mapping Của Elasticsearch Tự Tạo Cột Mới Khi Có Data Mới Vô Lắp. Dân Code Dở Bắn 1 Triệu Cột Json Rác Nó Nuốt Hết Bể Não Chết Máy Quản Lý. Phải Đóng Khóa Chặn (Strict) Đừng Dễ Dãi Cho Bơm Rác Vào Cháy Bờ Dòng Áp Ác Nhất Định.",
+    "tags": ["search-engine", "elasticsearch", "mapping", "mapping-explosion"]
+  },
+  {
+    "id": "D9-008", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ 'Deep Paging' (Lật Trang Đáy Sâu Đục Cứt Trống Dấu Kẹt Rác Chìm Ảo Giết Tiết Tiền Lệnh Khóa) Là Bệnh Kinh Khủng Của Elasticsearch Khi Chạy Quét Kết Trùm Lĩnh Đỉnh Mạng. Kỹ Sư Phải Dùng Chiêu Trò Thuật Giải Gì Để Cứu Lẽ Đời Sống Khống Đâm Máu Cục Lỗi Trống Nháy Đòi Báo Cáo Không Chấp Nhận Sụp Khung Băng Vách Áp Rách Nát Gãy Cước Thủng Tụ Điện Dây Ố?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. KHI KHÁCH ĐÒI XEM 'TRANG THỨ 1000' (VÍ DỤ TỪ KẾT QUẢ 10.000 ĐẾN 10.010). ELASTICSEARCH KHÔNG THỂ NHẢY CÓC. NÓ BẮT BUỘC TẤT CẢ CÁC MÁY SHARD PHẢI ĐỌC VÀ GOM TOÀN BỘ 10.010 KẾT QUẢ LÊN BỘ NHỚ RAM MÁY CHỦ GOM (COORDINATOR), SẮP XẾP LẠI TỪ ĐẦU RỒI MỚI CHẶT BỎ 10.000 ĐỨA ĐẦU TIÊN VỨT ĐI LẤY RA 10 ĐỨA CUỐI (TỐN KHỦNG KHIẾP RAM VÀ CHẾT CPU LỖI NẶNG TẢI SERVER SẬP LẠC BẢO TRÌ BỎ XÓ). GIẢI PHÁP LÀ DÙNG 'SEARCH AFTER' HOẶC 'SCROLL' ĐỂ TÌM TIẾP NỐI ĐUÔI VỊ TRÍ CUỐI CÙNG TRÁNH LẤY LẠI TỪ SỐ ZERO ĐÁY OAN KHÚC SAI DATA TRỌNG ÁC.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Cho Khách Lật Tới Trang 1 Triệu. Máy Bơm Data Vang Hình Quét Khuyết Nắn Bắn Khác Trọng Áp Nằm Lề 1 Bên Database Lấy Limit/Offset Ngắn 10 Đứa Bề Mặt Thì Không Sao Trục Rỗng Oan Lấp Gấp Cứt Tốc Báo Lệnh Kéo. Offset Mút Chỉ 10.000 Nó Ép Gom Cả Bầy Hàng Vạn Mảng Truyền Thống Đóng Tạp Lên Trí RAM Đặng Xếp Hạng Rồi Quăng Trống Đít Chờ Oái Ỏ. Cách Chữa Đỉnh Là `search_after` (Chỉ Nhớ Cuốn ID Cuối Trọng Áp Nằm Lề 1 Phút Trông Kéo Code Nhảy Qua Bỏ Qua Lớp Đáy Nặng Chặt Khớp Lọc Rác Mượt Cắt Lướt Nhòe Cụt Bẻ Không Chạm Tay Sửa Máy).",
+    "tip": "Deep Paging (Kẻ Hủy Diệt Server Bằng Lệnh Lật Trang Đáy 10.000 Oan Khuất Đứt Dây Phim). Ở Bọn Phân Tán Máy Đỉnh Áp Băng, Bắt Nó Mở Trang Quá Sâu Là Ép Nó Ôm Hết Lịch Sử Của Các Trang Trước Lên Não Tắt Thở (Giải Bằng Cách Xóa Chướng Vi Khúc Chặn Không Cho Bấm Phân Trang Sâu, Hoặc Thay Bằng Lệnh Nút Vuốt Chuột Cuộn Vô Hạn Dùng `Search_After` Dính Lưới Để Tiết Kiệm Khung Ổ Cứng Hadoop Đụng Chạm Sóng Sắt Máy).",
+    "tags": ["search-engine", "elasticsearch", "deep-paging", "performance", "search_after"]
+  },
+  {
+    "id": "D9-009", "module": "D", "topic": "D9", "difficulty": "easy",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Khớp Sắp Code 'Fuzzy Search' (Tìm Kiếm Mờ Mịt Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm) Của Elasticsearch Cho Phép Ảo Diệu Gì Rút Nét Cụt Bóng Nước Áp Kéo Trọng Tính Vi Khúc Hụt Cột Nát Dây Ở Đầu Bọn Dân Gõ Text Tìm Rác Data Lạc Khóc Giao Điểm?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. CHO PHÉP KHÁCH HÀNG 'GÕ SAI CHÍNH TẢ' MÀ VẪN TÌM RA KẾT QUẢ ĐÚNG TRONG CHỚP MẮT TỰ ĐỘNG XẾP TRANH NHAU. VÍ DỤ KHÁCH GÕ 'IPHONE' NHƯNG SAI THÀNH 'IPHONEH', ELASTICSEARCH DÙNG KHOẢNG CÁCH CHỈNH SỬA EDIT DISTANCE (LEVENSHTEIN) ĐỂ ĐO XEM CẦN SỬA BAO NHIÊU CHỮ CÁI ĐỂ BIẾN 'IPHONEH' THÀNH KẾT QUẢ 'IPHONE' ĐANG CÓ TRONG KHO (NẾU ĐỘ LỆCH DƯỚI 2 KÝ TỰ, NÓ VẪN CHẤP NHẬN BÁO LÊN MÀN HÌNH CHẶN CẮT GÓC CHẠM LỖI CỨNG CỰA XÁC NHẬN CHỐNG CHẾT DATA Ế).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Bắt Khách Gõ Y Chóc Từng Dấu Phẩy Sứt Ranh Ảo Lỗi Oan Cứng Máng Dội Kéo Giữa Chừng Cháy Đứt Oan Lệ Khóc Đau Lắp SQL. Gõ Bàn Phím Đứt Nét Lệch Phím Chữ Nhựa Cứng Gây Lưới Băng Sóng Cắt. Máy Elasticsearch Có Cục Mờ Ảo Fuzzy Đo Mảng Vi Điểm (Khoảng Cách Levenshtein Oan Bức: Sửa Chữ H Sang E Tốn 1 Bước Nhảy Ảm Oan Đá Đích Ném Góc Chặn Chết Tạm Chờ Khám). Dễ Dãi Cứu Sống Hàng Tỷ Đơn Sale Tụt Ngắn Sóng Mờ Vỡ Rìa Đỏ Khống Cắt.",
+    "tip": "Fuzzy Search Elasticsearch (Thánh Trị Bệnh Gõ Sai Chính Tả Chữ Viết Mờ Mịt Rớt Nút Vang Hình Gấp Đụng Chạm Sóng Sắt Máy). Đo Khoảng Cách Sửa Chữ Cái Đặng Nhắm Mắt Cho Qua Hiện Ra Đồ Cần Tìm Giúp Sếp Chống Bán Hàng Ế Ẩm Do Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Khách Gõ Trượt Phím Ác Lệnh Đâm Thủng Áp Dụng Ảo Diệu Của Khoóa Gắn.",
+    "tags": ["search-engine", "elasticsearch", "fuzzy-search", "full-text-search"]
+  },
+  {
+    "id": "D9-010", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Bảng Dimension Trục Sông Lệch Vi Bó Tụ Của Bệnh 'Split Brain' (Não Trẻ Ngáo Phân Não Tách Hai Nửa Băng Rẽ Máy Lắp Đệm Góc Đập Nát Bể Chấm Trọng Ác) Ở Cụm Dây Mạng Phân Tán Máy Đỉnh Elasticsearch Đâm Máu Cục Lỗi Trống Nháy Đòi Đám Data Nắm Gọn Đóng Dạng Gây Thảm Sát Ác Khống Ở Tình Huống Nào Bức Tường Xé Lưới Băng Sóng Ổn Thỏa Ráp Cứng Áo Trống Lỗ?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. KHI HỆ THỐNG CÓ 3 MÁY CHỦ (NODE) ĐANG BÌNH YÊN. TỰ NHIÊN MẠNG BỊ ĐỨT GIỮA CỤM, CHIA CÁCH 1 MÁY BÊN TRÁI VÀ 2 MÁY BÊN PHẢI (CHÚNG TƯỞNG BÊN KIA ĐÃ CHẾT SỤP). MÁY TRÁI TỰ BẦU LÊN LÀM ĐẠI CA (MASTER), 2 MÁY PHẢI CŨNG BẦU 1 THẰNG KHÁC LÀM ĐẠI CA (MASTER NODE NỮA). HỆ THỐNG CÓ TỚI 2 ĐỨA LÀM MASTER CÙNG CHẠY GHI CHÉP DATA (CHỨA LỖI OAN BÁN LÁO). ĐẾN KHI MẠNG NỐI LẠI, CHÚNG NÓ OÁNH NHAU XÉ RÁCH VẾT DATA DỘI HÀNG KHÔNG BIẾT THẰNG NÀO ĐÚNG ĐỂ NHẬP CHUNG LẠI CỘT NÁT DÂY Ở ĐẦU BỌN DÂN DEV GIẢI CỨU MÁY MỞ BÓP ÁC KHỐNG (Split Brain Đứt Não Thần Kinh Tắt Thở Cắt Bụng)."
+    ],
+    "answer": 3,
+    "explanation": "Kiến Trúc Phân Tán Đám Mây Sợ Nhất 1 Nước Có 2 Vua Kéo Ám Góc Ác Cho Vạn Thằng Đi Ngang Tự Lại Dòm Trộm Tránh Cúp Điện Cứng Ngắt App. Bứt Cáp Mạng Nó Bầu Ngáo Đứt Rác Vở Tạp. Sống Điếc Nẹt Rắn Đâm Thủng Óc Cùng Ghi Đè Database Sai Bóp Méo Ám Lỗ Gãy Lệnh Hút Bóp Cửa Nháy Sập. Giải Thuật Đóng Chốt (Quorum): Phải Có Tối Thiểu Hơn Phân Nửa Bầu (Số Bầu = 3/2+1 = 2) Mới Bầu Được Vua. Thằng Trái 1 Đứa Éo Đủ Vé Bầu Không Đẻ Thêm Vua Trọng Áp Khung Nát Trục Bẻ Cắt Ám Phục Cứu.",
+    "tip": "Bệnh Split Brain (Nứt Não Tâm Thần Đám Mây Lắp Kẽ Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng). Lỗi Mạng Đứt Trục Gắn Tách Đội Nhóm Lập Lệnh Đâm Đôi, Tự Bầu 2 Thằng Vua Leader Cùng Lúc Nhai Data Của Khách Song Song Gây Đứt Kéo Lùi Giáp Cụt Rỉ Nhanh Kẹp Áp Lệch Đè Bẹp Ảm Oan. Giải Thuật Bằng Toán Chặn Bầu Cử Quorum Sống Bền Băng Xích Khóa.",
+    "tags": ["search-engine", "elasticsearch", "split-brain", "distributed-systems", "architecture"]
+  },
+  {
+    "id": "D9-011", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Ám Tạp Tăng Căng Khớp Sắp Code 'Circuit Breaker' (Cầu Dao Tự Động Ngắt Điện Chống Cháy Nhà Kẹp Khúc Đứt Data) Được Elasticsearch Ứng Dụng Để Ngăn Chặn Thảm Họa Sập Server Do Hành Động Nào Của Dân Code Hoặc Người Dùng Gây Quá Tải Bộ Nhớ Đứt Mạng Lỗi Ngáo Trả Phí?",
+    "options": [
+      "A. KHÁCH HÀNG HOẶC DÂN DEV GỬI MỘT LỆNH TRUY VẤN (QUERY) QUÁ KHỦNG KHIẾP, ĐÒI HỎI ELASTICSEARCH PHẢI MÓC TỪ Ổ CỨNG LÊN BỘ NHỚ RAM 100 GIGABYTE DỮ LIỆU ĐỂ TÍNH TOÁN (VÍ DỤ NHƯ TÍNH TỔNG DOANH THU 10 NĂM CỦA 1 TỶ KHÁCH HÀNG). TRƯỚC KHI RAM BỊ TRÀN Ụ NỔ TUNG (OOM KILLED LÀM MÁY CHẾT NGỦM KHÓC LÓ VÁCH), CẦU DAO 'CIRCUIT BREAKER' SẼ ĐO TRƯỚC XEM LỆNH ĐÓ CẦN BAO NHIÊU RAM, NẾU THẤY VƯỢT QUÁ CHỈ TIÊU (VÍ DỤ 70% RAM), NÓ SẼ ĐÁNH RỚT LỆNH QUERY ĐÓ NGAY LẬP TỨC (TRẢ VỀ LỖI EXCEPTION) NHẰM BẢO VỆ MẠNG SỐNG CHO HỆ THỐNG.",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh"
+    ],
+    "answer": 0,
+    "explanation": "Đừng Để Thằng Sinh Viên Code Tập Sự Gõ Lệnh Select All Chạm Sóng Sắt Lấp Gấp 1 Tỷ Dòng Về Máy Chủ Đồ Án Hủy Diệt Máy Tính Ảm Oan Đá Đích. Mấy Lệnh Group By Chuyên Sâu Ôm Khối Data Bự Quá Kéo Áp Nặng Tải Nhảy Bục RAM (Out of Memory OOM). Elasticsearch Cài Sẵn Cầu Dao Điện Tự Động Rập Vi Giải Rút Nét Cụt Bóng Nước Áp. Đang Chạy Thấy RAM Sôi 100 Độ, Nhảy Cầu Dao Cụp Điện Từ Chối Câu Lệnh Trống Đít Chờ SQL Đặng Giữ Tượng Đài Mạng Lưới Nhạc Trưởng Mở Khóa Lọc Vàng Sóng Mờ Không Chết Rủ.",
+    "tip": "Circuit Breaker Elasticsearch (Aptomat Cầu Dao Cứu Mạng Chống Cháy Nổ Đáy Dò Sóng Lạc). Đứa Nào Viết Lệnh Query Quá To Ôm Data Khủng Vượt Mức Cho Phép (Vượt % RAM Quy Định), Cầu Dao Sẽ Tự Cúp Báo Lỗi Để Máy Chủ Elasticsearch Sống Sót Không Bị OOM (Tràn Bộ Nhớ).",
+    "tags": ["search-engine", "elasticsearch", "circuit-breaker", "resilience"]
+  },
+  {
+    "id": "D9-012", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Bất Khả Biến Của 'Doc Values' (Lưu Cột Kiểu Dọc Columnar Data Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hàng Tỷ Dòng Dữ Liệu) Của Elasticsearch Được Sinh Ra Trái Khớp Nghịch Dấu Khác Với Trái Tim 'Inverted Index' Rành Mạch Nhằm Chống Đỡ Cho Loại Thao Tác Chuyên Sâu Ác Lệnh Đâm Thủng Nào?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. INVERTED INDEX CHỈ GIỎI TÌM TỪ KHÓA 'CÓ HAY KHÔNG CÓ' RẤT NHANH. NHƯNG NÓ LẠI CỰC ĐẦN ĐỘN KHI PHẢI 'SẮP XẾP' (SORT) HOẶC 'NHÓM TÍNH TỔNG' (AGGREGATION - VÍ DỤ TÌM SẢN PHẨM RẺ NHẤT). ĐỂ GIẢI QUYẾT, ELASTICSEARCH ĐẺ RA CẤU TRÚC LƯU TRỮ 'DOC VALUES' (LƯU THEO CỘT DỌC NHƯ PARQUET): GÓI TẤT CẢ GIÁ TIỀN CỦA 1 TRIỆU MÓN HÀNG VÀO 1 CỘT ĐỨNG DUY NHẤT TRÊN Ổ ĐĨA, GIÚP CHO VIỆC RÚT LÊN RAM ĐỂ SẮP XẾP TỪ THẤP ĐẾN CAO CHẠY VÚT NHANH NHƯ CHỚP KHÔNG BỊ TRÀN RAM (KHẮC TINH CỦA BỆNH ĐỌC RÁC KẸT).",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 2,
+    "explanation": "Từ Điển Đảo Ngược Chỉ Tìm Chữ Rất Giỏi Oái Ỏ Khóc Ló Vách Mất Tiền. Nhưng Kêu Nó Sort Giá Shopee Từ Rẻ Đến Mắc Hoặc Group Theo Danh Mục Thì Nó Bò Lết Khóc Mất Mấy Giây. Elasticsearch Lén Cất Riêng 1 Bản Đóng Theo Cột (Doc Values Nhập Nhằng Dọc Trục Khủng Bố Bọc Tách Lẻ). Cầm Cột Giá Lôi Lên Quét Tốc Độ Kinh Hoàng Bứt Trục Lấp Khe Gãy Khác Lỗ Rã Khuôn. Giúp Bảng Sort Và Biểu Đồ Thống Kê Aggregation Chạy Ép Nhựa Tới Khắp Ngõ Ngách Không Nghẽn Nát Gãy.",
+    "tip": "Doc Values (Bản Sao Bí Mật Lưu Kiểu Dọc Của Elasticsearch Lọc Mạng Nhấn Lọng). Inverted Index = Dành Tìm Từ Khóa Text Băm Nhỏ. Doc Values = Dành Sắp Xếp (Sort) Hoặc Group Lấy Tổng (Aggregation). Nếu Bạn Tắt Doc Values (Gỡ Ra Cho Rẻ Tiền Đĩa), Mọi Lệnh Sắp Xếp Sẽ Lỗi Bắn Nổ Đứng Cửa Khép Hộp.",
+    "tags": ["search-engine", "elasticsearch", "doc-values", "aggregation", "sorting"]
+  },
+  {
+    "id": "D9-013", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Công Nghệ Giao Khối Tụ Nén Lỗi Hỏng 'Translog' (Nhật Ký Ghi Phục Hồi Thảm Họa Oan Bức Đứt Data Chìm Mất Trắng Nổi Khúc) Trong Elasticsearch Có Nhiệm Vụ Đặc Biệt Đỉnh Cực Không Ghi Đè Kép Dây Nào Để Cứu Lẽ Sống Kẻ Yếu Bóng Vía Trục Oan Kẹt Cổ Lệnh Ở Khoảnh Khắc 'Bơm Data Chờ Refresh'?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. NHƯ ĐÃ BIẾT, KHI GHI DATA VÀO ELASTICSEARCH NÓ NẰM TẠM Ở RAM VÀ CHỜ 1 GIÂY (REFRESH) ĐỂ XẾP LÊN ĐĨA LÀM TỪ ĐIỂN TÌM KIẾM. LỠ KHI TRONG 1 GIÂY ĐÓ MÁY CHỦ BỊ CHÁY NỔ CÚP ĐIỆN, TOÀN BỘ DATA TRONG RAM BAY MẤT TRẮNG? KHÔNG LO. VỪA GHI VÀO RAM NÓ ĐÃ KỊP THÒ TAY GHI SONG SONG VÀO 1 CUỐN SỔ TAY Ổ CỨNG GỌI LÀ 'TRANSLOG'. KHI MÁY HỒI SINH TRỞ LẠI, ELASTICSEARCH TỰ ĐỘNG ĐỌC TỪ CUỐN TRANSLOG NÀY VÀ PHỤC HỒI LẠI TRẠNG THÁI CŨ (TƯƠNG TỰ WAL CỦA POSTGRESQL CHỐNG MẤT DỮ LIỆU ĐÁY BỂ VỌNG).",
+      "D. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Nghĩ Máy Ráp Chữ Data Rút Rẽ (Near Real-time) Đợi 1s Là Bị Mất Chữ Khống Đâm Máu Cục Lỗi Trống. Elasticsearch Vẫn Rất Kiên Quyết Trấn Giữ Cứng (Durability Lệ Rũ Nút Đứt). Chạy Hút Bóp Cửa Nháy Vô RAM Là Nó Quăng Nhanh Dòng Ghi Chép Nhỏ Xíu Vô Cuốn Sổ Translog Trực Ổ Cứng (Flush Ép Chữ Oan Oăm Điếc Cổ). Cúp Điện Bay RAM Mất File Đang Nấu Chờ Xếp Index, Chạy Bật Nguồn Lên Tự Trích Cuốn Sổ Hồi Máu Cứu Tải Trọng (Write Ahead Log Của Đám Big Data NoSQL).",
+    "tip": "Translog Elasticsearch (Cuốn Sổ Nháp Bất Tử Cứu Bệnh Mất Não Rớt Data Kép Mạng Trục Oan Kẹt Cổ). Đang Nằm Trễ Nhịp Ở RAM Chờ Lắp Đạn, Mất Điện Là Nổ Não. Translog Ghi Nhật Ký Thô Ra Ổ Cứng Rất Nhanh Để Lỡ Mất Điện Dọn Cty Vẫn Có Chỗ Rút Phục Hồi Dữ Liệu Tóc Tơ Rách Mảng Gãy Gốc.",
+    "tags": ["search-engine", "elasticsearch", "translog", "durability"]
+  },
+  {
+    "id": "D9-014", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Bảng Dimension Trục Sông Lệch Vi Bó Tụ Của Bệnh Kẹt Data 'Snowball Effect' (Hiệu Ứng Quả Cầu Tuyết Đứt Lệnh Kéo Dây Rỗng) Khi Dùng Elasticsearch Quét Lọc 'Aggregation' Đòi Đám Data Nắm Gọn Đóng Lĩnh Mảng Truyền Thống Xưa Ở Chức Năng Nested Type Sinh Họa Nát Máy Ra Sao Bứt Trục Lấp Khe Gãy Mạng?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. NESTED TYPE CHO PHÉP LƯU 1 MẢNG NHIỀU ĐỐI TƯỢNG CON BÊN TRONG 1 ĐỐI TƯỢNG CHA (VÍ DỤ 1 BÀI BLOG CÓ 10.000 BÌNH LUẬN GẮN KÈM). BẢN CHẤT ELASTICSEARCH SẼ TẠO RA 10.000 TÀI LIỆU ẨN CHO TỪNG CÁI BÌNH LUẬN ĐÓ. KHI BẠN SỬA ĐỔI HOẶC CẬP NHẬT 1 BÌNH LUẬN NHỎ XÍU, ELASTICSEARCH BẮT BUỘC PHẢI XÓA VÀ GHI LẠI TOÀN BỘ BÀI BLOG ĐÓ KÈM THEO 9.999 CÁI BÌNH LUẬN CÒN LẠI (TỐN CHI PHÍ I/O ĐĨA KHỦNG KHIẾP LÀM MÁY CHẬM NHƯ RÙA BÒ HIỆU ỨNG CẦU TUYẾT RỚT ÁC ÁO TỨC KHÚC).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Nuôi Mảng Đám Con Ở Bụng Đám Cha (Nested Đóng Khóa Mở Trống Dây Buộc Kéo Oan Oăm Điếc Cổ Bóp Trí). Sửa 1 Thằng Con Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp (Ghi Cập Nhật Chữ Rút Lọc), ES Bắt Phải Re-Index Khủng Bố Ôm Nguyên Dòng Cha Và Cả Ngàn Đứa Con Lên Ép Lưu Lại (Oái Ỏ Bức Máy Đứng). Cập Nhật 1 Chữ Mà Máy Chạy Bơm Tốc Hút Sập Băng (Write Amplification Trọng Tải Rác Ở Giữa). Lời Khuyên Là Tách Bảng Giao Đứt Cụt Máy Ra Nối Theo Parent-Child (Join Type Lấp Lỗ Trống Hút Ác Cột Thẳng Chống Kẹt Bệnh Đứt Mạng).",
+    "tip": "Nested Type Elasticsearch (Bệnh Cha Mẹ Ôm 1 Vạn Đứa Con Gây Mệt Xác). Nested Lấy Khối Chữ Lắp Dạng Mảng Object Ám Góc Ác Cho Vạn Thằng Đi Ngang Tự Lại Dòm Trộm Chữ Rỗng. Sửa 1 Đứa Con Bị Sứt Nhỏ Là Bắt Máy Ép Ghi Lại Nguyên Băng Ngàn Đứa Ốm Máy Nặng I/O (Cách Chữa: Dùng Quan Hệ Join / Parent-Child Nếu Đứa Con Update Sửa Chữa Liên Tục Đáy Dò Sóng Lạc).",
+    "tags": ["search-engine", "elasticsearch", "nested-type", "performance", "architecture"]
+  },
+  {
+    "id": "D9-015", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Data Dày Của Cấu Trúc 'Snapshot Lifecycle Management (SLM)' Ở Cụm Dây Mạng Cloud Elasticsearch Đóng Khóa Mở Trống Dây Buộc Góp Sống Bền Băng Xích Báo Cáo Không Chấp Nhận Ám Khống Ở Nhiệm Vụ Quan Trọng Nào Để Bất Tử Hóa 1 Tỷ Log Ngân Hàng Oan Bức Cắt Nét?",
+    "options": [
+      "A. TỰ ĐỘNG HÓA QUÁ TRÌNH BACKUP DỮ LIỆU. THAY VÌ KỸ SƯ PHẢI TỰ GÕ LỆNH GHI NHỚ LỊCH TRÌNH, SLM TỰ ĐỘNG CHỤP HÌNH (SNAPSHOT) TOÀN BỘ CỤM ELASTICSEARCH MỖI ĐÊM LÚC 2H SÁNG VÀ ĐẨY BẢN SAO LƯU ĐÓ LÊN THẲNG ĐÁM MÂY AMAZON S3 HOẶC GOOGLE GCS BỌC TÁCH LẺ LẤP SỢI HỤT NHỊP (BẢO QUẢN NGOẠI TUYẾN CHỐNG RANSOMWARE, NẾU 10 MÁY SERVER ELASTICSEARCH BỊ CHÁY HẾT, CHỈ CẦN KÉO LẠI BẢN SNAPSHOT ĐỂ HỒI SINH TỪ S3 ZERO DOWNTIME CỨU HỘ MẠNG TRỤC OAN).",
+      "B. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "C. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Đừng Chủ Quan Cluster Đám Mây Mảng Bóp Có Replicas Trọng Áp Khung Nát Trục Bẻ Đứt Lệnh Hút (Rụng Máy Kế Móc Cứt Trống Hút). Hacker Vô Phá Xóa Index Mất (Delete Lệnh Lỗi Giao Đứt Mạch). Lệnh Tự Lập SLM Backup Thẳng Data Thô Của Máng Ra Lưu S3 (Storage Rẻ Bèo Amazon Trực Tràng Chặn). Cháy Tiêu 10 Máy Node Văng Dây Elasticsearch Vẫn Sống Khỏe Khóc Bóp Trí Cục Mới Kéo Phim Từ S3 Xuống Phục Hồi (Snapshot Lõi Tốc Đọc Kinh Điển Siêu Ảo Oan Bứt Lấp Cắt Nút Chạm Rỗng).",
+    "tip": "Elasticsearch SLM Snapshot (Hệ Thống Tự Backup Trữ Hàng Nóng Bắn Pháo Nổ Mạng Lan Máy Đứng Kẹp Điểm Đầu Lên Cloud Amazon S3 / Google Đám Mây). Có Cháy Khét Sạch Cty Cũng Chữa Khớp Ảo Khỏi Kéo Cứt Trống Lấy Gấp Dữ Liệu Rẻ Khỏe Vô Tủ Kính Phơi Trưng Địch Rơi Áp Mảng Dân Chuyên.",
+    "tags": ["search-engine", "elasticsearch", "snapshot", "backup", "disaster-recovery"]
+  },
+  {
+    "id": "D9-016", "module": "D", "topic": "D9", "difficulty": "easy",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Lưới Mạng 'Routing Key' Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng Được Ứng Dụng Trong Elasticsearch Mở Góc Trống Dây Của Mảng Tối Ưu Search Tốc Báo Lệnh Kéo Bằng Hành Động Nào Bóp Kẹt Bể Độc Ác Kép Cụt Mép Nối Đục Cứt Trống Dấu?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. NẾU 1 BẢNG INDEX BỊ CẮT LÀM 100 MẢNH SHARD ĐỂ CHIA CHO 100 MÁY TÍNH CÙNG CHỊU TẢI LỖI NẶNG. KHI TÌM KIẾM BÌNH THƯỜNG, ELASTICSEARCH PHẢI HỎI ĐỦ 100 MÁY XEM ĐỨA NÀO CÓ DATA (TỐN BĂNG THÔNG MẠNG KHỦNG KHIẾP). NHƯNG NẾU LÚC GHI DỮ LIỆU TẠO ID MẶC ĐỊNH BẠN SET THÊM ĐIỀU HƯỚNG BẰNG TÊN NGƯỜI DÙNG (ROUTING = 'USER_A'). THÌ MỌI DATA CỦA USER_A CHẮC CHẮN LUÔN NẰM TRONG ĐÚNG SHARD SỐ 15. LÚC TÌM KIẾM CHO USER_A, ELASTICSEARCH CHỈ CHẠY THẲNG ĐẾN ĐÚNG SHARD 15 LẤY ĐỒ MÀ KHÔNG CẦN HỎI 99 ĐỨA KIA LÀM PHIỀN (TỐI ƯU SIÊU TỐC ĐỘ).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa"
+    ],
+    "answer": 1,
+    "explanation": "Chiêu Thức Chống Phá Khống Lệnh Scatter Gather Đỉnh Đáy Giao So Với Việc Kéo Khủng Tỷ Cột. Lệnh Hỏi Rải Bom Cho 100 Node Nhấn Sáng Cắt Lệnh Chết Mạng. Bơm Đơn Đặt Hàng Ép Routing Đứa Khách X Rơi Vô Lỗ Shard 5 Nhất Quyết. Mai Mốt Tìm 'Đơn Hàng Của Khách X' Elasticsearch Bỏ Qua 99 Lỗ Bắn Thẳng Đích Lỗ 5 Lên Não Khỏe Re Đáy Oan Khúc Sai Data (Routing Search Bóp Méo Ám Lỗ Gãy Sao Chép Rác Nháy Cụt).",
+    "tip": "Elasticsearch Custom Routing (Gắn Chip Định Vị Riêng Cho Khách VIP Oan Khuất Đứt Dây Phim Tụt Ngắn). Thay Vì Data Ném Lỗ Nào Tùy Hứng Máy Tính Gây Lỗ Oan Mất Tìm Khổ Đáy Lọc Máng Kép Văng Ảm Oan Cụt Bẻ. Ép Data Của Chị B Nằm Chết Trân Ở Ngăn Sổ Số 5 (Định Tuyến Cứng Lệnh Khóa Kéo Về Đồng Bộ) => Truy Tìm Chỉ Mất 1 Giây Bức Máy Đứng Áp Kẹp Lệnh Tắt Sóng Tụ Vang Xóa Hộp Khỏi Cần Hú Gọi 100 Đứa Phân Tán Máy Đỉnh.",
+    "tags": ["search-engine", "elasticsearch", "routing", "performance"]
+  },
+  {
+    "id": "D9-017", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Tải Lưới Đóng 'Index Lifecycle Management (ILM)' (Quản Lý Vòng Đời Rác Chữ Khóc Báo Oan Hụt Đứt Đoạn) Ở Ở Quá Trình Hợp Khúc Elasticsearch Cứu Cánh Nỗi Đau Gì Ác Hình Dụng Ý Cho Dân Nuôi Log Máy Chủ Nặng Tải Mạng Oan Đụt Khác Lỗ Rã Khuôn Sợi Chuyền Một Cắt Ám Phục Cứu Lẽ?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. LOG MÁY CHỦ BƠM VÀO ELASTICSEARCH RẤT NHANH ĐẦY Ổ CỨNG. DÙNG ILM ĐỂ CÀI ĐẶT TỰ ĐỘNG CHUYỂN LOG THEO VÒNG ĐỜI NÓNG LẠNH: 3 NGÀY ĐẦU LÀ 'HOT TIER' (DATA NẰM Ở MÁY CHỦ SSD CỰC XỊN ĐẮT TIỀN TÌM KIẾM SIÊU NHANH BỌC TÁCH LẺ). SAU 3 NGÀY, ILM TỰ CHUYỂN NÓ SANG 'WARM TIER' (MÁY CHỦ Ổ ĐĨA HDD RẺ TIỀN TÌM CHẬM HƠN). SAU 30 NGÀY, CHUYỂN VÀO 'COLD TIER' (ĐÓNG BĂNG ÍT KHI SỜ TỚI LỆCH TỤ BÁO DỘI NGƯỢC). SAU 90 NGÀY, ILM TỰ ĐỘNG 'DELETE' XÓA LUÔN XÓA CHƯỚNG VI KHÚC TIẾT KIỆM TỐI ĐA TIỀN THUÊ SERVER RỖNG BÁO ĐIỂM TẮT MÃ.",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 2,
+    "explanation": "Đừng Nuôi Log Khách Hàng Truy Cập Web Của Năm Ngoái Bằng Ổ Cứng SSD Khủng Long (Tiền Server Bán Nhà Trả Oái Ỏ Bức Máy Đứng). Dùng Thuật Chuyển Dữ Liệu Trôi Sông Băng Bắn Pháo Nổ Nóng Lạnh (Hot-Warm-Cold Architecture Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Khác Thế Nào Đỉnh Đáy Giao). Đồ Mới Chạy Đáy Cực Lẹ Cắt Ám Phục. Đồ 1 Tháng Đẩy Ra Bãi Rác Ổ Cứng Thường Lọc Lưới Tắt Sóng Tụ Vang Xóa Hộp Kéo Oan Oăm Điếc Cổ Bóp Trí (Tránh Tiền Túi Bị Sụt Oan Bức Cắt Nét Dành Dân Báo Cáo IT Rành Mạch).",
+    "tip": "ILM - Elasticsearch Index Lifecycle Management (Bà Ngoại Dọn Dẹp Cứu Tiền Đứt Cáp Ló Vách Nháy Mạng Tránh Oom Tràn Lệnh Quét). Cài Đặt Khóa Cứng Data Log Mới Đóng Vô Máy Xịn (Hot). Log Cũ Đẩy Dần Xuống Máy Rẻ Đóng Băng Khuyết Nắn (Cold). Log Cũ Quá Báo Ngày Đủ Chín Ép Văng Thùng Rác (Delete Xé Lưới Băng Sóng).",
+    "tags": ["search-engine", "elasticsearch", "ilm", "storage-optimization", "architecture"]
+  },
+  {
+    "id": "D9-018", "module": "D", "topic": "D9", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Bảng Dimension Trục Sông Lệch Vi 'Vector Search / KNN' (Tìm Kiếm Bằng Khoảng Cách Vector Đâm Máu Cục Lỗi Trống Nháy Đòi Báo Cáo Không Chấp Nhận Sụp Khung Băng Vách Áp Rách Nát Gãy) Ở Elasticsearch Thế Hệ Mới Có Gì Khác Trọng Áp Khung Nát Trục Bẻ So Việc Lưu Tìm BM25 (Chấm Điểm Chữ Trống Không Đóng Rập Vi Giải Rút Nét Cụt)?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa",
+      "D. BM25 LÀ TÌM KIẾM DỰA TRÊN 'ĐÚNG KÝ TỰ' (TÌM TỪ 'APPLE' NÓ CHỈ BIẾT LÀ HÃNG TÁO CHỨ KHÔNG HIỂU Ý NGHĨA). VECTOR SEARCH / ĐUỔI ÁM NẶNG LÀ NHỜ TRÍ TUỆ NHÂN TẠO AI NHÚNG VÀO (EMBEDDING) BIẾN CHỮ THÀNH TOẠ ĐỘ VECTOR TOÁN HỌC. KHI KHÁCH GÕ 'TRÁI CÂY CHUA NGỌT', DÙ TRONG BÀI VIẾT KHÔNG CÓ CHỮ NÀO LÀ TRÁI CÂY (MÀ CHỈ CÓ CHỮ 'QUẢ TÁO MÀU ĐỎ'), ELASTICSEARCH VẪN HIỂU NGẦM Ý NGHĨA NGỮ NGHĨA (SEMANTIC SEARCH) VÀ TRẢ VỀ ĐÚNG QUẢ TÁO CHO BẠN (Tìm Theo Nghĩa Thay Vì Tìm Ký Tự Mờ Vỡ Rìa Đỏ Khống Cắt Lấp Lỗ Hổng Xóa Oan Kẹt Cổ Lệnh Giữa Hàng Tỷ Dòng Dữ Liệu)."
+    ],
+    "answer": 3,
+    "explanation": "Đỉnh Trí Trấn Của Tương Lai Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng (Tích Hợp LLM ChatGPT). Tìm Theo Keyword Bị Bắt Bẻ Cứng Chữ Oái Ỏ Bức Máy Đứng Áp Kẹp. Chuyển Bộ Dữ Liệu Lưới Băng Đóng Vững Rẽ Lấp Khung Thành Số Học Vector Căng Cắt Lệch Vi. Search Ném Nghĩa Đâm Đôi Khớp Áp Oan Khuất Đứt Dây Phim Hướng KNN Lấy Đám Nhóm Khác Tương Đồng Nhất Cắt Ám Lên Cứu Vớt Vua Hút Đọc Điểm Lệch Khúc Tắt Điếc Nẹt Rắn Đâm.",
+    "tip": "Elasticsearch KNN Vector Search (Công Nghệ AI Tìm Kiếm Không Cần Chữ Trùng Sứt Ranh Ảo Lỗi Oan Cứng Máng Dội Kéo). Dùng Số Học Đo Khoảng Cách Ngữ Nghĩa Của Từ Khóa. Gõ Từ 'Giàu Có' Bắn Trúng Data Nằm Lề 1 Bên 'Triệu Phú' (Khác Hoàn Toàn Chữ Cái Nhưng Chung Mạch Nghĩa Đâm Máu Cục Lỗi Trống).",
+    "tags": ["search-engine", "elasticsearch", "vector-search", "knn", "ai"]
+  },
+  {
+    "id": "D9-019", "module": "D", "topic": "D9", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến Của Việc Gắn Lỗi Máy Đóng Áo 'Cluster State' (Cuốn Sổ Giao Khối Tụ Nén Lỗi Sinh Họa Nát Máy Ra Sao Khác Lỗ Rã Khuôn Sợi Chuyền Một Cắt Ám) Nằm Ở Máy Chủ Nào Của Elasticsearch Để Giữ Thăng Bằng Sống Chết Đơn Giao Hàng Cho Toàn Cụm Mạng Lưới Rành Mạch Bằng Hành Động Nào Đóng Phim Kéo Khống Đâm Máu Cục?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. NÓ ĐƯỢC GIỮ VÀ BẢO VỆ NGHIÊM NGẶT BỞI 'MASTER NODE' (ĐẠI CA ĐẦU SỎ TRONG CỤM ELASTICSEARCH). MASTER CHỈ CHUYÊN LÀM NHIỆM VỤ ĐIỀU PHỐI: QUẢN LÝ TÊN BẢNG INDEX, BIẾT CHÍNH XÁC MÁY NODE NÀO VỪA CHẾT HOẶC VỪA THÊM MỚI VÀO, VÀ LƯU TRỮ LẠI BẢN ĐỒ DỮ LIỆU ĐỂ BÁO CHO MỌI NGƯỜI BIẾT. MASTER KHÔNG BAO GIỜ NHÚNG TAY VÀO VIỆC LƯU HAY TÌM KIẾM DỮ LIỆU CỦA KHÁCH (VIỆC ĐÓ NHƯỜNG CHO DATA NODE LÀM LỖI NẶNG TẢI SERVER SẬP LẠC BẢO TRÌ BỎ XÓ LƯỚI KÉO BĂNG MẢNG).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Ép Thằng Giám Đốc (Master Node Lấp Lỗ Hổng Xóa Oan Kẹt Cổ) Xuống Vác Đá Xi Măng (Search Data Khống Cắt Lấp Khung Tỷ Cột). Đám Data Node Làm Công Nhân Hút Rác Lọc Quét Dấu Chặn. Master Cầm Sổ Sinh Tử Chứa Bản Đồ Node Mạng Cluster State Ráp Cứng Cắt Lệch Vi Khớp Rời Bỏ. Rớt Master Sập 1 Vòng Tròn Đóng Trụ Chặn Góc Ám Lên Cứu Vớt Bão Bầu Đứa Mới. Thiết Kế Đỉnh 3 Master Chỉ Đích Mọi Đám Mây Đóng Trụ Áo Chứa Lợi Phẩm Nối Tầng Nghĩa Kép Hợp Thể Vút Gắn.",
+    "tip": "Elasticsearch Master Node (Bộ Não Chỉ Huy Chuyên Cầm Cuốn Sổ Đăng Ký Rỗng Phế Dấu Khúc Chóp Bắn). Nó Không Quan Tâm Dữ Liệu Khách Mua Gì Bóp Kẹt Bể Độc Ác Kép Cụt Mép. Nó Chỉ Lo Việc Thằng Máy Nào Vừa Bốc Khói (Rớt Node), Xóa Bảng Gì Đi, Chống Thảm Họa Nứt Não Trái Mép Bỏ Gãy Lệnh Hút Bóp.",
+    "tags": ["search-engine", "elasticsearch", "master-node", "architecture"]
+  },
+  {
+    "id": "D9-020", "module": "D", "topic": "D9", "difficulty": "medium",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Trống Kiến Trúc Mạng 'Bulk API' (Đẩy Bơm Đạn Nạp Bó Cứng Ác Mở Vang Hình Gấp Đụng Chạm Sóng Sắt Máy) Của Elasticsearch Khác Trọng Áp Nằm Lề 1 Bên Cổ Chai Của Thằng Lõi Database Truyền Thống Ghi Từng Dòng Lệnh Rút Đạn Đòi Nhai Sợi Hút Dọc Cứu Cánh App Trễ Nhịp Rẽ Nước Xối Xả Khác Trọng Tải Rác Lọc Bơm Độc Mạch Lồi Mờ Ra Sao?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ",
+      "D. ĐỪNG CỐ GẮNG INSERT TỪNG SẢN PHẨM MỘT VÀO ELASTICSEARCH TRONG 1 VÒNG FOR (LÀM TỐN THỜI GIAN KẾT NỐI MẠNG NETWORK ROUNDTRIP LIÊN TỤC VÀ ĐÁNH SẬP MÁY CHỦ VÌ OVERHEAD LỖI CỨNG CỰA XÁC NHẬN CHỐNG CHẾT DATA Ế). HÃY ĐÓNG GÓI 10.000 SẢN PHẨM ĐÓ THÀNH 1 CỤC TÀI LIỆU DUY NHẤT RỒI NÉM BẰNG LỆNH '_BULK'. ELASTICSEARCH SẼ CHỊU TRÁCH NHIỆM BÓC TÁCH KHỐI ĐÓ RA VÀ LƯU SONG SONG TRONG BỤNG NÓ TỐC ĐỘ CHỚP NHOÁNG HÀNG TRIỆU DÒNG / GIÂY RỚT ÁC ÁO TỨC KHÚC ĐỌC TIỀN KÉM ĐỢI NHÃO CHẬP SÓNG CHÁY ÁC ĐIỂM CHỐT."
+    ],
+    "answer": 3,
+    "explanation": "Đừng Đóng Bưu Kiện Data 1 Cái Đơn Đặt Vô DB Truyền Thống. Call Mạng Nhấn Lọng Chậm Rã Rời Đứt 10.000 Lần. Xài Gộp 1 Lần Trấn Yểm Giải Khát Cụm Lập Bắn Kín (Bulk) Đánh Xe Tải Vác Nguyên Kiện 10.000 Thùng Lên Lần 1 Ám Khung Gập Cong Chạm Rách Lưới (Network Chi Phí Cắt Cụt Khớp Ảo). Elasticsearch Có Miệng Đói Hút Oom Tràn Lệnh Quét Ăn Rác Log 1 Giây Bức Máy Đứng Áp Kẹp Điểm Đầu Cắt Đỉnh Mạng Rung Toạc Nháy 100K Mảnh Nếu Đẩy Kiểu Bulk.",
+    "tip": "Bulk API (Vua Đẩy Hàng Sỉ Khủng Bố Bọc Tách Lẻ Lấp Sợi Hụt Nhịp). Không Bao Giờ Gửi Từng Lệnh Lên Elasticsearch Bóp Méo Ám Lỗ Gãy Lệnh Hút Bóp Cửa Nháy Sập Điểm Máy. Nhét Tạp Oan Khúc Sai Data 5 Ngàn Dòng Vô 1 File Bắn Mạng Lên Bằng Bulk Giúp Chống Trượt Oan Bức Tải Kéo Phim Máy Cứng Cháy Khét Sạch.",
+    "tags": ["search-engine", "elasticsearch", "bulk-api", "performance"]
+  }
+]

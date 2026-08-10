@@ -1,0 +1,282 @@
+[
+  {
+    "id": "A6-001", "module": "A", "topic": "A6", "difficulty": "easy",
+    "question": "Đạo hàm (Derivative) của một hàm số f(x) tại điểm x = a mang ý nghĩa hình học là gì?",
+    "options": [
+      "A. Diện tích dưới đường cong f(x) từ 0 đến a",
+      "B. Hệ số góc (độ dốc) của tiếp tuyến với đồ thị f(x) tại điểm a",
+      "C. Khoảng cách từ điểm a đến gốc tọa độ",
+      "D. Điểm cực đại của hàm số"
+    ],
+    "answer": 1,
+    "explanation": "Đạo hàm của hàm số tại một điểm cho biết tốc độ thay đổi tức thời của hàm số tại điểm đó, tương đương với hệ số góc của đường tiếp tuyến với đồ thị tại điểm đó.",
+    "tip": "Đạo hàm = Độ dốc (Slope) = Tốc độ thay đổi.",
+    "tags": ["calculus", "derivative"]
+  },
+  {
+    "id": "A6-002", "module": "A", "topic": "A6", "difficulty": "easy",
+    "question": "Tính đạo hàm riêng (Partial derivative) theo biến x của hàm số f(x, y) = 3x^2 * y + y^3:",
+    "options": [
+      "A. 6x * y",
+      "B. 3x^2 + 3y^2",
+      "C. 6x * y + 3y^2",
+      "D. 6x"
+    ],
+    "answer": 0,
+    "explanation": "Khi tính đạo hàm riêng theo x, ta coi biến y như một hằng số. Đạo hàm của 3x^2 là 6x, nhân với hằng số y thành 6xy. Đạo hàm của y^3 (hằng số) theo x là 0.",
+    "tip": "Đạo hàm riêng theo biến nào thì coi biến khác như là số (hằng số).",
+    "tags": ["calculus", "partial-derivative"]
+  },
+  {
+    "id": "A6-003", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Gradient của một hàm nhiều biến f(x, y, z) là gì?",
+    "options": [
+      "A. Một số vô hướng là tổng các đạo hàm",
+      "B. Một vector chứa tất cả các đạo hàm riêng cấp 1 của f",
+      "C. Ma trận các đạo hàm cấp 2",
+      "D. Tích phân của f theo các biến"
+    ],
+    "answer": 1,
+    "explanation": "Gradient, ký hiệu là ∇f (nabla), là một vector trong đó thành phần thứ i là đạo hàm riêng của hàm số f theo biến thứ i. Ví dụ: ∇f = [∂f/∂x, ∂f/∂y, ∂f/∂z]^T.",
+    "tip": "Gradient là vector của các đạo hàm riêng (Partial derivatives). Chỉ hướng TĂNG dốc nhất.",
+    "tags": ["calculus", "gradient"]
+  },
+  {
+    "id": "A6-004", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Ý nghĩa hình học quan trọng nhất của Vector Gradient ∇f tại một điểm là gì?",
+    "options": [
+      "A. Nó chỉ ra hướng mà hàm số GIẢM nhanh nhất",
+      "B. Nó chỉ ra hướng mà hàm số TĂNG nhanh nhất",
+      "C. Nó song song với các đường mức (contour lines)",
+      "D. Nó vuông góc với trục z"
+    ],
+    "answer": 1,
+    "explanation": "Gradient tại một điểm luôn chỉ về hướng mà hàm số có tốc độ TĂNG lớn nhất. Đó là lý do thuật toán Gradient Descent (muốn tìm cực tiểu) phải đi NGƯỢC hướng gradient (-∇f). Hơn nữa, gradient luôn vuông góc với các đường mức (contour lines).",
+    "tip": "Gradient chỉ hướng lên dốc nhanh nhất. Đi ngược Gradient (Gradient Descent) = xuống dốc nhanh nhất.",
+    "tags": ["calculus", "gradient", "optimization"]
+  },
+  {
+    "id": "A6-005", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Trong thuật toán Gradient Descent, công thức cập nhật tham số θ (với learning rate α) là:",
+    "options": [
+      "A. θ = θ + α * ∇J(θ)",
+      "B. θ = θ - α * ∇J(θ)",
+      "C. θ = θ * α * ∇J(θ)",
+      "D. θ = θ - ∇J(θ) / α"
+    ],
+    "answer": 1,
+    "explanation": "Muốn tối thiểu hóa hàm mục tiêu J(θ), ta phải đi ngược hướng Gradient. Do đó, tham số mới bằng tham số cũ trừ đi (learning rate nhân với gradient).",
+    "tip": "Descent (Đi xuống) = Dấu trừ (-). Ascent (Đi lên) = Dấu cộng (+).",
+    "tags": ["optimization", "gradient-descent"]
+  },
+  {
+    "id": "A6-006", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Quy tắc chuỗi (Chain Rule) trong đạo hàm được sử dụng phổ biến nhất trong thuật toán nào của Deep Learning?",
+    "options": [
+      "A. K-Means Clustering",
+      "B. Support Vector Machine (SVM)",
+      "C. Backpropagation (Lan truyền ngược)",
+      "D. Principal Component Analysis (PCA)"
+    ],
+    "answer": 2,
+    "explanation": "Backpropagation tính toán gradient của Loss function theo từng trọng số trong Mạng Neural bằng cách áp dụng liên tục Quy tắc chuỗi (Chain rule) từ lớp cuối cùng (output layer) ngược về lớp đầu tiên.",
+    "tip": "Chain rule (Quy tắc chuỗi) = Nền tảng toán học của Backpropagation.",
+    "tags": ["calculus", "chain-rule", "backpropagation"]
+  },
+  {
+    "id": "A6-007", "module": "A", "topic": "A6", "difficulty": "easy",
+    "question": "Hàm lồi (Convex function) có đặc điểm gì cực kỳ thuận lợi cho bài toán Tối ưu hóa?",
+    "options": [
+      "A. Dễ dàng tính đạo hàm bậc 2",
+      "B. Luôn luôn có gradient bằng 0 tại mọi điểm",
+      "C. Mọi cực tiểu địa phương (local minimum) đều là cực tiểu toàn cục (global minimum)",
+      "D. Không cần dùng Gradient Descent"
+    ],
+    "answer": 2,
+    "explanation": "Đối với hàm Convex (hình cái bát), nếu bạn tìm thấy một điểm mà nó là thấp nhất trong một vùng nhỏ (local minimum), thì đó chắc chắn là điểm thấp nhất của toàn bộ hàm số (global minimum).",
+    "tip": "Convex function = Chỉ có 1 đáy duy nhất. Không lo bị kẹt ở Local Minima.",
+    "tags": ["optimization", "convexity"]
+  },
+  {
+    "id": "A6-008", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Ma trận Hessian là gì?",
+    "options": [
+      "A. Ma trận chứa các đạo hàm riêng cấp 1",
+      "B. Ma trận chứa tất cả các đạo hàm riêng cấp 2",
+      "C. Ma trận hiệp phương sai của dữ liệu",
+      "D. Ma trận nghịch đảo của ma trận Gradient"
+    ],
+    "answer": 1,
+    "explanation": "Hessian là một ma trận vuông chứa toàn bộ các đạo hàm riêng cấp 2 của một hàm số nhiều biến. Yếu tố H_{ij} = ∂^2 f / (∂x_i ∂x_j). Nó mô tả độ cong (curvature) của hàm số.",
+    "tip": "Gradient = Đạo hàm cấp 1 (vector). Hessian = Đạo hàm cấp 2 (ma trận).",
+    "tags": ["calculus", "hessian-matrix", "optimization"]
+  },
+  {
+    "id": "A6-009", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Điều kiện cần và đủ để một điểm cực trị (có Gradient = 0) là CỰC TIỂU (Local Minimum) của hàm số là gì? (Kiểm tra đạo hàm bậc 2)",
+    "options": [
+      "A. Ma trận Hessian phải là Xác định âm (Negative Definite)",
+      "B. Ma trận Hessian phải là Xác định dương (Positive Definite)",
+      "C. Định thức của Hessian phải bằng 0",
+      "D. Ma trận Hessian phải là Ma trận đường chéo"
+    ],
+    "answer": 1,
+    "explanation": "Tương tự hàm 1 biến (f'' > 0 thì là cực tiểu), với hàm nhiều biến, Gradient = 0 (điều kiện bậc 1) và ma trận Hessian là Xác định dương (Positive Definite) (điều kiện bậc 2) thì điểm đó là một cực tiểu.",
+    "tip": "Hessian Positive Definite -> 'Lõm lên' -> Cực tiểu (Minimum).",
+    "tags": ["optimization", "hessian-matrix", "local-minimum"]
+  },
+  {
+    "id": "A6-010", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Điểm yên ngựa (Saddle point) trong tối ưu hóa nhiều biến gây ra khó khăn gì?",
+    "options": [
+      "A. Không thể tính được gradient",
+      "B. Gradient bằng 0 nhưng không phải là cực tiểu hay cực đại, làm thuật toán dễ bị kẹt",
+      "C. Đạo hàm luôn tiến tới vô cùng",
+      "D. Learning rate bị buộc bằng 0"
+    ],
+    "answer": 1,
+    "explanation": "Saddle point là điểm mà gradient bằng 0. Theo một số hướng nó giống cực tiểu, theo hướng khác nó giống cực đại. Thuật toán Gradient Descent rất dễ bị kẹt lâu tại đây hoặc chững lại.",
+    "tip": "Saddle point: Gradient = 0 nhưng Hessian có cả eigenvalue âm và dương. Gây chậm/kẹt mạng Neural.",
+    "tags": ["optimization", "saddle-point"]
+  },
+  {
+    "id": "A6-011", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Stochastic Gradient Descent (SGD) khác Batch Gradient Descent ở điểm nào?",
+    "options": [
+      "A. Tính gradient trên toàn bộ tập dữ liệu (dataset) mỗi bước cập nhật",
+      "B. Tính gradient trên chỉ MỘT điểm dữ liệu ngẫu nhiên mỗi bước cập nhật",
+      "C. Không sử dụng gradient mà đoán tham số",
+      "D. Cập nhật nhiều biến cùng lúc hơn"
+    ],
+    "answer": 1,
+    "explanation": "Batch GD tính loss trên toàn bộ dữ liệu -> chính xác nhưng tốn RAM, rất chậm. SGD tính trên 1 điểm dữ liệu -> nhanh, tốn ít RAM nhưng dao động mạnh. Thực tế dùng Mini-batch SGD (ví dụ 32, 64 điểm).",
+    "tip": "Stochastic = Ngẫu nhiên (Lấy 1 mẫu). Batch = Toàn bộ. Mini-batch = Vài mẫu.",
+    "tags": ["optimization", "sgd", "gradient-descent"]
+  },
+  {
+    "id": "A6-012", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Tích phân (Integral) mang ý nghĩa hình học là gì?",
+    "options": [
+      "A. Hệ số góc của tiếp tuyến",
+      "B. Diện tích có hướng nằm giữa đồ thị hàm số và trục hoành",
+      "C. Tốc độ thay đổi của hàm số",
+      "D. Khoảng cách giữa hai điểm cực trị"
+    ],
+    "answer": 1,
+    "explanation": "Tích phân xác định (Definite Integral) đo lường diện tích nằm dưới đường cong (và trên trục hoành). Diện tích trên trục hoành mang dấu dương, dưới trục hoành mang dấu âm.",
+    "tip": "Đạo hàm = Độ dốc (Slope). Tích phân = Diện tích (Area).",
+    "tags": ["calculus", "integral"]
+  },
+  {
+    "id": "A6-013", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Phương pháp Newton (Newton's Method) trong tối ưu hóa khác Gradient Descent ở điểm nào?",
+    "options": [
+      "A. Sử dụng thêm đạo hàm bậc 2 (Ma trận Hessian) để hội tụ nhanh hơn, mất ít bước hơn",
+      "B. Chỉ sử dụng hàm Loss, không dùng đạo hàm",
+      "C. Tính toán rẻ hơn trên mỗi bước lặp",
+      "D. Chỉ áp dụng được cho hàm không lồi"
+    ],
+    "answer": 0,
+    "explanation": "Newton's method dùng Gradient và Nghịch đảo của Hessian. Công thức: θ = θ - H^{-1}∇J(θ). Nó hội tụ rất nhanh (bậc 2) nhưng việc tính và nghịch đảo ma trận Hessian tốn O(n^3), không khả thi cho mạng Neural lớn.",
+    "tip": "Newton's Method = Dùng Hessian (Đạo hàm bậc 2). Tốn chi phí tính toán nhưng hội tụ cực nhanh.",
+    "tags": ["optimization", "newtons-method", "hessian"]
+  },
+  {
+    "id": "A6-014", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Để giải quyết bài toán Tối ưu hóa có ràng buộc (Constrained Optimization), công cụ toán học tiêu chuẩn nào thường được sử dụng?",
+    "options": [
+      "A. Chuỗi Taylor",
+      "B. Phân tích SVD",
+      "C. Nhân tử Lagrange (Lagrange Multipliers)",
+      "D. Thuật toán phân cụm"
+    ],
+    "answer": 2,
+    "explanation": "Phương pháp nhân tử Lagrange được sử dụng để tìm cực trị của một hàm f(x) chịu các ràng buộc g(x) = 0. Hàm Lagrangian được lập: L(x, λ) = f(x) + λ*g(x). Rất quan trọng trong Support Vector Machine (SVM).",
+    "tip": "Tối ưu hóa có ràng buộc (Subject to) -> Nhớ ngay đến Nhân tử Lagrange.",
+    "tags": ["optimization", "lagrange-multipliers", "constrained-optimization"]
+  },
+  {
+    "id": "A6-015", "module": "A", "topic": "A6", "difficulty": "easy",
+    "question": "Nếu Learning Rate (α) trong Gradient Descent quá LỚN, điều gì có thể xảy ra?",
+    "options": [
+      "A. Mô hình sẽ hội tụ về local minimum cực kỳ chậm",
+      "B. Hàm mất mát (Loss) có thể nhảy vọt, không hội tụ (Overshoot hoặc Diverge)",
+      "C. Gradient sẽ tự động bằng 0 ngay lập tức",
+      "D. Mô hình biến thành hàm tuyến tính"
+    ],
+    "answer": 1,
+    "explanation": "Learning rate quá lớn làm mỗi bước cập nhật nhảy một khoảng quá xa. Thay vì đi xuống đáy, thuật toán nhảy vọt qua lại (overshoot) hai bên sườn núi và có thể làm loss tăng dần ra vô tận (diverge).",
+    "tip": "LR quá to -> Nhảy qua đáy (Overshoot) -> Diverge (Phân kỳ). LR quá nhỏ -> Bò như rùa.",
+    "tags": ["optimization", "learning-rate", "gradient-descent"]
+  },
+  {
+    "id": "A6-016", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Thuật toán tối ưu hóa Adam (Adaptive Moment Estimation) khác SGD truyền thống ở điểm chính nào?",
+    "options": [
+      "A. Không sử dụng Learning Rate",
+      "B. Tính learning rate thích ứng (adaptive) cho TỪNG tham số dựa trên các gradient trong quá khứ",
+      "C. Không cần tính đạo hàm",
+      "D. Chỉ cập nhật 1 tham số duy nhất mỗi vòng lặp"
+    ],
+    "answer": 1,
+    "explanation": "Adam kết hợp ý tưởng của Momentum (đà) và RMSProp. Nó duy trì trung bình trượt của gradient (first moment) và bình phương gradient (second moment) để điều chỉnh learning rate riêng cho mỗi tham số, giúp hội tụ ổn định và nhanh hơn.",
+    "tip": "Adam = Momentum + RMSProp. Cập nhật LR linh hoạt cho từng tham số (Adaptive).",
+    "tags": ["optimization", "adam", "deep-learning"]
+  },
+  {
+    "id": "A6-017", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Khai triển Taylor (Taylor Expansion) bậc 1 của hàm f(x) quanh điểm x = a là:",
+    "options": [
+      "A. f(x) ≈ f(a) + f'(a)(x-a)",
+      "B. f(x) ≈ f(a) + f'(a)(x-a) + f''(a)(x-a)^2 / 2",
+      "C. f(x) ≈ f'(x) / a",
+      "D. f(x) ≈ a*x + b"
+    ],
+    "answer": 0,
+    "explanation": "Khai triển Taylor xấp xỉ một hàm số bằng đa thức. Bậc 1 là xấp xỉ tuyến tính (đường tiếp tuyến): f(x) ≈ f(a) + f'(a)(x-a). Bậc 2 sẽ cộng thêm f''(a)(x-a)^2 / 2 (có chứa Hessian).",
+    "tip": "Taylor Series: Xấp xỉ hàm số phức tạp bằng đa thức tại 1 điểm. Bậc 1 = Xấp xỉ tuyến tính.",
+    "tags": ["calculus", "taylor-series"]
+  },
+  {
+    "id": "A6-018", "module": "A", "topic": "A6", "difficulty": "medium",
+    "question": "Trong tối ưu hóa, Momentum giúp Gradient Descent vượt qua vấn đề gì?",
+    "options": [
+      "A. Overfitting",
+      "B. Không thể load data vào RAM",
+      "C. Tránh dao động (oscillation) trong các rãnh hẹp và có động năng để vượt qua các local minimum nhỏ",
+      "D. Giảm số lượng tham số"
+    ],
+    "answer": 2,
+    "explanation": "Momentum giống như thả viên bi lăn xuống dốc. Nó tích lũy 'vận tốc' từ các gradient trước đó. Điều này giúp dập tắt các dao động ngang và tăng tốc theo hướng đi xuống, có đà để vượt qua điểm yên ngựa hoặc local minimum nông.",
+    "tip": "Momentum = Quán tính / Đà. Giúp lăn qua hố nhỏ và chạy nhanh hơn.",
+    "tags": ["optimization", "momentum", "gradient-descent"]
+  },
+  {
+    "id": "A6-019", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Khái niệm 'Vanishing Gradient' (Gradient triệt tiêu) trong Deep Learning chủ yếu xảy ra do sự kết hợp của điều gì?",
+    "options": [
+      "A. Dropout lớn và learning rate lớn",
+      "B. Kiến trúc mạng quá sâu (nhiều lớp) và dùng các hàm kích hoạt có đạo hàm < 1 (như Sigmoid, Tanh) khi dùng Chain Rule",
+      "C. Dùng hàm ReLU và ma trận chéo",
+      "D. Hàm Loss không liên tục"
+    ],
+    "answer": 1,
+    "explanation": "Theo Chain Rule, gradient tại lớp đầu = tích các gradient (đạo hàm hàm kích hoạt) từ các lớp sau. Đạo hàm của Sigmoid max là 0.25. Nhân nhiều số < 0.25 liên tiếp sẽ khiến gradient tiến nhanh về 0 -> Lớp đầu không học được.",
+    "tip": "Vanishing Gradient: Nhân nhiều đạo hàm nhỏ (Sigmoid) -> Về 0. Giải pháp: Dùng ReLU (đạo hàm = 1).",
+    "tags": ["calculus", "vanishing-gradient", "deep-learning"]
+  },
+  {
+    "id": "A6-020", "module": "A", "topic": "A6", "difficulty": "hard",
+    "question": "Trong không gian nhiều chiều, số lượng điểm cực tiểu địa phương (local minima) so với điểm yên ngựa (saddle points) thường có xu hướng:",
+    "options": [
+      "A. Số lượng local minima lớn hơn rất nhiều so với saddle points",
+      "B. Số lượng saddle points lớn hơn cực kì nhiều so với local minima (vấn đề chính khi train NN)",
+      "C. Luôn bằng nhau",
+      "D. Cả hai bằng 0"
+    ],
+    "answer": 1,
+    "explanation": "Ở số chiều thấp (1D, 2D), cực tiểu địa phương khá phổ biến. Nhưng ở số chiều cực cao (như mạng neural hàng triệu params), xác suất tất cả các chiều đều lõm lên (cực tiểu) cực kỳ nhỏ. Chủ yếu là một số chiều lõm lên, vài chiều lõm xuống, tạo thành vô số saddle points.",
+    "tip": "Trong không gian cao chiều, kẻ thù lớn nhất không phải Local Minima, mà là Saddle Points (Điểm yên ngựa).",
+    "tags": ["optimization", "saddle-point", "high-dimensional"]
+  }
+]

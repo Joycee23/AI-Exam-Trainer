@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B7-001", "module": "B", "topic": "B7", "difficulty": "easy",
+    "question": "Git là gì?",
+    "options": [
+      "A. Một dịch vụ lưu trữ mã nguồn đám mây (Cloud hosting) giống Google Drive",
+      "B. Một ngôn ngữ lập trình",
+      "C. Một Hệ thống quản lý phiên bản phân tán (Distributed Version Control System)",
+      "D. Một phần mềm quản lý Database"
+    ],
+    "answer": 2,
+    "explanation": "Git là một công cụ phần mềm mã nguồn mở để quản lý các phiên bản mã nguồn (VCS). 'Phân tán' (Distributed) nghĩa là mỗi lập trình viên đều có một bản sao hoàn chỉnh của toàn bộ lịch sử repository trên máy cá nhân của họ.",
+    "tip": "Git là công cụ dưới máy. GitHub/GitLab là trang web (Cloud) để chứa kho Git.",
+    "tags": ["git", "basics"]
+  },
+  {
+    "id": "B7-002", "module": "B", "topic": "B7", "difficulty": "easy",
+    "question": "Lệnh cơ bản nào dùng để lưu trữ các thay đổi hiện tại vào lịch sử của Git?",
+    "options": [
+      "A. git save",
+      "B. git push",
+      "C. git commit",
+      "D. git store"
+    ],
+    "answer": 2,
+    "explanation": "`git commit` giống như việc bạn chụp lại một bức ảnh (snapshot) của toàn bộ dự án tại thời điểm hiện tại và ghi chú lại (commit message) những gì bạn vừa làm.",
+    "tip": "Commit = Chụp ảnh lưu lại thành 1 mốc lịch sử.",
+    "tags": ["git", "commit"]
+  },
+  {
+    "id": "B7-003", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Ba trạng thái (Three States) chính của các tệp tin trong Git là gì?",
+    "options": [
+      "A. Local, Remote, Cloud",
+      "B. Modified, Staged, Committed",
+      "C. Added, Deleted, Ignored",
+      "D. Pull, Push, Merge"
+    ],
+    "answer": 1,
+    "explanation": "Modified: file đã bị sửa đổi nhưng chưa đưa vào giỏ. Staged: file đã được đưa vào giỏ (thông qua lệnh `git add`), chuẩn bị sẵn sàng cho lần commit tới. Committed: file đã được lưu an toàn vào lịch sử cơ sở dữ liệu cục bộ.",
+    "tip": "Quy trình: Sửa file (Modified) -> Đưa lên mâm (Staged bằng `git add`) -> Chụp ảnh (Committed bằng `git commit`).",
+    "tags": ["git", "states", "workflow"]
+  },
+  {
+    "id": "B7-004", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Lệnh `git add .` có chức năng gì?",
+    "options": [
+      "A. Đẩy tất cả code lên mạng",
+      "B. Xóa tất cả các file bị lỗi",
+      "C. Đưa toàn bộ các file bị thay đổi, thêm mới và xóa (trong thư mục hiện tại) vào khu vực Staging Area",
+      "D. Tạo một branch (nhánh) mới"
+    ],
+    "answer": 2,
+    "explanation": "Khu vực Staging (Index) là bước đệm trước khi commit. `git add .` (dấu chấm nghĩa là current directory) sẽ gom tất cả mọi thay đổi bạn vừa làm (sửa, xóa, thêm) vào Staging Area để chuẩn bị commit.",
+    "tip": "`git add .` = Gom TẤT CẢ mọi thứ đang làm dở lên mâm.",
+    "tags": ["git", "add", "staging"]
+  },
+  {
+    "id": "B7-005", "module": "B", "topic": "B7", "difficulty": "easy",
+    "question": "File `.gitignore` được sử dụng để làm gì?",
+    "options": [
+      "A. Chứa danh sách các user bị khóa",
+      "B. Lưu trữ mật khẩu của hệ thống",
+      "C. Chỉ định các tệp và thư mục (như file build, mật khẩu, file rác) mà Git không bao giờ được phép theo dõi (track) hoặc commit",
+      "D. Tự động xóa code bị lỗi"
+    ],
+    "answer": 2,
+    "explanation": "Bạn không bao giờ muốn đẩy các thư mục rác (như `node_modules`), file cấu hình môi trường chứa mật khẩu (như `.env`), hay file build (như `__pycache__`) lên GitHub. Khai báo chúng vào `.gitignore` để Git phớt lờ chúng hoàn toàn.",
+    "tip": ".gitignore = Danh sách đen. Git nhắm mắt làm ngơ những file nằm trong này.",
+    "tags": ["git", "gitignore"]
+  },
+  {
+    "id": "B7-006", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Lệnh nào dùng để kéo các thay đổi mới nhất từ kho chứa từ xa (Remote repository) về máy cục bộ, VÀ tự động gộp (merge) chúng vào nhánh hiện tại?",
+    "options": [
+      "A. git fetch",
+      "B. git pull",
+      "C. git download",
+      "D. git clone"
+    ],
+    "answer": 1,
+    "explanation": "`git pull` thực chất là sự kết hợp của hai lệnh: `git fetch` (tải data từ remote về máy) và `git merge` (gộp data đó vào code hiện tại của bạn).",
+    "tip": "`git pull` = `git fetch` + `git merge`.",
+    "tags": ["git", "pull", "remote"]
+  },
+  {
+    "id": "B7-007", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Lệnh `git fetch` khác `git pull` ở điểm nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. fetch tải các thay đổi từ xa về (lưu ở nhánh ẩn như origin/main), nhưng KHÔNG tự động thay đổi (merge) mã nguồn trong thư mục làm việc của bạn (Working Directory).",
+      "C. fetch chỉ dùng cho các file text",
+      "D. fetch đẩy code lên server"
+    ],
+    "answer": 1,
+    "explanation": "`git fetch` cực kỳ an toàn. Bạn có thể dùng nó để xem đồng nghiệp đã code gì trên server mà không sợ làm hỏng code hiện tại đang viết dở của mình. Sau khi fetch, bạn có thể kiểm tra và tự gộp (`merge`) sau nếu muốn.",
+    "tip": "Fetch = Tải về để đó xem thôi, chưa gộp. Pull = Tải về rồi Gộp luôn (có thể gây conflict).",
+    "tags": ["git", "fetch", "pull"]
+  },
+  {
+    "id": "B7-008", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Hiện tượng 'Merge Conflict' (Xung đột khi gộp code) xảy ra khi nào?",
+    "options": [
+      "A. Khi máy tính bị mất mạng",
+      "B. Khi có 2 branch (nhánh) cùng sửa đổi VÀO CÙNG MỘT DÒNG CODE của cùng một file, khiến Git không biết nên chọn dòng nào",
+      "C. Khi tên file bị quá dài",
+      "D. Khi dùng lệnh git clone"
+    ],
+    "answer": 1,
+    "explanation": "Git rất thông minh, nó có thể tự merge nếu hai người sửa ở 2 file khác nhau, hoặc sửa ở 2 chỗ cách xa nhau trong cùng 1 file. Nhưng nếu cả 2 cùng sửa dòng số 10, Git sẽ dừng lại và yêu cầu con người tự quyết định giữ lại dòng của ai.",
+    "tip": "Merge Conflict = 2 người cùng sửa chung 1 dòng code. Phải giải quyết bằng tay.",
+    "tags": ["git", "merge", "conflict"]
+  },
+  {
+    "id": "B7-009", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Sự khác biệt giữa `git merge` và `git rebase` khi gộp nhánh là gì?",
+    "options": [
+      "A. Merge giữ lại lịch sử rẽ nhánh (tạo ra một commit mới để gộp). Rebase bưng toàn bộ nhánh của bạn gắn nối tiếp vào đầu nhánh kia, tạo ra một lịch sử phẳng (linear) đẹp đẽ.",
+      "B. Rebase nhanh hơn Merge",
+      "C. Merge dùng cho Local, Rebase dùng cho Remote",
+      "D. Rebase làm mất code"
+    ],
+    "answer": 0,
+    "explanation": "`git merge` tạo ra một commit Gộp (Merge commit) có 2 parent, nhìn lịch sử giống như rễ cây đan vào nhau. `git rebase` viết lại lịch sử, 'đắp' các commit của bạn lên ngọn cây, giúp đồ thị lịch sử thẳng tắp (dễ theo dõi hơn).",
+    "tip": "Merge = Giữ nguyên dấu vết lịch sử rẽ nhánh. Rebase = Cắt dán thẳng hàng, che giấu dấu vết rẽ nhánh.",
+    "tags": ["git", "rebase", "merge"]
+  },
+  {
+    "id": "B7-010", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Tại sao câu ngạn ngữ 'Đừng bao giờ Rebase một nhánh công cộng (Public branch)' lại rất quan trọng trong Git?",
+    "options": [
+      "A. Vì Rebase rất tốn RAM",
+      "B. Vì Rebase VIẾT LẠI LỊCH SỬ (thay đổi mã Hash của các commit). Nếu người khác đã lấy nhánh đó về máy họ, việc bạn Rebase sẽ tạo ra hai lịch sử hoàn toàn xung đột.",
+      "C. Vì nhánh công cộng không hỗ trợ Rebase",
+      "D. Vì nó xóa toàn bộ repository"
+    ],
+    "answer": 1,
+    "explanation": "Rebase bản chất là xóa các commit cũ và tạo ra các commit mới toanh có cùng nội dung. Nếu bạn rebase nhánh `main` trên server, đồng nghiệp của bạn khi kéo code về sẽ bị chao đảo vì lịch sử trên máy họ không khớp với server nữa.",
+    "tip": "Chỉ Rebase các nhánh Local (nhánh cá nhân chưa đẩy lên mạng). Nhánh xài chung thì CẤM Rebase.",
+    "tags": ["git", "rebase", "best-practices"]
+  },
+  {
+    "id": "B7-011", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Lệnh `git stash` có tác dụng gì?",
+    "options": [
+      "A. Xóa thùng rác của Git",
+      "B. Giấu tạm thời (cất đi) những thay đổi đang làm dở nhưng CHƯA commit vào một ngăn chứa ẩn, trả thư mục làm việc về trạng thái sạch sẽ",
+      "C. Đổi tên nhánh hiện tại",
+      "D. Đẩy code lên server"
+    ],
+    "answer": 1,
+    "explanation": "Bạn đang code dở tính năng A (chưa xong, chưa muốn commit) thì sếp gọi sửa gấp một con Bug. Bạn dùng `git stash` để cất dở dang đó vào túi ảo. Bạn sửa xong Bug, sau đó dùng `git stash pop` để lôi code tính năng A ra code tiếp.",
+    "tip": "Stash = Túi Thần Kỳ. Nhét code code dở dang vào đó cất tạm, rảnh lôi ra làm tiếp.",
+    "tags": ["git", "stash"]
+  },
+  {
+    "id": "B7-012", "module": "B", "topic": "B7", "difficulty": "easy",
+    "question": "Để xem lịch sử các lần commit (ai làm, khi nào, nội dung gì), bạn dùng lệnh nào?",
+    "options": [
+      "A. git history",
+      "B. git show",
+      "C. git log",
+      "D. git status"
+    ],
+    "answer": 2,
+    "explanation": "`git log` sẽ hiển thị lịch sử từ mới nhất đến cũ nhất. Lệnh `git status` thì dùng để xem tình trạng file HIỆN TẠI (sửa gì, đã add chưa).",
+    "tip": "Xem lịch sử cũ = `git log`. Xem tình hình hiện tại = `git status`.",
+    "tags": ["git", "log"]
+  },
+  {
+    "id": "B7-013", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Trong Git, `HEAD` trỏ tới cái gì?",
+    "options": [
+      "A. Thư mục gốc của dự án",
+      "B. Con trỏ (pointer) trỏ đến Nhánh hiện tại mà bạn đang đứng (hoặc Commit cụ thể bạn đang Checkout)",
+      "C. Commit đầu tiên của dự án",
+      "D. Kho chứa từ xa (Remote)"
+    ],
+    "answer": 1,
+    "explanation": "HEAD là 'bạn đang ở đâu'. Bình thường HEAD trỏ vào nhánh `main`. Nếu bạn checkout nhánh `dev`, HEAD trỏ vào `dev`. Khi bạn commit, Git sẽ gắn commit mới đó vào vị trí mà HEAD đang trỏ tới.",
+    "tip": "HEAD = Vị trí con trỏ hiện tại của bạn.",
+    "tags": ["git", "head"]
+  },
+  {
+    "id": "B7-014", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Trạng thái 'Detached HEAD' xảy ra khi nào?",
+    "options": [
+      "A. Khi bạn quên mật khẩu Git",
+      "B. Khi bạn dùng lệnh `git checkout` nhảy trực tiếp về một MÃ HASH COMMIT cũ thay vì một tên Nhánh (Branch).",
+      "C. Khi bị mất mạng internet lúc đang commit",
+      "D. Khi xóa nhánh main"
+    ],
+    "answer": 1,
+    "explanation": "Bình thường HEAD bám vào một cái Tên Nhánh. Nếu bạn `git checkout 9fceb02`, HEAD bị tách ra khỏi nhánh (detached) và bám thẳng vào commit đó. Bạn có thể xem code lúc đó, nhưng nếu bạn tạo commit mới ở trạng thái này, chúng sẽ mồ côi (không thuộc nhánh nào) và rất dễ bị Git xóa mất (Garbage Collection).",
+    "tip": "Detached HEAD: Trạng thái xem lại quá khứ (Time Travel). Đừng tạo commit mới ở đây, hãy tạo nhánh mới trước.",
+    "tags": ["git", "detached-head", "checkout"]
+  },
+  {
+    "id": "B7-015", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Nếu bạn vừa tạo một Commit nhưng phát hiện viết sai thông điệp (message), lệnh nhanh nhất để sửa chữa lỗi NÀY (mà chưa push) là gì?",
+    "options": [
+      "A. git commit --amend",
+      "B. git reset --hard",
+      "C. git revert",
+      "D. git change message"
+    ],
+    "answer": 0,
+    "explanation": "`git commit --amend` cho phép bạn ghi đè lên commit GẦN NHẤT. Bạn có thể sửa nội dung message hoặc thêm/bớt file vào commit đó. (Chú ý: Nó làm thay đổi mã hash của commit, nên đừng dùng nếu đã Push lên mạng).",
+    "tip": "--amend = Tráng lại lớp sơn cho cái commit cuối cùng vừa tạo.",
+    "tags": ["git", "commit", "amend"]
+  },
+  {
+    "id": "B7-016", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Sự khác biệt cực kỳ quan trọng giữa lệnh `git reset` và `git revert` là gì?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Revert xóa lịch sử, Reset giữ lịch sử",
+      "C. Reset lùi con trỏ về quá khứ (XÓA bỏ các commit sau nó, viết lại lịch sử). Revert sinh ra một commit MỚI CÓ NỘI DUNG ĐẢO NGƯỢC (undo), không hề làm mất lịch sử.",
+      "D. Reset dùng cho file, Revert dùng cho folder"
+    ],
+    "answer": 2,
+    "explanation": "Nếu code bị lỗi trên production (nhánh public), bạn BẮT BUỘC phải dùng `git revert` để tạo commit sửa sai minh bạch. Dùng `git reset` (nhất là `--hard`) sẽ làm bay màu lịch sử và gây xung đột nghiêm trọng cho toàn team.",
+    "tip": "Revert = Thêm 1 commit mới ghi là 'tôi xin lỗi'. Reset = Xóa mẹ quá khứ như chưa từng có cuộc chia ly (Nguy hiểm!).",
+    "tags": ["git", "reset", "revert"]
+  },
+  {
+    "id": "B7-017", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Trong `git reset`, tham số `--soft` và `--hard` khác nhau chỗ nào đối với Working Directory (file trên máy bạn)?",
+    "options": [
+      "A. --soft xóa hết file. --hard giữ nguyên file.",
+      "B. --soft lùi lịch sử Git nhưng GIỮ NGUYÊN các thay đổi của bạn ở dạng Staged. --hard lùi lịch sử VÀ XÓA SẠCH toàn bộ những gì bạn vừa gõ, đưa file về đúng trạng thái lúc đó.",
+      "C. --hard đổi mã nguồn sang mã máy",
+      "D. --soft chỉ dùng cho nhánh rẽ"
+    ],
+    "answer": 1,
+    "explanation": "`--soft`: Hối hận vì đã ấn commit, xin lùi lại nhưng giữ nguyên công sức nãy giờ gõ code ở Staging. `--hard`: Code này rác quá, hãy lùi lại và xóa sạch sành sanh mọi thứ đã viết sau commit đó (Rất dễ mất data nếu chưa backup).",
+    "tip": "--hard = Hủy diệt không thương tiếc. --soft = Vẫn còn vớt vát lại phần code.",
+    "tags": ["git", "reset"]
+  },
+  {
+    "id": "B7-018", "module": "B", "topic": "B7", "difficulty": "medium",
+    "question": "Gitflow Workflow định nghĩa nhánh `main` (hoặc `master`) dùng để làm gì?",
+    "options": [
+      "A. Nơi mọi người tự do code và thử nghiệm nháp",
+      "B. Chỉ lưu trữ các bản phát hành (releases) sẵn sàng chạy trên môi trường thực tế (Production). Nhánh này lúc nào cũng phải sạch sẽ, không có lỗi.",
+      "C. Lưu tài liệu hướng dẫn",
+      "D. Dùng để dọn rác"
+    ],
+    "answer": 1,
+    "explanation": "Trong Gitflow, nhánh `main` là linh thiêng, chỉ chứa code đã test kỹ và đang chạy trên Production (có tag phiên bản v1.0, v2.0). Mọi việc code hàng ngày diễn ra ở nhánh `develop` và các nhánh `feature`.",
+    "tip": "Main/Master = Production = Bàn thờ. Không bao giờ commit trực tiếp lên đây.",
+    "tags": ["git", "gitflow", "branching"]
+  },
+  {
+    "id": "B7-019", "module": "B", "topic": "B7", "difficulty": "easy",
+    "question": "Lệnh `git clone <url>` dùng để làm gì?",
+    "options": [
+      "A. Tạo một bản sao (copy) hoàn chỉnh của kho chứa từ xa (Repository) về máy tính cá nhân của bạn",
+      "B. Đổi tên một thư mục",
+      "C. Xóa các nhánh không dùng đến",
+      "D. Tạo một tài khoản trên GitHub"
+    ],
+    "answer": 0,
+    "explanation": "`git clone` tải toàn bộ mã nguồn, cùng với toàn bộ lịch sử commit, các nhánh của project từ server (như GitHub, GitLab) về máy của bạn để bạn có thể bắt đầu làm việc.",
+    "tip": "Clone = Nhân bản. Lấy toàn bộ 'não' của dự án trên mạng về máy mình.",
+    "tags": ["git", "clone", "basics"]
+  },
+  {
+    "id": "B7-020", "module": "B", "topic": "B7", "difficulty": "hard",
+    "question": "Lệnh `git cherry-pick <commit-hash>` làm nhiệm vụ gì?",
+    "options": [
+      "A. Tìm kiếm các commit có chứa hình ảnh trái cherry",
+      "B. Nhặt (copy) ĐÚNG MỘT commit cụ thể từ nhánh khác và áp dụng nó vào nhánh hiện tại của bạn (không cần gộp toàn bộ nhánh)",
+      "C. Đếm số lượng file bị xóa",
+      "D. Mở khóa mật khẩu"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Đồng nghiệp làm một tính năng rất lớn bên nhánh của họ mất 10 commit. Bạn chỉ cần ĐÚNG 1 commit sửa lỗi nhỏ trong số đó. Thay vì Merge toàn bộ nhánh nặng nề, bạn dùng `cherry-pick` để bốc riêng commit đó qua nhánh mình.",
+    "tip": "Cherry-pick = Lựa quả anh đào ngon nhất. (Chỉ lấy đúng 1 commit xịn từ nhánh khác đem về nhánh mình).",
+    "tags": ["git", "cherry-pick", "advanced"]
+  }
+]

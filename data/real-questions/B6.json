@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B6-001", "module": "B", "topic": "B6", "difficulty": "easy",
+    "question": "Trong kiến trúc hệ thống dữ liệu, ETL là viết tắt của chuỗi quá trình nào?",
+    "options": [
+      "A. Export, Transform, Load",
+      "B. Extract, Transfer, Load",
+      "C. Extract, Transform, Load",
+      "D. Edit, Text, Label"
+    ],
+    "answer": 2,
+    "explanation": "ETL là quy trình cơ bản trong Data Engineering. Extract: Rút xuất dữ liệu từ nhiều nguồn khác nhau (SQL, API, CSV). Transform: Biến đổi, dọn dẹp, chuẩn hóa dữ liệu. Load: Tải dữ liệu sạch vào Data Warehouse hoặc hệ thống lưu trữ đích.",
+    "tip": "ETL = Lấy ra (Extract) -> Nhào nặn (Transform) -> Đổ vào (Load).",
+    "tags": ["data-pipeline", "etl"]
+  },
+  {
+    "id": "B6-002", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Kiến trúc ELT (Extract - Load - Transform) khác biệt với ETL truyền thống ở điểm cốt lõi nào?",
+    "options": [
+      "A. ELT chỉ làm việc với định dạng JSON",
+      "B. ELT thực hiện việc nhào nặn/biến đổi dữ liệu (Transform) SAU KHI đã tải dữ liệu thô (Load) vào Data Warehouse/Data Lake, tận dụng sức mạnh tính toán của chính kho dữ liệu đó.",
+      "C. ELT là viết tắt của quy trình không có bước biến đổi",
+      "D. ELT không lưu dữ liệu vĩnh viễn"
+    ],
+    "answer": 1,
+    "explanation": "Với các Data Warehouse hiện đại (Snowflake, BigQuery) có khả năng tính toán khổng lồ, thay vì biến đổi dữ liệu ở một server trung gian (ETL), người ta đẩy thẳng data thô (raw) vào kho, rồi dùng SQL trực tiếp trên kho để biến đổi (ELT).",
+    "tip": "ETL = Nấu chín ở bếp rồi dọn lên bàn. ELT = Bê đồ sống lên bàn rồi dùng bếp nướng lẩu (Data Warehouse) nấu tại bàn.",
+    "tags": ["data-pipeline", "elt", "etl"]
+  },
+  {
+    "id": "B6-003", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Batch Processing (Xử lý theo lô) khác Stream Processing (Xử lý luồng) như thế nào?",
+    "options": [
+      "A. Batch xử lý dữ liệu thời gian thực (real-time), Stream xử lý theo lịch trình (scheduled)",
+      "B. Batch xử lý một khối dữ liệu LỚN ĐƯỢC TÍCH LŨY theo một lịch trình định sẵn (vd: chạy 1 lần lúc nửa đêm). Stream xử lý từng mẩu dữ liệu nhỏ NGAY LẬP TỨC khi nó vừa được tạo ra.",
+      "C. Batch chỉ dùng cho chữ, Stream dùng cho video",
+      "D. Stream chạy chậm hơn Batch rất nhiều"
+    ],
+    "answer": 1,
+    "explanation": "Batch thường dùng Cronjob chạy lúc hệ thống rảnh rỗi (ít tải) để xử lý dữ liệu của cả ngày hôm qua. Streaming (vd dùng Kafka) xử lý real-time liên tục, độ trễ chỉ tính bằng mili-giây (VD: cảnh báo gian lận thẻ tín dụng ngay lập tức).",
+    "tip": "Batch = Đợi gom 1 mẻ rồi giặt. Stream = Quần áo dơ cái nào quăng vô máy giặt cái đó liền.",
+    "tags": ["data-pipeline", "batch", "streaming"]
+  },
+  {
+    "id": "B6-004", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Công cụ Apache Airflow thường được sử dụng trong Data Pipelines với vai trò MỤC ĐÍCH chính là gì?",
+    "options": [
+      "A. Lưu trữ CSDL SQL",
+      "B. Phân tích Machine Learning",
+      "C. Orchestration (Điều phối): Lên lịch, quản lý sự phụ thuộc và theo dõi quá trình chạy của các luồng công việc (workflows/DAGs)",
+      "D. Chạy giao diện Web"
+    ],
+    "answer": 2,
+    "explanation": "Airflow KHÔNG PHẢI công cụ để tự mình xử lý data lớn. Nó là người Nhạc trưởng (Orchestrator). Nó ra lệnh: 'Lúc 12h, gọi Spark lấy data. Spark xong thì gọi Python chạy AI. Python xong thì gọi Snowflake'. Nó theo dõi DAG (Directed Acyclic Graph) để đảm bảo các task chạy đúng thứ tự.",
+    "tip": "Airflow = Ông Nhạc Trưởng điều phối DAG, kêu gọi các công cụ khác làm việc.",
+    "tags": ["data-pipeline", "airflow", "orchestration"]
+  },
+  {
+    "id": "B6-005", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Tính chất 'Idempotent' (Lũy đẳng) trong thiết kế một Data Pipeline có nghĩa là gì?",
+    "options": [
+      "A. Pipeline chạy rất nhanh (dưới 1s)",
+      "B. Nếu chạy một Task/Pipeline N LẦN với cùng một đầu vào, kết quả ở đầu ra vẫn y hệt như chạy 1 LẦN (không bị nhân đôi dữ liệu)",
+      "C. Pipeline bị lỗi và không thể chạy",
+      "D. Dữ liệu đầu vào phải là số nguyên"
+    ],
+    "answer": 1,
+    "explanation": "Đây là tiêu chuẩn vàng của Data Pipeline. Nếu pipeline bị lỗi giữa chừng, bạn phải có khả năng nhấn 'Re-run' mà không sợ data của ngày hôm đó bị chèn thêm lần 2 vào DB (Duplicate). Muốn vậy phải dùng kỹ thuật Xóa trước khi Ghi (UPSERT).",
+    "tip": "Idempotent = Bấm chạy 100 lần kết quả vẫn ra i xì chạy 1 lần. Chống Duplicate data.",
+    "tags": ["data-pipeline", "idempotent", "best-practices"]
+  },
+  {
+    "id": "B6-006", "module": "B", "topic": "B6", "difficulty": "easy",
+    "question": "Data Warehouse (Kho dữ liệu) và Data Lake (Hồ dữ liệu) khác nhau ĐIỂM CỐT LÕI nào?",
+    "options": [
+      "A. Tốc độ internet",
+      "B. Warehouse chỉ lưu dữ liệu đã ĐƯỢC CHUẨN HÓA CẤU TRÚC (Structured) và đã qua xử lý. Data Lake lưu TẤT CẢ mọi định dạng (Structured, Unstructured như Ảnh, Video, Log, Text) ở dạng Thô (Raw).",
+      "C. Warehouse lưu JSON, Lake lưu CSV",
+      "D. Không có khác biệt gì"
+    ],
+    "answer": 1,
+    "explanation": "Data Warehouse giống siêu thị, đồ đạc đã đóng gói ngay ngắn (Schema-on-write), sếp dùng Tableau để vẽ biểu đồ trực tiếp. Data Lake giống hồ nước khổng lồ chứa rác, cá, nước trong/đục, giữ nguyên bản chất thô (Schema-on-read), Data Scientist thích vào đây vọc vạch.",
+    "tip": "Warehouse = Kho gọn gàng (SQL). Data Lake = Biển hỗn độn (File, Text, Ảnh, Video).",
+    "tags": ["data-pipeline", "data-warehouse", "data-lake"]
+  },
+  {
+    "id": "B6-007", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Trong Big Data, Parquet là định dạng lưu trữ file rất phổ biến. Đặc điểm của Parquet là gì?",
+    "options": [
+      "A. Lưu trữ theo định dạng HÀNG (Row-oriented) giống CSV",
+      "B. Lưu trữ theo định dạng CỘT (Columnar-oriented), được nén mạnh, tối ưu tốc độ đọc khi chỉ cần truy vấn một vài cột",
+      "C. Chỉ lưu trữ số nguyên",
+      "D. File text dễ đọc bằng Notepad"
+    ],
+    "answer": 1,
+    "explanation": "CSV lưu từng Hàng. Nếu bạn chỉ muốn đọc 1 cột (vd Cột 'Doanh Thu'), bạn vẫn phải quét cả hàng, rất lãng phí I/O ổ cứng. Parquet lưu từng Cột riêng biệt, nén cực tốt (vì cùng một cột thường có chung kiểu dữ liệu), truy vấn Analytics/OLAP trên Parquet nhanh hơn CSV hàng chục lần.",
+    "tip": "Parquet = Lưu theo Cột (Columnar). Truy vấn SIÊU NHANH và nén SIÊU NHỎ so với CSV.",
+    "tags": ["data-pipeline", "parquet", "big-data"]
+  },
+  {
+    "id": "B6-008", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Thuật toán MapReduce (nền tảng của Hadoop) hoạt động theo 2 giai đoạn chính. Giai đoạn Reduce làm nhiệm vụ gì?",
+    "options": [
+      "A. Lọc bớt các dữ liệu lỗi (Reduce bugs)",
+      "B. Tổng hợp (Aggregation) kết quả đầu ra từ các nốt Map (đã được nhóm theo cùng một Key) để tạo ra kết quả cuối cùng",
+      "C. Chia nhỏ file thành nhiều mảnh (chunks)",
+      "D. Xóa dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "Quá trình Map-Reduce có 2 bước: Bước Map (chia để trị, mỗi máy worker xử lý 1 mẩu data và nhả ra các cặp Key-Value). Sau đó hệ thống sẽ gom các Value có CÙNG KEY đẩy cho bước Reduce. Bước Reduce (Gộp) sẽ tính tổng/trung bình/min/max... từ list Value đó để ra kết quả.",
+    "tip": "Map = Băm nhỏ ra xử lý song song (Tạo Key-Value). Reduce = Thu gom Value cùng Key lại để Cộng/Trừ/Nhân/Chia.",
+    "tags": ["data-pipeline", "mapreduce", "hadoop"]
+  },
+  {
+    "id": "B6-009", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Apache Spark là công cụ xử lý Big Data thế hệ mới. Lý do lớn nhất Spark đánh bại Hadoop MapReduce về tốc độ là gì?",
+    "options": [
+      "A. Spark viết bằng C++",
+      "B. Spark sử dụng tính toán Trong Bộ Nhớ (In-Memory Processing) hạn chế tối đa việc đọc/ghi liên tục xuống ổ cứng (Disk I/O)",
+      "C. Spark có giao diện đẹp hơn",
+      "D. Spark chỉ hỗ trợ Python"
+    ],
+    "answer": 1,
+    "explanation": "Hadoop MapReduce thực hiện lưu kết quả trung gian xuống đĩa cứng HDFS sau mỗi bước. Spark giữ dữ liệu trung gian (RDD/DataFrame) trực tiếp trên RAM của cụm máy chủ, giảm thiểu tắc nghẽn Disk I/O, giúp nó chạy nhanh hơn MapReduce tới 100 lần.",
+    "tip": "Spark = Tính toán IN-MEMORY (Trên RAM). Nhanh gấp trăm lần Hadoop.",
+    "tags": ["data-pipeline", "spark", "big-data"]
+  },
+  {
+    "id": "B6-010", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Tính chất 'Lazy Evaluation' (Đánh giá lười biếng) trong Apache Spark có tác dụng gì?",
+    "options": [
+      "A. Làm Spark chạy chậm lại để tránh quá nhiệt CPU",
+      "B. Spark KHÔNG THỰC THI (chạy) các lệnh biến đổi (Transformations) ngay lập tức. Nó chỉ tạo Kế hoạch (DAG) và ĐỢI đến khi gặp một lệnh Hành động (Action) mới tính toán hàng loạt để tối ưu hóa.",
+      "C. Nó bỏ qua các dữ liệu rác không cần thiết",
+      "D. Developer không cần viết code"
+    ],
+    "answer": 1,
+    "explanation": "Khi bạn gõ lệnh `df.filter(...).select(...)` trong Spark, nó không chạy liền. Nó chỉ ghi nhớ ý định của bạn. Cho đến khi bạn gõ một Action (như `.count()`, `.show()`, `.write()`), Spark mới tìm con đường ngắn nhất và tối ưu nhất (Catalyst Optimizer) để lấy kết quả.",
+    "tip": "Lazy Evaluation: Lười tính toán, chỉ lập kế hoạch, khi nào bị 'đòi kết quả' (Action) thì mới gộp chung lại giải 1 lần cho lẹ.",
+    "tags": ["data-pipeline", "spark", "lazy-evaluation"]
+  },
+  {
+    "id": "B6-011", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Kafka được gọi là nền tảng gì trong Data Pipeline?",
+    "options": [
+      "A. Một hệ quản trị CSDL quan hệ",
+      "B. Một trình duyệt web",
+      "C. Nền tảng luồng sự kiện phân tán (Distributed Event Streaming Platform) - Đóng vai trò làm đường ống truyền Message tốc độ cao và đáng tin cậy giữa các hệ thống",
+      "D. Công cụ vẽ biểu đồ"
+    ],
+    "answer": 2,
+    "explanation": "Kafka như một nhà ga trung tâm khổng lồ. Ứng dụng/Web (Producer) gửi thông điệp (Message/Event) vào ga. Các hệ thống Database, AI (Consumer) đến ga lấy tin tức ra. Nó có khả năng đệm (buffer) dữ liệu an toàn kể cả khi hệ thống đằng sau quá tải.",
+    "tip": "Kafka = Đường ống bơm Message (Event) liên tục. Gắn kết đầu Gửi (Producer) và đầu Nhận (Consumer).",
+    "tags": ["data-pipeline", "kafka", "streaming"]
+  },
+  {
+    "id": "B6-012", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Trong Apache Kafka, khái niệm 'Topic' có thể hiểu nôm na là gì?",
+    "options": [
+      "A. Cụm máy chủ vật lý",
+      "B. Một danh mục/Kênh (Category/Channel) nơi các bản ghi được xuất bản vào. Các Consumer sẽ 'Đăng ký' (Subscribe) vào Topic đó để đọc dữ liệu.",
+      "C. Một đoạn code Python",
+      "D. Tên user của hệ thống"
+    ],
+    "answer": 1,
+    "explanation": "Topic là tên của một luồng dữ liệu cụ thể trong Kafka. Ví dụ Topic 'LichSuThanhToan'. Producer cứ đẩy sự kiện nạp thẻ vào Topic này. Bất kỳ Consumer nào (như App check gian lận, hay Data Lake lưu trữ) chỉ cần lắng nghe Topic đó là lấy được Data.",
+    "tip": "Kafka Topic = Giống như 1 Channel Youtube. Producer up video (data) lên channel, Consumer subscribe channel để coi.",
+    "tags": ["data-pipeline", "kafka", "topic"]
+  },
+  {
+    "id": "B6-013", "module": "B", "topic": "B6", "difficulty": "easy",
+    "question": "Cronjob (biểu thức Cron) là gì trong hệ thống Data Pipeline cơ bản?",
+    "options": [
+      "A. Ngôn ngữ lập trình AI",
+      "B. Bộ lịch biểu tiêu chuẩn trên hệ điều hành Linux dùng để chạy một tập lệnh tự động theo mốc thời gian cố định (VD: chạy lúc 2h sáng mỗi ngày)",
+      "C. Một loại Virus máy tính",
+      "D. Đơn vị đo tốc độ CPU"
+    ],
+    "answer": 1,
+    "explanation": "Trước khi Airflow phổ biến, các Kỹ sư thường dùng Cron (công cụ có sẵn của Linux) để lập lịch cho các đoạn script ETL chạy ngầm định kỳ. Cú pháp cơ bản có 5 ngôi sao (Phút, Giờ, Ngày, Tháng, Thứ).",
+    "tip": "Cron = Báo thức của Server Linux. Lên lịch hẹn giờ chạy code tự động.",
+    "tags": ["data-pipeline", "cron", "scheduling"]
+  },
+  {
+    "id": "B6-014", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Schema Evolution (Tiến hóa Schema) là một bài toán hóc búa của Data Pipeline, nó nói về vấn đề gì?",
+    "options": [
+      "A. Sự nâng cấp phiên bản của Database Engine",
+      "B. Việc xử lý khi dữ liệu đầu vào ĐỘT NGỘT THAY ĐỔI CẤU TRÚC (Ví dụ: Thêm cột mới, đổi tên cột, xóa cột) mà không làm vỡ (Break) toàn bộ luồng chạy của Pipeline",
+      "C. Việc tăng thêm dung lượng đĩa cứng",
+      "D. Thay đổi ngôn ngữ lập trình của team"
+    ],
+    "answer": 1,
+    "explanation": "Trong thực tế, dev App hay đổi tên trường API mà không báo Data Team, khiến Pipeline hằng ngày đọc JSON đột nhiên bị lỗi KeyError và ngưng trệ. Khả năng phát hiện và tự động thích ứng với cấu trúc mới gọi là Schema Evolution.",
+    "tip": "Schema Evolution = Ứng phó linh hoạt khi Dev đổi cột, đổi tên API mà Pipeline không bị sập.",
+    "tags": ["data-pipeline", "schema-evolution", "best-practices"]
+  },
+  {
+    "id": "B6-015", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Kiến trúc Medallion (Huy chương Vàng-Bạc-Đồng) trong Data Lakehouse là gì?",
+    "options": [
+      "A. Hệ thống rank xếp hạng kỹ sư data",
+      "B. Chia dữ liệu làm 3 lớp: Bronze (Dữ liệu Thô nguyên bản), Silver (Dữ liệu được làm sạch và lọc), Gold (Dữ liệu Aggregation sẵn sàng cho kinh doanh/báo cáo BI)",
+      "C. Thuật toán phân cụm AI",
+      "D. Gói trả phí của Databricks"
+    ],
+    "answer": 1,
+    "explanation": "Kiến trúc Medallion (được Databricks quảng bá mạnh) là một design pattern. Bronze layer là raw data (lưu mọi thứ). Silver layer chuẩn hóa (bỏ NULL, đổi type). Gold layer là bảng Aggregated (tổng doanh thu tháng) để sếp coi.",
+    "tip": "Medallion Architecture: Đồng (Bronze) = Thô ráp rác. Bạc (Silver) = Sạch sẽ chuẩn. Vàng (Gold) = Báo cáo đẹp cho Sếp.",
+    "tags": ["data-pipeline", "architecture", "medallion", "data-lakehouse"]
+  },
+  {
+    "id": "B6-016", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Change Data Capture (CDC) hoạt động như thế nào để nạp dữ liệu?",
+    "options": [
+      "A. Đọc lại toàn bộ bảng CSDL từ đầu đến cuối 1 lần mỗi ngày (Full Load)",
+      "B. Chỉ quét và trích xuất ra NHỮNG DÒNG VỪA MỚI THAY ĐỔI (Insert/Update/Delete) dựa vào nhật ký Transaction Log (binlog) của CSDL gốc để giảm tải băng thông",
+      "C. Dùng AI dự đoán dữ liệu bị mất",
+      "D. Backup ổ cứng bằng Snapshots"
+    ],
+    "answer": 1,
+    "explanation": "Thay vì mỗi ngày copy bảng 100GB (Full Load), CDC (vd: công cụ Debezium) đọc lén file Log hệ thống của MySQL/Postgres. Khi có 1 người dùng đổi tên, CDC sẽ bắt được 1 event bé xíu báo 'Đổi tên' và đẩy sang Warehouse. Cực nhẹ và real-time.",
+    "tip": "CDC (Change Data Capture) = Chỉ bắt phần NGỌN (những cái mới thay đổi/Cập nhật), không bứng cả gốc.",
+    "tags": ["data-pipeline", "cdc", "database"]
+  },
+  {
+    "id": "B6-017", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "DAG (Directed Acyclic Graph) trong Apache Airflow có đặc điểm ĐỊNH NGHĨA là gì?",
+    "options": [
+      "A. Là một biểu đồ hình tròn",
+      "B. Các node (Task) có hướng thực thi (Directed), và ĐẶC BIỆT là KHÔNG ĐƯỢC PHÉP CÓ CHU TRÌNH (Acyclic - không có chuyện A đợi B rồi B lại đợi A)",
+      "C. Đồ thị có thể lặp vô hạn",
+      "D. Tất cả Task chạy song song cùng lúc"
+    ],
+    "answer": 1,
+    "explanation": "DAG là xương sống của Airflow để định nghĩa Flow. Acyclic nghĩa là Không có vòng lặp (No cycles). Nếu có vòng lặp, Task sẽ bị kẹt vô hạn không thể kết thúc. DAG đảm bảo luồng công việc đi từ điểm bắt đầu đến điểm kết thúc.",
+    "tip": "DAG (Directed Acyclic Graph) = Biểu đồ có mũi tên chỉ hướng, và CẤM tạo vòng tròn (Deadlock).",
+    "tags": ["data-pipeline", "airflow", "dag"]
+  },
+  {
+    "id": "B6-018", "module": "B", "topic": "B6", "difficulty": "medium",
+    "question": "Lý do phổ biến nhất gây ra hiện tượng 'Data Skew' (Dữ liệu bị lệch) trong cụm máy chủ xử lý phân tán (như Spark) là gì?",
+    "options": [
+      "A. Bị nghẽn mạng internet",
+      "B. Phân bố Key không đồng đều (VD: Phép JOIN dùng Khóa là 'Quốc gia', nhưng có tới 90% dòng có quốc gia là 'Việt Nam', khiến 1 Worker gánh 90% việc, các Worker khác ngồi chơi)",
+      "C. Cột bị thiếu giá trị NULL",
+      "D. RAM của các máy không bằng nhau"
+    ],
+    "answer": 1,
+    "explanation": "Data Skew xảy ra khi Hash Partitioning gom phần lớn dữ liệu về 1 node. Cụm 10 máy, nhưng 1 máy làm quá sức dẫn đến Out of Memory, trong khi 9 máy kia chạy xong trong 1 giây. Việc xử lý Skew (như dùng Salting Key) là kỹ năng đỉnh cao của Data Engineer.",
+    "tip": "Data Skew = Lệch pha. Một máy gánh team (cày chết bỏ), đám máy còn lại đứng nhìn.",
+    "tags": ["data-pipeline", "distributed-computing", "data-skew", "spark"]
+  },
+  {
+    "id": "B6-019", "module": "B", "topic": "B6", "difficulty": "easy",
+    "question": "Thao tác 'Data Wrangling' (hoặc Munging) thường BẮT BUỘC phải làm những công việc gì?",
+    "options": [
+      "A. Viết báo cáo PPT cho Giám đốc",
+      "B. Xử lý Missing Value (NaN), xóa bỏ Duplicates, ép kiểu dữ liệu chuẩn, chuẩn hóa chuỗi Text để data sạch sẽ",
+      "C. Triển khai Web App",
+      "D. Mua tài nguyên Cloud Server"
+    ],
+    "answer": 1,
+    "explanation": "Data Wrangling là quá trình dọn dẹp (clean), tái định dạng (transform), cấu trúc lại dữ liệu thô (raw data) sang định dạng sẵn sàng cho Machine Learning hoặc Phân tích. (Garbage in, Garbage out).",
+    "tip": "Wrangling = Công việc chà toilet dữ liệu (Dọn rác, khử trùng) để Data Scientist xài hàng sạch.",
+    "tags": ["data-pipeline", "data-wrangling"]
+  },
+  {
+    "id": "B6-020", "module": "B", "topic": "B6", "difficulty": "hard",
+    "question": "Backfilling (Chạy bù/lấp đầy quá khứ) trong Data Pipeline là gì?",
+    "options": [
+      "A. Xóa dữ liệu lỗi",
+      "B. Quá trình chạy lại một Data Pipeline cho CÁC NGÀY TRONG QUÁ KHỨ (VD: logic tính doanh thu mới được sửa, cần chạy lại từ tháng 1 đến nay để sửa data cũ)",
+      "C. Đưa dữ liệu lên Cloud",
+      "D. Clone ổ cứng để backup"
+    ],
+    "answer": 1,
+    "explanation": "Airflow rất mạnh về Backfill. Nó cho phép bạn ra lệnh chạy một quy trình xử lý không chỉ cho ngày hôm nay, mà cho chuỗi thời gian lịch sử từ 1 năm trước. Nếu Pipeline thiết kế chuẩn (Idempotent), thao tác Backfill sẽ diễn ra trơn tru.",
+    "tip": "Backfill = Chạy bù số liệu lịch sử quá khứ theo Logic (Code) mới nhất của ngày hôm nay.",
+    "tags": ["data-pipeline", "backfill", "airflow"]
+  }
+]

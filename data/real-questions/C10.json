@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C10-001", "module": "C", "topic": "C10", "difficulty": "easy",
+    "question": "Sự khác biệt CỐT LÕI NHẤT của Học tăng cường (Reinforcement Learning - RL) so với Học có giám sát (Supervised Learning) là gì?",
+    "options": [
+      "A. RL chạy chậm hơn",
+      "B. Không cần dùng GPU",
+      "C. Học có giám sát cần một TẬP DỮ LIỆU ĐÃ ĐƯỢC GÁN NHÃN SẴN (Biết trước đáp án). RL KHÔNG CÓ DỮ LIỆU SẴN, nó tự học bằng cách 'Thử và Sai' (Trial and Error) thông qua việc tương tác trực tiếp với Môi trường để mò mẫm tìm ra quy luật.",
+      "D. RL chỉ áp dụng cho Robot vật lý"
+    ],
+    "answer": 2,
+    "explanation": "Ví dụ dạy AI chơi cờ vua: Supervised Learning là bạn bắt nó học thuộc lòng 1 triệu ván cờ của Đại kiện tướng (Bắt chước). Reinforcement Learning là bạn vứt nó vào bàn cờ, nó đi bừa, đi ngu thì bị phạt điểm, đi hay thì được cộng điểm. Chơi 1 tỷ ván tự nó khôn ra mà chả cần ai dạy.",
+    "tip": "Reinforcement Learning (RL) = Vứt đứa trẻ xuống hồ bơi. Uống nước (Sai) thì bị phạt, ngoi lên (Đúng) thì được thưởng. Tự mò mẫm (Thử và Sai).",
+    "tags": ["rl", "basics", "supervised-learning"]
+  },
+  {
+    "id": "C10-002", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "4 thành tố kinh điển tạo nên một bài toán Học tăng cường (MDP - Markov Decision Process) là gì?",
+    "options": [
+      "A. Dataset, GPU, Python, Loss",
+      "B. User, Database, Server, Web",
+      "C. Môi trường (Environment), Tác tử (Agent), Hành động (Action), và Phần thưởng (Reward).",
+      "D. Đồ thị, Điểm ảnh, Chữ viết, Âm thanh"
+    ],
+    "answer": 2,
+    "explanation": "Chơi game Mario: Agent là nhân vật Mario. Environment là Cái màn hình Game. Action là (Nhảy, Chạy, Núp). Reward là (+100 điểm khi ăn nấm, -1000 điểm khi rơi xuống vực). Mục tiêu tối thượng của con AI (Agent) là Tối đa hóa tổng Phần thưởng (Reward) nhận được.",
+    "tip": "Bộ tứ Siêu đẳng của RL: Tác tử (Agent) tương tác với Môi trường (Environment) bằng Hành động (Action) để kiếm Phần thưởng (Reward).",
+    "tags": ["rl", "mdp", "basics"]
+  },
+  {
+    "id": "C10-003", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Khái niệm 'Exploration vs Exploitation' (Khám phá và Khai thác) là bài toán Trade-off đau đầu nhất trong RL. Nó ám chỉ điều gì?",
+    "options": [
+      "A. Khám phá vũ trụ và Khai thác than",
+      "B. Exploitation: Chọn hành động MÀ AI ĐÃ BIẾT CHẮC CÓ THƯỞNG CAO (Ăn chắc mặc bền). Exploration: Liều mạng thử MỘT HÀNH ĐỘNG MỚI CHƯA TỪNG LÀM để hi vọng tìm ra món hời lớn hơn (Rủi ro).",
+      "C. Tăng và Giảm tốc độ học",
+      "D. Đọc dữ liệu và Ghi dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "Bạn đến 1 thành phố mới. Bạn ăn thử quán A thấy ngon (Exploration). Ngày mai bạn đói, bạn tiếp tục ăn quán A vì CHẮC CHẮN ngon (Exploitation). Nhưng nếu bạn cứ Exploitation mãi, bạn sẽ lỡ mất Quán B ở góc phố ngon gấp 10 lần. AI cũng vậy, nếu không có cơ chế ÉP nó đi làm chuyện ngu ngốc (Khám phá), nó sẽ kẹt ở chiến thuật cùi bắp mãi mãi.",
+    "tip": "Khai thác (Exploitation) = Ăn lại máng cũ cho an toàn. Khám phá (Exploration) = Liều mạng đi tìm vùng đất mới hòng trúng mánh to.",
+    "tags": ["rl", "exploration-exploitation", "trade-off"]
+  },
+  {
+    "id": "C10-004", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Discount Factor (Hệ số chiết khấu - ký hiệu là Gamma γ) được gài vào công thức RL dùng để định hình MỨC ĐỘ THAM LAM của AI như thế nào?",
+    "options": [
+      "A. Giảm giá mua GPU",
+      "B. Bắt AI học chậm lại",
+      "C. Nó đánh giá sự khác biệt giữa 'Phần thưởng NGUYÊN MẶT' (Nhận ngay bây giờ) và 'Phần thưởng TƯƠNG LAI' (Bị giảm giá trị). Gamma = 0: AI bị thiển cận, chỉ thích ăn ngay. Gamma = 0.99: AI biết nhìn xa trông rộng, hi sinh cái lợi nhỏ trước mắt để đoạt cái lợi lớn lúc cuối game.",
+      "D. Tăng kích thước bộ nhớ"
+    ],
+    "answer": 2,
+    "explanation": "Đưa bạn 1 tỷ VND ngay hôm nay (Hiện tại) luôn sướng hơn việc hứa đưa 1 tỷ VND vào 10 năm sau (Tương lai - lạm phát, rủi ro). Trong game Cờ vua, ăn được 1 con Xe ngay nước tiếp theo (Lợi trước mắt) nhưng bị Chiếu Tướng thua luôn. AI xài Gamma = 0.99 sẽ chấp nhận bỏ qua con Xe đó để 20 nước sau thắng Trận Mạc.",
+    "tip": "Gamma (Hệ số chiết khấu) = Kính viễn vọng. Càng gần số 1 (0.99), AI càng kiên nhẫn 'Thả con săn sắt, bắt con cá rô' ở Tương lai xa.",
+    "tags": ["rl", "discount-factor", "gamma", "mdp"]
+  },
+  {
+    "id": "C10-005", "module": "C", "topic": "C10", "difficulty": "easy",
+    "question": "Q-Learning là thuật toán vỡ lòng kinh điển nhất của RL. Chữ 'Q' (Quality) trong Q-Table mang ý nghĩa gì?",
+    "options": [
+      "A. Số lượng câu hỏi (Questions)",
+      "B. Đánh giá CHẤT LƯỢNG (Giá trị) của MỘT HÀNH ĐỘNG cụ thể khi đang đứng ở MỘT TRẠNG THÁI cụ thể. (VD: Đứng ở vực thẳm, hành động 'Tiến lên' có điểm Q = -1000, hành động 'Lùi lại' có điểm Q = +10).",
+      "C. Tốc độ CPU",
+      "D. Queue (Hàng đợi) tin nhắn"
+    ],
+    "answer": 1,
+    "explanation": "Q-Table là 1 cái Bảng Excel khổng lồ. Cột dọc là tất cả vị trí Mario có thể đứng (State). Hàng ngang là tất cả nút bấm (Lên, Xuống, Trái, Phải). Các ô vuông chứa điểm số (Q-value). Khi Mario đang đứng ở Tọa độ X, nó mở cái Bảng Excel ra, thấy Nút 'Nhảy' có điểm to nhất -> Nó bấm Nhảy.",
+    "tip": "Q-Learning (Q-Table) = Lập 1 cái Bảng Cheat-sheet. Cứ rơi vào Hoàn cảnh (State) đó, lôi bảng ra tra xem Hành động (Action) nào điểm cao nhất thì làm theo.",
+    "tags": ["rl", "q-learning", "basics"]
+  },
+  {
+    "id": "C10-006", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Deep Q-Network (DQN) do DeepMind sáng tạo ra năm 2013 đánh dấu sự ra đời của Deep Reinforcement Learning (DRL). Nó dùng Mạng Neural để THAY THẾ cho cái gì của thuật toán Q-Learning cũ?",
+    "options": [
+      "A. Thay thế màn hình chơi game",
+      "B. Thay thế CÁI BẢNG Q-TABLE. Bảng Excel bị giới hạn nếu Game có 1 tỷ trạng thái (hết RAM). DQN dùng một Mạng Deep Learning (CNN) đọc thẳng hình ảnh Pixel từ màn hình, tự tính toán và Nhả ra cái điểm số Q-value dự đoán mà Không Cần lập Bảng.",
+      "C. Thay thế người chơi",
+      "D. Thay thế bàn phím máy tính"
+    ],
+    "answer": 1,
+    "explanation": "Chơi cờ vây (Cờ Go) có số trạng thái nhiều hơn số nguyên tử trong vũ trụ. Không có cái ổ cứng nào chứa nổi cái Q-Table đó. Việc ném cục Nơ-ron (Deep Learning) vào thay thế cái Bảng Excel đã giúp AI chơi game Atari thắng cả Con người. (Kết hợp Mắt thần CNN + Não phán đoán RL).",
+    "tip": "DQN (Deep Q-Network) = Lấy cái Mạng Nơ-ron nhét vào làm chức năng Tra Bảng Điểm thay cho Bảng Excel Q-Table Cổ hủ (Vì bảng Excel cạn RAM).",
+    "tags": ["rl", "dqn", "deep-q-network"]
+  },
+  {
+    "id": "C10-007", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Tính năng 'Experience Replay' (Phát lại kinh nghiệm) là kỹ thuật ma thuật giúp mạng DQN học ổn định. Nó hoạt động ra sao?",
+    "options": [
+      "A. Phát video YouTube cho AI xem",
+      "B. Thay vì vừa chơi vừa học (quên ngay khúc đầu), AI LƯU LẠI MỌI KÝ ỨC (Trạng thái, Hành động, Điểm số) vào một cái Bể Chứa. Lâu lâu, nó bốc NGẪU NHIÊN một nắm ký ức cũ ra để Ôn bài (Train Mạng Neural).",
+      "C. Xóa game chơi lại từ đầu",
+      "D. Tạo bản sao lưu Backup"
+    ],
+    "answer": 1,
+    "explanation": "Nếu chơi game tuyến tính: Đang đi rừng (học đánh quái), lát vô lâu đài (học đánh boss), AI sẽ 'Quên mẹ nó' cách đánh quái vì Data bị thiên lệch theo thời gian. Bốc ngẫu nhiên (Shuffle) ký ức lúc chơi pha trộn nhau giúp phá vỡ sự phụ thuộc thời gian, khiến mạng Nơ-ron học không bị giật cục.",
+    "tip": "Experience Replay = Cuốn Băng Ký Ức. Tối tối lôi Random vài cuộn băng cũ (Lúc thắng/Lúc ngu) ra coi lại để Ôn Tập (Chống mất gốc).",
+    "tags": ["rl", "experience-replay", "dqn"]
+  },
+  {
+    "id": "C10-008", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Thuật toán Policy Gradient (Ví dụ: REINFORCE) tiếp cận vấn đề theo HƯỚNG NGƯỢC LẠI hoàn toàn so với Q-Learning như thế nào?",
+    "options": [
+      "A. Học trên bảng chữ cái",
+      "B. Không thèm tính Điểm số (Q-Value) cho Hành động. Policy Gradient dùng mạng Nơ-ron ánh xạ TRỰC TIẾP TỪ TRẠNG THÁI RA XÁC SUẤT BẤM NÚT (VD: Đứng ở mép vực -> 99% bấm nút Nhảy, 1% nút Lùi). Hễ chuỗi hành động nào dẫn đến Chiến Thắng, nó tăng xác suất của nguyên chuỗi đó lên.",
+      "C. Không cần phần thưởng",
+      "D. Tính đạo hàm trên bảng Excel"
+    ],
+    "answer": 1,
+    "explanation": "Với các game Hành động Liên tục (Lái xe vô lăng xoay vòng tròn 360 độ - Vô hạn hành động). Q-Learning vỡ trận vì không thể chia ra 1 tỷ nút bấm. Policy Gradient tối ưu hóa thẳng vào 'Chiến thuật' (Policy - Ra quyết định luôn) bằng Toán học Đạo hàm xác suất.",
+    "tip": "Q-Learning = Đoán Điểm Số rồi mò mẫm phím nào điểm to nhất. Policy Gradient = Trực tính toán luôn Xác Suất bấm phím (Hợp với bài toán không gian Action vô hạn).",
+    "tags": ["rl", "policy-gradient", "algorithms"]
+  },
+  {
+    "id": "C10-009", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Thuật toán Actor-Critic (Diễn viên & Nhà phê bình) là sự kết hợp Vô đối giữa 2 trường phái RL. Cơ chế hoạt động của 2 bộ não này là gì?",
+    "options": [
+      "A. Dùng 2 màn hình",
+      "B. ACTOR (Diễn viên - xài Policy Gradient) làm nhiệm vụ Tự chơi game và bấm nút. CRITIC (Nhà phê bình - xài Q-Learning) đứng ngoài quan sát, CHẤM ĐIỂM (Value) cho pha xử lý đó của Actor (Mày đánh ngu lắm). Actor dựa vào lời chửi đó để sửa sai.",
+      "C. Cả 2 cùng chơi game chia màn hình",
+      "D. Đổi vai trò cho nhau"
+    ],
+    "answer": 1,
+    "explanation": "Policy Gradient (Diễn viên) có nhược điểm là đi hết cả ván game (Thắng/Thua) mới biết mình chơi hay dở ra sao (Độ trễ cao - High Variance). Nhét thêm thằng Critic (Giám khảo) vào đứng cạnh, Actor vừa chém hụt 1 cái, Critic trừ điểm ngay lập tức. Giúp AI học cấp tốc và siêu ổn định (A2C, PPO).",
+    "tip": "Actor-Critic = 2 Bộ não. Thằng Đệ (Actor) vừa đá banh trên sân. Ông Thầy (Critic) đứng ngoài đường biên chửi (Chấm điểm trực tiếp).",
+    "tags": ["rl", "actor-critic", "algorithms"]
+  },
+  {
+    "id": "C10-010", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "PPO (Proximal Policy Optimization) do OpenAI sáng tạo ra được mệnh danh là 'Vua của các thuật toán RL hiện nay' (Là lõi huấn luyện ChatGPT). Vũ khí bí mật 'Proximal' của nó ngăn chặn điều gì?",
+    "options": [
+      "A. Chống lag game",
+      "B. Không cho phép con AI THAY ĐỔI CHIẾN THUẬT (Policy) QUÁ MẠNH MẼ trong 1 bước học (Cắt gọt / Clipping). Tránh hiện tượng AI vừa tìm ra chiến thuật ngon, nhưng hăng máu update đạo hàm quá lố đâm ra ngu lại từ đầu (Catastrophic Forgetting).",
+      "C. Chống virus",
+      "D. Không thèm dùng GPU"
+    ],
+    "answer": 1,
+    "explanation": "Trong RL, con AI cực kỳ ngáo ngơ. Đang đi bằng 2 chân xịn xò, bỗng nhiên có 1 bước cập nhật gradient lố tay, nó bò ra đi bằng 4 chân và xóa luôn não cũ. Trị số 'Clipping' của PPO trói tay AI lại: 'Mày chỉ được Update kiến thức thay đổi xê dịch tối đa 20% so với não bộ cũ thôi!'. Bằng chứng là PPO huấn luyện ChatGPT cực mượt.",
+    "tip": "PPO = Bị kềm tỏa (Clipping). Cấm con AI lột xác quá nhanh (Phá đồ thị) trong 1 vòng học, bảo vệ hệ sinh thái ổn định (Slow and Steady).",
+    "tags": ["rl", "ppo", "algorithms", "chatgpt"]
+  },
+  {
+    "id": "C10-011", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Reward Shaping (Nhào nặn phần thưởng) là kỹ năng Hack Não nhất của Kỹ sư RL. Tại sao chúng ta không chỉ thưởng điểm 1 lần duy nhất khi AI 'Thắng Cuộc' (Sparse Reward)?",
+    "options": [
+      "A. Vì AI không biết đếm",
+      "B. Vì nếu AI chơi 10,000 bước mà không thấy phần thưởng nào, nó sẽ MẤT PHƯƠNG HƯỚNG (Mù tịt) và đi random mãi mãi. Phải rải 'Bánh mì vụn' (Dense Reward) trên đường đi (VD: Tiến 1 bước về đích -> Thưởng 1 điểm) để dắt mũi nó.",
+      "C. Để hack tiền",
+      "D. Để game kết thúc nhanh"
+    ],
+    "answer": 1,
+    "explanation": "Dạy Robot chạy xe qua đèo Hải Vân. Nếu rớt vực (0 điểm), tới đích vinh quang (+1000 điểm). Robot sẽ rớt vực 1 triệu lần vẫn không biết tại sao vì nó không bao giờ lết được tới đích lấy kinh nghiệm. Bạn phải Reward Shaping: Lết được 10 mét đèo thưởng +10, lái sát lề phải thưởng +5. Robot học lẹ như thần.",
+    "tip": "Reward Shaping = Chơi trò 'Hansel và Gretel'. Rải từng vụn bánh mì (Phần thưởng nhỏ) để dụ con Cáo (AI) đi từng bước một tới Đích.",
+    "tags": ["rl", "reward-shaping", "mdp"]
+  },
+  {
+    "id": "C10-012", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Mặt trái của Reward Shaping là thảm họa 'Reward Hacking' (Lách luật ăn gian điểm). Xảy ra hiện tượng gì?",
+    "options": [
+      "A. Lỗi game bị đơ",
+      "B. AI quá thông minh, nó TÌM RA LỖ HỔNG (BUGS) CỦA QUY TẮC TÍNH ĐIỂM ĐỂ ĂN TRỌN ĐIỂM MÀ KHÔNG THÈM LÀM NHIỆM VỤ. (VD: Thưởng AI 'Di chuyển về phía mục tiêu'. Nó tiến 1 bước nhận thưởng, lùi 1 bước, rồi lại tiến 1 bước nhận thưởng vô cực).",
+      "C. Người chơi hack phần thưởng",
+      "D. Đổi tiền trong game ra tiền thật"
+    ],
+    "answer": 1,
+    "explanation": "Kinh điển: AI đua xe thuyền (CoastRunners). Kỹ sư thưởng điểm mỗi lần ăn cái 'Cọc tiêu xanh'. Con tàu AI phát hiện ra: Lái đâm sầm vào 1 vòng xoáy, đâm nát tàu nhưng cái Cọc tiêu xanh liên tục sinh ra. Nó cắm mặt đâm tàu lượn vòng ăn 1 triệu điểm mặc kệ về Đích. AI luôn tuân thủ tối đa hóa điểm số một cách mù quáng.",
+    "tip": "Reward Hacking = Con AI siêu Trí trá/Lách luật. Tìm ra cái Bug đếm điểm của Kỹ sư để vắt sữa (Farming) điểm số mà cự tuyệt làm Nhiệm Vụ.",
+    "tags": ["rl", "reward-hacking", "ethics"]
+  },
+  {
+    "id": "C10-013", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "AlphaGo (của DeepMind) đã đánh bại nhà vô địch cờ Vây Lee Sedol bằng cách kết hợp Deep RL với thuật toán CÂY KINH ĐIỂN nào?",
+    "options": [
+      "A. Decision Tree (Cây quyết định)",
+      "B. MCTS - Monte Carlo Tree Search (Tìm kiếm cây Monte Carlo). AlphaGo dùng thuật toán rẽ nhánh ngẫu nhiên CỰC LẸ để mô phỏng (Tưởng tượng) ra trước hàng triệu kết cục tương lai trong đầu, trước khi đặt quân cờ xuống.",
+      "C. Random Forest (Rừng ngẫu nhiên)",
+      "D. Binary Search Tree (Cây nhị phân)"
+    ],
+    "answer": 1,
+    "explanation": "Cờ vây không thể tra bảng tính hết vì quá rộng (Brute-force như cờ Vua thua chắc). MCTS là thuật toán Cờ bạc Monte Carlo: Nó bốc đại vài đường đi (Roll-out), chạy thẳng tới cuối game xem thắng hay thua. Kết hợp với mạng CNN phán đoán (Policy/Value Network), nó chặt rụng mọi Kiện tướng.",
+    "tip": "AlphaGo = MCTS (Kẻ mộng du nhìn trộm tương lai) + Mạng Deep Learning (Đôi mắt định giá thế cờ).",
+    "tags": ["rl", "alphago", "mcts"]
+  },
+  {
+    "id": "C10-014", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Multi-Agent Reinforcement Learning (MARL) đẻ ra một rào cản 'Đau đầu' (Non-stationarity) là do cái gì?",
+    "options": [
+      "A. Tốn quá nhiều điện",
+      "B. Môi trường chỉ có 1 màu",
+      "C. Trong khi Tác tử A đang cố gắng học quy luật của Môi trường, thì các Tác tử B, C, D (Đồng đội hoặc Đối thủ) CŨNG ĐANG LIÊN TỤC HỌC VÀ THAY ĐỔI CHIẾN THUẬT. Việc này làm Môi trường luôn xoay mòng mòng (Không cố định).",
+      "D. AI bị trầm cảm"
+    ],
+    "answer": 2,
+    "explanation": "Ví dụ game Dota 2 (OpenAI Five). Chơi với Bot thụ động thì dễ. Chơi với 4 con AI khác đang học cùng lúc: Hồi sáng chiêu này đánh trúng Tướng B, chiều Tướng B khôn lên né được. Hành vi của kẻ khác tạo ra Môi trường Không Dừng (Non-Stationary). Giải pháp là dùng Centralized Training - Decentralized Execution (CTDE).",
+    "tip": "MARL (Đa tác tử) = Chơi game Moba 5v5. Ác mộng 'Môi trường Bất ổn' do mấy con AI phe kia cũng Đang Dần Khôn Lên theo thời gian, phá nát chiến thuật của mình.",
+    "tags": ["rl", "marl", "multi-agent"]
+  },
+  {
+    "id": "C10-015", "module": "C", "topic": "C10", "difficulty": "easy",
+    "question": "Công cụ Open Source QUỐC DÂN nào (Do OpenAI tạo ra) chuyên cung cấp các Môi trường (Environment) giả lập như Đua xe, Lật con lắc, Chơi game Atari để Huấn luyện AI Học Tăng Cường?",
+    "options": [
+      "A. Pandas",
+      "B. Scikit-learn",
+      "C. Gym (nay là Gymnasium). Cung cấp chuẩn chung `env.step(action)` và `env.reset()` để giấu mọi đồ họa phức tạp, chỉ trả về cho Coder Ma trận Data.",
+      "D. PyGame"
+    ],
+    "answer": 2,
+    "explanation": "Muốn lập trình AI lùi xe ô tô vào chuồng, bạn không thể code mớ Đồ họa Động cơ Vật lý. Gym (Gymnasium) cung cấp hàng trăm game giả lập miễn phí. Bạn chỉ việc `import gym`, bốc Mạng Pytorch đập vào là AI có chỗ luyện tập ngay.",
+    "tip": "Gymnasium (OpenAI Gym) = Sân vận động Ảo số 1 thế giới. Chứa sẵn 100 game Vật lý để con AI của bạn vô tập Gym (Training).",
+    "tags": ["rl", "gymnasium", "openai-gym", "tools"]
+  },
+  {
+    "id": "C10-016", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Inverse Reinforcement Learning (IRL - Học tăng cường ngược) có mục đích Cực dị gì so với RL thông thường?",
+    "options": [
+      "A. Đi lùi xe",
+      "B. Không cần Thưởng",
+      "C. Thay vì Kỹ sư phải TỰ VIẾT RA HÀM TÍNH ĐIỂM (Reward Function) cực kỳ vất vả (Rất hay sinh Bug Reward Hacking). IRL bắt con AI XEM VIDEO CON NGƯỜI CHƠI GAME, rồi tự nó SẼ SUY ĐOÁN RA Hàm tính điểm (Con người đang muốn nhắm tới Đích gì?).",
+      "D. Tự đẻ ra AI mới"
+    ],
+    "answer": 2,
+    "explanation": "Dạy AI đỗ xe trực thăng cực khó vì không biết thưởng điểm sao cho tròn (Tốc độ cánh quạt? Độ nghiêng?). Thay vì vắt óc viết Hàm Thưởng, nhờ Phi công thật biểu diễn đỗ 10 lần. Thuật toán IRL (ngược) sẽ tự dịch ngược (Reverse-engineer) đoạn Video đó ra thành 1 Hàm Phần Thưởng tối ưu.",
+    "tip": "Học tăng cường Ngược (IRL) = Ép AI xem Video Pro Player chơi (Học nghề ngầm) để tự đoán ra Luật thưởng điểm, thay vì bắt Kỹ Sư tự Code tay (Dễ lỗi bậy bạ).",
+    "tags": ["rl", "inverse-rl", "imitation-learning"]
+  },
+  {
+    "id": "C10-017", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Trong RL, Trạng thái (State) thường bị Vi phạm thuộc tính Markov (Markov Property). Thuộc tính Markov khẳng định điều gì?",
+    "options": [
+      "A. AI không được quay đầu lại",
+      "B. Tất cả DỮ LIỆU Ở HIỆN TẠI (T) ĐÃ CHỨA ĐỦ MỌI THÔNG TIN cần thiết để ra quyết định, BỎ QUA TOÀN BỘ QUÁ KHỨ (T-1, T-2).",
+      "C. Bắt buộc phải có Mạng Neural",
+      "D. Không được dùng xác suất"
+    ],
+    "answer": 1,
+    "explanation": "Đưa cho AI 1 Bức ảnh chụp 1 chiếc Xe Hơi (1 State tĩnh). Nó không thể biết xe đang Tiến Tới hay Lùi Lại (Mù vận tốc). Đây là sự Mất tính Markov (Vỡ trận). Giải pháp là Kỹ sư phải GỘP 4 BỨC ẢNH (Khung hình 1,2,3,4) nhét chung lại làm 1 State. Nhờ đó Mạng CNN phát hiện ra Vệt bóng mờ (Vận tốc).",
+    "tip": "Tính Markov (Sống cho Hiện tại): Trạng thái HIỆN TẠI chứa đủ cmn Bí mật. Nếu 1 tấm ảnh Tĩnh bị Mù Thông tin Vận tốc -> Phải lấy 4 Tấm ảnh Cột lại Thành 1 State.",
+    "tags": ["rl", "markov-property", "mdp"]
+  },
+  {
+    "id": "C10-018", "module": "C", "topic": "C10", "difficulty": "easy",
+    "question": "Khái niệm Episode (Tập/Màn chơi) kết thúc khi nào?",
+    "options": [
+      "A. Khi AI bị mỏi",
+      "B. Khi AI ĐẠT ĐƯỢC MỤC TIÊU (Về đích) HOẶC RƠI VÀO TRẠNG THÁI CHẾT (Terminal State - Mario rớt vực, Xe bị đụng). Hệ thống sẽ Reset (làm mới) Môi trường để AI bắt đầu 1 Episode mới.",
+      "C. Khi GPU hết RAM",
+      "D. Khi nhấn phím Space"
+    ],
+    "answer": 1,
+    "explanation": "Quá trình huấn luyện RL đo lường bằng hàng ngàn Tập (Episodes). Trục X của đồ thị là Số Tập (Từ 0 đến 10,000), Trục Y là Điểm Tổng (Reward). Chạy càng nhiều Episode, AI càng rèn luyện được 'Sẹo' (Kinh nghiệm).",
+    "tip": "Episode = 1 Màn/1 Mạng chơi. Rớt vực chết Cúc Cu (Terminal State) -> Mất mạng -> Về lại Vạch Xuất Phát (Reset Episode).",
+    "tags": ["rl", "episode", "basics"]
+  },
+  {
+    "id": "C10-019", "module": "C", "topic": "C10", "difficulty": "hard",
+    "question": "Thuật toán DDPG (Deep Deterministic Policy Gradient) vượt trội hơn DQN (Deep Q-Network) ở Môi trường nào?",
+    "options": [
+      "A. Đánh cờ vua",
+      "B. Xếp hình Tetris",
+      "C. Không gian HÀNH ĐỘNG LIÊN TỤC (Continuous Action Space). DQN chỉ chơi được game có nút bấm rời rạc (Lên, Xuống). DDPG sinh ra để Lái Xe (Đánh lái Vô lăng góc 15.3 độ, Đạp ga lực 70%).",
+      "D. Dịch thuật tiếng Tây Ban Nha"
+    ],
+    "answer": 2,
+    "explanation": "Nếu dùng Q-Learning áp dụng cho Robot khớp nối, cánh tay robot có hàng tỷ số thực lực siết (Continuous). Không Bảng Q-Table nào liệt kê nổi. DDPG sử dụng Actor-Critic để Mạng Nơ-ron (Actor) nhả thẳng ra 1 Con Số Lực Kéo (ví dụ 50.123 Newton) liên tục mượt mà.",
+    "tip": "DQN (Nút bấm Rời Rạc) = Game băng nút Lên, Xuống, Trái, Phải. DDPG (Nút Hành động Liên Tục) = Xoay mượt Vô Lăng Xe hơi, siết lực Cánh Tay Robot Vật Lý.",
+    "tags": ["rl", "ddpg", "continuous-action"]
+  },
+  {
+    "id": "C10-020", "module": "C", "topic": "C10", "difficulty": "medium",
+    "question": "Tại sao Học Tăng Cường (RL) lại ÍT ĐƯỢC SỬ DỤNG TRONG THỰC TẾ DOANH NGHIỆP (Ví dụ Thương mại điện tử, Tài chính) so với Supervised Learning (XGBoost, Random Forest)?",
+    "options": [
+      "A. Vì RL bị cấm",
+      "B. Vì không có nhân sự",
+      "C. Vì RL CẦN MỘT MÔI TRƯỜNG GIẢ LẬP (Simulator) cực chuẩn để cày bừa Thử & Sai hàng triệu lần. Ta không thể vứt con AI chưa Train lên Website Chứng Khoán thật, cho nó 'Bán khống Mù Quáng' để Tự Rút Kinh Nghiệm (Đốt sạch tiền Cty trong 1 phút).",
+      "D. Vì RL chạy chậm"
+    ],
+    "answer": 2,
+    "explanation": "Đây là Cú tát vào mặt dân RL. Trong Game (Dota, Cờ vua) hay Robotics, việc Giả Lập Môi trường Ảo (Thua chết 1 triệu mạng không tốn 1 xu) là khả thi. Nhưng Trong Mua Bán Chứng Khoán, Y tế (cắt nhầm ruột bệnh nhân) thì không thể có chuyện Thử & Sai. Xây dựng 1 App Giả lập Thị trường Chứng khoán còn khó hơn Train con AI RL.",
+    "tip": "Đời thực không phải là Game (Không cho Mất Mạng làm lại). RL cần luyện 1 triệu ván trong Phẩm Ảo (Simulator). Công ty Cổ phần méo thể build Simulator -> Phế võ công RL.",
+    "tags": ["rl", "limitations", "simulators"]
+  }
+]

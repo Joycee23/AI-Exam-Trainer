@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C4-001", "module": "C", "topic": "C4", "difficulty": "easy",
+    "question": "Trong Xử lý Ngôn ngữ Tự nhiên (NLP), 'Tokenization' (Tách từ) có nghĩa là gì?",
+    "options": [
+      "A. Xóa các từ viết sai chính tả",
+      "B. Chia cắt một văn bản dài thành các mảnh nhỏ hơn (gọi là Token), có thể là từ (Word), câu (Sentence), hoặc ký tự phụ (Subword).",
+      "C. Mã hóa văn bản thành nhị phân chống hack",
+      "D. Dịch văn bản sang ngôn ngữ khác"
+    ],
+    "answer": 1,
+    "explanation": "Máy tính không biết đọc cả câu 'Tôi yêu AI'. Nó cần ta chặt câu đó ra thành các mảnh nhỏ (Tokens) dạng List: `['Tôi', 'yêu', 'AI']`. Bước này là bước khởi đầu số 1 của mọi dự án NLP.",
+    "tip": "Tokenization = Cầm dao chặt câu văn thành các khúc nhỏ (Tokens) để máy tính dễ xào nấu.",
+    "tags": ["nlp", "tokenization", "preprocessing"]
+  },
+  {
+    "id": "C4-002", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Stop Words (Từ dừng) trong NLP thường được định nghĩa như thế nào?",
+    "options": [
+      "A. Các từ mang ý nghĩa quan trọng nhất trong câu",
+      "B. Các từ dùng để kết thúc câu (dấu chấm, dấu phẩy)",
+      "C. Các từ xuất hiện CỰC KỲ PHỔ BIẾN (như 'của', 'là', 'và', 'the', 'is') nhưng hầu như KHÔNG MANG NHIỀU Ý NGHĨA đặc trưng cho văn bản, thường bị xóa đi để tiết kiệm bộ nhớ.",
+      "D. Các từ bị hệ thống cấm sử dụng (Chửi thề)"
+    ],
+    "answer": 2,
+    "explanation": "Khi phân loại bình luận Tích cực/Tiêu cực, từ 'tuyệt_vời', 'tệ_hại' là từ khóa vàng. Các từ như 'là', 'và', 'thì', 'mà' không giúp ích gì cho mô hình mà còn làm nặng ma trận. Việc loại bỏ Stop Words giúp giảm số chiều dữ liệu đáng kể.",
+    "tip": "Stop Words = Từ rác, từ nối (và, là, thì, mà). Có xuất hiện cũng vô vị, xóa đi cho nhẹ máy.",
+    "tags": ["nlp", "stopwords", "preprocessing"]
+  },
+  {
+    "id": "C4-003", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Lemmatization và Stemming đều dùng để đưa từ về dạng gốc (Ví dụ: 'running' -> 'run'). Sự khác biệt LỚN NHẤT giữa chúng là gì?",
+    "options": [
+      "A. Stemming chạy chậm hơn Lemmatization",
+      "B. Stemming chặt mù quáng các hậu tố (đôi khi tạo ra từ vô nghĩa như 'happi'). Lemmatization sử dụng từ điển ngôn ngữ học thực sự để ĐẢM BẢO từ gốc sinh ra có nghĩa (ví dụ 'better' -> 'good').",
+      "C. Stemming dùng cho Tiếng Việt, Lemmatization dùng cho Tiếng Anh",
+      "D. Không có khác biệt"
+    ],
+    "answer": 1,
+    "explanation": "Stemming (chặt cành) rất nhanh gọn lẹ, thấy đuôi 'ing' là chặt, bất chấp ngữ pháp. Lemmatization (Bổ đề hóa) chậm hơn vì nó phải tra từ điển (WordNet) và phân tích từ loại (Danh từ, Động từ) để biến đổi 'mice' (chuột số nhiều) thành 'mouse' (chuột số ít).",
+    "tip": "Stemming = Chặt đuôi thô bạo (Nhanh, hay lỗi). Lemmatization = Tra từ điển kỹ lưỡng (Chậm, chuẩn nghĩa).",
+    "tags": ["nlp", "lemmatization", "stemming", "preprocessing"]
+  },
+  {
+    "id": "C4-004", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Phương pháp biểu diễn văn bản Bag-of-Words (BoW) hoạt động dựa trên nguyên lý gì?",
+    "options": [
+      "A. Dịch các từ sang tiếng Latin",
+      "B. ĐẾM SỐ LẦN XUẤT HIỆN (Tần suất) của từng từ trong câu, HOÀN TOÀN BỎ QUA thứ tự từ và cấu trúc ngữ pháp.",
+      "C. Nén văn bản thành file hình ảnh",
+      "D. Gắn tọa độ không gian 3D cho từng từ"
+    ],
+    "answer": 1,
+    "explanation": "BoW ném tất cả các từ vào một cái bao (Bag), lắc đều lên và đếm. Cụm từ 'Chó cắn người' và 'Người cắn chó' sẽ sinh ra 2 vector y hệt nhau vì thành phần từ giống hệt nhau. Dù ngu ngơ (mất ngữ pháp), BoW lại cực kỳ hiệu quả cho bài toán phân loại chủ đề.",
+    "tip": "Bag-of-Words = Đếm từ như đếm đậu, bất chấp thứ tự ngữ pháp. 'Chó cắn người' = 'Người cắn chó'.",
+    "tags": ["nlp", "bag-of-words", "feature-extraction"]
+  },
+  {
+    "id": "C4-005", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Công thức TF-IDF (Term Frequency-Inverse Document Frequency) được dùng để làm gì trong NLP?",
+    "options": [
+      "A. Tính toán tốc độ đọc của người dùng",
+      "B. ĐÁNH GIÁ TẦM QUAN TRỌNG CỦA MỘT TỪ trong một tài liệu so với toàn bộ kho dữ liệu. (Từ nào xuất hiện nhiều trong 1 bài nhưng lại ÍT XUẤT HIỆN Ở CÁC BÀI KHÁC sẽ được điểm rất cao).",
+      "C. Tìm ra lỗi chính tả",
+      "D. Đếm số lượng câu"
+    ],
+    "answer": 1,
+    "explanation": "Từ 'AI' xuất hiện nhiều trong bài viết (TF cao). Nhưng nếu BÀI NÀO CŨNG CÓ chữ 'AI' (như sách giáo khoa) thì chữ 'AI' trở nên tầm thường (IDF thấp). Ngược lại, chữ 'Backpropagation' chỉ xuất hiện ở bài bài số 3, nó sẽ thành chữ vàng (Keyword) của bài số 3. TF-IDF làm giảm giá trị của các từ phổ thông.",
+    "tip": "TF-IDF = Đặc nhiệm tìm Keyword. Từ nào xuất hiện nhiều ở bài này NHƯNG hiếm thấy ở bài khác -> Keyword.",
+    "tags": ["nlp", "tf-idf", "feature-extraction"]
+  },
+  {
+    "id": "C4-006", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Khái niệm N-gram trong NLP dùng để khắc phục nhược điểm gì của Bag-of-Words (1-gram)?",
+    "options": [
+      "A. Chạy quá tốn RAM",
+      "B. Khắc phục việc mất mát hoàn toàn NGỮ CẢNH VÀ THỨ TỰ TỪ. Bằng cách gộp N từ đứng cạnh nhau (ví dụ 2-gram: 'Không_Thích'), ta bắt được ý nghĩa phủ định mà nếu tách rời sẽ bị sai nghĩa.",
+      "C. Chống sai chính tả",
+      "D. Tự động dịch thuật"
+    ],
+    "answer": 1,
+    "explanation": "Nếu dùng 1-gram (đơn từ), câu 'Món này không ngon' sẽ tách thành ['không', 'ngon']. Mô hình đếm thấy chữ 'ngon' -> Đánh giá Tích cực (Sai bét). Dùng Bi-gram (2 từ cạnh nhau), nó sẽ tách thành ['Món_này', 'này_không', 'không_ngon']. Bắt được chữ 'không_ngon' -> Đoán Tiêu cực chuẩn xác.",
+    "tip": "N-gram = Bắt cặp từ đứng cạnh nhau để giữ lại Ngữ cảnh (Đặc biệt là câu từ chối/phủ định).",
+    "tags": ["nlp", "n-gram", "context"]
+  },
+  {
+    "id": "C4-007", "module": "C", "topic": "C4", "difficulty": "easy",
+    "question": "Word Embedding (Nhúng từ) nổi tiếng như Word2Vec hay GloVe nhằm mục đích biến đổi Từ vựng thành cái gì?",
+    "options": [
+      "A. Các file âm thanh",
+      "B. Mã vạch nhị phân",
+      "C. Các Vector số học mật độ cao (Dense Vectors). Trong không gian vector này, CÁC TỪ CÓ Ý NGHĨA GIỐNG NHAU sẽ NẰM GẦN NHAU (Vd: Vua và Hoàng Hậu).",
+      "D. Một bức ảnh 2D"
+    ],
+    "answer": 2,
+    "explanation": "Khác với One-hot encoding tạo ra vector chục ngàn chiều toàn số 0. Word Embedding bóp 1 từ thành 1 vector 300 chiều chứa số thực. Sự kỳ diệu là nó giữ được quan hệ toán học: `Vector(King) - Vector(Man) + Vector(Woman) ≈ Vector(Queen)`.",
+    "tip": "Word Embedding = Ép một chữ thành tọa độ Số học. Các từ cùng nghĩa sẽ rủ nhau ở chung 1 xóm.",
+    "tags": ["nlp", "word-embedding", "word2vec"]
+  },
+  {
+    "id": "C4-008", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Hạn chế CHÍNH MẠNG của các mô hình Word Embedding cổ điển (như Word2Vec, GloVe) so với các mô hình hiện đại (như BERT) là gì?",
+    "options": [
+      "A. Word2Vec chạy rất chậm",
+      "B. Không xử lý được Tính Đa Nghĩa (Polysemy). Từ 'Bank' (Ngân hàng) và 'Bank' (Bờ sông) có ý nghĩa khác nhau hoàn toàn nhưng Word2Vec chỉ cấp cho nó 1 Vector biểu diễn duy nhất.",
+      "C. Không cài được trên Windows",
+      "D. Chỉ nhận diện được tiếng Anh"
+    ],
+    "answer": 1,
+    "explanation": "Word2Vec tĩnh (Static Embedding), 1 từ luôn ứng với 1 vector. BERT là Embedding động (Contextualized), nó nhìn cả 2 bên trái phải của từ 'Bank' để quyết định xem gán cho từ 'Bank' vector tiền bạc hay vector nước sông. Đây là bước nhảy vọt của AI.",
+    "tip": "Word2Vec (Cổ điển): 1 từ = 1 Nghĩa (Stupid). BERT (Hiện đại): Nhìn văn cảnh mới đoán nghĩa (Smart).",
+    "tags": ["nlp", "word2vec", "bert", "context"]
+  },
+  {
+    "id": "C4-009", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Kiến trúc BERT (Bidirectional Encoder Representations from Transformers) do Google tạo ra có tính năng 'Bidirectional' (Hai chiều) nghĩa là sao?",
+    "options": [
+      "A. Dịch được tiếng Anh sang Việt và ngược lại",
+      "B. Thay vì chỉ đọc văn bản từ Trái sang Phải (như GPT), BERT đọc/hiểu NGỮ CẢNH CỦA MỘT TỪ DỰA TRÊN CẢ CÁC TỪ ĐỨNG TRƯỚC VÀ ĐỨNG SAU NÓ trong câu cùng một lúc.",
+      "C. Chạy trên 2 GPU",
+      "D. Có thể xuất ra cả âm thanh và chữ"
+    ],
+    "answer": 1,
+    "explanation": "BERT sử dụng cơ chế Masked Language Model (Đục lỗ). Nó che một chữ ở giữa câu lại, và bắt AI đoán chữ đó bằng cách nhìn vào đoạn văn bên Trái VÀ bên Phải của lỗ hổng. Điều này giúp BERT hiểu ngôn ngữ cực kỳ uyên thâm.",
+    "tip": "Bidirectional (BERT) = Đọc hiểu 2 chiều. Nhìn cả Trái lẫn Phải để đoán nghĩa từ nằm ở giữa.",
+    "tags": ["nlp", "bert", "transformer"]
+  },
+  {
+    "id": "C4-010", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Các LLM (Large Language Models) như GPT (Generative Pre-trained Transformer) thuộc dạng mô hình Causal/Autoregressive. Tức là chúng sinh ra văn bản theo cơ chế nào?",
+    "options": [
+      "A. Sinh ra toàn bộ bài văn trong 1 nốt nhạc",
+      "B. Dự đoán và sinh ra TỪ TIẾP THEO (Next-token prediction) dựa vào tất cả các từ ĐÃ ĐƯỢC SINH RA TRƯỚC ĐÓ. (Ví dụ: 'Con chó đang' -> đoán chữ 'sủa'). Cứ lặp lại như vậy.",
+      "C. Ghép các câu có sẵn trong từ điển",
+      "D. Viết ngược từ cuối lên đầu"
+    ],
+    "answer": 1,
+    "explanation": "Bản chất của ChatGPT là một trò chơi điền từ vào chỗ trống vô tận. Bạn mớm cho nó chữ 'A', nó đoán tiếp chữ 'B', rồi nó lấy 'AB' làm Input để đoán tiếp chữ 'C'. Khả năng sinh từ theo sau (Autoregressive) này biến nó thành cỗ máy tạo văn bản siêu phàm.",
+    "tip": "GPT (Generative) = Thánh đoán chữ tiếp theo (Next-token prediction).",
+    "tags": ["nlp", "gpt", "llm", "autoregressive"]
+  },
+  {
+    "id": "C4-011", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Trong xử lý tiếng Việt, bước Tiền xử lý nào ĐẶC THÙ VÀ BẮT BUỘC mà tiếng Anh không cần?",
+    "options": [
+      "A. Đổi chữ hoa thành chữ thường",
+      "B. Tách từ ghép (Word Segmentation - ví dụ: biến 'Học sinh' thành 'Học_sinh' thay vì tách rời 'Học', 'sinh').",
+      "C. Xóa dấu câu",
+      "D. Thêm stop words"
+    ],
+    "answer": 1,
+    "explanation": "Trong Tiếng Anh, từ được định nghĩa bởi dấu cách (Space). 'Student' là 1 từ. Trong tiếng Việt, 'Học sinh' có dấu cách ở giữa nhưng lại mang ý nghĩa của ĐÚNG 1 TỪ. Nếu không dùng thư viện tách từ (như `VnCoreNLP`, `pyvi`), AI sẽ hiểu lầm thành 2 từ rời rạc 'Học' và 'Sinh'.",
+    "tip": "Đặc sản Tiếng Việt: Chữ ghép có dấu cách ở giữa ('Sinh viên'). BẮT BUỘC phải chạy qua bộ Tách Từ (Tạo ra 'Sinh_viên').",
+    "tags": ["nlp", "vietnamese", "word-segmentation"]
+  },
+  {
+    "id": "C4-012", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "BLEU Score là chỉ số nổi tiếng nhất dùng để đánh giá bài toán NLP nào?",
+    "options": [
+      "A. Đánh giá Cảm xúc (Sentiment Analysis)",
+      "B. Đánh giá chất lượng của Dịch Máy (Machine Translation). So sánh mức độ trùng lặp N-gram giữa câu dịch của AI sinh ra và câu dịch chuẩn của Con người.",
+      "C. Đánh giá phân loại thư rác",
+      "D. Đánh giá tốc độ Chatbot"
+    ],
+    "answer": 1,
+    "explanation": "Nếu AI dịch ra 'Con chó cắn tôi', còn người thật dịch chuẩn là 'Chú chó đã cắn tôi'. BLEU sẽ đếm xem có bao nhiêu cụm từ (Chó, cắn tôi) xuất hiện ở cả 2 câu. Dù không hoàn hảo (không hiểu được từ đồng nghĩa), BLEU vẫn là tiêu chuẩn vàng của ngành Dịch thuật AI.",
+    "tip": "BLEU Score = Thước đo chấm điểm máy Dịch Thuật (Machine Translation).",
+    "tags": ["nlp", "bleu", "machine-translation", "evaluation"]
+  },
+  {
+    "id": "C4-013", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Kỹ thuật RAG (Retrieval-Augmented Generation) được sinh ra để khắc phục nhược điểm TRÍ MẠNG nào của các LLM (như ChatGPT)?",
+    "options": [
+      "A. Ảo giác (Hallucination - bịaa đặt thông tin) và việc LLM không biết các dữ liệu nội bộ của công ty (dữ liệu không có trên Internet).",
+      "B. LLM trả lời quá chậm",
+      "C. LLM bị dính mã độc",
+      "D. LLM không nói được tiếng Việt"
+    ],
+    "answer": 0,
+    "explanation": "Bạn hỏi ChatGPT: 'Lương tháng này của tôi bao nhiêu?', nó sẽ bịa hoặc bảo không biết. RAG hoạt động bằng cách: 1. Tìm (Retrieve) file hợp đồng lương của bạn trong DB công ty. 2. Nhét đoạn Text lương đó vào chung với câu hỏi (Augment). 3. ChatGPT đọc đoạn đó và Sinh ra (Generate) câu trả lời chính xác.",
+    "tip": "RAG = Đưa tài liệu mật của cty cho ChatGPT đọc trước khi bắt nó trả lời. Chống 'Chém gió/Ảo giác'.",
+    "tags": ["nlp", "rag", "llm", "hallucination"]
+  },
+  {
+    "id": "C4-014", "module": "C", "topic": "C4", "difficulty": "easy",
+    "question": "Named Entity Recognition (NER) là bài toán bóc tách thông tin. Nó làm nhiệm vụ gì?",
+    "options": [
+      "A. Chấm điểm bài văn",
+      "B. Nhận diện các Thực Thể Tên Riêng trong câu và Gán Nhãn cho chúng (Ví dụ: 'Hà Nội' -> LOC/Địa điểm, 'Phạm Nhật Vượng' -> PER/Người, 'Vingroup' -> ORG/Tổ chức).",
+      "C. Sửa lỗi chính tả",
+      "D. Tạo ra tên mới cho công ty"
+    ],
+    "answer": 1,
+    "explanation": "NER cực kỳ hữu ích trong trích xuất dữ liệu. Ví dụ bạn đưa cho AI 1000 bài báo, NER sẽ quét qua và rút trích toàn bộ Tên công ty, Tên người, Ngày tháng, Số tiền, đưa vào Database một cách gọn gàng.",
+    "tip": "NER (Nhận diện Thực thể) = Máy gạch chân các từ khóa quan trọng: Tên Người, Địa Danh, Công ty, Thời gian.",
+    "tags": ["nlp", "ner", "information-extraction"]
+  },
+  {
+    "id": "C4-015", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Cơ chế Attention (được đề xuất trong bài báo Sequence to Sequence) giải quyết được vấn đề 'Nút Cổ Chai' (Bottleneck) nào của mạng RNN/LSTM trong Dịch Máy?",
+    "options": [
+      "A. Giải quyết vấn đề mạng bị nóng",
+      "B. Trong RNN cũ, TOÀN BỘ câu văn dài phải bị nén thành 1 vector duy nhất (Context Vector), làm thất thoát thông tin. Attention cho phép mô hình MỖI LẦN sinh ra 1 từ mới, có thể 'LIẾC MẮT/CHÚ Ý' ngược lại vào những từ quan trọng nhất của câu Gốc.",
+      "C. Khắc phục lỗi thiếu từ điển",
+      "D. Khắc phục vấn đề dữ liệu bị tràn"
+    ],
+    "answer": 1,
+    "explanation": "Đọc 1 cuốn tiểu thuyết rồi bắt bạn tóm tắt bằng 1 câu là điều không thể (RNN cũ). Attention giống như việc bạn được quyền Lật lại sách (Liếc nhìn) tìm đúng cái trang chứa tên nhân vật đó để dịch cho chuẩn.",
+    "tip": "Attention = Được quyền lật sách 'Xem bùa' lại dữ liệu gốc. Tập trung (Chú ý) vào các chữ quan trọng để dịch cho đúng.",
+    "tags": ["nlp", "attention", "sequence-to-sequence"]
+  },
+  {
+    "id": "C4-016", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Prompt Engineering (Kỹ thuật Gợi ý) là kỹ năng rất hot hiện nay. Nguyên tắc 'Few-Shot Prompting' là gì?",
+    "options": [
+      "A. Đưa cho LLM một vài VÍ DỤ (Examples) mẫu (câu hỏi và câu trả lời) để định hướng phong cách và định dạng trước khi bắt nó giải quyết câu hỏi chính.",
+      "B. Yêu cầu AI trả lời bằng vài từ ngắn",
+      "C. Xóa bộ nhớ của AI vài lần",
+      "D. Chỉ hỏi AI các câu hỏi về bắn súng"
+    ],
+    "answer": 0,
+    "explanation": "Zero-shot là hỏi ngay lập tức. Few-shot là cung cấp cho nó 2-3 ví dụ. VD: 'Tích cực -> 1, Tiêu cực -> 0. Vậy 'Rất chán' -> ?'. Nhờ Few-shot, AI hiểu ngay luật chơi mà không cần phải Fine-tune mô hình.",
+    "tip": "Few-Shot Prompting = Mớm cho nó vài cái Ví dụ (Examples) làm mẫu trước khi bắt nó làm bài.",
+    "tags": ["nlp", "prompt-engineering", "llm"]
+  },
+  {
+    "id": "C4-017", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "Fine-Tuning (Tinh chỉnh) một mô hình LLM lớn bằng phương pháp PEFT (Parameter-Efficient Fine-Tuning) điển hình như LoRA mang lại lợi ích KHỔNG LỒ gì?",
+    "options": [
+      "A. Giúp AI có cảm xúc",
+      "B. Thay vì phải cập nhật 100 tỷ tham số của mô hình gốc (tốn hàng vạn đô la tiền GPU), LoRA CHỈ THÊM MỘT BỘ TRỌNG SỐ SIÊU NHỎ VÀO MẠNG (khoảng 1%) và chỉ train bộ nhỏ đó, giúp Train được LLM trên các cạc đồ họa rẻ tiền.",
+      "C. Giảm số lượng từ vựng xuống 10%",
+      "D. Dịch code thành hình ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Low-Rank Adaptation (LoRA) là cứu cánh cho giới AI mã nguồn mở. Việc đóng băng (Freeze) toàn bộ não của AI gốc, chỉ cấy thêm một cái 'usb cắm ngoài' nhỏ xíu (Adapter) để dạy nó chuyên môn (Y khoa, Luật) giúp tiết kiệm 90% bộ nhớ GPU mà vẫn giữ được độ thông minh.",
+    "tip": "LoRA (PEFT) = Cắm thêm cục USB xíu xiu vào bộ não khổng lồ để dạy chuyên môn. Cực kỳ rẻ và hiệu quả (Train LLM cho con nhà nghèo).",
+    "tags": ["nlp", "fine-tuning", "lora", "llm"]
+  },
+  {
+    "id": "C4-018", "module": "C", "topic": "C4", "difficulty": "medium",
+    "question": "Tính năng Positional Encoding (Mã hóa vị trí) trong kiến trúc Transformer bắt buộc phải có vì lý do gì?",
+    "options": [
+      "A. Để vẽ đồ thị",
+      "B. Vì Transformer nạp TẤT CẢ các từ vào song song cùng 1 lúc (không chạy tuần tự như RNN), nên nó bị MÙ về thứ tự từ. Positional Encoding cộng thêm một con số vào mỗi từ để AI biết từ đó đứng thứ 1 hay thứ 2 trong câu.",
+      "C. Đổi ảnh thành text",
+      "D. Mã hóa mật khẩu người dùng"
+    ],
+    "answer": 1,
+    "explanation": "Bag-of-Words mù thứ tự từ do trộn lộn xộn. Transformer cũng trộn các từ cùng 1 lúc vào mạng để tính Attention cực lẹ. Bắt buộc phải xăm lên trán mỗi chữ một con số (Positional) bằng hàm Sin/Cos để nó nhớ 'Tôi' đứng số 1, 'Yêu' đứng số 2.",
+    "tip": "Positional Encoding = Đánh số thứ tự (1, 2, 3) cho các chữ. Vì Transformer đọc chữ theo kiểu nuốt hết 1 lượt (Song song).",
+    "tags": ["nlp", "transformer", "positional-encoding"]
+  },
+  {
+    "id": "C4-019", "module": "C", "topic": "C4", "difficulty": "hard",
+    "question": "RLHF (Reinforcement Learning from Human Feedback) là bí quyết cốt lõi để OpenAI tạo ra ChatGPT. Chức năng của nó là gì?",
+    "options": [
+      "A. Huấn luyện AI chơi game",
+      "B. LLM ban đầu chỉ biết 'Đoán từ tiếp theo' (Nói luyên thuyên, độc hại). RLHF dùng ĐIỂM SỐ DO CON NGƯỜI CHẤM để UỐN NẮN/phạt AI, giúp nó học cách trả lời Lịch sự, Hữu ích, An toàn và giống một Trợ lý ảo thực thụ.",
+      "C. Tự động dịch thuật",
+      "D. Sinh ra hình ảnh"
+    ],
+    "answer": 1,
+    "explanation": "GPT-3 rất thông minh nhưng bảo nó chế bom nó cũng chế. Bằng cách cho con người (Labelers) ngồi chat với nó, câu nào trả lời ngoan thì thưởng 10đ, câu nào láo thì phạt. Áp dụng Thuật toán Học Tăng Cường (PPO), AI dần thay đổi tính nết thành 'Trợ lý AI tuân thủ đạo đức' (Alignment).",
+    "tip": "RLHF = Thuần hóa Thú hoang (LLM) thành Trợ lý Ngoan hiền (ChatGPT) bằng roi và kẹo (Điểm thưởng do Người chấm).",
+    "tags": ["nlp", "rlhf", "llm", "chatgpt"]
+  },
+  {
+    "id": "C4-020", "module": "C", "topic": "C4", "difficulty": "easy",
+    "question": "Thư viện NLP mã nguồn mở nổi tiếng và phổ biến bậc nhất, cung cấp hàng ngàn mô hình Transformer (BERT, GPT, RoBERTa) sẵn sàng để tải về là gì?",
+    "options": [
+      "A. Scikit-learn",
+      "B. Hugging Face (thư viện `transformers`)",
+      "C. Numpy",
+      "D. Pandas"
+    ],
+    "answer": 1,
+    "explanation": "Hugging Face được ví như 'GitHub của giới Machine Learning'. Với thư viện `transformers`, bạn chỉ cần 3 dòng code là tải được một mô hình ngôn ngữ khổng lồ về máy để xài luôn mà không cần train.",
+    "tip": "Hugging Face = Nơi tải mọi mô hình NLP/Transformer xịn sò nhất thế giới (Github của dân AI).",
+    "tags": ["nlp", "huggingface", "transformers"]
+  }
+]

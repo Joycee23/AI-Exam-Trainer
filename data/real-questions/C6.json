@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C6-001", "module": "C", "topic": "C6", "difficulty": "easy",
+    "question": "Khái niệm MLOps (Machine Learning Operations) được sinh ra để giải quyết nỗi đau nào của ngành Trí tuệ Nhân tạo?",
+    "options": [
+      "A. Giúp AI vẽ tranh đẹp hơn",
+      "B. Giải quyết việc Mô hình AI huấn luyện xong (file .pkl / .h5) bị BỎ XÓ TRONG LAPTOP của Kỹ sư Data Science, không biết cách nào đưa lên máy chủ thật (Production) để hàng triệu người dùng sử dụng ổn định.",
+      "C. Tăng số lượng ảnh chó mèo",
+      "D. Đổi mã nguồn Python sang Java"
+    ],
+    "answer": 1,
+    "explanation": "Làm ra 1 con AI chạy đúng trên máy mình chỉ chiếm 10% công việc (Khúc khoa học). Đưa con AI đó lên Website/App, bảo vệ nó khỏi sập khi 1 triệu user gọi đồng thời, và cập nhật nó khi data mới về (Khúc Kỹ thuật phần mềm), đó là MLOps.",
+    "tip": "MLOps = Đưa mô hình AI ra khỏi Laptop cá nhân, nhét vào Server công ty chạy tự động cho User xài.",
+    "tags": ["mlops", "basics", "deployment"]
+  },
+  {
+    "id": "C6-002", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Tại sao việc ĐÓNG GÓI mô hình AI bằng Docker (Containerization) lại gần như LÀ BẮT BUỘC trong MLOps?",
+    "options": [
+      "A. Để mã hóa chống copy",
+      "B. Vì 'Trên máy tôi nó chạy bình thường, lên Server nó lại lỗi!'. Docker đóng gói TOÀN BỘ Mô hình, Thư viện (Python, TensorFlow version) và Hệ điều hành thu nhỏ vào 1 cái Hộp, đảm bảo mang đi đâu chạy cũng chuẩn 100%.",
+      "C. Vì Docker tăng tốc độ GPU lên gấp đôi",
+      "D. Vì Docker nén mô hình lại còn 1KB"
+    ],
+    "answer": 1,
+    "explanation": "Đem con AI của bạn cài qua máy Sếp. Thiếu thư viện Scikit-learn, thiếu thư viện Pandas (Lỗi version). Đóng gói nó vào Docker Image, nó trở thành 1 khối bất khả xâm phạm. Bất kỳ máy tính nào cài Docker (Win, Mac, Linux Server) đều chạy được con AI đó ngay lập tức với 1 dòng lệnh.",
+    "tip": "Docker = Cái Container thần thánh. Nhốt con AI, bộ Python, thư viện vào trong hộp, xách đi mọi máy tính chạy đều không bao giờ bị lỗi 'Thiếu version'.",
+    "tags": ["mlops", "docker", "deployment"]
+  },
+  {
+    "id": "C6-003", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Công cụ API (Application Programming Interface) như FastAPI hay Flask đóng vai trò gì trong việc Deploy (Triển khai) Mô hình AI?",
+    "options": [
+      "A. Vẽ giao diện Web sặc sỡ",
+      "B. Làm NGƯỜI ĐƯA THƯ (Cổng giao tiếp). Nhận Dữ liệu ảnh/chữ từ Mobile App (User) gửi đến, Ném vào con AI chấm điểm, rồi Trả Kết Quả Dự Đoán về lại cho Mobile App hiển thị.",
+      "C. Xóa dữ liệu rác",
+      "D. Tự động train lại AI"
+    ],
+    "answer": 1,
+    "explanation": "Con AI là một cái Hộp Đen (Blackbox). Lập trình viên Web/Mobile không biết Python, không biết AI là gì. Kỹ sư AI phải bọc con AI đó vào một cái API (Cổng RESTful). Mobile App chỉ cần gọi API `POST /predict (ảnh)`, API sẽ trả về `JSON: {'result': 'Mèo'}`.",
+    "tip": "API (FastAPI) = Cô nhân viên tiếp tân. Nhận yêu cầu (Ảnh) từ Khách Hàng (App) -> Chạy vô phòng đưa cho ông Giám Đốc AI phán -> Đem kết quả (Chữ) ra trả cho Khách.",
+    "tags": ["mlops", "api", "fastapi", "deployment"]
+  },
+  {
+    "id": "C6-004", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "Hiện tượng Model Drift (Sự trôi dạt mô hình) hoặc Data Drift trong MLOps là ác mộng gì?",
+    "options": [
+      "A. Hacker trộm mô hình",
+      "B. Lỗi do Server quá nóng",
+      "C. Hiện tượng Mô hình AI NGÀY CÀNG NGU ĐI (Giảm độ chính xác) theo thời gian khi chạy thực tế, do Thói quen Người dùng và Dữ liệu thực tế thay đổi so với Dữ liệu lúc Train trong quá khứ.",
+      "D. File mô hình bị hư hỏng trên ổ cứng"
+    ],
+    "answer": 2,
+    "explanation": "Năm 2019 bạn Train một mô hình dự đoán xu hướng Mua Hàng. Năm 2020 có Đại dịch Covid (Thói quen tiêu dùng thay đổi 180 độ). Con AI 2019 tự nhiên dự đoán sai be bét (Dù code không hư). Data Drift bắt buộc ta phải Cảnh báo và tự động Huấn Luyện Lại (Retrain) mô hình liên tục.",
+    "tip": "Model Drift = AI bị 'Lỗi Thời' do thời thế thay đổi. (Hôm nay đoán đúng, ngày mai thiên hạ đổi trend thì đoán sai). Cần phải Retrain liên tục.",
+    "tags": ["mlops", "model-drift", "monitoring"]
+  },
+  {
+    "id": "C6-005", "module": "C", "topic": "C6", "difficulty": "easy",
+    "question": "Công cụ Kubernetes (K8s) được dùng chung với Docker để xử lý bài toán nào?",
+    "options": [
+      "A. Huấn luyện mô hình",
+      "B. Gom Cụm và Tự Động Hóa (Orchestration). Khi có 1 triệu User dùng App AI cùng lúc, K8s sẽ tự động NHÂN BẢN con AI lên 100 Server (Scale out) để gánh tải, và tự động xóa bớt khi vắng khách (Tiết kiệm tiền Cloud).",
+      "C. Cài đặt Python",
+      "D. Chạy kiểm thử tự động"
+    ],
+    "answer": 1,
+    "explanation": "Docker chỉ là 1 cái hộp (Container). K8s là ông Thuyền Trưởng điều khiển hàng ngàn cái Hộp đó. K8s cung cấp Auto-scaling, Load Balancing (Chia đều traffic), và Self-healing (Server AI sập, nó tự gọi Server AI khác lên thay thế).",
+    "tip": "Docker = Cái Thùng Container. Kubernetes (K8s) = Ông Cảng Vụ điều phối hàng ngàn thùng Container, thiếu thì gọi thêm, sập thì lấy thùng mới thay.",
+    "tags": ["mlops", "kubernetes", "scaling", "deployment"]
+  },
+  {
+    "id": "C6-006", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Khái niệm Batch Prediction (Dự đoán theo lô) KHÁC VỚI Online/Real-time Prediction (Dự đoán thời gian thực) ở chỗ nào?",
+    "options": [
+      "A. Online có độ trễ cao hơn",
+      "B. Không khác biệt",
+      "C. Online Prediction dự đoán NGAY LẬP TỨC 1 kết quả (VD: FaceID mở điện thoại). Batch Prediction dồn hàng triệu User lại, chạy 1 lượt vào BAN ĐÊM, rồi lưu kết quả vào Database (VD: Tính điểm tín dụng tháng, sinh Danh sách gợi ý phim ngày mai).",
+      "D. Batch chỉ áp dụng cho Text"
+    ],
+    "answer": 2,
+    "explanation": "Chạy Real-time đòi hỏi Server phải luôn bật chờ đón khách (Tốn nhiều tiền), đòi hỏi Model chạy siêu lẹ < 100ms. Chạy Batch thì cài lịch (Cron job) lúc 2h sáng gọi Cụm Server mạnh lên, chạy vèo 1 tiếng xong tắt Server (Rất rẻ).",
+    "tip": "Real-time = User hỏi phát, AI đáp liền. Batch Prediction = Gom 1 đống làm 1 cục lúc nửa đêm cho nó rẻ.",
+    "tags": ["mlops", "batch-prediction", "real-time"]
+  },
+  {
+    "id": "C6-007", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "Quy trình CI/CD (Continuous Integration / Continuous Deployment) trong AI có thêm một chữ C thứ 3 là CT (Continuous Training). CT làm nhiệm vụ gì?",
+    "options": [
+      "A. Continuous Text",
+      "B. Continuous Tracking",
+      "C. TỰ ĐỘNG HUẤN LUYỆN LẠI (Continuous Training) mô hình AI mà không cần con người nhúng tay, khi hệ thống phát hiện có lượng lớn Dữ Liệu mới tràn vào hoặc Model bị lỗi thời (Drift).",
+      "D. Continuous Typing"
+    ],
+    "answer": 2,
+    "explanation": "MLOps cấp độ 0: Bạn tự ngồi chạy Jupyter Notebook rồi nộp file `.pkl`. MLOps cấp độ cao nhất: Bạn đi du lịch, Hệ thống tự lấy Data mới của tháng, Tự Train trên Cloud, Tự Đánh giá xem có xịn hơn bản cũ không, Tự Deploy bản mới lên Web. Hoàn toàn tự động hóa (Pipeline).",
+    "tip": "CT (Continuous Training) = Dây chuyền tự động. Thấy AI dốt đi (Drift) -> Tự lấy Data mới -> Tự đi học -> Tự Thi -> Tự Cập Nhật lên App.",
+    "tags": ["mlops", "ci-cd", "continuous-training"]
+  },
+  {
+    "id": "C6-008", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Mô hình Shadow Deployment (Deploy Bóng ma) trong MLOps là một chiến lược Cực kỳ An Toàn để làm gì?",
+    "options": [
+      "A. Tránh bị hack",
+      "B. Đẩy Mô hình AI Phiên bản Mới (V2) chạy SONG SONG ẩn bên dưới với Bản Cũ (V1). Model V2 cũng tiếp nhận Dữ liệu thực từ khách hàng, nhưng KHÔNG TRẢ KẾT QUẢ CHO KHÁCH (chỉ ghi Log lại), để Kỹ sư theo dõi xem V2 chạy có bị sập không trước khi tung ra thật.",
+      "C. Làm giao diện tối màu (Dark mode)",
+      "D. Đổi tên mô hình"
+    ],
+    "answer": 1,
+    "explanation": "Sếp bắt lên Model V2 mới, nhưng bạn sợ nó gây ra thảm họa làm User bực tức. Bạn dùng Shadow Mode: Khách truy cập vẫn xài V1 (An toàn tuyệt đối). Khách gửi ảnh, V1 và V2 cùng phán đoán. V1 trả ra Web. V2 ghi xuống ổ cứng. Vài ngày sau bạn lấy Log V2 ra coi thử, thấy ngoan thì mới chốt kèo thay thế V1.",
+    "tip": "Shadow Deploy (Bóng ma) = Cho thằng Nhân viên mới (AI V2) đứng theo dõi thằng Nhân viên cũ (AI V1) tiếp khách. Cấm thằng mới mở mồm, chỉ được giải nháp trên giấy. Ngon rồi mới cho lên thật.",
+    "tags": ["mlops", "shadow-deployment", "deployment-strategies"]
+  },
+  {
+    "id": "C6-009", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "A/B Testing (Kiểm thử A/B) trong triển khai Mô hình AI là hình thức phân chia Traffic như thế nào?",
+    "options": [
+      "A. Chạy A ban ngày, B ban đêm",
+      "B. Chia đều Dữ liệu Train thành phần A và phần B",
+      "C. Triển khai cả Model Cũ (A) và Model Mới (B). Đẩy 90% lượng User thực tế vào xài A, đẩy 10% User (Chuột bạch) vào xài B. Sau 1 tuần, so sánh xem nhóm User xài B có tỷ lệ Click/Mua Hàng cao hơn nhóm A không.",
+      "D. Hỏi AI chọn A hay B"
+    ],
+    "answer": 2,
+    "explanation": "Một Model có F1-Score cao hơn trên giấy chưa chắc đã mang lại Tiền cho Công ty. A/B Testing là phép thử thương mại duy nhất. Phải xem User có thực sự Click vào cái món đồ mà Con AI mới gợi ý hay không. Nếu tốt, ta nâng dần 10% lên 50% rồi 100%.",
+    "tip": "A/B Testing = Phép thử 'Tiền tươi thóc thật'. Chia 1 ít User làm 'chuột bạch' xài Model mới xem Công ty có tăng Doanh thu không.",
+    "tags": ["mlops", "ab-testing", "deployment-strategies"]
+  },
+  {
+    "id": "C6-010", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "Công cụ MLflow (do Databricks tạo ra) giải quyết vấn đề QUẢN LÝ (Tracking) gì trong quá trình Huấn luyện Mô hình?",
+    "options": [
+      "A. Quản lý tiền lương Kỹ sư",
+      "B. Quản lý việc Đổi tên thư mục liên tục (vd: model_final, model_final_nhat, model_v2). MLflow tự động ghi nhận MỌI SIÊU THAM SỐ (Parameters) và ĐIỂM SỐ (Metrics) của Hàng Trăm lần Train vào một cái Bảng Dashboard Đẹp Mắt để dễ dàng so sánh.",
+      "C. Quản lý bảo mật",
+      "D. Dịch code Python sang Java"
+    ],
+    "answer": 1,
+    "explanation": "Kỹ sư AI thường bị 'Lú' khi thử nghiệm (Experiment) hàng chục thuật toán với hàng trăm chỉ số (LR, Batch, Depth) trong Jupyter. Nếu không ghi chép, tuần sau không nhớ nổi cái file `model_best.pkl` này cấu hình nó là gì. MLflow sinh ra để lưu log tự động như một cuốn sổ nhật ký nghiên cứu.",
+    "tip": "MLflow Tracking = Cuốn sổ Nhật ký điện tử. Ghi lại tự động: Hôm nay tôi train Model 1 với LR=0.1 được 95 điểm, Model 2 LR=0.01 được 97 điểm.",
+    "tags": ["mlops", "mlflow", "experiment-tracking"]
+  },
+  {
+    "id": "C6-011", "module": "C", "topic": "C6", "difficulty": "easy",
+    "question": "Định dạng ONNX (Open Neural Network Exchange) có tác dụng thần kỳ gì đối với tính Tương thích?",
+    "options": [
+      "A. Làm tăng tốc độ internet",
+      "B. Chống virus ăn model",
+      "C. Là một CHUẨN ĐỊNH DẠNG CHUNG. Bạn có thể Train mô hình bằng PyTorch (Dễ debug), sau đó Xuất (Export) nó ra đuôi `.onnx`. Rồi đem file đó sang cắm vào TensorFlow, C++, hoặc C# (Dễ Deploy) để chạy mà không bị lỗi.",
+      "D. Đổi hình ảnh 2D sang 3D"
+    ],
+    "answer": 2,
+    "explanation": "Mỗi Framework (PyTorch, TensorFlow, Scikit-learn) có một định dạng khóa cứng của riêng nó. ONNX do Microsoft/Facebook thiết lập là một cây cầu chung (Ngôn ngữ quốc tế). Train bằng gì cũng được, miễn lúc Deploy xuất ra ONNX là mọi hệ điều hành đều nhai được.",
+    "tip": "ONNX = Tiếng Anh (Ngôn ngữ quốc tế) của giới AI. Đổi Model từ nền tảng này sang Nền tảng khác dễ như ăn kẹo.",
+    "tags": ["mlops", "onnx", "deployment"]
+  },
+  {
+    "id": "C6-012", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Thuật ngữ 'Model Registry' (Kho lưu trữ mô hình) thường được so sánh giống hệt với công cụ nào trong giới Lập trình Phần mềm?",
+    "options": [
+      "A. Microsoft Word",
+      "B. Giống như GITHUB nhưng dành riêng cho FILE MÔ HÌNH (Models). Nó quản lý Phiên bản (Version 1.0, 2.0), Đánh tag trạng thái (Staging, Production), và cho phép Rollback (Lùi về bản cũ) nếu bản mới bị lỗi.",
+      "C. Photoshop",
+      "D. Trình duyệt Chrome"
+    ],
+    "answer": 1,
+    "explanation": "File Code 10KB thì nhét lên Git được. File Mô hình nặng 10GB mà nhét lên Git thì Git sập. Model Registry (như MLflow Model Registry, HuggingFace) ra đời để lưu trữ phiên bản cho các Cục Model Khổng Lồ, ai cần xài thì lấy cái Link API tải về.",
+    "tip": "Model Registry = Github bự chà bá dành riêng để lưu trữ Cục Model (Quản lý Version 1, 2, 3... Cũ, Mới).",
+    "tags": ["mlops", "model-registry", "versioning"]
+  },
+  {
+    "id": "C6-013", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "Trong MLOps, 'Feature Store' (Kho lưu trữ Đặc trưng) là một khái niệm nâng cao giúp giải quyết triệt để vấn đề gì?",
+    "options": [
+      "A. Bán Đặc trưng lấy tiền",
+      "B. Xóa dữ liệu cũ",
+      "C. Lưu lại các CỘT DỮ LIỆU đã được TIỀN XỬ LÝ SẴN (Ví dụ: Số lần khách quẹt thẻ trong 30 ngày qua). Mọi Model/Kỹ sư trong công ty chỉ việc lên Kho kéo Cột này về xài chung, chống tình trạng 'Mỗi người tự viết 1 code tính toán lại từ đầu' dẫn đến sai lệch lúc Deploy.",
+      "D. Thay thế cơ sở dữ liệu gốc"
+    ],
+    "answer": 2,
+    "explanation": "Nỗi đau: Kỹ sư Data Engineer làm ở dưới Đáy, tính toán ra cột A. Kỹ sư AI lấy cột A train Model ngon. Đưa lên cho Kỹ sư Software Deploy thực tế, Kỹ sư Software tự viết lại Code tính cột A bị sai 1 ly. Model trả kết quả bậy bạ. Feature Store đảm bảo tính Đồng nhất 100% giữa lúc Train và lúc Live.",
+    "tip": "Feature Store = Siêu thị Bán Đồ Ăn Làm Sẵn (Dữ liệu đã Xào nấu). Ai trong Công ty cần xài thì lấy ăn, khỏi mắc công tự nấu lại (Tránh Nấu Sai vị).",
+    "tags": ["mlops", "feature-store", "data-engineering"]
+  },
+  {
+    "id": "C6-014", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Kiến trúc Microservices (Vi dịch vụ) rất phổ biến trong Deploy AI. Đặc điểm cốt lõi của nó là gì so với kiến trúc Monolithic (Nguyên khối)?",
+    "options": [
+      "A. Chia Mô hình AI thành 2 file",
+      "B. Không khác gì nhau",
+      "C. Viết bằng ngôn ngữ Micro",
+      "D. Thay vì nhét toàn bộ Website, AI, Database vào 1 cái Máy Chủ bự (Monolithic). Ta TÁCH RỜI Con AI ra thành 1 Dịch Vụ Độc Lập, Đứng riêng 1 góc, chỉ giao tiếp với Website qua API. Sập AI thì Website vẫn chạy bình thường."
+    ],
+    "answer": 3,
+    "explanation": "Cục AI rất ăn RAM và hay bị treo. Nếu nhét chung (Monolithic), AI sập sẽ kéo sập cả cái Web (User không đọc được tin tức). Dùng Microservices (Docker), AI ở phòng máy A, Web ở phòng máy B. AI bị cháy máy thì Web chỉ bị mất mỗi tính năng 'Gợi ý phim', khách vẫn lướt web vô tư.",
+    "tip": "Microservices (Vi dịch vụ) = Chặt hệ thống thành nhiều mảnh (Docker). Cục AI (Nặng nề, tốn RAM) bị cách ly ở 1 phòng riêng, sập thì sập 1 mình.",
+    "tags": ["mlops", "microservices", "deployment"]
+  },
+  {
+    "id": "C6-015", "module": "C", "topic": "C6", "difficulty": "easy",
+    "question": "Trường hợp nào BẮT BUỘC phải sử dụng kỹ thuật 'Edge Deployment' (Triển khai mô hình trên Thiết bị Biên - Điện thoại/Camera) thay vì gọi API lên Cloud (Cloud Deployment)?",
+    "options": [
+      "A. Khi cần lưu trữ nhiều hình",
+      "B. Khi Model của bạn cần BẢO MẬT TUYỆT ĐỐI (FaceID Apple - không gửi mặt lên mạng) hoặc cần tốc độ PHẢN HỒI THỜI GIAN THỰC không được trễ (Camera xe ô tô tự lái không có internet).",
+      "C. Khi công ty hết tiền",
+      "D. Khi Model quá lớn (100GB)"
+    ],
+    "answer": 1,
+    "explanation": "Chạy Model trên Cloud thì máy rất mạnh, AI bự, nhưng bị TRỄ MẠNG (Latency). Xe đang chạy 100km/h trên cao tốc, rớt mạng 3G, gửi ảnh lên Google hỏi 'Thấy cục đá né không?' đợi 1 giây trả lời về thì xe đã đụng. AI phải cấy thẳng vào trong con Chip của chiếc xe (Edge Computing).",
+    "tip": "Edge Deployment (Cấy AI vô Điện Thoại/Camera) = Trị bách bệnh rớt mạng 3G/Mạng lag. Giữ bí mật dữ liệu người dùng tại chỗ (Offline).",
+    "tags": ["mlops", "edge-computing", "deployment"]
+  },
+  {
+    "id": "C6-016", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "TensorRT (của NVIDIA) là một công cụ tối ưu hóa cực đỉnh dành cho việc Suy diễn Mô hình (Inference) trên GPU. Nó làm gì để Mô hình chạy nhanh gấp 5 lần?",
+    "options": [
+      "A. Nó ÉP KIỂU (Quantization) các con số thực nặng nề FP32 (32-bit) của Mô hình xuống thành FP16 (16-bit) hoặc INT8 (8-bit) và tối ưu hóa ma trận. Giúp giảm 4 lần bộ nhớ và siêu tăng tốc mà độ chính xác hầu như không giảm.",
+      "B. Tăng điện áp cho GPU",
+      "C. Xóa các lớp ảnh thừa",
+      "D. Chạy hai lần để tăng tốc"
+    ],
+    "answer": 0,
+    "explanation": "Khi Train, ta cần sai số tí hon (32-bit siêu mịn) để mô hình hội tụ tốt. Nhưng khi Deploy (Chạy thật Inference), ta không cần học thêm nữa. Việc đổi từ số 3.14159... thành số 3 (INT8) giúp con GPU cỏ cũng chạy được con AI khổng lồ với tốc độ ánh sáng.",
+    "tip": "TensorRT / Quantization = Ép xung, chặt bớt phần thập phân lẻ tẻ (Ép từ 32-bit xuống 8-bit). Đổi Đôi Chút độ chính xác lấy Tốc độ Bàn Thờ (Latency siêu thấp).",
+    "tags": ["mlops", "tensorrt", "quantization", "optimization"]
+  },
+  {
+    "id": "C6-017", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Canary Deployment (Triển khai Chim hoàng yến) là gì trong MLOps?",
+    "options": [
+      "A. Dạy AI hót như chim",
+      "B. Thay thế bản cập nhật cho tất cả 100% người dùng",
+      "C. Đưa Mô hình Mới vào chạy thật nhưng CHỈ CHO MỘT TẬP NHỎ NGƯỜI DÙNG (VD: 1%). Giám sát chặt chẽ xem có Lỗi văng App hay Than phiền gì không. Nếu ổn mới mở Van xả dần lên 10%, 50%, 100%. Nếu có biến thì Tắt ngay để cứu 99% còn lại.",
+      "D. Đưa ảnh chim vào test"
+    ],
+    "answer": 2,
+    "explanation": "Tên này xuất phát từ việc thợ mỏ mang 1 con chim Hoàng yến xuống hầm mỏ. Nếu có khí độc, con chim chết trước, thợ mỏ biết đường chạy. Trong phần mềm, Canary giúp giới hạn thiệt hại (Blast Radius) ở mức tối thiểu nếu Model mới bị Ngu/Bug.",
+    "tip": "Canary Deploy (Chim hoàng yến) = Mở hé cửa lọt 1% Khách vào xài Model mới. Thấy có mùi Khét thì đóng sập cửa lùi về Model cũ liền.",
+    "tags": ["mlops", "canary-deployment", "deployment-strategies"]
+  },
+  {
+    "id": "C6-018", "module": "C", "topic": "C6", "difficulty": "easy",
+    "question": "Hệ thống MLOps thường yêu cầu xây dựng một 'Pipeline' (Đường ống) ví dụ bằng Apache Airflow. Pipeline nghĩa là gì?",
+    "options": [
+      "A. Đường truyền mạng Internet",
+      "B. Ống nước làm mát Server",
+      "C. Viết Code UI",
+      "D. Một Chuỗi các Bước (Steps) nối tiếp nhau một cách tự động (Bước 1: Rút Data, Xong chạy Bước 2: Làm sạch, Xong chạy Bước 3: Train Model). Nếu bước 1 chết, quy trình sẽ dừng và báo lỗi."
+    ],
+    "answer": 3,
+    "explanation": "Đừng bao giờ để Kỹ sư phải ngồi Canh me bấm nút thủ công từng bước. Pipeline là vẽ ra một Đồ thị (DAG). Cứ đúng 2h sáng Chủ Nhật, cỗ máy Airflow sẽ tự bật công tắc đi hút data, làm sạch, chạy XGBoost, nếu ra Model điểm 99 thì báo tự động gửi email cho Giám đốc.",
+    "tip": "Pipeline = Dây chuyền Lắp ráp Tự động trong nhà máy. Đầu vào là Cát (Data Thô), Đầu ra tự rớt ra Cục Kính (Mô Hình Deploy).",
+    "tags": ["mlops", "pipeline", "airflow"]
+  },
+  {
+    "id": "C6-019", "module": "C", "topic": "C6", "difficulty": "hard",
+    "question": "Data Skew (Độ lệch dữ liệu) trong MLOps (Training-Serving Skew) khác với Data Drift như thế nào?",
+    "options": [
+      "A. Hai khái niệm y hệt nhau",
+      "B. Khác về đuôi file",
+      "C. Drift là do THỜI GIAN THAY ĐỔI (Train năm cũ, xài năm nay). Còn Skew (Lệch) là LỖI NGAY TẠI THỜI ĐIỂM XÂY DỰNG: Quá trình Xử lý Data lúc Train (Dùng Python) và quá trình băm Data lúc Chạy Live (Dùng Java/Web) ĐƯỢC VIẾT KHÁC NHAU dẫn đến lệch đặc trưng.",
+      "D. Đổi ảnh màu thành ảnh đen trắng"
+    ],
+    "answer": 2,
+    "explanation": "Training-Serving Skew là lỗi vô duyên nhưng siêu phổ biến. Lúc train, bạn lấy cột (Tuổi - 10). Lúc khách hàng gửi thông tin lên App, thằng Lập trình viên Web quên viết lệnh (- 10) mà ném thẳng Tuổi thực vào AI. Con AI ngơ ngác, sập. Lỗi này bắt nguồn từ việc thiếu đồng bộ giữa Team Data và Team Dev.",
+    "tip": "Training-Serving Skew (Lệch): Quá trình nhào nặn Data lúc Train ở phòng Lab khác hẳn cách nhào nặn Data lúc phục vụ Khách (Mỗi thằng Code 1 kiểu).",
+    "tags": ["mlops", "data-skew", "training-serving-skew"]
+  },
+  {
+    "id": "C6-020", "module": "C", "topic": "C6", "difficulty": "medium",
+    "question": "Chỉ số Latency (Độ trễ) và Throughput (Thông lượng) khi đo hiệu năng Server phục vụ mô hình AI (Serving) mang ý nghĩa gì?",
+    "options": [
+      "A. Tính bằng Kg và Mét",
+      "B. Không quan trọng bằng Accuracy",
+      "C. Latency = THỜI GIAN để mô hình xử lý 1 Yêu Cầu (Càng thấp càng tốt, vd 50ms). Throughput = SỐ LƯỢNG Yêu Cầu mà hệ thống CÓ THỂ XỬ LÝ trong 1 Giây (Càng cao càng tốt, vd 1000 requests/s).",
+      "D. Đo độ nóng GPU"
+    ],
+    "answer": 2,
+    "explanation": "Khách hàng phàn nàn 'App xử lý mặt mộc của tôi chậm quá 5 giây mới xong' -> Lỗi Latency cao (Do Model quá nặng, cần xài TensorRT). Sập Server đêm giao thừa vì quá đông khách -> Lỗi Throughput thấp (Cần dùng Kubernetes Scale ra nhiều Server).",
+    "tip": "Latency = Độ Trễ (Thời gian chờ 1 cái bánh chín). Throughput = Thông lượng (Nhà máy làm được bao nhiêu cái Bánh trong 1 giây).",
+    "tags": ["mlops", "latency", "throughput", "serving"]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D1-001", "module": "D", "topic": "D1", "difficulty": "easy",
+    "question": "Tính chất ACID là quy tắc sống còn của mọi Hệ quản trị Cơ sở dữ liệu Quan hệ (RDBMS) như MySQL, PostgreSQL. Chữ 'A' (Atomicity) có nghĩa là gì?",
+    "options": [
+      "A. Tính tự động hóa",
+      "B. Tính NGUYÊN TỬ (All or Nothing). Trong một Giao dịch (Transaction) chuyển tiền, nếu trừ tiền người gửi thành công nhưng mạng bị rớt trước khi cộng tiền cho người nhận, HỆ THỐNG SẼ ROLLBACK LẠI NHƯ CHƯA TỪNG CÓ GÌ XẢY RA, tiền trả lại cho người gửi.",
+      "C. Tính Ẩn danh",
+      "D. Tính sẵn sàng cao"
+    ],
+    "answer": 1,
+    "explanation": "Cơ sở dữ liệu quan hệ (SQL) được dùng cho Ngân hàng nhờ tính năng này. Một lệnh chuyển tiền gồm 2 vế (Trừ A, Cộng B). Nếu làm xong Vế 1 mà cúp điện, 1 là mất trắng, 2 là tiền nhân đôi. Atomicity đảm bảo một Giao dịch phải thành công 100% hoặc thất bại 100%, không có chuyện thành công một nửa (Dở dang).",
+    "tip": "Atomicity (Nguyên tử) = Làm tất cả hoặc không làm gì cả. Chống mất tiền oan khi Cúp điện.",
+    "tags": ["sql", "rdbms", "acid", "atomicity"]
+  },
+  {
+    "id": "D1-002", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Khái niệm 'Khóa chính' (Primary Key) trong bảng (Table) SQL có 2 tính chất BẮT BUỘC nào?",
+    "options": [
+      "A. Phải là số và tự tăng",
+      "B. Không được rỗng (NOT NULL) VÀ Duy nhất (UNIQUE). Mỗi dòng dữ liệu chỉ được có 1 khóa chính dùng để định danh dòng đó (Ví dụ: Số CMND, Mã sinh viên).",
+      "C. Phải viết hoa toàn bộ",
+      "D. Có thể trùng lặp nếu khác ngày"
+    ],
+    "answer": 1,
+    "explanation": "Primary Key là Linh hồn của RDBMS. Nhờ nó mà khi gọi `SELECT * WHERE id = 5`, hệ thống bốc ra đúng 1 người duy nhất. Nó có thể là 1 cột (id) hoặc Hợp chất của nhiều cột (id_khach, id_sanpham) miễn sao sự kết hợp đó là duy nhất và không bao giờ Rỗng.",
+    "tip": "Primary Key (Khóa chính) = Số CCCD của dòng dữ liệu. Tuyệt đối DUY NHẤT và KHÔNG BAO GIỜ TRỐNG (NOT NULL).",
+    "tags": ["sql", "rdbms", "primary-key"]
+  },
+  {
+    "id": "D1-003", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Chữ 'I' (Isolation - Tính cô lập) trong ACID giải quyết hiện tượng 'Đọc dơ' (Dirty Read) như thế nào?",
+    "options": [
+      "A. Bằng cách cài phần mềm diệt virus",
+      "B. Khi User A đang sửa cột Số Dư Tài Khoản (nhưng CHƯA LƯU - chưa Commit), User B bay vào đọc thì SẼ CHỈ THẤY SỐ DƯ CŨ, không được phép nhìn thấy số đang sửa dở dang của User A, tránh việc ra quyết định sai lầm.",
+      "C. Bằng cách cấm 2 User truy cập cùng lúc",
+      "D. Chặn User B tải ảnh"
+    ],
+    "answer": 1,
+    "explanation": "A chuyển cho B 100k, Transaction đang chạy. Số dư của A vừa bị trừ tạm xuống 0 (Nhưng chưa Commit chốt sổ). Cùng lúc đó C ném 1 cái Bill tính tiền điện cho A, thấy số dư bằng 0, C báo lỗi 'A bị nghèo'. 1s sau Giao dịch A chuyển cho B bị Fail, A nhận lại 100k. Vậy thằng C vừa đọc phải 1 cái Data Rác (Dirty Read). Isolation khóa C lại không cho đọc đến khi A làm xong.",
+    "tip": "Isolation (Cô lập) = Đứa nào đang sửa Dữ liệu thì đóng cửa lại, đứa khác cấm được ngó vào xem lén khúc Đang Sửa Dở (Chống Đọc Dữ Liệu Ảo).",
+    "tags": ["sql", "acid", "isolation", "transaction"]
+  },
+  {
+    "id": "D1-004", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Phép kết nối (JOIN) nào trong SQL sẽ lấy TẤT CẢ các bản ghi từ Bảng Bên Trái, kể cả khi KHÔNG CÓ BẢN GHI KHỚP NÀO ở Bảng Bên Phải (Giá trị sẽ bị gán là NULL)?",
+    "options": [
+      "A. INNER JOIN",
+      "B. LEFT JOIN",
+      "C. RIGHT JOIN",
+      "D. FULL OUTER JOIN"
+    ],
+    "answer": 1,
+    "explanation": "Bảng A (Nhân viên), Bảng B (Phòng ban). Có nhân viên Mới vào chưa kịp xếp Phòng (Phòng = NULL). Nếu xài INNER JOIN, Nhân viên đó bốc hơi khỏi báo cáo luôn (Vì không Khớp). Xài LEFT JOIN Bảng A, Nhân viên vẫn hiện lên danh sách, cột Tên Phòng báo chữ NULL.",
+    "tip": "LEFT JOIN = Ưu tiên Bảng Trái Lên Bàn Thờ. Giữ lại Sạch Sẽ mọi dòng của Trái, Bảng Phải không có ai khớp thì để Trống (NULL).",
+    "tags": ["sql", "join", "left-join"]
+  },
+  {
+    "id": "D1-005", "module": "D", "topic": "D1", "difficulty": "easy",
+    "question": "Lệnh `GROUP BY` trong SQL dùng để làm gì và thường phải ĐI KÈM với các Hàm nào?",
+    "options": [
+      "A. Phân quyền người dùng",
+      "B. Gom Cụm các dòng có cùng giá trị lại thành 1 dòng (Ví dụ: Gom theo Tỉnh Thành). Nó BẮT BUỘC phải đi kèm các Hàm Tổng Hợp (Aggregation) như `COUNT()`, `SUM()`, `AVG()` để tính toán (Ví dụ tính Tổng Doanh Thu của từng Tỉnh).",
+      "C. Sắp xếp thứ tự ABC",
+      "D. Xóa các dòng trùng lặp"
+    ],
+    "answer": 1,
+    "explanation": "Câu hỏi kinh điển: 'Tính Tổng doanh thu của mỗi Vùng'. Nếu chỉ SELECT bình thường sẽ ra hàng ngàn hóa đơn rải rác. `GROUP BY region` bóp hàng ngàn dòng đó gom lại thành đúng 3 Vùng (Bắc, Trung, Nam), sau đó Hàm SUM() sẽ cộng dồn hóa đơn của từng vùng lại.",
+    "tip": "GROUP BY = GOM NHÓM. Đi đôi như hình với bóng cùng Hàm Tính Toán (SUM, COUNT, MAX).",
+    "tags": ["sql", "group-by", "aggregation"]
+  },
+  {
+    "id": "D1-006", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Điều khoản `HAVING` khác gì với `WHERE` trong câu truy vấn SQL?",
+    "options": [
+      "A. `HAVING` viết ở đầu câu",
+      "B. `HAVING` chạy chậm hơn `WHERE`",
+      "C. `WHERE` lọc dữ liệu TỪNG DÒNG MỘT TRƯỚC khi gom nhóm. `HAVING` dùng để lọc CÁC CỤM DỮ LIỆU ĐÃ ĐƯỢC GOM NHÓM VÀ TÍNH TỔNG XONG BỞI `GROUP BY`. (Ví dụ: Tìm các Phòng Ban có TỔNG LƯƠNG > 1 Tỷ).",
+      "D. Cả hai giống hệt nhau"
+    ],
+    "answer": 2,
+    "explanation": "WHERE quét qua từng nhân viên một: 'Lương thằng này > 10 triệu thì lấy'. Nhưng nếu Sếp yêu cầu: 'Liệt kê các Phòng có SỐ LƯỢNG NHÂN VIÊN > 50 người'. Bạn không thể dùng WHERE (Vì WHERE không xài chung Hàm đếm COUNT() được). Bạn phải xài GROUP BY (Gom phòng ban), đếm người, rồi dùng HAVING COUNT() > 50 để lọc Báo Cáo.",
+    "tip": "WHERE = Gác cổng Vòng Gửi Xe (Lọc từng đứa). HAVING = Gác cổng Vòng Chung Kết (Chỉ lọc những Thằng Đại Diện (Cụm) sau khi đã Tính Tổng/Đếm).",
+    "tags": ["sql", "where", "having", "group-by"]
+  },
+  {
+    "id": "D1-007", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Tính năng Index (Chỉ mục) trong SQL giúp Truy vấn dữ liệu NHANH GẤP HÀNG NGÀN LẦN. Đổi lại, nó phải trả cái giá cực đắt nào?",
+    "options": [
+      "A. Bị giới hạn số lượng cột",
+      "B. Phải trả tiền bản quyền",
+      "C. Index tốn RẤT NHIỀU Ổ CỨNG để lưu trữ (như Mục Lục sách). Bất cứ khi nào bạn THÊM (INSERT), SỬA (UPDATE), XÓA (DELETE) dữ liệu gốc, cơ sở dữ liệu phải MẤT THỜI GIAN CẬP NHẬT LẠI cái Index đó, khiến thao tác Ghi Bị Chậm Đi Đáng Kể.",
+      "D. Làm máy chủ nóng lên"
+    ],
+    "answer": 2,
+    "explanation": "Cuốn sách 1000 trang, muốn tìm chữ 'Albert' bạn lật từng trang mất 1 ngày (Table Scan). Thêm trang Mục Lục A-Z (Index), bạn mở chữ A ra phát tìm được ngay trang số 500 (Tìm siêu tốc). Tuy nhiên, mỗi lần Tái bản (Thêm/Sửa/Xóa 1 trang sách), bạn phải Bôi Xóa Viết lại trang Mục Lục, rất mất thời gian.",
+    "tip": "Index (Chỉ mục) = Mục lục sách. Giúp Tìm kiếm (SELECT) lẹ như bay, nhưng làm Thao tác Ghi/Sửa (INSERT/UPDATE) ì ạch vì phải Sắp xếp lại cái Mục lục liên tục.",
+    "tags": ["sql", "index", "performance", "trade-off"]
+  },
+  {
+    "id": "D1-008", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Kiến trúc B-Tree (Cây B-Tree) là cấu trúc ngầm đằng sau 99% các Chỉ mục (Index) của SQL (Ví dụ InnoDB của MySQL). Đặc tính ưu việt nhất của nó là gì?",
+    "options": [
+      "A. Sinh ra ảnh đồ họa",
+      "B. Không bao giờ bị lệch nhánh",
+      "C. Là Cây Tìm Kiếm Cân Bằng. Chiều cao của cây siêu lùn (Thường chỉ 3-4 tầng). Do đó, để tìm 1 bản ghi trong MỘT TỶ DÒNG DỮ LIỆU, hệ thống ổ cứng CHỈ CẦN THAO TÁC ĐỌC (I/O) 3 ĐẾN 4 LẦN LÀ TÌM ĐƯỢC CHÍNH XÁC VỊ TRÍ, thay vì rà soát 1 tỷ lần.",
+      "D. Lưu dữ liệu dưới dạng âm thanh"
+    ],
+    "answer": 2,
+    "explanation": "Đỉnh cao toán học! Tìm nhị phân (Binary Tree) bị bệnh Mọc Dài Thoòng Lòong (Mất cân bằng) khiến truy xuất chậm. B-Tree ép cây phải lùn và phình to bề ngang (Mỗi Node chứa hàng trăm Key). Tìm 1 người trong 1 Tỷ người, số lần bốc dữ liệu lên (Disk I/O) luôn cố định và cực thấp.",
+    "tip": "B-Tree Index = Cây thần chú siêu lùn. Giúp tìm Tên Bạn Gái trong 1 Tỷ Dòng Excel chỉ tốn 3 phát Click Chuột.",
+    "tags": ["sql", "b-tree", "index", "architecture"]
+  },
+  {
+    "id": "D1-009", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Khóa ngoại (Foreign Key) là sợi dây ràng buộc giữa 2 Bảng trong RDBMS. Nó ngăn chặn hành vi PHÁ HOẠI gì?",
+    "options": [
+      "A. Ngăn Hackers đăng nhập",
+      "B. Ngăn việc lưu video nặng",
+      "C. RÀNG BUỘC TOÀN VẸN (Referential Integrity). Nó NGĂN BẠN XÓA một Khách Hàng (Bảng A) nếu Khách Hàng đó VẪN CÒN ĐƠN HÀNG (Bảng B). (Hoặc ngăn thêm một Đơn Hàng mới chứa ID Khách Hàng Không Hề Tồn Tại). Tránh sinh ra 'Dữ liệu Mồ Côi' (Orphan Records).",
+      "D. Ngăn việc copy table"
+    ],
+    "answer": 2,
+    "explanation": "Đây là lý do NoSQL hay bị dữ liệu Rác. Trong SQL, Bảng Hóa Đơn có trường `User_ID` là Khóa Ngoại trỏ về Bảng Người Dùng. Thằng nhân viên Lỡ tay ấn Xóa User đó -> Database Báo Lỗi Chửi vào mặt liền (Vì Ổng còn nợ hóa đơn chưa thanh toán). Hệ thống tự bảo vệ sự nhất quán tuyệt đối.",
+    "tip": "Foreign Key (Khóa ngoại) = Sợi dây Xích. Không cho thằng User biến mất chừng nào nó còn mắc Nợ Hóa Đơn (Ngăn chặn Rác mồ côi).",
+    "tags": ["sql", "foreign-key", "referential-integrity"]
+  },
+  {
+    "id": "D1-010", "module": "D", "topic": "D1", "difficulty": "easy",
+    "question": "View (Khung nhìn) trong SQL là gì?",
+    "options": [
+      "A. Phần mềm xem ảnh",
+      "B. MỘT BẢNG ẢO (Virtual Table) không lưu dữ liệu thật, mà nó lưu một CÂU LỆNH TRUY VẤN (SELECT) phức tạp. Cứ mỗi lần bạn `SELECT * FROM view_A`, nó sẽ chạy ngầm câu truy vấn khổng lồ kia để lấy dữ liệu Tươi (Fresh) nhất.",
+      "C. Đổi màu giao diện",
+      "D. Đăng xuất người dùng"
+    ],
+    "answer": 1,
+    "explanation": "Câu lệnh lấy Báo Cáo Doanh Thu Tháng dài 500 dòng SQL (JOIN 10 cái bảng). Bắt Sếp gõ 500 dòng đó mỗi ngày là vô lý. Kỹ sư Lưu cụm 500 dòng đó lại thành 1 cái VIEW (Tên: `Bao_Cao_Thang`). Sếp chỉ việc gõ `SELECT * FROM Bao_Cao_Thang`, hệ thống sẽ tự chạy 500 dòng kia ra báo cáo.",
+    "tip": "View (Bảng Ảo) = Phím Tắt Macro. Lưu lại cái Đống Lệnh SQL Dài Thoòng Lòong thành 1 cái Tên Ngắn Gọn để dùng đi dùng lại cho khỏe.",
+    "tags": ["sql", "view", "database-design"]
+  },
+  {
+    "id": "D1-011", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Khái niệm N+1 Query Problem là 'Sát thủ Vô Hình' giết chết hiệu năng Web App kết nối SQL. Nó xảy ra như thế nào?",
+    "options": [
+      "A. Khi App gọi 1 Query lớn nhưng chia làm nhiều phần",
+      "B. Khi App CẦN LOAD 10 BÀI VIẾT, nó chạy 1 Query Lấy 10 Bài Viết. Sau đó Lập trình viên DÙNG VÒNG LẶP FOR chạy 10 lần Truy Vấn CƠ SỞ DỮ LIỆU ĐỂ LẤY TÊN TÁC GIẢ CHO TỪNG BÀI MỘT (Tổng cộng 11 Queries). Làm Database bị ngập lụt Request (Rất chậm).",
+      "C. Khi số thứ tự bị sai",
+      "D. Bấm F5 liên tục"
+    ],
+    "answer": 1,
+    "explanation": "Lỗi cực kỳ phổ biến của dân xài ORM (như Hibernate, Django ORM). Thay vì viết 1 dòng SQL `INNER JOIN` ngon lành (Chạy tốn 10ms), thằng Lập trình viên bốc 10 bài viết (1 Query), xong nó viết vòng lặp `for bai_viet in List: lấy_tac_gia()` bắn thêm N cái Query rời rạc vào DB. (Tốn 10,000ms). Dẫn đến kẹt xe cổ chai mạng.",
+    "tip": "N+1 Query = Thảm Họa Dùng Vòng Lặp Bắn Tỉa Database (Bắn lẻ tẻ hàng ngàn Lệnh nhỏ). Cách trị: Dùng JOIN (Bắn 1 phát ăn luôn 1 Cục Bự).",
+    "tags": ["sql", "n+1-problem", "performance", "orm"]
+  },
+  {
+    "id": "D1-012", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Lệnh `EXPLAIN` (hoặc `EXPLAIN ANALYZE`) trong SQL là 'Chiếc Đèn Pin' của Kỹ sư Data. Nó soi cái gì?",
+    "options": [
+      "A. Soi cấu trúc Bảng",
+      "B. Soi XEM CƠ SỞ DỮ LIỆU ĐÃ 'LÊN KẾ HOẠCH' (Execution Plan) NHƯ THẾ NÀO để chạy Câu Truy Vấn của bạn. Nó chỉ ra liệu DB có Đang Quét Cả Bảng (Table Scan - Rất Ngu) hay Có Đang Xài Index Không, và khâu nào tốn thời gian nhất.",
+      "C. Đọc mật khẩu Admin",
+      "D. Dịch ra tiếng Anh"
+    ],
+    "answer": 1,
+    "explanation": "Câu Query chạy 10 phút không ra kết quả. Gõ `EXPLAIN SELECT ...`, nó sẽ bung ra 1 Đồ Thị Kế Hoạch. Bạn nhìn vào thấy chữ Đỏ chóe 'Full Table Scan' -> À há! Chỗ này mình quên gán Index, nó quét 1 Tỷ dòng bằng tay. Thêm Index vào, EXPLAIN lại thấy chữ 'Index Seek' -> Query chạy tốn 10ms.",
+    "tip": "EXPLAIN = Bác sĩ Chụp X-Quang. Soi vào bụng Lệnh SQL xem nó có đang Ngu ngốc Chạy Vòng Vòng (Quét Cả Bảng) hay Đang Chạy Ngon (Xài Index).",
+    "tags": ["sql", "explain", "query-optimization", "performance"]
+  },
+  {
+    "id": "D1-013", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Stored Procedure (Thủ tục lưu trữ) khác gì với View trong SQL?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Nó lưu được ảnh",
+      "C. View chỉ là 1 Câu SELECT (Chỉ Đọc). Stored Procedure LÀ MỘT ĐOẠN CODE LẬP TRÌNH THỰC SỰ CHẠY BÊN TRONG DATABASE (Bao gồm Vòng lặp For, Câu lệnh If-Else, biến, và các lệnh Ghi Cập Nhật INSERT/UPDATE phức tạp).",
+      "D. View bảo mật tốt hơn"
+    ],
+    "answer": 2,
+    "explanation": "Tính tiền thưởng cuối năm cho 10 vạn nhân sự (Rất nhiều luật If Else phức tạp). Nếu kéo Data về App bằng Python, đường truyền Mạng sẽ sập (Kéo 10 vạn dòng). Kỹ sư viết mẹ thành 1 cái Stored Procedure, ném cục Code đó VÀO THẲNG BỤNG DATABASE. DB cắn răng tự nhai tự cập nhật Tốc Độ Ánh Sáng mà méo tốn 1 byte Băng thông Mạng nào.",
+    "tip": "Stored Procedure (SP) = Gửi Hẳn Cục Code (If Else, Vòng Lặp) VÀO TRONG bụng Database Bắt Nó Tự Tính. Tránh việc Kéo Data Bự Qua Mạng Lên App (Bóp Băng Thông).",
+    "tags": ["sql", "stored-procedure", "database-design"]
+  },
+  {
+    "id": "D1-014", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Tính năng Window Functions (như `ROW_NUMBER()`, `RANK() OVER`) mang sức mạnh phép thuật gì so với `GROUP BY`?",
+    "options": [
+      "A. Vẽ đồ thị hình học",
+      "B. Đổi màu màn hình Window",
+      "C. `GROUP BY` bóp nát các dòng chi tiết lại thành 1 dòng Tổng. Window Functions VỪA TÍNH TỔNG/XẾP HẠNG TRÊN TỪNG NHÓM, NHƯNG VẪN GIỮ NGUYÊN VẸN TẤT CẢ CÁC DÒNG CHI TIẾT Ban đầu (Không làm mất dữ liệu gốc).",
+      "D. Đếm số lượng từ vựng"
+    ],
+    "answer": 2,
+    "explanation": "Câu hỏi nhức nách nhất đi Phỏng Vấn: 'Lấy ra Tên 3 nhân viên lương cao nhất CỦA TỪNG PHÒNG BAN'. GROUP BY bó tay (nó chỉ lấy MAX được 1 đứa, hoặc gộp tên lại). Dùng `RANK() OVER (PARTITION BY Phong_Ban ORDER BY Luong DESC)` nó sẽ giữ nguyên Danh sách nhân sự, gắn cái Số Hạng (1,2,3) vào mông từng đứa. Cực kỳ bá đạo.",
+    "tip": "Window Functions (RANK OVER) = Nhét Số Thứ Tự (Xếp hạng) vào mông Từng Dòng, Tính Tổng Từng Cụm nhưng Vẫn Giữ Nguyên Cấu Trúc Bảng Lõi (Không Bóp Nát Như Group By).",
+    "tags": ["sql", "window-functions", "rank", "partition-by"]
+  },
+  {
+    "id": "D1-015", "module": "D", "topic": "D1", "difficulty": "easy",
+    "question": "Hành động 'Chuẩn hóa Cơ sở dữ liệu' (Normalization - Đưa về 1NF, 2NF, 3NF) nhằm mục đích CỐT LÕI gì?",
+    "options": [
+      "A. Tăng dung lượng dữ liệu",
+      "B. Trang trí bảng cho đẹp",
+      "C. LOẠI BỎ SỰ DƯ THỪA DỮ LIỆU (Trùng lặp) và ĐẢM BẢO TÍNH NHẤT QUÁN. Tách các bảng Lớn ra thành các bảng Nhỏ có ý nghĩa cụ thể (Ví dụ: Tách Bảng Khách Hàng khỏi Bảng Hóa Đơn) và nối lại bằng Khóa Ngoại.",
+      "D. Mã hóa số thẻ tín dụng"
+    ],
+    "answer": 2,
+    "explanation": "Nếu Lưu Thông Tin Khách (Tên, SDT, Địa Chỉ Tỉnh) trực tiếp vào Bảng Đơn Hàng. Khách mua 100 lần, ta phải ghi lại cái Tên và Địa Chỉ đó 100 lần (Dư thừa). Tệ hơn, nếu Tỉnh đổi tên, ta phải sửa 100 dòng. Chuẩn hóa 3NF Tách Khách Hàng ra Bảng riêng (Chỉ có 1 dòng lưu tên khách). Hóa đơn chỉ trỏ cái ID vô Bảng Khách (Sạch sẽ, Nhất quán).",
+    "tip": "Chuẩn hóa (Normalization) = Thái Bảng Lớn ra Nhiều Bảng Nhỏ. Trị Bệnh Ghi Thừa (1 Người gõ lại Tên 100 Lần) và Bệnh Sửa Khó (Sửa 1 chỗ, chỗ kia quên sửa đâm ra lệch pha).",
+    "tags": ["sql", "normalization", "database-design"]
+  },
+  {
+    "id": "D1-016", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "Trái ngược với Chuẩn Hóa, kỹ thuật Phi Chuẩn Hóa (Denormalization) là 'Sự suy đồi có chủ đích' của Kiến trúc Data Warehouse. Tại sao Lại Chủ Động Bơm Dư Thừa Dữ Liệu vào Bảng?",
+    "options": [
+      "A. Bị Virus",
+      "B. Không biết cách chuẩn hóa",
+      "C. KHI CẦN TỐC ĐỘ ĐỌC (SELECT) SIÊU CAO CHO BÁO CÁO (BI). Để đọc Báo cáo 3NF, Cột Tên Khách Hàng nằm tuốt bên Bảng A, Đơn Giá Bảng B, ta phải gõ Lệnh JOIN 10 Bảng lại (Vắt kiệt sức CPU, chạy chậm rì). Phi Chuẩn Hóa CHẤP NHẬN TỐN Ổ CỨNG, Nhét hết Tên/SĐT Khách/Địa Chỉ vào chung 1 Bảng Khổng Lồ để Lệnh SELECT Đọc cái Vèo Ăn Luôn Không Cần JOIN.",
+      "D. Đổi hệ điều hành"
+    ],
+    "answer": 2,
+    "explanation": "Database Bán Hàng (OLTP - Write nhiều) bắt buộc 3NF để chống Rác dữ liệu. Nhưng Data Warehouse (OLAP - Chỉ có Read, Phân tích dữ liệu) thì chả ai sửa Data nữa. Việc Bắt Hệ thống JOIN 10 bảng Tỷ Dòng là tự sát. Kỹ sư đập nát nguyên lý 3NF, gộp hết vô chung 1 bảng 'Béo Phì' (Flat Table) để đút vào BI Dashboard chạy báo cáo tức thì.",
+    "tip": "Phi Chuẩn Hóa (Nhét chung 1 Bảng Bự) = Trái Lời Phật Dạy. Chấp nhận Hao Ổ cứng (Dư thừa) để Mua Lấy Tốc Độ Đọc Báo Cáo Ánh Sáng (Khỏi tốn CPU ngồi CỘNG JOIN 10 cái bảng Tỷ dòng).",
+    "tags": ["sql", "denormalization", "data-warehouse", "performance"]
+  },
+  {
+    "id": "D1-017", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Lệnh `UNION` và `UNION ALL` khác biệt chí mạng ở điểm nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. `UNION` chạy nhanh hơn `UNION ALL`",
+      "C. `UNION` gộp 2 Bảng và tự động CẮT BỎ CÁC DÒNG TRÙNG LẶP (Duplicate) (Rất Tốn CPU). `UNION ALL` gộp bừa 2 Bảng lại, Mặc Kệ Trùng Lặp Cứ Thế Trả Về (Chạy Nhanh Gấp 10 Lần).",
+      "D. `UNION ALL` chỉ dùng cho số"
+    ],
+    "answer": 2,
+    "explanation": "Có 2 Danh sách Email Khách hàng ở SG và HN (Mỗi list 1 triệu người, có nhiều người sống ở cả 2 nơi). Gõ `UNION`, CSDL phải So Sánh 2 Triệu dòng với nhau để Lọc đứa Trùng Tên (Sorting - vắt cạn CPU). Nếu Sếp chỉ cần đếm Tổng số người Hỗn Lạp, gõ `UNION ALL` chớp mắt là có kết quả vì nó đắp đè Lên nhau cẩu thả.",
+    "tip": "UNION = Gộp Cẩn Thận, Vứt Rác Bị Trùng Lặp (Tốn CPU). UNION ALL = Vớ Bừa Gộp Hết, Éo Cần Biết Trùng Không (Nhanh Siêu Tốc). Luôn ưu tiên xài UNION ALL nếu data sạch.",
+    "tags": ["sql", "union", "union-all", "performance"]
+  },
+  {
+    "id": "D1-018", "module": "D", "topic": "D1", "difficulty": "hard",
+    "question": "SQL Injection là Lỗ Hổng Bảo Mật NGU ĐẦN và Cổ Điển nhất nhưng Vẫn Phá Sản Hàng Loạt Web App. Hacker lợi dụng điều gì?",
+    "options": [
+      "A. Hack Pass Wifi Cty",
+      "B. Lập trình viên NGU NGỐC Gắn Trực Tiếp (Nối Chuỗi String Concatenation) Dữ Liệu Mà User Nhập ở Ô Đăng Nhập VÀO THẲNG CÂU LỆNH SQL CỦA HỆ THỐNG. Hacker gõ `1' OR '1'='1` vào Ô Tên Đăng Nhập, Hệ Thống sẽ biến nó thành Câu Lệnh Lỗi Mở Khóa Mọi Tài Khoản (Luôn Luôn Đúng).",
+      "C. Mua Tool hack trên mạng",
+      "D. Đăng nhập 1 triệu lần"
+    ],
+    "answer": 1,
+    "explanation": "Code cùi bắp: `Query = \"SELECT * FROM Users WHERE name = '\" + username + \"'\"`. Hacker nhập vào TextBox: `admin' --`. Query Server sẽ chạy thành: `SELECT * FROM Users WHERE name = 'admin' --'`. Dấu `--` trong SQL là Comment (Chửi Tục Bỏ Đoạn Sau). Bùm! Nó bỏ mẹ cái đoạn Check Password và Đăng Nhập thẳng vào acc Admin. Biện pháp duy nhất: Dùng Tham số Hóa (Parameterized Queries / Prepared Statements).",
+    "tip": "SQL Injection = Hacker Ném Câu Chú Nguyền Rủa (Dấu Nháy Chặn Lệnh) vào Khung Text, Hệ thống Nuốt Ngây Thơ Chạy Thẳng Vào Database Làm Nổ Server. Cách trị: Dùng Paramaterized Code.",
+    "tags": ["sql", "sql-injection", "security"]
+  },
+  {
+    "id": "D1-019", "module": "D", "topic": "D1", "difficulty": "medium",
+    "question": "Một Column (Cột) kiểu `VARCHAR(255)` Khác Biệt gì về Phân Bổ Ổ Cứng so với Cột kiểu `CHAR(255)`?",
+    "options": [
+      "A. Giao diện màu đỏ",
+      "B. CHAR(255) CHUẨN CỐ ĐỊNH KÍCH THƯỚC (Nhập chữ 'AI' 2 ký tự thì nó vẫn Cấp Vứt 253 Dấu Cách Trắng vào Ổ cứng để tròn 255). VARCHAR(255) LÀ KÍCH THƯỚC ĐỘNG (Nhập 2 chữ thì nó chỉ tốn 2 byte Ổ Cứng, rất Tiết Kiệm).",
+      "C. Không khác gì",
+      "D. VARCHAR lưu hình ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Nghe VARCHAR (Variable Character) tiết kiệm rác hơn CHAR (Fixed) thì ai cũng xài VARCHAR. NHƯNG! CHAR(10) cố định chiều dài, Database TÌM KIẾM cực kỳ nhanh (Tính theo khối cố định). Nếu lưu Mã Bưu Điện (Luôn 6 ký tự) hoặc Mã Số Thuế (10 ký tự), bắt buộc xài CHAR. Còn Lưu Tên Khách Hàng dài ngắn lởm chởm mới xài VARCHAR.",
+    "tip": "CHAR = Chiếc hộp Sắt Bất Biến (Nhét vô ít thì cũng Chiếm Chỗ Bấy Nhiêu) -> Truy Xuất Lẹ. VARCHAR = Bao Cao Su Co Giãn (Nhét bao nhiêu Lớn bấy nhiêu) -> Đỡ Hao Ổ cứng nhưng Tốn Công Suy Đoán Lúc Tìm Kiếm.",
+    "tags": ["sql", "varchar", "char", "data-types"]
+  },
+  {
+    "id": "D1-020", "module": "D", "topic": "D1", "difficulty": "easy",
+    "question": "Lệnh `TRUNCATE TABLE` Cực Kỳ Khác Biệt (Và Nguy Hiểm) hơn `DELETE FROM TABLE` ở điểm Cốt Tử nào?",
+    "options": [
+      "A. Xóa Table vĩnh viễn không khôi phục",
+      "B. TRUNCATE Đổi Tên Bảng",
+      "C. `DELETE` xóa từng dòng một, ĐỌC VÀ GHI LOG lại từng dòng (Chạy rất lâu cho 1 Triệu Dòng) và CÓ THỂ ROLLBACK (Lấy Lại Khôi phục được). `TRUNCATE` Chém Bỏ Mẹ Nó Cái Nền Móng (Xóa Xạch Cả Bảng 1 Phát) không Ghi Log Dữ Liệu -> TỐC ĐỘ SIÊU KHỦNG VÀ KHÔNG THỂ ROLLBACK LẤY LẠI ĐƯỢC.",
+      "D. Cả 2 Y Chang Nhau"
+    ],
+    "answer": 2,
+    "explanation": "Chết người! Gõ DELETE thì lỡ tay Nhấn Nút Hủy (Rollback) thì Server nhả lại cục Data đó. Gõ TRUNCATE TABLE xong thì khóc tiếng Mán, không ông Cứu Hộ nào lôi lại cục Log đó được (Dùng cho Bảng Tạm/Rác, cần Dọn dẹp với Tốc độ Bàn Thờ).",
+    "tip": "DELETE = Sát Thủ Ngồi Chém Từng Dòng, Có Ghi Chép Sổ Tử Thần, Sai Thì Cho Xóa Án Làm Lại (Chậm). TRUNCATE = Ném Quả Bom Nguyên Tử Bay Màu Cả Bảng. Éo Thể Lấy Lại Được (Max Speed).",
+    "tags": ["sql", "truncate", "delete", "commands"]
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "A8-001", "module": "A", "topic": "A8", "difficulty": "easy",
+    "question": "Trong Lý thuyết thông tin, lượng thông tin tự thân (Self-Information) của một biến cố có xác suất xảy ra P(x) được tính bằng công thức nào?",
+    "options": [
+      "A. P(x)",
+      "B. 1 - P(x)",
+      "C. -log2(P(x))",
+      "D. e^P(x)"
+    ],
+    "answer": 2,
+    "explanation": "Lượng thông tin I(x) = -log2(P(x)). Nếu xác suất P(x) = 1 (chắc chắn xảy ra), thông tin mang lại bằng 0. Nếu P(x) rất nhỏ (bất ngờ), lượng thông tin mang lại rất lớn. Cơ số 2 cho ra đơn vị là bit.",
+    "tip": "Sự kiện càng HIẾM (P nhỏ) -> Lượng thông tin càng LỚN (Surprise).",
+    "tags": ["information-theory", "self-information"]
+  },
+  {
+    "id": "A8-002", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Entropy (Shannon Entropy) H(X) của một biến ngẫu nhiên rời rạc X đại diện cho điều gì?",
+    "options": [
+      "A. Tổng xác suất của tất cả các biến cố",
+      "B. Giá trị lớn nhất của biến ngẫu nhiên",
+      "C. Kỳ vọng (giá trị trung bình) của lượng thông tin tự thân (Self-information)",
+      "D. Độ dài ngắn nhất của chuỗi bit nén"
+    ],
+    "answer": 2,
+    "explanation": "Entropy H(X) = E[-log2(P(x))] = -Σ P(x)log2(P(x)). Nó đo lường mức độ bất định (uncertainty) trung bình, hay lượng thông tin trung bình cần thiết để mô tả trạng thái của hệ thống.",
+    "tip": "Entropy = Kỳ vọng lượng thông tin (Mức độ hỗn loạn/Bất định trung bình).",
+    "tags": ["information-theory", "entropy"]
+  },
+  {
+    "id": "A8-003", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Một đồng xu hoàn toàn công bằng (P(Sấp) = 0.5, P(Ngửa) = 0.5). Entropy của biến ngẫu nhiên tung đồng xu này là bao nhiêu bit?",
+    "options": ["A. 0 bit", "B. 0.5 bit", "C. 1 bit", "D. 2 bit"],
+    "answer": 2,
+    "explanation": "H(X) = - (0.5 * log2(0.5) + 0.5 * log2(0.5)) = - (0.5 * -1 + 0.5 * -1) = 1 bit. Mức độ bất định cao nhất với đồng xu là 1 bit.",
+    "tip": "Đồng xu công bằng (50/50) có Entropy tối đa là 1 bit.",
+    "tags": ["information-theory", "entropy", "calculation"]
+  },
+  {
+    "id": "A8-004", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Entropy của một biến ngẫu nhiên X (nhận n giá trị khác nhau) đạt giá trị LỚN NHẤT khi nào?",
+    "options": [
+      "A. Khi X chỉ nhận 1 giá trị duy nhất (P(x) = 1)",
+      "B. Khi phân phối của X là phân phối đều (Mọi P(x) = 1/n)",
+      "C. Khi phương sai của X bằng 0",
+      "D. Khi X tuân theo phân phối chuẩn"
+    ],
+    "answer": 1,
+    "explanation": "Entropy cực đại khi mức độ 'không thể đoán trước' (bất định) là lớn nhất. Điều này xảy ra khi tất cả các khả năng đều có xác suất bằng nhau (phân phối đều Uniform).",
+    "tip": "Bất định lớn nhất (Entropy Max) = Khi mọi thứ đều có khả năng xảy ra như nhau.",
+    "tags": ["information-theory", "entropy", "maximum"]
+  },
+  {
+    "id": "A8-005", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Cross-Entropy H(P, Q) giữa phân phối thực (P) và phân phối dự đoán (Q) đo lường điều gì?",
+    "options": [
+      "A. Lượng thông tin tự thân của P",
+      "B. Chi phí trung bình để mã hóa các sự kiện từ P bằng cách sử dụng bộ mã tối ưu cho Q",
+      "C. Sự khác biệt trực tiếp (phép trừ) giữa 2 ma trận",
+      "D. Tổng Entropy của P và Q"
+    ],
+    "answer": 1,
+    "explanation": "Cross-Entropy tính lượng bit trung bình cần dùng nếu chúng ta dùng phân phối Q (niềm tin của ta/mô hình) để mã hóa dữ liệu sinh ra từ phân phối P (thực tế). H(P, Q) = -Σ P(x)log2(Q(x)).",
+    "tip": "Cross-Entropy = Dùng sách mã Q để dịch thông điệp P. Nếu Q khác P, sẽ tốn nhiều bit hơn (Loss cao).",
+    "tags": ["information-theory", "cross-entropy", "machine-learning"]
+  },
+  {
+    "id": "A8-006", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Mối quan hệ giữa Cross-Entropy (CE), Entropy của P (H(P)), và KL Divergence (D_KL) là:",
+    "options": [
+      "A. CE = H(P) + D_KL(P||Q)",
+      "B. CE = H(P) - D_KL(P||Q)",
+      "C. D_KL = CE + H(P)",
+      "D. CE = D_KL(P||Q) / H(P)"
+    ],
+    "answer": 0,
+    "explanation": "Cross-Entropy = [Độ bất định vốn có của P] + [Thông tin dư thừa do dùng Q thay vì P]. Tức là H(P, Q) = H(P) + D_KL(P||Q). Vì H(P) cố định (ground truth), tối thiểu hóa Cross-Entropy tương đương tối thiểu hóa KL Divergence.",
+    "tip": "Cross-Entropy = Entropy(Ground Truth) + KL Divergence. (Nền tảng của Loss Function trong Deep Learning).",
+    "tags": ["information-theory", "cross-entropy", "kl-divergence"]
+  },
+  {
+    "id": "A8-007", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "KL Divergence (Kullback-Leibler Divergence) có tính chất nào sau đây?",
+    "options": [
+      "A. D_KL(P||Q) = D_KL(Q||P) (Tính đối xứng)",
+      "B. D_KL(P||Q) luôn < 0",
+      "C. D_KL(P||Q) >= 0, và bằng 0 khi và chỉ khi P = Q",
+      "D. D_KL(P||Q) là một khoảng cách Metric đúng nghĩa (như khoảng cách Euclid)"
+    ],
+    "answer": 2,
+    "explanation": "KL Divergence đo lượng thông tin mất mát khi dùng Q xấp xỉ P. Theo bất đẳng thức Gibbs, D_KL luôn ≥ 0. Nó KHÔNG ĐỐI XỨNG và KHÔNG thỏa mãn bất đẳng thức tam giác, nên không phải là Metric toán học thực sự.",
+    "tip": "KL Divergence: Luôn >= 0, KHÔNG đối xứng (P||Q khác Q||P).",
+    "tags": ["information-theory", "kl-divergence", "properties"]
+  },
+  {
+    "id": "A8-008", "module": "A", "topic": "A8", "difficulty": "easy",
+    "question": "Trong học máy, tại sao ta hay dùng hàm Cross-Entropy Loss cho bài toán phân loại (Classification) thay vì Mean Squared Error (MSE)?",
+    "options": [
+      "A. Vì MSE không tính được đạo hàm",
+      "B. Vì Cross-Entropy trừng phạt mạnh hơn (theo hàm log) những dự đoán sai lệch hoàn toàn so với ground truth (tự tin cao nhưng sai)",
+      "C. Vì Cross-Entropy chạy nhanh hơn",
+      "D. Vì MSE chỉ dùng cho hình ảnh"
+    ],
+    "answer": 1,
+    "explanation": "MSE với Softmax thường tạo ra gradient rất nhỏ (Vanishing gradient) khi mô hình tự tin sai. Cross-Entropy dùng hàm -log(Q), nếu Q rất nhỏ (gần 0) thì loss tiến tới vô cùng, cung cấp gradient lớn giúp sửa lỗi cực nhanh.",
+    "tip": "Phân loại (Xác suất) -> Dùng Cross-Entropy. Hồi quy (Giá trị liên tục) -> Dùng MSE.",
+    "tags": ["information-theory", "cross-entropy", "machine-learning"]
+  },
+  {
+    "id": "A8-009", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Information Gain (Mức tăng thông tin) thường được dùng làm tiêu chí trong thuật toán Học Máy nào?",
+    "options": [
+      "A. Support Vector Machine (SVM)",
+      "B. K-Means Clustering",
+      "C. Decision Tree (Cây quyết định)",
+      "D. Linear Regression"
+    ],
+    "answer": 2,
+    "explanation": "Cây quyết định (ví dụ: thuật toán ID3, C4.5) chọn thuộc tính để phân nhánh dựa trên Information Gain lớn nhất. Information Gain đo lường mức độ giảm Entropy của tập dữ liệu sau khi chia nhỏ theo thuộc tính đó.",
+    "tip": "Information Gain = Khái niệm lõi để chia nhánh Cây Quyết Định (Decision Tree).",
+    "tags": ["information-theory", "information-gain", "decision-tree"]
+  },
+  {
+    "id": "A8-010", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Công thức tính Information Gain (IG) khi phân tách tập dữ liệu S theo thuộc tính A là:",
+    "options": [
+      "A. IG(S, A) = Entropy(S) - Σ ( |S_v| / |S| ) * Entropy(S_v)",
+      "B. IG(S, A) = Entropy(S) + Entropy(A)",
+      "C. IG(S, A) = Entropy(S) / Entropy(A)",
+      "D. IG(S, A) = D_KL(S || A)"
+    ],
+    "answer": 0,
+    "explanation": "Information Gain bằng Entropy của tập gốc (chưa phân chia) TRỪ đi tổng Entropy trung bình có trọng số của các tập con sau khi phân chia theo thuộc tính A. IG càng lớn, thuộc tính A phân loại càng tốt.",
+    "tip": "Information Gain = Entropy(Trước) - Trọng số * Entropy(Sau). Giảm Entropy = Tăng Gain.",
+    "tags": ["information-theory", "information-gain", "entropy"]
+  },
+  {
+    "id": "A8-011", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Mutual Information (Thông tin tương hỗ) I(X; Y) giữa 2 biến ngẫu nhiên X và Y đo lường điều gì?",
+    "options": [
+      "A. Tổng lượng thông tin của X và Y",
+      "B. Lượng thông tin của X khi chưa biết Y",
+      "C. Lượng thông tin thu được về một biến ngẫu nhiên, nhờ quan sát biến ngẫu nhiên kia",
+      "D. Phương sai của X và Y"
+    ],
+    "answer": 2,
+    "explanation": "Mutual Information đo lường sự phụ thuộc giữa X và Y. I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X). Nếu X và Y hoàn toàn độc lập, biết Y không giúp gì về X -> I(X;Y) = 0.",
+    "tip": "Mutual Information = Lượng Entropy (bất định) của X bị GIẢM ĐI sau khi ta biết Y.",
+    "tags": ["information-theory", "mutual-information"]
+  },
+  {
+    "id": "A8-012", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Định lý Mã hóa Nguồn (Source Coding Theorem) của Shannon phát biểu điều gì về giới hạn nén dữ liệu?",
+    "options": [
+      "A. Có thể nén dữ liệu nhỏ đến mức bằng 0",
+      "B. Độ dài trung bình L của một bộ mã cho nguồn X luôn có giới hạn dưới (lower bound) bằng Entropy H(X)",
+      "C. File văn bản luôn nén tốt hơn file hình ảnh",
+      "D. Lượng bit nén phụ thuộc tốc độ CPU"
+    ],
+    "answer": 1,
+    "explanation": "Shannon chứng minh rằng không có phương pháp nén không tổn hao (lossless compression) nào có thể nén một thông điệp (biến ngẫu nhiên X) xuống dưới mức trung bình là H(X) bit/ký tự.",
+    "tip": "Entropy là giới hạn tận cùng của việc nén dữ liệu (Lossless).",
+    "tags": ["information-theory", "shannon-theorem", "entropy"]
+  },
+  {
+    "id": "A8-013", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Mã hóa Huffman (Huffman Coding) phân bổ độ dài bit như thế nào để nén dữ liệu hiệu quả nhất?",
+    "options": [
+      "A. Gán số bit bằng nhau cho mọi ký tự (như ASCII)",
+      "B. Ký tự xuất hiện THƯỜNG XUYÊN (P cao) được gán mã NGẮN, ký tự HIẾM được gán mã DÀI",
+      "C. Ký tự xuất hiện thường xuyên gán mã DÀI",
+      "D. Dùng mã màu thay vì mã nhị phân"
+    ],
+    "answer": 1,
+    "explanation": "Mã Huffman tạo một cây nhị phân tối ưu. Các ký tự xuất hiện nhiều (tần suất cao, xác suất lớn) sẽ nằm gần gốc cây (mã ngắn). Điều này giúp độ dài trung bình của thông điệp tiến rất gần tới giới hạn Entropy của Shannon.",
+    "tip": "Huffman Coding: Chữ nào xài nhiều (như E, A) thì mã ngắn (Vd: 01). Chữ hiếm (như Z) thì mã dài (Vd: 11010).",
+    "tags": ["information-theory", "huffman-coding", "compression"]
+  },
+  {
+    "id": "A8-014", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Perplexity (PPL) là một thước đo phổ biến trong Mô hình Ngôn ngữ Lớn (LLM) để đánh giá điều gì?",
+    "options": [
+      "A. Tốc độ sinh text của mô hình (Tokens/sec)",
+      "B. Sự bối rối (Perplexity) của mô hình; PPL càng THẤP, mô hình dự đoán từ tiếp theo càng TỐT",
+      "C. Số lượng tham số của mô hình",
+      "D. PPL càng CAO, mô hình càng tốt"
+    ],
+    "answer": 1,
+    "explanation": "Perplexity = 2^(Cross-Entropy). Nó đo lường mô hình 'ngạc nhiên/bối rối' cỡ nào khi nhìn thấy một dữ liệu thực tế. PPL thấp nghĩa là mô hình dự đoán đúng với xác suất rất cao, ít bối rối.",
+    "tip": "Perplexity (PPL) tỷ lệ thuận với Cross-Entropy. PPL càng NHỎ -> Mô hình càng XỊN.",
+    "tags": ["information-theory", "perplexity", "nlp", "llm"]
+  },
+  {
+    "id": "A8-015", "module": "A", "topic": "A8", "difficulty": "easy",
+    "question": "Trong không gian thông tin, 1 Byte tương đương bao nhiêu Bit?",
+    "options": ["A. 2", "B. 4", "C. 8", "D. 16"],
+    "answer": 2,
+    "explanation": "1 Byte luôn bằng 8 Bits. Đây là quy ước nền tảng của khoa học máy tính. 1 Bit chỉ mang giá trị 0 hoặc 1.",
+    "tip": "Byte lớn, Bit nhỏ. 1 Byte = 8 Bits. (B lớn là Byte, b nhỏ là bit).",
+    "tags": ["information-theory", "bit-byte"]
+  },
+  {
+    "id": "A8-016", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Mối quan hệ giữa Joint Entropy H(X,Y) và Conditional Entropy H(X|Y) là:",
+    "options": [
+      "A. H(X,Y) = H(X) * H(Y)",
+      "B. H(X,Y) = H(X) + H(Y)",
+      "C. H(X,Y) = H(Y) + H(X|Y)",
+      "D. H(X,Y) = H(X|Y) - H(Y)"
+    ],
+    "answer": 2,
+    "explanation": "Chain Rule của Entropy: Entropy kết hợp (Joint Entropy) của X và Y bằng lượng thông tin để mô tả Y, CỘNG THÊM lượng thông tin cần để mô tả X khi đã biết Y. Tức là H(X,Y) = H(Y) + H(X|Y).",
+    "tip": "Chain Rule của Entropy giống hệt xác suất có điều kiện: P(X,Y) = P(Y)*P(X|Y). (Nhân đổi thành Cộng).",
+    "tags": ["information-theory", "joint-entropy", "conditional-entropy"]
+  },
+  {
+    "id": "A8-017", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Gini Impurity (Độ vẩn đục Gini) là một thước đo khác thay thế cho Entropy trong thuật toán nào?",
+    "options": [
+      "A. K-Nearest Neighbors (KNN)",
+      "B. Decision Tree (Cụ thể là CART)",
+      "C. Naive Bayes",
+      "D. Linear Regression"
+    ],
+    "answer": 1,
+    "explanation": "Thuật toán CART (Classification and Regression Trees) mặc định dùng Gini Impurity thay vì Information Gain (dùng Entropy). Gini tính toán nhanh hơn vì không dùng hàm Logarithm.",
+    "tip": "Gini Impurity = Đối thủ tốc độ của Entropy trong cây quyết định (CART). Không cần tính Log.",
+    "tags": ["information-theory", "gini-impurity", "decision-tree"]
+  },
+  {
+    "id": "A8-018", "module": "A", "topic": "A8", "difficulty": "hard",
+    "question": "Nếu hai biến ngẫu nhiên liên tục có hàm mật độ xác suất f(x) và g(x), thì KL Divergence D_KL(f||g) được tính bằng:",
+    "options": [
+      "A. Tích phân của f(x) * log( f(x) / g(x) ) dx",
+      "B. Tích phân của g(x) * log( f(x) / g(x) ) dx",
+      "C. Tổng của f(x) và g(x)",
+      "D. f(x) - g(x)"
+    ],
+    "answer": 0,
+    "explanation": "D_KL(P||Q) cho phân phối liên tục được định nghĩa bằng tích phân (thay vì tổng Sigma như rời rạc): ∫ f(x) * log( f(x) / g(x) ) dx. Giá trị kỳ vọng này được tính dựa trên phân phối thực tế f(x) (hoặc P).",
+    "tip": "Bản chất KL Divergence là Kỳ vọng của log(P/Q) tính theo phân phối P.",
+    "tags": ["information-theory", "kl-divergence", "continuous"]
+  },
+  {
+    "id": "A8-019", "module": "A", "topic": "A8", "difficulty": "medium",
+    "question": "Jensen-Shannon Divergence (JSD) có ưu điểm gì vượt trội so với Kullback-Leibler Divergence (KLD)?",
+    "options": [
+      "A. Tính toán nhanh gấp đôi",
+      "B. JSD có tính đối xứng (JSD(P||Q) = JSD(Q||P)) và luôn nằm trong [0, 1]",
+      "C. Dùng được cho dữ liệu chữ",
+      "D. Đạo hàm luôn bằng 1"
+    ],
+    "answer": 1,
+    "explanation": "KLD không đối xứng và có thể tiến ra vô cùng (nếu Q(x)=0 mà P(x)>0). JSD giải quyết bằng cách lấy trung bình KLD từ P đến M và Q đến M (với M là trung bình của P và Q). JSD đối xứng và hữu hạn.",
+    "tip": "Jensen-Shannon = Phiên bản ĐỐI XỨNG và mượt mà hóa của KL Divergence (Dùng trong GANs).",
+    "tags": ["information-theory", "js-divergence", "kl-divergence"]
+  },
+  {
+    "id": "A8-020", "module": "A", "topic": "A8", "difficulty": "easy",
+    "question": "Binary Cross-Entropy (BCE) Loss là trường hợp đặc biệt của Cross-Entropy dành cho bài toán nào?",
+    "options": [
+      "A. Hồi quy tuyến tính",
+      "B. Phân loại 2 lớp (Binary Classification)",
+      "C. Phân cụm (Clustering)",
+      "D. Dịch máy (Machine Translation)"
+    ],
+    "answer": 1,
+    "explanation": "BCE (Binary Cross-Entropy) dùng khi phân loại chỉ có 2 lớp (Thành công/Thất bại, Dog/Cat). Công thức: - [y * log(p) + (1-y) * log(1-p)].",
+    "tip": "BCE = Cross-Entropy dành cho 2 class. Sigmoid thường đi chung với BCE.",
+    "tags": ["information-theory", "bce", "cross-entropy", "machine-learning"]
+  }
+]

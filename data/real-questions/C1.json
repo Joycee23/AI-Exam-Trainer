@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C1-001", "module": "C", "topic": "C1", "difficulty": "easy",
+    "question": "Sự khác biệt cốt lõi nhất giữa Học có giám sát (Supervised Learning) và Học không giám sát (Unsupervised Learning) là gì?",
+    "options": [
+      "A. Tốc độ huấn luyện mô hình",
+      "B. Học có giám sát sử dụng dữ liệu CÓ NHÃN (Labeled data - biết trước đáp án). Học không giám sát sử dụng dữ liệu KHÔNG NHÃN (Unlabeled data - máy tự tìm quy luật).",
+      "C. Học có giám sát chỉ dùng cho hình ảnh, Học không giám sát dùng cho văn bản",
+      "D. Cả hai đều không cần con người can thiệp"
+    ],
+    "answer": 1,
+    "explanation": "Trong Supervised Learning, ta dạy máy: 'Đây là ảnh con mèo (Nhãn: Mèo)'. Máy học cách map từ Input sang Output. Trong Unsupervised, ta quăng cho máy 1000 tấm ảnh không ghi tên con gì, máy phải tự nhóm (Cluster) các con có đuôi giống nhau lại làm 1.",
+    "tip": "Có Giám Sát = Có Đáp Án (Nhãn/Label) cho máy học thuộc. Không Giám Sát = Cho cái đề, tự đi mà mò mẫm.",
+    "tags": ["machine-learning", "supervised", "unsupervised"]
+  },
+  {
+    "id": "C1-002", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Bài toán Phân loại (Classification) và Hồi quy (Regression) trong Học có giám sát khác nhau ở điểm nào?",
+    "options": [
+      "A. Phân loại đoán giá nhà, Hồi quy đoán xem ảnh là chó hay mèo",
+      "B. Không khác biệt",
+      "C. Phân loại dự đoán biến MỤC TIÊU LÀ RỜI RẠC (Categorical - VD: Bệnh/Không Bệnh, Chó/Mèo). Hồi quy dự đoán biến MỤC TIÊU LÀ LIÊN TỤC (Continuous - VD: Đoán giá nhà 2.5 tỷ, 3 tỷ).",
+      "D. Phân loại chạy chậm hơn Hồi quy"
+    ],
+    "answer": 2,
+    "explanation": "Cả 2 đều là Supervised Learning. Nhưng Output của Classification là một Danh mục (Class), còn Output của Regression là một Con số cụ thể (Number). Nhầm lẫn 2 cái này là lỗi cơ bản nhất khi chọn Model.",
+    "tip": "Classification (Phân loại) = Trả lời câu hỏi chữ (Loại gì? Chó hay Mèo). Regression (Hồi quy) = Trả lời câu hỏi số (Bao nhiêu tiền?).",
+    "tags": ["supervised", "classification", "regression"]
+  },
+  {
+    "id": "C1-003", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Thuật toán Linear Regression (Hồi quy tuyến tính) sử dụng phương pháp nào để tìm ra đường thẳng 'Khớp nhất' (Best fit) với dữ liệu?",
+    "options": [
+      "A. Đếm số lượng điểm",
+      "B. Tối thiểu hóa Tổng bình phương sai số (Ordinary Least Squares - OLS) giữa giá trị dự đoán và giá trị thực tế.",
+      "C. Tìm điểm có giá trị lớn nhất",
+      "D. Tính trung bình cộng của tất cả dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "Linear Regression vẽ một đường thẳng đi qua đám mây điểm. Nó tự động xoay đường thẳng đó sao cho tổng các khoảng cách (sai số - Residuals) từ các điểm thực tế đến đường thẳng (được bình phương lên để triệt tiêu dấu âm và phạt nặng sai số lớn) là NHỎ NHẤT.",
+    "tip": "Linear Regression = Kẻ đường thẳng. Tìm đường sao cho khoảng cách từ các điểm tới đường thẳng đó là Ngắn Nhất (Least Squares).",
+    "tags": ["regression", "linear-regression", "ols"]
+  },
+  {
+    "id": "C1-004", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Dù có chữ 'Regression' trong tên, thuật toán Logistic Regression thực chất dùng để giải quyết bài toán nào?",
+    "options": [
+      "A. Phân loại (Classification)",
+      "B. Hồi quy (Regression)",
+      "C. Phân cụm (Clustering)",
+      "D. Giảm chiều dữ liệu (Dimensionality Reduction)"
+    ],
+    "answer": 0,
+    "explanation": "Tên gọi dễ gây nhầm lẫn! Logistic Regression thực ra là một thuật toán PHÂN LOẠI nhị phân (Binary Classification). Nó sử dụng hàm Sigmoid để bóp giá trị Hồi quy tuyến tính về khoảng (0, 1), đại diện cho Xác suất (Xác suất > 0.5 là Bệnh, < 0.5 là Không Bệnh).",
+    "tip": "Cú lừa thế kỷ: Logistic REGRESSION thực chất là thuật toán PHÂN LOẠI (Classification).",
+    "tags": ["classification", "logistic-regression"]
+  },
+  {
+    "id": "C1-005", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Thuật toán Decision Tree (Cây quyết định) có xu hướng rất dễ bị mắc phải vấn đề gì nếu không bị giới hạn độ sâu (Depth)?",
+    "options": [
+      "A. Underfitting (Mô hình quá đơn giản)",
+      "B. Overfitting (Mô hình học vẹt, quá phức tạp)",
+      "C. Chạy quá nhanh",
+      "D. Không thể phân loại dữ liệu dạng chữ"
+    ],
+    "answer": 1,
+    "explanation": "Nếu để Decision Tree mọc tự do, nó sẽ liên tục đặt câu hỏi If-Else cho đến khi mỗi chiếc lá (Leaf) chỉ chứa ĐÚNG 1 điểm dữ liệu duy nhất. Nó đạt độ chính xác 100% trên tập Train (Học vẹt từng dữ liệu nhiễu), nhưng thất bại thảm hại khi dự đoán dữ liệu mới (Test). Cần cắt tỉa (Pruning/Max depth).",
+    "tip": "Cây mọc quá sâu = Học Vẹt (Overfitting) kinh khủng.",
+    "tags": ["decision-tree", "overfitting"]
+  },
+  {
+    "id": "C1-006", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Thuật toán Random Forest (Rừng ngẫu nhiên) cải thiện Decision Tree như thế nào?",
+    "options": [
+      "A. Chuyển cây thành mạng neural",
+      "B. Xây dựng một loạt các Cây Quyết Định RẤT SÂU, nhưng huấn luyện trên các TẬP CON DỮ LIỆU NGẪU NHIÊN và ĐẶC TRƯNG NGẪU NHIÊN, sau đó cho chúng 'bầu chọn' (Voting) để lấy kết quả.",
+      "C. Chỉ xây đúng 1 cái cây duy nhất",
+      "D. Đổi tên các nút của cây"
+    ],
+    "answer": 1,
+    "explanation": "Random Forest là thuật toán Bagging Ensemble. Thay vì phụ thuộc vào 1 cây thiên tài (nhưng hay ảo tưởng/overfit), ta tạo ra 100 cây bình thường. Mỗi cây chỉ được nhìn thấy 1 phần dữ liệu. Cuối cùng gom ý kiến lại. Trí tuệ đám đông (Ensemble) giúp giảm thiểu Variances cực tốt.",
+    "tip": "1 cây = Dễ học vẹt. Rừng 100 cây ngẫu nhiên (Random Forest) = Bầu chọn tập thể, kết quả cực kỳ đáng tin cậy.",
+    "tags": ["random-forest", "ensemble", "bagging"]
+  },
+  {
+    "id": "C1-007", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Trong thuật toán SVM (Support Vector Machine), khái niệm 'Kernel Trick' (Thủ thuật Kernel) dùng để làm gì?",
+    "options": [
+      "A. Hack dữ liệu",
+      "B. Đóng gói mã nguồn",
+      "C. Phóng chiếu (Map) dữ liệu từ không gian chiều thấp lên không gian CHIỀU CAO HƠN một cách gián tiếp (ít tốn toán học), để những dữ liệu bị rối nêm vào nhau có thể dùng một MẶT PHẲNG để cắt (Linear Separable).",
+      "D. Giảm số chiều dữ liệu đi"
+    ],
+    "answer": 2,
+    "explanation": "Nếu chó mèo xen kẽ nhau thành vòng tròn trên mặt bàn 2D, bạn không thể vẽ 1 đường thẳng cắt đôi được. Kernel Trick tính toán mô phỏng việc tung mớ hỗn độn đó lên không trung (3D), lúc đó bạn dễ dàng lấy 1 tờ giấy (Mặt phẳng Hyperplane) luồn vào giữa để cắt ngang chó và mèo.",
+    "tip": "Kernel Trick (SVM) = Phép thuật ném đồ lên không trung (Tăng chiều) để dễ lấy dao chém ngang (Tách nhóm).",
+    "tags": ["svm", "kernel-trick", "classification"]
+  },
+  {
+    "id": "C1-008", "module": "C", "topic": "C1", "difficulty": "easy",
+    "question": "K-Nearest Neighbors (KNN) là một thuật toán Học Máy được xếp vào loại nào?",
+    "options": [
+      "A. Học không giám sát",
+      "B. Học tăng cường",
+      "C. Học có giám sát (Mô hình lười biếng - Lazy learning)",
+      "D. Học sâu"
+    ],
+    "answer": 2,
+    "explanation": "KNN dùng nhãn (Label) để phân loại nên nó là Có giám sát. Nó được gọi là Lazy vì lúc gọi hàm `fit()`, nó chẳng buồn học bất cứ công thức toán nào, chỉ đơn giản là 'lưu tất cả dữ liệu vào RAM'. Lúc cần đoán 1 điểm mới, nó mới đem điểm đó đi đo khoảng cách với toàn bộ kho dữ liệu để tìm K thằng hàng xóm gần nhất.",
+    "tip": "KNN = 'Gần mực thì đen, gần đèn thì rạng'. Tìm K thằng hàng xóm gần nhất xem tụi nó là ai thì mình bắt chước theo.",
+    "tags": ["knn", "supervised", "lazy-learning"]
+  },
+  {
+    "id": "C1-009", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Trong thuật toán KNN, nếu chọn K quá nhỏ (ví dụ K=1) thì mô hình sẽ bị hiện tượng gì?",
+    "options": [
+      "A. Rất tốt, chính xác 100%",
+      "B. Underfitting (Học kém)",
+      "C. Overfitting (Nhạy cảm với nhiễu). Nó sẽ tin hoàn toàn vào 1 điểm gần nhất, bất chấp điểm đó có thể là dữ liệu lỗi (Outlier).",
+      "D. Lỗi tràn bộ nhớ"
+    ],
+    "answer": 2,
+    "explanation": "K=1 khiến đường ranh giới phân loại ngoằn ngoèo kinh khủng, nó cố uốn lượn để bao bọc từng điểm nhiễu một. K quá lớn (K=toàn bộ dữ liệu) thì nó biến thành Underfitting (Đoán tất cả mọi người thuộc nhóm đông dân nhất).",
+    "tip": "KNN: K=1 -> Học vẹt (Overfit). K=Mọi người -> Đoán bừa (Underfit).",
+    "tags": ["knn", "overfitting", "hyperparameter"]
+  },
+  {
+    "id": "C1-010", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Thuật toán Naive Bayes dựa trên Định lý Bayes có tính chất 'Naive' (Ngây thơ) là vì sao?",
+    "options": [
+      "A. Vì nó dễ lập trình",
+      "B. Vì nó GIẢ ĐỊNH RẰNG TẤT CẢ CÁC ĐẶC TRƯNG (Features) đều độc lập hoàn toàn với nhau (không liên quan gì nhau), dù trong thực tế hiếm khi có chuyện đó.",
+      "C. Vì kết quả lúc nào cũng sai",
+      "D. Vì nó không cần dữ liệu train"
+    ],
+    "answer": 1,
+    "explanation": "Khi lọc thư rác (Spam), Naive Bayes cho rằng xác suất xuất hiện chữ 'Trúng' và chữ 'Thưởng' là độc lập với nhau. Dù giả định 'ngây thơ' và sai thực tế này, thuật toán lại hoạt động cực kỳ nhanh và hiệu quả bất ngờ với xử lý văn bản (NLP).",
+    "tip": "Naive Bayes = Ngây thơ tin rằng mọi biến đều sống độc lập không quen biết nhau. Vua lọc Spam mail.",
+    "tags": ["naive-bayes", "classification", "probability"]
+  },
+  {
+    "id": "C1-011", "module": "C", "topic": "C1", "difficulty": "easy",
+    "question": "Bài toán điển hình NHẤT của Học không giám sát (Unsupervised Learning) là gì?",
+    "options": [
+      "A. Phân loại ảnh chó mèo",
+      "B. Dự đoán giá vàng",
+      "C. Phân cụm (Clustering) khách hàng thành các nhóm có chung sở thích mà không biết trước tên nhóm là gì.",
+      "D. Dịch ngôn ngữ tự động"
+    ],
+    "answer": 2,
+    "explanation": "Khi bạn đưa Data của 1 triệu khách hàng siêu thị vào, Unsupervised Learning (Clustering) tự động tìm ra 3 nhóm: Nhóm mua bỉm sữa, Nhóm mua bia, Nhóm mua rau. Bạn không hề cho nó biết trước 3 nhóm đó, nó tự mò ra luật.",
+    "tip": "Không giám sát (Unsupervised) -> Chân ái là Gom nhóm / Phân cụm (Clustering).",
+    "tags": ["unsupervised", "clustering"]
+  },
+  {
+    "id": "C1-012", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "K-Means là thuật toán Phân cụm phổ biến nhất. Nhược điểm chí mạng của nó mà Kỹ sư phải tự giải quyết bằng tay là gì?",
+    "options": [
+      "A. Không chạy được trên Windows",
+      "B. BẮT BUỘC phải KHAI BÁO TRƯỚC số lượng cụm K (ví dụ K=3, K=4) ngay từ đầu, trong khi thực tế ta thường không biết chia bao nhiêu cụm là hợp lý.",
+      "C. Chỉ chạy được với 2 cột dữ liệu",
+      "D. Xóa mất dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "Thuật toán K-Means ngu ngơ không tự biết chia 1000 khách hàng thành mấy nhóm. Bạn phải ném cho nó con số K. Để tìm được K tốt nhất, ta phải dùng Phương pháp cùi chỏ (Elbow Method) chạy thử K từ 1 đến 10 để xem cái nào cong đẹp nhất.",
+    "tip": "K-Means = Bị ép chỉ tiêu. Phải mớm trước số K (nhóm) thì nó mới chịu chia.",
+    "tags": ["clustering", "k-means"]
+  },
+  {
+    "id": "C1-013", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Phương pháp Gradient Boosting (như XGBoost, LightGBM) khác với Random Forest ở nguyên lý huấn luyện (Training) nào?",
+    "options": [
+      "A. Random Forest huấn luyện tuần tự. Boosting huấn luyện song song.",
+      "B. Không có khác biệt",
+      "C. Random Forest huấn luyện nhiều cây ĐỘC LẬP (SONG SONG). Boosting huấn luyện các cây TUẦN TỰ (Cây số 2 sẽ cố gắng sửa những lỗi sai mà Cây số 1 vừa dự đoán trượt).",
+      "D. Boosting không dùng Cây quyết định"
+    ],
+    "answer": 2,
+    "explanation": "Random Forest (Bagging) tạo ra hàng trăm cây độc lập, máy nào rảnh thì chạy. Gradient Boosting (Boosting) hoạt động như thi chạy tiếp sức. Cây 1 đoán sai, nó phạt nặng chỗ sai đó và truyền sang Cây 2 bắt Cây 2 học kỹ chỗ đó. Vì học nối đuôi nên Boosting mạnh vô địch trên dữ liệu Bảng (Tabular) nhưng dễ Overfitting.",
+    "tip": "Random Forest = Hội đồng độc lập (Song song). Boosting (XGBoost) = Chạy tiếp sức, thằng sau sửa sai cho thằng trước (Tuần tự).",
+    "tags": ["ensemble", "boosting", "random-forest", "xgboost"]
+  },
+  {
+    "id": "C1-014", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Thuật toán Phân cụm DBSCAN (Density-Based Spatial Clustering) vượt trội hơn K-Means ở tình huống dữ liệu nào?",
+    "options": [
+      "A. Khi dữ liệu có dạng hình cầu tròn xoe",
+      "B. Khi dữ liệu có CẤU TRÚC PHỨC TẠP (Hình mặt trăng, vòng tròn lồng nhau) VÀ khi trong dữ liệu chứa nhiều Nhiễu (Outliers).",
+      "C. Khi số lượng dữ liệu cực ít",
+      "D. Khi dữ liệu là dạng chữ (Text)"
+    ],
+    "answer": 1,
+    "explanation": "K-Means tính khoảng cách, nên nó luôn luôn tạo ra các cụm hình cầu tròn (Cắt bánh pizza). Nếu dữ liệu hình cong cong, K-Means cắt sai bét. DBSCAN gom nhóm dựa trên MẬT ĐỘ (Density - đám đông lây lan như vết dầu loang), nên nó vẽ được mọi hình dáng và tự động bỏ qua những điểm đứng lẻ loi (Outliers).",
+    "tip": "DBSCAN = Vết dầu loang. Không cần ép trước số nhóm, bất chấp dữ liệu hình dị dạng (Mặt trăng khuyết) và tự động lọc rác (Outlier).",
+    "tags": ["clustering", "dbscan", "k-means"]
+  },
+  {
+    "id": "C1-015", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Thuật toán Giảm chiều dữ liệu PCA (Principal Component Analysis) hoạt động trên nguyên lý toán học nào?",
+    "options": [
+      "A. Đếm số lần xuất hiện",
+      "B. Tìm các Hướng (Các Trục Thành phần chính - Principal Components) có PHƯƠNG SAI LỚN NHẤT (phân tán rộng nhất), sau đó phóng chiếu dữ liệu xuống các hướng đó để giữ lại nhiều thông tin nhất.",
+      "C. Nhân ma trận với 0",
+      "D. Xóa các biến ngẫu nhiên"
+    ],
+    "answer": 1,
+    "explanation": "PCA (Unsupervised) biến bức ảnh 1000 chiều (1000 pixel) xuống còn 50 chiều. Nó xoay trục tọa độ, tìm cái trục nào mà dữ liệu tản mác trải dài nhiều nhất (chứa nhiều thông tin nhất) thì giữ lại. Nó ném bỏ những trục nào dữ liệu co cụm 1 cục (ít thông tin).",
+    "tip": "PCA (Giảm chiều) = Ép cục bột 3D xuống thành miếng bánh dẹt 2D, nhưng vẫn giữ được hình dáng cái bánh để dễ quan sát (Tối đa hóa Phương sai).",
+    "tags": ["pca", "dimensionality-reduction", "unsupervised"]
+  },
+  {
+    "id": "C1-016", "module": "C", "topic": "C1", "difficulty": "easy",
+    "question": "Tính năng Chuẩn hóa dữ liệu (Feature Scaling như Min-Max Scaler hay Standard Scaler) LÀ BẮT BUỘC TRƯỚC KHI chạy thuật toán nào dưới đây?",
+    "options": [
+      "A. Decision Tree (Cây quyết định)",
+      "B. Random Forest (Rừng ngẫu nhiên)",
+      "C. KNN (K-Nearest Neighbors)",
+      "D. Naive Bayes"
+    ],
+    "answer": 2,
+    "explanation": "KNN, SVM, K-Means tính KHOẢNG CÁCH hình học. Nếu Cột Lương tính bằng Tiền tỷ (1,000,000,000), cột Tuổi tính bằng chục (30), thuật toán sẽ bị Cột Lương lấn át hoàn toàn Cột Tuổi. Do đó phải ép chúng về chung hệ quy chiếu (VD 0 đến 1). Cây quyết định (Tree) chia cắt bằng IF/ELSE nên KHÔNG cần chuẩn hóa.",
+    "tip": "Cứ thấy thuật toán đo Khoảng cách (KNN, SVM, K-Means, Neural Network) -> Bắt buộc Scale/Chuẩn hóa. Hệ Cây (Tree/Forest/XGBoost) -> Miễn nhiễm.",
+    "tags": ["preprocessing", "feature-scaling", "knn"]
+  },
+  {
+    "id": "C1-017", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Hiện tượng 'Lời nguyền số chiều' (Curse of Dimensionality) trong Machine Learning gây ra hậu quả gì?",
+    "options": [
+      "A. Code báo lỗi Syntax",
+      "B. Khi số lượng Cột dữ liệu (Số chiều/Features) tăng lên quá lớn, KHÔNG GIAN DỮ LIỆU trở nên TRỐNG RỖNG thưa thớt, các điểm cách quá xa nhau khiến các thuật toán đó khoảng cách (như KNN) bị vô dụng và cần dữ liệu huấn luyện khổng lồ một cách phi lý.",
+      "C. Khiến máy chạy nhanh hơn",
+      "D. Đổi hệ thập phân sang nhị phân"
+    ],
+    "answer": 1,
+    "explanation": "Càng có nhiều cột (Features) thì mô hình càng thông minh? SAI! Khi lên đến 10,000 cột, thể tích không gian tăng lên theo cấp số mũ. Mọi điểm dữ liệu trở nên 'cách đều nhau' ở một nơi rất xa. Mô hình không học được gì cả. Giải pháp là dùng PCA để cắt bớt chiều.",
+    "tip": "Lời nguyền số chiều: Thêm nhiều cột (Features) quá đà -> Dữ liệu loãng toẹt -> Mô hình lú lẫn, Overfit tung nóc.",
+    "tags": ["machine-learning", "curse-of-dimensionality", "pca"]
+  },
+  {
+    "id": "C1-018", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Association Rules (Luật kết hợp - Tiêu biểu là thuật toán Apriori) dùng trong Học không giám sát thường được giải quyết bài toán kinh doanh nào?",
+    "options": [
+      "A. Dự đoán cổ phiếu",
+      "B. Phân tích Giỏ hàng (Market Basket Analysis) - Tìm quy luật những món đồ MUA CÙNG NHAU (Ví dụ: Khách mua Bỉm thì 80% sẽ mua thêm Bia).",
+      "C. Nhận diện khuôn mặt",
+      "D. Lọc thư rác"
+    ],
+    "answer": 1,
+    "explanation": "Apriori (hay FP-Growth) đếm tần suất xuất hiện chung của các món hàng trong hàng triệu hóa đơn. Nó sinh ra quy luật (A -> B) kèm theo độ Tin cậy (Confidence). Đây là cốt lõi của tính năng 'Những người mua sản phẩm này cũng mua...' trên Shopee/Amazon.",
+    "tip": "Luật kết hợp (Association/Apriori) = Phân tích giỏ hàng (Bỉm & Bia).",
+    "tags": ["unsupervised", "association-rules", "apriori"]
+  },
+  {
+    "id": "C1-019", "module": "C", "topic": "C1", "difficulty": "medium",
+    "question": "Hàm Chi phí (Cost Function / Loss Function) trong Machine Learning đóng vai trò gì?",
+    "options": [
+      "A. Tính tiền Cloud GPU",
+      "B. Đo lường MỨC ĐỘ SAI LỆCH giữa Dự đoán của mô hình và Thực tế. Mục tiêu của thuật toán Huấn luyện (Training) là tìm cách làm cho hàm chi phí này CÀNG NHỎ CÀNG TỐT.",
+      "C. Đánh giá giao diện Web",
+      "D. Đo thời gian chạy code"
+    ],
+    "answer": 1,
+    "explanation": "Mô hình càng ngu, Hàm Cost càng cao (Phạt nặng). Mô hình khôn dần lên, Hàm Cost giảm dần về 0. Quá trình Learning (Học) thực chất chỉ là một quá trình Giải toán tối ưu hóa (Optimization) để tìm đáy của Hàm Cost.",
+    "tip": "Cost Function = Đồng hồ đo độ 'Ngu' của Mô hình. Train model là cố gắng vặn đồng hồ này về số 0.",
+    "tags": ["machine-learning", "cost-function", "optimization"]
+  },
+  {
+    "id": "C1-020", "module": "C", "topic": "C1", "difficulty": "hard",
+    "question": "Thuật toán t-SNE (t-Distributed Stochastic Neighbor Embedding) được dùng làm gì?",
+    "options": [
+      "A. Gom cụm K-means",
+      "B. Thay thế Linear Regression",
+      "C. Giảm số chiều dữ liệu (Phi tuyến tính) ĐỂ VẼ BIỂU ĐỒ (Visualization). Nó bóp dữ liệu 1000 chiều xuống 2D/3D cực đẹp, giữ được các cụm cục bộ gần nhau, nhưng không thích hợp làm Input cho Machine Learning vì chạy chậm và khó thêm dữ liệu mới.",
+      "D. Đọc file hình ảnh"
+    ],
+    "answer": 2,
+    "explanation": "PCA giảm chiều tuyến tính nên đôi khi vẽ hình không tách biệt rõ các nhóm. t-SNE cực kỳ vi diệu trong việc bóp méo không gian để tách bạch các Cluster ra trên màn hình 2D (ví dụ vẽ quần thể gen). Dân AI coi t-SNE là công cụ VẼ (EDA) thần thánh, ít ai lấy output của nó ném vào Train Model (PCA làm tốt việc này hơn).",
+    "tip": "t-SNE = Bậc thầy bóp méo không gian để Vẽ Tranh 2D tách cụm (Visualization đỉnh cao, nhưng chạy rùa bò).",
+    "tags": ["unsupervised", "t-sne", "dimensionality-reduction", "visualization"]
+  }
+]

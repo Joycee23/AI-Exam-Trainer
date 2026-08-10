@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C3-001", "module": "C", "topic": "C3", "difficulty": "easy",
+    "question": "Deep Learning (Học sâu) là một tập con của Machine Learning, sự KHÁC BIỆT LỚN NHẤT khiến nó mạnh mẽ hơn các thuật toán truyền thống (như SVM, Random Forest) là gì?",
+    "options": [
+      "A. Nó không cần dữ liệu",
+      "B. Nó sử dụng Mạng Nơ-ron Nhân tạo (Artificial Neural Networks) với RẤT NHIỀU LỚP ẨN (Hidden Layers) để TỰ ĐỘNG HỌC RA CÁC ĐẶC TRƯNG (Feature Extraction) từ dữ liệu thô (Ảnh, Text) mà không cần con người trích xuất bằng tay.",
+      "C. Nó chạy bằng ngôn ngữ R",
+      "D. Nó chỉ chạy được trên CPU"
+    ],
+    "answer": 1,
+    "explanation": "Trong ML truyền thống, kỹ sư phải ngồi tự code hàm đếm số tai, số mắt để nhận diện chó mèo (Feature Engineering). Trong DL, ta chỉ ném bức ảnh raw (pixel) vào mạng Neural, các lớp ẩn đầu tiên tự học nét cong/thẳng, lớp ẩn sâu hơn tự học cái tai/mắt. Sức mạnh này giúp AI thống trị Ảnh và Ngôn ngữ.",
+    "tip": "Deep Learning = Mạng Neural N-lớp. Tự động Rút trích Đặc trưng (Feature Extraction) siêu việt từ hình ảnh/âm thanh.",
+    "tags": ["deep-learning", "neural-network", "basics"]
+  },
+  {
+    "id": "C3-002", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Trong Mạng Nơ-ron (Neural Network), Hàm Kích Hoạt (Activation Function) có vai trò SINH TỬ gì?",
+    "options": [
+      "A. Khởi động máy tính",
+      "B. Đưa TÍNH PHI TUYẾN (Non-linearity) vào mạng. Nếu không có hàm kích hoạt, mạng Neural có 1000 lớp cũng chỉ tương đương với đúng một đường thẳng Linear Regression yếu ớt, không thể giải quyết bài toán phức tạp.",
+      "C. Tự động chia tập Train/Test",
+      "D. Tăng tốc GPU"
+    ],
+    "answer": 1,
+    "explanation": "Toán học của Neural: y = Wx + b (Đại số tuyến tính). 100 phép nhân ma trận đè lên nhau vẫn chỉ rút gọn thành 1 phép nhân tuyến tính y = W'x + b'. Nhưng khi nhét nó qua hàm Sigmoid hay ReLU, đường thẳng bị 'bẻ cong'. Các nếp gấp phi tuyến này giúp AI vẽ được mọi đường ranh giới chằng chịt trên thế giới.",
+    "tip": "Activation Function = Hàm bẻ cong không gian. Chìa khóa vàng giúp Mạng nơ-ron học được các đường ranh giới loằng ngoằng (Phi tuyến tính).",
+    "tags": ["deep-learning", "activation-function", "non-linearity"]
+  },
+  {
+    "id": "C3-003", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Hàm kích hoạt ReLU (Rectified Linear Unit) hiện nay là tiêu chuẩn mặc định cho hầu hết các Hidden Layer. Công thức của ReLU là gì?",
+    "options": [
+      "A. f(x) = 1 / (1 + e^-x)",
+      "B. f(x) = x^2",
+      "C. f(x) = max(0, x). (Tức là nếu số âm thì biến thành 0, số dương thì giữ nguyên giá trị).",
+      "D. f(x) = sin(x)"
+    ],
+    "answer": 2,
+    "explanation": "ReLU rất đơn giản về mặt tính toán (chỉ cần lấy Max). Nó giải quyết triệt để bài toán Vanishing Gradient (Triệt tiêu đạo hàm) của Sigmoid/Tanh, giúp mạng nơ-ron sâu cả trăm lớp vẫn học được nhanh chóng.",
+    "tip": "ReLU: Nếu Âm thì cút (Về 0). Nếu Dương thì xài nguyên xi. (Đơn giản nhưng mạnh vô đối).",
+    "tags": ["deep-learning", "relu", "activation-function"]
+  },
+  {
+    "id": "C3-004", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Hàm Softmax thường được sử dụng ở LỚP ĐẦU RA (Output Layer) của Mạng nơ-ron trong bài toán nào?",
+    "options": [
+      "A. Hồi quy (Dự đoán giá nhà)",
+      "B. Phân loại NHIỀU LỚP (Multi-class Classification - Ví dụ: Bức ảnh là Chó, Mèo hay Ngựa). Nó sẽ ép đầu ra thành dạng TỔNG XÁC SUẤT BẰNG 1 (ví dụ 80% chó, 15% mèo, 5% ngựa).",
+      "C. Giảm chiều dữ liệu",
+      "D. Phân loại Nhị phân (Binary - chỉ 2 lớp)"
+    ],
+    "answer": 1,
+    "explanation": "Softmax nhận đầu vào là các con số rác (Logits) như [2.0, 1.0, 0.1]. Nó sẽ dùng hàm mũ e^x biến đổi chùm số đó thành Xác suất (Probability) [0.7, 0.2, 0.1]. Con nào có xác suất to nhất thì AI dự đoán là con đó.",
+    "tip": "Softmax = Phân loại Đa Lớp (Nhiều Class). Đổi rác thành Xác suất (Tổng = 100%).",
+    "tags": ["deep-learning", "softmax", "classification"]
+  },
+  {
+    "id": "C3-005", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Quá trình Backpropagation (Lan truyền ngược) làm nhiệm vụ gì trong lúc Huấn luyện mô hình Deep Learning?",
+    "options": [
+      "A. Tính toán Kết quả từ đầu vào (Input) sang đầu ra (Output)",
+      "B. Tính toán ĐẠO HÀM (Gradient) của Hàm Mất Mát (Loss Function) truyền NGƯỢC TỪ CUỐI LÊN ĐẦU, để từ đó báo cho thuật toán Tối ưu hóa (Optimizer) biết nên TĂNG/GIẢM các Trọng số (Weights) như thế nào để giảm lỗi.",
+      "C. Xóa dữ liệu cũ",
+      "D. Nén dung lượng file"
+    ],
+    "answer": 1,
+    "explanation": "Forward Pass (Lan truyền tới) đưa ra dự đoán. Nếu đoán sai, Loss Function tăng. Backpropagation dùng quy tắc dây chuyền của Vi phân (Chain Rule) để tính lỗi từ lớp cuối cùng truyền ngược lên các lớp đầu, tìm ra 'thằng Trọng số nào gây lỗi nhiều nhất' để trừ lương nó.",
+    "tip": "Backprop = Quy tắc dây chuyền Giải tích. Tìm ra 'Thủ phạm' gây lỗi để update/sửa sai.",
+    "tags": ["deep-learning", "backpropagation", "gradient-descent"]
+  },
+  {
+    "id": "C3-006", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Optimizer (Thuật toán tối ưu) nổi tiếng và được mặc định sử dụng rộng rãi nhất hiện nay trong Deep Learning là gì?",
+    "options": [
+      "A. Stochastic Gradient Descent (SGD) truyền thống",
+      "B. ADAM (Adaptive Moment Estimation) - Tự động điều chỉnh Tốc độ học (Learning Rate) cho từng tham số dựa trên xung lượng (Momentum) và RMSprop.",
+      "C. Random Forest",
+      "D. Apriori"
+    ],
+    "answer": 1,
+    "explanation": "Nếu Gradient Descent (SGD) đi xuống đồi tìm đáy một cách mù quáng và cứng nhắc với 1 tốc độ duy nhất, Adam thông minh hơn. Nó có Momentum (như hòn bi lăn xuống dốc, càng dốc lăn càng lẹ, gặp hố nhỏ nó sẽ nhảy qua luôn) và nó tự chỉnh tốc độ đi (Learning Rate) tùy theo độ dốc.",
+    "tip": "Không biết xài Optimizer gì? Chọn ngay `Adam`. Cân mọi thể loại mạng Neural.",
+    "tags": ["deep-learning", "optimizer", "adam", "gradient-descent"]
+  },
+  {
+    "id": "C3-007", "module": "C", "topic": "C3", "difficulty": "easy",
+    "question": "Tham số Learning Rate (Tốc độ học) quyết định điều gì?",
+    "options": [
+      "A. Tốc độ quay của quạt tản nhiệt GPU",
+      "B. BƯỚC NHẢY (Kích thước mỗi bước) mà thuật toán Gradient Descent thực hiện khi đi xuống đáy của Hàm Mất Mát. Quá to -> Bị trượt đáy (nhảy lố). Quá nhỏ -> Máy học rất lâu hoặc bị kẹt lại.",
+      "C. Thời gian tải dữ liệu",
+      "D. Số lượng Epochs"
+    ],
+    "answer": 1,
+    "explanation": "Learning rate (LR) là siêu tham số quan trọng nhất của Neural Network. LR quá to: Hòn bi nhảy vọt qua lại hai bên sườn núi mà không bao giờ chui xuống đáy được. LR quá nhỏ: Bước đi ly ti như con kiến, 10 ngày chưa hội tụ xong.",
+    "tip": "Learning Rate = Sải bước chân. To quá thì té (phân kỳ), nhỏ quá thì bò rùa.",
+    "tags": ["deep-learning", "learning-rate", "hyperparameter"]
+  },
+  {
+    "id": "C3-008", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Epoch và Batch Size khác nhau như thế nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. 1 Epoch là MỘT LẦN mạng lưới đã nhìn thấy (Train qua) TOÀN BỘ 100% dữ liệu. Batch Size là SỐ LƯỢNG MẪU NHỎ đưa vào mạng mỗi lần (VD: 32 ảnh) trước khi nó cập nhật trọng số 1 lần.",
+      "C. Epoch tính bằng giây, Batch tính bằng MB",
+      "D. Batch là toàn bộ, Epoch là 1 phần"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ có 1000 ảnh. Nếu bạn chọn Batch Size = 100. Máy sẽ lấy 100 ảnh ra học, xong Sửa lỗi 1 lần (1 Iteration). Làm vậy 10 lần thì đi hết 1000 ảnh. Khi đó ta gọi là đã hoàn thành 1 Epoch. Thường người ta train từ 50-100 Epochs (Học đi học lại toàn bộ sách 100 lần).",
+    "tip": "Epoch = Học hết cuốn sách 1 lần. Batch Size = Mỗi lần lật xem 32 trang (Sức chứa của RAM).",
+    "tags": ["deep-learning", "epoch", "batch-size", "training"]
+  },
+  {
+    "id": "C3-009", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Mạng CNN (Convolutional Neural Network) RẤT ƯU VIỆT so với Mạng Đa lớp chập (MLP/Dense) truyền thống KHI XỬ LÝ ẢNH là do đâu?",
+    "options": [
+      "A. Vì CNN sử dụng màu sắc tốt hơn",
+      "B. CNN dùng TÍCH CHẬP (Convolution) với các BỘ LỌC (Filters) trượt trên ảnh, giúp DUY TRÌ cấu trúc KHÔNG GIAN 2D của ảnh và chia sẻ trọng số (Parameter Sharing), giảm hàng triệu tham số so với mạng Dense.",
+      "C. Vì CNN có thể chạy trên trình duyệt",
+      "D. Vì CNN chạy hoàn toàn bằng CPU"
+    ],
+    "answer": 1,
+    "explanation": "Nếu dùng MLP (Dense), bạn phải duỗi tấm ảnh 1000x1000 pixel ra thành 1 mảng 1 triệu con số 1D. Điều này làm mất cấu trúc không gian (mắt nằm trên mũi). CNN dùng một cửa sổ 3x3 (Filter) trượt trên ảnh 2D, quét nét thẳng, nét ngang, vừa ít tham số, vừa nhận diện khuôn mặt ở bất kỳ góc nào.",
+    "tip": "Xử lý Ảnh = Bắt buộc dùng Mạng Tích Chập (CNN). Dùng Kính Lúp (Filters) trượt đi tìm đặc điểm Không gian.",
+    "tags": ["deep-learning", "cnn", "convolution", "computer-vision"]
+  },
+  {
+    "id": "C3-010", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Lớp MaxPooling trong mạng CNN làm nhiệm vụ gì?",
+    "options": [
+      "A. Phóng to bức ảnh",
+      "B. GIẢM CHIỀU DỮ LIỆU KHÔNG GIAN (Ví dụ: bóp ảnh từ 200x200 xuống 100x100) bằng cách lấy điểm sáng nhất (giá trị Max) trong mỗi ô 2x2. Giúp mô hình tính toán nhanh hơn và chống Dịch chuyển (Translation Invariance).",
+      "C. Đổi ảnh màu thành đen trắng",
+      "D. Cắt ảnh hình tròn"
+    ],
+    "answer": 1,
+    "explanation": "Max Pooling giống như việc hạ độ phân giải (downsampling). Nếu CNN tìm thấy cái Mũi (Max), ta không cần nhớ vị trí chính xác pixel của cái mũi, ta chỉ cần biết 'Khu vực này có cái mũi'. Việc bóp ảnh nhỏ lại giúp loại bớt chi tiết thừa và tiết kiệm bộ nhớ cực mạnh.",
+    "tip": "MaxPooling = Hạ độ phân giải ảnh (Lấy nét nổi bật nhất). Giúp AI chạy mượt hơn mà không mất đi 'bản chất'.",
+    "tags": ["deep-learning", "cnn", "max-pooling"]
+  },
+  {
+    "id": "C3-011", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Hiện tượng 'Vanishing Gradient' (Triệt tiêu đạo hàm) thường xảy ra trong các mạng Nơ-ron RẤT SÂU, nguyên nhân chủ đạo là do đâu?",
+    "options": [
+      "A. Lỗi hệ điều hành",
+      "B. Do sử dụng các hàm kích hoạt như Sigmoid hoặc Tanh (có đạo hàm < 1). Khi đạo hàm truyền ngược (nhân dồn) qua hàng trăm lớp, giá trị của nó tiến tiệm cận về 0, khiến các lớp ĐẦU TIÊN của mạng không học được gì cả.",
+      "C. Do Learning Rate quá lớn",
+      "D. Do dùng thuật toán Adam"
+    ],
+    "answer": 1,
+    "explanation": "Sigmoid kẹp output ở khoảng (0, 1), đạo hàm lớn nhất của nó là 0.25. Dùng Chain Rule: 0.25 x 0.25 x 0.25 x ... 100 lần sẽ ra một số siêu nhỏ 0.00000001. Error truyền về các lớp móng bị bằng 0 -> Weight không cập nhật -> AI bị đần ở các lớp móng. Cứu tinh: Dùng hàm ReLU.",
+    "tip": "Vanishing Gradient = Lỗi truyền ngược bị 'Bốc Hơi' (Tắt dần). Mạng càng sâu, các lớp móng càng bị suy dinh dưỡng. Trị bệnh bằng ReLU hoặc ResNet.",
+    "tags": ["deep-learning", "vanishing-gradient", "sigmoid"]
+  },
+  {
+    "id": "C3-012", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Kiến trúc mạng RNN (Recurrent Neural Network - Mạng Nơ-ron Hồi Quy) SỰ KHÁC BIỆT THẦN THÁNH so với Feedforward thông thường là gì?",
+    "options": [
+      "A. Nó tính toán bằng hình học",
+      "B. Nó có khả năng GHI NHỚ LỊCH SỬ. Nó chứa các 'vòng lặp' (Loops) cho phép thông tin ở Trạng thái Ẩn (Hidden State) của bước thời gian trước được TRUYỀN VÀO bước thời gian sau. Chuyên trị bài toán Chuỗi (Time-Series, Văn bản).",
+      "C. Nó xử lý video 4K",
+      "D. Nó dùng Tích chập 3D"
+    ],
+    "answer": 1,
+    "explanation": "Khi xử lý câu văn 'Tôi đang sống ở Pháp, tôi nói tiếng...', AI phải Nhớ được chữ 'Pháp' ở 5 từ trước đó thì mới đoán được từ 'Pháp'. RNN kết nối dòng thời gian (Từ T-1 đẩy kết quả vào T). Nhưng RNN truyền thống bị yếu sinh lý (Nhớ kém do Vanishing Gradient).",
+    "tip": "RNN = AI có bộ nhớ dài hạn. Đọc hiểu được Trình Tự thời gian (Câu văn, Dự báo thời tiết).",
+    "tags": ["deep-learning", "rnn", "time-series", "nlp"]
+  },
+  {
+    "id": "C3-013", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Mạng LSTM (Long Short-Term Memory) sinh ra để vá lỗi gì của mạng RNN truyền thống?",
+    "options": [
+      "A. Giảm kích thước file",
+      "B. Giải quyết vấn đề 'Lão hóa trí nhớ' (Vanishing Gradient) của RNN khi độ dài chuỗi (Text) quá dài. Cấu trúc CỔNG (Gates: Forget, Input, Output) giúp LSTM quyết định Nhớ cái gì và Quên cái gì trong dài hạn.",
+      "C. Đổi ảnh thành text",
+      "D. Tăng tốc độ Training lên 100 lần"
+    ],
+    "answer": 1,
+    "explanation": "LSTM là một cell cực kỳ phức tạp. Forget Gate: Nhìn thấy dấu chấm câu -> Xóa bộ nhớ chủ đề cũ. Input Gate: Nhìn thấy Tên người mới -> Ghi đè vào bộ nhớ. Nhờ thế LSTM nhớ được chữ 'Pháp' dù cách đó 1000 chữ.",
+    "tip": "LSTM = Phiên bản nâng cấp tối thượng của RNN. Bộ não biết CHỌN LỌC (Cái gì đáng nhớ, cái gì nên quên).",
+    "tags": ["deep-learning", "lstm", "rnn", "nlp"]
+  },
+  {
+    "id": "C3-014", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Kỹ thuật Dropout (Thả rơi ngẫu nhiên) dùng ĐỂ CHỐNG OVERFITTING hoạt động như thế nào?",
+    "options": [
+      "A. Thả máy tính xuống đất",
+      "B. Xóa ngẫu nhiên các file dữ liệu",
+      "C. TRONG LÚC HUẤN LUYỆN (Training), tại mỗi bước (batch), ta TẮT/VÔ HIỆU HÓA ngẫu nhiên một Tỷ lệ (ví dụ 20%) các Nơ-ron. Khiến mạng lưới không được phép 'ỷ lại' vào một vài Nơ-ron thiên tài nào đó.",
+      "D. Thay đổi Hàm mất mát"
+    ],
+    "answer": 2,
+    "explanation": "Nếu 1 công ty có 1 thằng làm quá giỏi, mấy thằng khác sẽ ngồi chơi. Nếu thằng đó ốm (Outlier data), công ty sập. Dropout giống như việc Sếp ngẫu nhiên cho 20% nhân sự nghỉ phép mỗi ngày. Bắt buộc 80% nhân sự còn lại phải tự giỏi lên. Khi chạy thực tế (Testing), ta sẽ bật 100% Nơ-ron lên lại.",
+    "tip": "Dropout = Đuổi việc ngẫu nhiên Nơ-ron lúc Train. Chống 'Bệnh Ỷ Lại' -> Trị Overfitting cực kỳ hiệu quả.",
+    "tags": ["deep-learning", "dropout", "regularization", "overfitting"]
+  },
+  {
+    "id": "C3-015", "module": "C", "topic": "C3", "difficulty": "easy",
+    "question": "Transfer Learning (Học chuyển giao) là phương pháp dùng khi nào?",
+    "options": [
+      "A. Khi cần chuyển đổi code Python sang Java",
+      "B. Khi BẠN CÓ ÍT DỮ LIỆU. Bạn TẢI XUỐNG một Mô hình KHỔNG LỒ (như ResNet, VGG) đã được Train sẵn trên hàng triệu bức ảnh (như ImageNet) từ Google/Meta. Bạn đóng băng phần gốc, và chỉ Train lại 1-2 lớp Cuối Cùng bằng data 100 con mèo của bạn.",
+      "C. Khi cần chạy mạng LAN",
+      "D. Khi xóa mô hình"
+    ],
+    "answer": 1,
+    "explanation": "Train 1 mạng CNN từ số 0 tốn 1 triệu đô tiền điện và 10 triệu bức ảnh. Mô hình của Google đã biết mắt, mũi, đường cong là gì. Bạn mượn 'bộ não' đó của Google, thêm 1 cái miệng (Output layer) mới, và dạy nó phân biệt chó/mèo nhà bạn. Mất 5 phút chạy trên Laptop. Đây là xương sống của mọi ngành ứng dụng AI hiện nay.",
+    "tip": "Transfer Learning = Đứng trên vai người khổng lồ. Mượn bộ não của Google đem về xài cho việc nhà mình.",
+    "tags": ["deep-learning", "transfer-learning", "pre-trained"]
+  },
+  {
+    "id": "C3-016", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Kiến trúc TRANSFORMER (Nền tảng của ChatGPT, BERT) ra đời năm 2017 đã bóp chết hoàn toàn RNN/LSTM nhờ vào CƠ CHẾ CỐT LÕI nào?",
+    "options": [
+      "A. Thuật toán phân cụm",
+      "B. Cơ chế Tự Chú Ý (Self-Attention). Nó tính toán trực tiếp Mối quan hệ giữa MỌI TỪ trong câu với NHAU CÙNG MỘT LÚC (Chạy song song), thay vì đọc tuần tự từng chữ tốn thời gian như RNN.",
+      "C. Đọc văn bản từ dưới lên",
+      "D. Dùng mạng Tích chập CNN"
+    ],
+    "answer": 1,
+    "explanation": "Câu: 'Con khỉ không ăn được quả chuối, vì NÓ quá to'. Chữ NÓ là con khỉ hay quả chuối? Self-Attention sẽ quét chiếu toàn câu, phát hiện ra chữ NÓ liên kết (Trọng số chú ý lớn) với chữ Chuối (vì logic ăn/to). Nó chạy song song toàn bộ ma trận trên GPU, xử lý 10 vạn cuốn sách trong nháy mắt (Điều mà RNN đọc từng chữ không bao giờ làm nổi).",
+    "tip": "Transformer = Self-Attention (Tự Chú Ý). Xử lý dữ liệu TEXT cực lớn song song. Vua của kỷ nguyên Generative AI.",
+    "tags": ["deep-learning", "transformer", "attention", "nlp"]
+  },
+  {
+    "id": "C3-017", "module": "C", "topic": "C3", "difficulty": "medium",
+    "question": "Mạng GAN (Generative Adversarial Networks) cấu thành từ 2 mạng Neural đấu trí với nhau. Hai mạng đó tên là gì?",
+    "options": [
+      "A. Actor và Critic",
+      "B. Encoder và Decoder",
+      "C. Generator (Kẻ tạo giả) và Discriminator (Cảnh sát phân biệt thật/giả)",
+      "D. Master và Slave"
+    ],
+    "answer": 2,
+    "explanation": "GAN chuyên dùng để Fake ảnh/Deepfake. Generator tạo ra 1 bức ảnh người giả bằng nhiễu ngẫu nhiên. Discriminator nhìn vào ảnh giả đó và ảnh thật, cố gắng bắt lỗi 'Mày là hàng fake'. Quá trình đấu trí liên tục: Thằng giả càng ngày càng tinh vi, Thằng cảnh sát càng ngày càng săm soi giỏi. Đến mức ảnh tạo ra giống thật 100%.",
+    "tip": "GAN = Cuộc chiến giữa Tội phạm làm tiền giả (Generator) và Cảnh sát soi tiền (Discriminator).",
+    "tags": ["deep-learning", "gan", "generative"]
+  },
+  {
+    "id": "C3-018", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Kiến trúc ResNet (Residual Network - Microsoft 2015) đã tạo ra kỳ tích train được mạng sâu 152 lớp mà không bị Vanishing Gradient nhờ vào thủ thuật vô cùng đơn giản nào?",
+    "options": [
+      "A. Dùng 1000 GPU",
+      "B. Thêm Skip Connection (hoặc Shortcut/Residual Block). Nó vẽ thêm một ĐƯỜNG CAO TỐC CHO PHÉP DỮ LIỆU ĐẦU VÀO X (hoặc Đạo hàm) NHẢY BƯỚC/BỎ QUA VÀI LỚP ẨN, cộng trực tiếp X vào Output của lớp sau (F(x) + x).",
+      "C. Xóa hết hàm kích hoạt",
+      "D. Đổi ảnh sang đen trắng"
+    ],
+    "answer": 1,
+    "explanation": "Mạng quá sâu thì tín hiệu (Gradient) lúc truyền ngược về móng sẽ bị tắc nghẽn ở các lớp. ResNet làm các 'Cây cầu vượt'. Gradient gặp lớp nào kẹt quá, nó chui lên đường cầu vượt bay thẳng về lớp móng. Đơn giản mà cứu sống toàn bộ Deep Learning.",
+    "tip": "ResNet = Residual Block (Đường nhảy cóc / Cầu vượt). Chống triệt tiêu đạo hàm, giúp mạng mọc sâu bao nhiêu tùy thích.",
+    "tags": ["deep-learning", "resnet", "cnn", "vanishing-gradient"]
+  },
+  {
+    "id": "C3-019", "module": "C", "topic": "C3", "difficulty": "easy",
+    "question": "PyTorch và TensorFlow là 2 Framework Deep Learning đình đám nhất. Ưu điểm ĐẶC TRƯNG khiến dân Nghiên cứu (Research) thường yêu thích PyTorch hơn TensorFlow là gì?",
+    "options": [
+      "A. PyTorch miễn phí, TF tốn tiền",
+      "B. PyTorch sử dụng Đồ thị Tính toán ĐỘNG (Dynamic Computation Graph). Bạn có thể viết code Python, dùng print, If/Else bình thường và Debug trực tiếp ngay lúc chạy (Eager Execution). (Lưu ý TF 2.0 đã bắt chước tính năng này nhưng PyTorch vẫn pythonic hơn).",
+      "C. PyTorch do Google làm ra",
+      "D. PyTorch chạy hoàn toàn trên CPU"
+    ],
+    "answer": 1,
+    "explanation": "Đồ thị tĩnh (TensorFlow 1.x) bắt bạn phải xây nguyên cái Đồ thị trước, rồi đổ data vào chạy 1 cục -> Rất khó Debug. Đồ thị động của PyTorch (tạo bởi Meta/Facebook) biên dịch lúc chạy, cảm giác code rất thân thuộc với phong cách của Python thường ngày.",
+    "tip": "Nghiên cứu (Cần chọc ngoáy, đổi ý tưởng, Debug) = PyTorch (Đồ thị động). Môi trường Doanh nghiệp Scale lớn = TensorFlow.",
+    "tags": ["deep-learning", "pytorch", "tensorflow"]
+  },
+  {
+    "id": "C3-020", "module": "C", "topic": "C3", "difficulty": "hard",
+    "question": "Thuật toán AutoEncoder trong Deep Learning MẶC ĐỊNH thuộc nhóm Học nào và MỤC ĐÍCH chính là gì?",
+    "options": [
+      "A. Học có giám sát, dùng phân loại",
+      "B. Học không giám sát (Học tự giám sát), dùng để GIẢM CHIỀU DỮ LIỆU hoặc Nén/Loại bỏ nhiễu (Denoising). Nó có mô hình Đồng hồ cát: Bóp nhỏ Input lại (Encoder) rồi phóng to ra thành đúng cái Input ban đầu (Decoder).",
+      "C. Học tăng cường",
+      "D. Giải hệ phương trình tuyến tính"
+    ],
+    "answer": 1,
+    "explanation": "AutoEncoder nhận Input (Tấm ảnh). Cố gắng bóp nghẹt 1000 pixel xuống một Lớp Cổ Chai (Bottleneck) chỉ chứa 10 con số (Latent Space). Rồi bắt Decoder phục hồi lại tấm ảnh 1000 pixel từ 10 con số đó. Kết quả: 10 con số kia đã nắm được LINH HỒN CỐT LÕI của tấm ảnh. Nó là phiên bản Deep Learning của PCA.",
+    "tip": "AutoEncoder = Cỗ máy vắt nước cam (Encoder vắt lấy cốt, Decoder pha ra lại như cũ).",
+    "tags": ["deep-learning", "autoencoder", "unsupervised"]
+  }
+]

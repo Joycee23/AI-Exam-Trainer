@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B3-001", "module": "B", "topic": "B3", "difficulty": "easy",
+    "question": "Tính chất CHÍNH phân biệt giữa List `[]` và Tuple `()` trong Python là gì?",
+    "options": [
+      "A. List chứa số, Tuple chứa chữ",
+      "B. Tuple có thể thay đổi (Mutable), List không thể thay đổi (Immutable)",
+      "C. List có thể thay đổi (Mutable), Tuple BẤT BIẾN (Immutable) không thể sửa đổi sau khi tạo",
+      "D. Tuple chạy chậm hơn List"
+    ],
+    "answer": 2,
+    "explanation": "List là một mảng động (Mutable), bạn có thể append, remove, sửa phần tử thoải mái. Tuple là tĩnh (Immutable), một khi đã tạo `t = (1, 2)` thì không thể sửa phần tử. Nhờ bất biến, Tuple an toàn, tốn ít RAM hơn và có thể dùng làm Key cho Dictionary.",
+    "tip": "List = Mảng Động (Mutable). Tuple = Mảng Tĩnh (Immutable).",
+    "tags": ["python", "data-structures", "list", "tuple"]
+  },
+  {
+    "id": "B3-002", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Đoạn mã sau trả về kết quả nào?\n`my_list = [1, 2, 3, 4, 5]; print(my_list[::-1])`",
+    "options": [
+      "A. [5, 4, 3, 2, 1]",
+      "B. [1]",
+      "C. [5]",
+      "D. Báo lỗi do chỉ số âm"
+    ],
+    "answer": 0,
+    "explanation": "Cú pháp Slicing của Python là `[start:stop:step]`. Khi bỏ trống start và stop, truyền step = -1, Python sẽ duyệt qua mảng theo chiều ngược lại, tạo ra một bản copy của mảng bị đảo ngược.",
+    "tip": "`[::-1]` = Trick siêu kinh điển để đảo ngược (Reverse) List hoặc Chuỗi (String) cực nhanh.",
+    "tags": ["python", "data-structures", "list", "slicing"]
+  },
+  {
+    "id": "B3-003", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Dictionary trong Python (từ phiên bản 3.7 trở đi) có đặc điểm nào dưới đây?",
+    "options": [
+      "A. Không duy trì thứ tự phần tử",
+      "B. Duy trì thứ tự các phần tử được thêm vào (Insertion Order)",
+      "C. Tự động sắp xếp các phần tử theo Key (A-Z)",
+      "D. Chấp nhận Key bị trùng lặp"
+    ],
+    "answer": 1,
+    "explanation": "Trước Python 3.6, Dictionary là vô trật tự (unordered). Từ 3.7 trở đi, tính năng DUY TRÌ THỨ TỰ (duy trì thứ tự khi insert) trở thành tiêu chuẩn ngôn ngữ của `dict`. Dictionary tuyệt đối không cho phép Key trùng lặp.",
+    "tip": "Python >= 3.7: Dictionary tự động nhớ Thứ Tự Nhập Vào (Insertion Order).",
+    "tags": ["python", "data-structures", "dictionary", "ordering"]
+  },
+  {
+    "id": "B3-004", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Điều kiện BẮT BUỘC để một kiểu dữ liệu có thể làm KEY cho Dictionary hoặc phần tử của Set là gì?",
+    "options": [
+      "A. Phải là số nguyên (int)",
+      "B. Phải có tính chất Hashable (Có thể băm - thường là Immutable)",
+      "C. Phải là chuỗi (string)",
+      "D. Phải là Mutable (như List, Dict)"
+    ],
+    "answer": 1,
+    "explanation": "Dict và Set cấu tạo từ Bảng Băm (Hash Table) để tra cứu O(1). Do đó, Key phải có hàm băm ổn định không đổi trong suốt vòng đời. Các kiểu Immutable (Int, String, Tuple) là Hashable. List và Dict là Mutable (không Hashable) nên KHÔNG THỂ làm Key.",
+    "tip": "Muốn làm KEY của Dict hay phần tử của SET -> Phải là HASHABLE (Bất biến như String, Tuple, số).",
+    "tags": ["python", "data-structures", "dictionary", "hashable", "set"]
+  },
+  {
+    "id": "B3-005", "module": "B", "topic": "B3", "difficulty": "easy",
+    "question": "Sự khác biệt giữa hàm `append()` và `extend()` của List là gì?",
+    "options": [
+      "A. Không có khác biệt",
+      "B. `append` thêm 1 phần tử vào đầu mảng, `extend` thêm vào cuối",
+      "C. `append` đẩy CẢ CỤM (ví dụ 1 list khác) vào làm 1 phần tử duy nhất. `extend` phá vỡ list kia ra và rải các phần tử vào mảng.",
+      "D. `append` chạy nhanh hơn `extend`"
+    ],
+    "answer": 2,
+    "explanation": "`[1, 2].append([3, 4])` ra `[1, 2, [3, 4]]` (List lồng List). Trong khi `[1, 2].extend([3, 4])` ra `[1, 2, 3, 4]` (Nối 2 mảng lại với nhau, tương đương phép cộng list `+`).",
+    "tip": "Append: Bỏ nguyên hộp vào. Extend: Mở hộp ra, lấy từng món bỏ vào (giống hệt `+=`).",
+    "tags": ["python", "data-structures", "list", "methods"]
+  },
+  {
+    "id": "B3-006", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Đoạn code: `my_dict.get('key_la', 'Khong Tim Thay')` sẽ trả về gì nếu 'key_la' KHÔNG tồn tại trong dictionary?",
+    "options": [
+      "A. Báo lỗi KeyError",
+      "B. Trả về giá trị None",
+      "C. Trả về chuỗi 'Khong Tim Thay'",
+      "D. Báo lỗi Syntax Error"
+    ],
+    "answer": 2,
+    "explanation": "Nếu dùng cú pháp `my_dict['key_la']`, chương trình sẽ chết (KeyError). Hàm `.get(key, default)` an toàn hơn, nếu không tìm thấy key, nó sẽ trả về giá trị mặc định được thiết lập (ở đây là 'Khong Tim Thay'). Nếu không set mặc định, nó trả về None.",
+    "tip": "Dùng `dict.get()` để truy xuất an toàn không bị sập (Crash) chương trình.",
+    "tags": ["python", "data-structures", "dictionary", "get"]
+  },
+  {
+    "id": "B3-007", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Thuật toán nào được Python sử dụng đằng sau hàm `sort()` và `sorted()`?",
+    "options": [
+      "A. QuickSort",
+      "B. MergeSort",
+      "C. Timsort (Kết hợp giữa MergeSort và InsertionSort)",
+      "D. BubbleSort"
+    ],
+    "answer": 2,
+    "explanation": "Timsort là một thuật toán sắp xếp lai cực kỳ tinh vi do Tim Peters thiết kế riêng cho Python (hiện đã được Java và V8 JS vay mượn). Nó khai thác các đoạn dữ liệu đã được sắp xếp sẵn một phần (runs) trong mảng để tối ưu hóa, cực kỳ hiệu quả với dữ liệu thực tế (Time complexity O(N log N) nhưng Best case O(N)).",
+    "tip": "Python xài Timsort - vua của thuật toán sắp xếp dữ liệu thực tế.",
+    "tags": ["python", "algorithms", "sorting", "timsort"]
+  },
+  {
+    "id": "B3-008", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Trong Python, Set (Tập hợp) CÓ HỖ TRỢ toán tử nào sau đây để tìm PHẦN GIAO (Intersection) giữa 2 Set A và B?",
+    "options": [
+      "A. A + B",
+      "B. A * B",
+      "C. A & B",
+      "D. A | B"
+    ],
+    "answer": 2,
+    "explanation": "Set của Python mô phỏng toán học: Giao (Intersection) dùng `&`, Hợp (Union) dùng `|`, Hiệu (Difference) dùng `-`, Hiệu đối xứng (Symmetric Difference) dùng `^`.",
+    "tip": "Giao (&). Hợp (|). Trừ (-). Bù XOR (^).",
+    "tags": ["python", "data-structures", "set", "operators"]
+  },
+  {
+    "id": "B3-009", "module": "B", "topic": "B3", "difficulty": "easy",
+    "question": "Tính chất đặc trưng nhất của cấu trúc dữ liệu Set trong Python là gì?",
+    "options": [
+      "A. Hỗ trợ truy cập bằng index `set[0]`",
+      "B. Giữ nguyên thứ tự nhập vào",
+      "C. KHÔNG cho phép các phần tử trùng lặp (Unique elements) và KHÔNG có thứ tự (Unordered)",
+      "D. Chỉ lưu trữ chuỗi"
+    ],
+    "answer": 2,
+    "explanation": "Set được implement bằng bảng băm (giống Dictionary nhưng chỉ có Key, không có Value). Khi bạn bỏ các phần tử trùng lặp vào Set, chúng sẽ tự động bị loại bỏ. Set không lưu index nên không thể gọi `set[0]`.",
+    "tip": "Dùng Set là cách nhanh nhất quả đất để XÓA TRÙNG LẶP (remove duplicates) trong List. `list(set(my_list))`",
+    "tags": ["python", "data-structures", "set", "uniqueness"]
+  },
+  {
+    "id": "B3-010", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Đoạn mã List Comprehension: `[x for x in range(10) if x % 2 == 0]` sẽ trả về điều gì?",
+    "options": [
+      "A. Danh sách các số lẻ từ 1 đến 9",
+      "B. Danh sách các số chẵn: [0, 2, 4, 6, 8]",
+      "C. [True, False, True, False...]",
+      "D. Lỗi cú pháp"
+    ],
+    "answer": 1,
+    "explanation": "List Comprehension là cú pháp đặc sản (Pythonic) mạnh mẽ của Python. Nó dịch là: lấy giá trị `x` với mỗi `x` lặp từ 0 đến 9, NHƯNG CHỈ LẤY những `x` chia hết cho 2 (số chẵn). Kết quả là list [0, 2, 4, 6, 8].",
+    "tip": "List Comprehension: `[Kết_quả (for_loop) (if_condition)]`. Viết cực kỳ ngắn gọn thay cho 4 dòng code vòng lặp bình thường.",
+    "tags": ["python", "list-comprehension"]
+  },
+  {
+    "id": "B3-011", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Nếu tạo Tuple chỉ có MỘT phần tử (singleton tuple), cách viết nào DƯỚI ĐÂY LÀ ĐÚNG?",
+    "options": [
+      "A. t = (1)",
+      "B. t = [1]",
+      "C. t = 1,",
+      "D. t = tuple(1)"
+    ],
+    "answer": 2,
+    "explanation": "`t = (1)` chỉ là phép toán ngoặc đơn thông thường, kết quả là số int `1`. Dấu phẩy (comma) mới là thứ ĐỊNH NGHĨA Tuple trong Python. Cách viết chuẩn là `t = (1,)` hoặc đơn giản `t = 1,`. Hàm tuple() không nhận int vì int không thể duyệt (iterable).",
+    "tip": "Tuple 1 phần tử BẮT BUỘC phải có dấu phẩy: `(1,)`.",
+    "tags": ["python", "data-structures", "tuple", "singleton"]
+  },
+  {
+    "id": "B3-012", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Sự khác biệt về độ phức tạp thời gian (Time Complexity) khi kiểm tra `x in list` so với `x in set` trong Python?",
+    "options": [
+      "A. Cả hai đều O(N)",
+      "B. List là O(N), Set là O(1) trung bình",
+      "C. Cả hai đều O(1)",
+      "D. List là O(1), Set là O(log N)"
+    ],
+    "answer": 1,
+    "explanation": "List phải quét tuần tự từ đầu đến cuối (Linear Search) để tìm -> O(N). Set tra cứu bảng băm (Hash Table) nên nhảy thẳng đến vị trí -> O(1). Nếu dữ liệu lớn, dùng Set để check `in` sẽ nhanh hơn List hàng triệu lần.",
+    "tip": "Toán tử `in` (tìm kiếm): Set/Dict là Thần (O(1)). List/Tuple là Rùa (O(N)).",
+    "tags": ["python", "data-structures", "time-complexity", "set"]
+  },
+  {
+    "id": "B3-013", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Hàm `pop()` của Dictionary khác `pop()` của List như thế nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. `pop()` của List mặc định xóa phần tử CUỐI. `pop(key)` của Dict BẮT BUỘC phải truyền Key cần xóa.",
+      "C. `pop()` của Dict xóa ngẫu nhiên",
+      "D. Cả hai đều bắt buộc truyền index"
+    ],
+    "answer": 1,
+    "explanation": "List `pop()` nếu không truyền tham số sẽ tháo phần tử cuối mảng ra (cơ chế Stack). Trong Dict, bạn phải chỉ định rõ Key cần xóa bằng `my_dict.pop('my_key')`. (Nếu muốn xóa phần tử cuối cùng được thêm vào dict, dùng `popitem()`).",
+    "tip": "List pop() = tháo đuôi. Dict pop(Key) = Xóa Key.",
+    "tags": ["python", "data-structures", "methods", "pop"]
+  },
+  {
+    "id": "B3-014", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Trong thư viện `collections`, cấu trúc dữ liệu `deque` (Double Ended Queue) có ưu điểm CHÍNH gì so với List?",
+    "options": [
+      "A. Dùng ít RAM hơn",
+      "B. Có thể truy cập ngẫu nhiên (random access) `d[100]` nhanh hơn List",
+      "C. Thêm/Xóa phần tử ở ĐẦU MẢNG (appendleft/popleft) với độ phức tạp O(1)",
+      "D. Tự động sắp xếp"
+    ],
+    "answer": 2,
+    "explanation": "List của Python là mảng động. Thêm/Xóa ở cuối (append/pop) là O(1), nhưng Thêm/Xóa ở Đầu (insert(0) / pop(0)) tốn O(N) vì phải dịch chuyển toàn bộ các phần tử đằng sau. `deque` (hàng đợi 2 đầu) được thiết kế bằng danh sách liên kết kép, giúp Thêm/Xóa ở cả hai đầu đều siêu nhanh O(1).",
+    "tip": "Cần thêm/xóa phần tử ở ĐẦU mảng liên tục (như BFS)? Bỏ List đi, dùng `collections.deque`.",
+    "tags": ["python", "data-structures", "deque", "performance"]
+  },
+  {
+    "id": "B3-015", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Cấu trúc dữ liệu `defaultdict` trong thư viện `collections` giải quyết phiền toái nào của dictionary thông thường?",
+    "options": [
+      "A. Tự động lưu file JSON",
+      "B. Cho phép Key trùng lặp",
+      "C. Tự động gán giá trị mặc định cho Key mới nếu truy cập một Key CHƯA TỒN TẠI (tránh lỗi KeyError)",
+      "D. Sắp xếp Key tự động"
+    ],
+    "answer": 2,
+    "explanation": "Khi đếm tần suất chữ (word count), thay vì kiểm tra `if word not in dict: dict[word] = 0`, bạn chỉ cần khai báo `d = defaultdict(int)`. Khi gọi `d['new_word'] += 1`, nó tự hiểu khởi tạo giá trị 0 rồi cộng 1, không bao giờ bị KeyError.",
+    "tip": "defaultdict(int): Tự động cho value = 0. defaultdict(list): Tự động cho value = []. Đỡ phải if-else.",
+    "tags": ["python", "data-structures", "collections", "defaultdict"]
+  },
+  {
+    "id": "B3-016", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Hàm built-in `zip(list1, list2)` trả về gì?",
+    "options": [
+      "A. Một mảng chứa list1 nối tiếp list2",
+      "B. Nén (ZIP file) hai mảng thành tập tin",
+      "C. Một Iterator tạo ra các TUPLE ghép cặp các phần tử tương ứng của list1 và list2",
+      "D. Danh sách các phần tử chung của 2 list"
+    ],
+    "answer": 2,
+    "explanation": "`zip([1,2], ['a','b'])` sẽ tạo ra một đối tượng duyệt trả về `(1, 'a')` và `(2, 'b')`. Nếu hai list độ dài khác nhau, `zip` sẽ tự động cắt cụt theo list ngắn nhất. (Dùng `itertools.zip_longest` nếu muốn lấp đầy list dài).",
+    "tip": "Zip = Kéo khóa. Răng khóa 2 bên ghép cặp 1-1 lại với nhau.",
+    "tags": ["python", "functions", "zip"]
+  },
+  {
+    "id": "B3-017", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Tại sao Tuple được cho là tiết kiệm bộ nhớ (memory-efficient) và tạo nhanh hơn List?",
+    "options": [
+      "A. Vì Tuple là Immutable, Python phân bổ vùng nhớ TĨNH vừa khít (static size) và có cơ chế tái sử dụng (interning/caching) cho các tuple nhỏ",
+      "B. Vì Tuple chỉ chứa chuỗi",
+      "C. Tuple nén bằng thuật toán gzip",
+      "D. Sai, List tiết kiệm bộ nhớ hơn"
+    ],
+    "answer": 0,
+    "explanation": "List là mảng động, Python luôn phải cấp phát dư (over-allocate) bộ nhớ dự phòng để phục vụ cho thao tác `append` sau này. Tuple cố định, nên hệ điều hành chỉ cấp phát đúng phần RAM cần thiết, tạo ra rất nhanh.",
+    "tip": "Cần lưu dữ liệu CHỈ ĐỂ ĐỌC (Tọa độ, config)? Xài Tuple cho nhẹ và lẹ.",
+    "tags": ["python", "data-structures", "tuple", "memory-optimization"]
+  },
+  {
+    "id": "B3-018", "module": "B", "topic": "B3", "difficulty": "medium",
+    "question": "Làm thế nào để hợp nhất (Merge) hai dictionary `d1` và `d2` trong Python 3.9+ ngắn gọn nhất?",
+    "options": [
+      "A. d3 = d1.merge(d2)",
+      "B. d3 = d1 + d2",
+      "C. d3 = d1 | d2 (Toán tử Pipe)",
+      "D. d3 = d1 & d2"
+    ],
+    "answer": 2,
+    "explanation": "Kể từ Python 3.9, toán tử Merge `|` (Pipe) và toán tử Update `|=` được ra mắt để gộp 2 dictionary vô cùng thanh lịch. Nếu có key trùng lặp, giá trị của `d2` (bên phải) sẽ đè lên `d1`.",
+    "tip": "Python >= 3.9: `d1 | d2` là chân ái để gộp Dict. (Bản cũ dùng `**d1, **d2`).",
+    "tags": ["python", "data-structures", "dictionary", "merge"]
+  },
+  {
+    "id": "B3-019", "module": "B", "topic": "B3", "difficulty": "hard",
+    "question": "Cấu trúc dữ liệu `Counter` từ thư viện `collections` là class con (subclass) của cái gì, và nó làm gì?",
+    "options": [
+      "A. Subclass của List, dùng đếm số phần tử",
+      "B. Subclass của Dictionary, chuyên dùng để đếm TẦN SUẤT xuất hiện của các phần tử",
+      "C. Subclass của Set, tìm max",
+      "D. Là một hàm đếm thời gian"
+    ],
+    "answer": 1,
+    "explanation": "`Counter` nhận một list/string và trả về một Dictionary mà Key là phần tử, Value là số lần nó xuất hiện. Hàm cực xịn của nó là `most_common(n)` để lấy top N phần tử phổ biến nhất.",
+    "tip": "Bài toán đếm từ / Tìm phần tử xuất hiện nhiều nhất -> Xách `collections.Counter` ra xài.",
+    "tags": ["python", "data-structures", "collections", "counter"]
+  },
+  {
+    "id": "B3-020", "module": "B", "topic": "B3", "difficulty": "easy",
+    "question": "Phép toán `[1, 2] * 3` trên List trong Python trả về gì?",
+    "options": [
+      "A. [3, 6]",
+      "B. [[1, 2], [1, 2], [1, 2]]",
+      "C. [1, 2, 1, 2, 1, 2]",
+      "D. Lỗi"
+    ],
+    "answer": 2,
+    "explanation": "Toán tử `*` trên List/String/Tuple mang ý nghĩa 'lặp lại' (repetition). Nó sẽ copy nguyên List đó và nối lại với nhau n lần.",
+    "tip": "List * số nguyên = Lặp lại chuỗi. Muốn nhân toán học (nhân ma trận) phải xài thư viện Numpy.",
+    "tags": ["python", "data-structures", "list", "operators"]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B8-001", "module": "B", "topic": "B8", "difficulty": "easy",
+    "question": "API (Application Programming Interface) là gì?",
+    "options": [
+      "A. Giao diện Đồ họa Người dùng (GUI) có nút bấm và hình ảnh",
+      "B. Một con bọ phần mềm (Bug)",
+      "C. Cầu nối (Giao thức/Giao diện) cho phép hai phần mềm HOÀN TOÀN KHÁC NHAU giao tiếp và trao đổi dữ liệu với nhau",
+      "D. Một loại Cơ sở dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "API giống như một người phục vụ nhà hàng. Bạn (Client) đưa ra yêu cầu (Order món), người phục vụ (API) mang yêu cầu vào nhà bếp (Server), bếp làm xong, phục vụ mang món ăn (Dữ liệu) ra cho bạn. Nhờ API, Client và Server không cần biết hệ thống bên trong của nhau hoạt động bằng ngôn ngữ gì.",
+    "tip": "API = Cầu nối, người đưa thư (cho phép các App nói chuyện với nhau).",
+    "tags": ["api", "basics", "system"]
+  },
+  {
+    "id": "B8-002", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "RESTful API là một kiến trúc API phổ biến nhất hiện nay. Nó sử dụng giao thức mạng nào làm nền tảng truyền tải dữ liệu?",
+    "options": [
+      "A. FTP",
+      "B. SSH",
+      "C. HTTP (hoặc HTTPS)",
+      "D. SMTP"
+    ],
+    "answer": 2,
+    "explanation": "REST (Representational State Transfer) tận dụng triệt để các phương thức của giao thức HTTP (như GET, POST, PUT, DELETE) để thao tác lên các tài nguyên (Resources) trên mạng.",
+    "tip": "RESTful API sống bám trên nền giao thức HTTP của trình duyệt Web.",
+    "tags": ["api", "rest", "http"]
+  },
+  {
+    "id": "B8-003", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Theo chuẩn RESTful, phương thức HTTP nào thường được dùng để THÊM MỚI (Tạo) một tài nguyên trên Server?",
+    "options": [
+      "A. GET",
+      "B. POST",
+      "C. PUT",
+      "D. DELETE"
+    ],
+    "answer": 1,
+    "explanation": "Quy chuẩn REST: GET (Đọc dữ liệu), POST (Tạo mới), PUT/PATCH (Sửa/Cập nhật), DELETE (Xóa). POST thường mang một gói hàng (payload/body) chứa thông tin của đối tượng cần tạo (VD: Tạo User mới).",
+    "tip": "GET = Xem. POST = Thêm mới. PUT = Sửa. DELETE = Xóa.",
+    "tags": ["api", "http-methods", "rest"]
+  },
+  {
+    "id": "B8-004", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Sự khác biệt chính giữa HTTP PUT và HTTP PATCH là gì?",
+    "options": [
+      "A. Không khác gì nhau",
+      "B. PUT cập nhật MỘT PHẦN tài nguyên. PATCH thay thế TOÀN BỘ tài nguyên.",
+      "C. PUT thay thế TOÀN BỘ đối tượng cũ bằng đối tượng mới (Full Update). PATCH chỉ cập nhật MỘT VÀI TRƯỜNG cụ thể của đối tượng (Partial Update).",
+      "D. PUT dùng để lấy dữ liệu, PATCH dùng để xóa"
+    ],
+    "answer": 2,
+    "explanation": "Nếu User có {tên, email, tuổi}. Dùng PUT, bạn phải gửi lại {tên, email, tuổi} mới, nếu thiếu trường nào nó sẽ bị null. Dùng PATCH, bạn chỉ cần gửi {tuổi: 30}, các trường khác được giữ nguyên.",
+    "tip": "PUT = Trét đè lên toàn bộ. PATCH = Vá áo (chỉ sửa chỗ rách).",
+    "tags": ["api", "http-methods", "put", "patch"]
+  },
+  {
+    "id": "B8-005", "module": "B", "topic": "B8", "difficulty": "easy",
+    "question": "Mã trạng thái HTTP (HTTP Status Code) 404 có ý nghĩa gì?",
+    "options": [
+      "A. Yêu cầu thành công (Success)",
+      "B. Không tìm thấy tài nguyên yêu cầu (Not Found)",
+      "C. Lỗi hệ thống máy chủ (Internal Server Error)",
+      "D. Không có quyền truy cập (Forbidden)"
+    ],
+    "answer": 1,
+    "explanation": "404 Not Found là lỗi nổi tiếng nhất thế giới mạng. Nó cho biết server đang hoạt động tốt, nhưng cái Link (URL) hoặc tài nguyên bạn yêu cầu không tồn tại.",
+    "tip": "Mã 2xx: Ngon. 4xx: Client (Bạn) ngu. 5xx: Server (Hệ thống) ngu.",
+    "tags": ["api", "http-status", "404"]
+  },
+  {
+    "id": "B8-006", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Mã trạng thái HTTP nào thường được API trả về khi Server bị quá tải, sập nguồn, hoặc code trên Server bị lỗi ném Exception?",
+    "options": [
+      "A. 200 OK",
+      "B. 401 Unauthorized",
+      "C. 500 Internal Server Error",
+      "D. 302 Found"
+    ],
+    "answer": 2,
+    "explanation": "Mã 5xx nói chung là do lỗi hệ thống (Server-side). 500 là lỗi phổ biến nhất khi Code API dính Exception mà không được bắt (try-catch) đàng hoàng. (200 là thành công, 401 là sai pass).",
+    "tip": "Lỗi 500 (Internal Server Error) = Lỗi do thằng lập trình Backend viết code ngu hoặc Server sập.",
+    "tags": ["api", "http-status", "500"]
+  },
+  {
+    "id": "B8-007", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Định dạng dữ liệu nào HIỆN NAY được sử dụng phổ biến nhất để trao đổi thông tin giữa Client và RESTful API?",
+    "options": [
+      "A. XML",
+      "B. HTML",
+      "C. CSV",
+      "D. JSON"
+    ],
+    "answer": 3,
+    "explanation": "JSON (JavaScript Object Notation) đã đánh bại XML để trở thành chuẩn giao tiếp số 1 thế giới. Nó nhẹ, dễ đọc (human-readable), cấu trúc key-value lồng nhau rất phù hợp cho hầu hết mọi ngôn ngữ lập trình.",
+    "tip": "JSON: Ông vua của định dạng truyền tải dữ liệu API hiện đại.",
+    "tags": ["api", "json", "data-format"]
+  },
+  {
+    "id": "B8-008", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Trong kiến trúc hệ thống, 'Stateless' (Không trạng thái) của REST có nghĩa là gì?",
+    "options": [
+      "A. Server không có hệ điều hành",
+      "B. Mỗi request từ Client gửi lên Server phải chứa TOÀN BỘ thông tin cần thiết để Server hiểu và xử lý. Server KHÔNG LƯU TRỮ bất kỳ trạng thái (session/context) nào của Client giữa các request.",
+      "C. API không trả về dữ liệu",
+      "D. Client không được phép có IP cố định"
+    ],
+    "answer": 1,
+    "explanation": "Đặc tính Stateless giúp API dễ dàng mở rộng (Scale out) lên hàng ngàn máy chủ. Vì Server không cần nhớ 'Anh Client này vừa đăng nhập lúc nãy', Client phải tự gửi kèm Token (như JWT) trong MỌI request để chứng minh mình là ai.",
+    "tip": "Stateless (Không trạng thái) = Server mất trí nhớ. Client phải tự khai báo lại danh tính (Token) trong MỌI câu hỏi.",
+    "tags": ["api", "rest", "stateless", "system-design"]
+  },
+  {
+    "id": "B8-009", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "GraphQL (do Facebook tạo ra) khác biệt gì lớn nhất so với RESTful API?",
+    "options": [
+      "A. Không khác biệt",
+      "B. GraphQL dùng để vẽ biểu đồ trực quan, REST không làm được",
+      "C. REST trả về toàn bộ dữ liệu (Fixed structure) dễ gây over-fetching hoặc under-fetching. GraphQL cho phép Client tự định nghĩa và YÊU CẦU CHÍNH XÁC những trường dữ liệu mà họ cần trong 1 request duy nhất.",
+      "D. GraphQL chậm hơn REST 10 lần"
+    ],
+    "answer": 2,
+    "explanation": "Thay vì gọi nhiều API REST (VD: gọi api/user để lấy tên, gọi api/posts để lấy bài viết), GraphQL cung cấp 1 endpoint duy nhất. Client gửi 1 câu query như `{ user { name, posts { title } } }` và server trả đúng những gì được xin, không thừa 1 byte.",
+    "tip": "REST = Mua đồ ăn theo Combo ép sẵn. GraphQL = Đi ăn Buffet, thích gắp món gì thì gắp đúng món đó.",
+    "tags": ["api", "graphql", "rest"]
+  },
+  {
+    "id": "B8-010", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "JWT (JSON Web Token) được sử dụng để làm gì trong các hệ thống API?",
+    "options": [
+      "A. Lưu trữ mã nguồn",
+      "B. Tăng tốc độ truy vấn cơ sở dữ liệu",
+      "C. Xác thực (Authentication) và Ủy quyền (Authorization) ở trạng thái Stateless (Server không cần lưu Session DB, chỉ cần giải mã Token bằng Secret Key là biết ai đang gọi).",
+      "D. Nén dữ liệu hình ảnh"
+    ],
+    "answer": 2,
+    "explanation": "JWT gồm 3 phần: Header, Payload (chứa ID user, quyền...), Signature (chữ ký chống giả mạo). Nhờ Signature, Server biết Token là hàng thật mà không cần tra DB. Nhờ Payload, Server biết User là ai. Rất phù hợp cho hệ thống Microservices.",
+    "tip": "JWT = Giấy thông hành mã hóa. Đưa ra là Server cho qua, không cần tra sổ (Stateless).",
+    "tags": ["api", "jwt", "authentication", "security"]
+  },
+  {
+    "id": "B8-011", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "CORS (Cross-Origin Resource Sharing) là một cơ chế bảo mật trên trình duyệt web. Chuyện gì xảy ra nếu API Server không bật CORS?",
+    "options": [
+      "A. Server sẽ bị virus",
+      "B. Trình duyệt (Web) chạy ở tên miền A sẽ BỊ CHẶN (Block) khi cố gọi API ở tên miền B, sinh ra lỗi 'CORS policy'.",
+      "C. API chạy siêu nhanh",
+      "D. Bắt buộc phải dùng HTTPS"
+    ],
+    "answer": 1,
+    "explanation": "Đây là ác mộng lớn nhất của Frontend Dev. Trình duyệt mặc định chặn giao tiếp chéo domain (ví dụ web `abc.com` gọi api của `xyz.com`) để chống tấn công CSRF. Server API phải cấu hình trả về Header `Access-Control-Allow-Origin` thì trình duyệt mới cho phép.",
+    "tip": "Lỗi CORS = Trình duyệt cấm gọi API khác nhà (khác domain) để bảo mật. Phải sang nhà kia xin phép (Server bật CORS).",
+    "tags": ["api", "cors", "security", "web"]
+  },
+  {
+    "id": "B8-012", "module": "B", "topic": "B8", "difficulty": "easy",
+    "question": "Trong Python, thư viện nổi tiếng nhất dùng để tạo ra các API siêu tốc độ với hỗ trợ Asynchronous (Bất đồng bộ) tự động tạo tài liệu Swagger là gì?",
+    "options": [
+      "A. TensorFlow",
+      "B. FastAPI",
+      "C. Django",
+      "D. Scikit-learn"
+    ],
+    "answer": 1,
+    "explanation": "FastAPI là framework hiện đại, cực nhanh, sử dụng Python Type Hints để validate dữ liệu (pydantic) và tự động gen tài liệu API (Swagger UI). Rất được dân làm AI yêu thích để deploy Model thành API.",
+    "tip": "Viết API Python cực xịn, có sẵn tài liệu Swagger -> Dùng FastAPI.",
+    "tags": ["api", "python", "fastapi"]
+  },
+  {
+    "id": "B8-013", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Load Balancer (Bộ cân bằng tải) trong System Design có vai trò GỐC RỄ là gì?",
+    "options": [
+      "A. Giảm dung lượng file tải xuống",
+      "B. Chặn đứng các cuộc tấn công của hacker",
+      "C. Đứng ở cửa ngõ, tiếp nhận lưu lượng truy cập khổng lồ từ Client và chia đều (hoặc theo thuật toán như Round-robin) cho nhiều máy chủ Backend phía sau để tránh 1 máy bị sập vì quá tải.",
+      "D. Thay thế cơ sở dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "Khi hệ thống có hàng triệu người dùng, 1 máy chủ (Server) không thể chịu nổi. Ta phải mua 10 máy chủ (Horizontal Scaling). Load Balancer đứng trước 10 máy đó, làm nhiệm vụ như anh cảnh sát giao thông, điều tiết request sang máy đang rảnh.",
+    "tip": "Load Balancer = Cảnh sát giao thông chia đều xe cộ cho các làn đường (Server) không bị kẹt.",
+    "tags": ["system-design", "load-balancer", "scaling"]
+  },
+  {
+    "id": "B8-014", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Sự khác biệt giữa Vertical Scaling (Scale Up) và Horizontal Scaling (Scale Out) là gì?",
+    "options": [
+      "A. Vertical nâng cấp bằng việc GẮN THÊM RAM/CPU mạnh hơn vào cái máy CŨ. Horizontal nâng cấp bằng cách MUA THÊM nhiều máy MỚI cắm vào mạng lưới.",
+      "B. Không khác gì nhau",
+      "C. Vertical dùng cho Database, Horizontal dùng cho API",
+      "D. Vertical tốn ít tiền hơn"
+    ],
+    "answer": 0,
+    "explanation": "Vertical Scaling (Scale Up) rất dễ làm nhưng có giới hạn vật lý (bạn không thể mua 1 cái máy tính RAM 1000TB được). Horizontal Scaling (Scale Out) khó cấu hình hơn (cần Load Balancer, Distributed Systems) nhưng có khả năng mở rộng vô hạn.",
+    "tip": "Scale Up = Mua thịt bò xịn cho con chó to lên. Scale Out = Mua thêm 100 con chó nhỏ hợp sức kéo xe.",
+    "tags": ["system-design", "scaling", "architecture"]
+  },
+  {
+    "id": "B8-015", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Redis là một công cụ nổi tiếng thường được đặt giữa API Server và Database SQL. Mục đích chính của Redis ở đây là gì?",
+    "options": [
+      "A. Để mã hóa ổ cứng",
+      "B. Làm bộ đệm lưu trữ Trong-Bộ-Nhớ (In-Memory Cache) để truy xuất dữ liệu cực nhanh (dưới 1ms), giảm tải áp lực (Read) khổng lồ cho Database SQL chậm chạp.",
+      "C. Để lưu trữ vĩnh viễn không bao giờ mất",
+      "D. Dùng làm trình duyệt Web"
+    ],
+    "answer": 1,
+    "explanation": "Database truy xuất trên ổ cứng nên chậm. Các dữ liệu được người dùng hỏi đi hỏi lại nhiều lần (VD: Danh sách bài hát Top Trending) sẽ được lưu vào Redis (trên RAM). Request gọi tới API sẽ hỏi Redis trước, có thì trả luôn (Cache Hit), cứu rỗi hệ thống khỏi tắc nghẽn.",
+    "tip": "Redis = Bộ Nhớ Đệm (Cache) siêu tốc trên RAM. Đỡ đạn cho thằng Database chậm chạp phía sau.",
+    "tags": ["system-design", "redis", "caching"]
+  },
+  {
+    "id": "B8-016", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Kiến trúc Microservices (Vi dịch vụ) khác với kiến trúc Monolithic (Nguyên khối) ở điểm cốt lõi nào?",
+    "options": [
+      "A. Monolithic gộp chung TẤT CẢ mọi tính năng (Thanh toán, User, Giỏ hàng) vào 1 Source Code khổng lồ chạy trên 1 Server. Microservices chia nhỏ từng tính năng thành các Service độc lập, nói chuyện với nhau qua API.",
+      "B. Microservices chạy chậm hơn",
+      "C. Monolithic được viết bằng Python, Microservices viết bằng Java",
+      "D. Không có khác biệt"
+    ],
+    "answer": 0,
+    "explanation": "Monolithic dễ bắt đầu, nhưng khi code to lên hàng triệu dòng sẽ rất khó bảo trì, 1 tính năng lỗi có thể sập cả web. Microservices tách ra (Service Thanh toán riêng, Service Kho riêng), mỗi team phụ trách 1 cái, ngôn ngữ gì cũng được, sập cái này không chết cái kia (Fault Tolerance).",
+    "tip": "Monolith = 1 cục siêu to khổng lồ. Microservices = Lego lắp ghép từng mảnh nhỏ độc lập.",
+    "tags": ["system-design", "microservices", "monolithic"]
+  },
+  {
+    "id": "B8-017", "module": "B", "topic": "B8", "difficulty": "easy",
+    "question": "Docker sinh ra để giải quyết vấn đề kinh điển nào của lập trình viên?",
+    "options": [
+      "A. Vẽ biểu đồ",
+      "B. Code viết thiếu dấu phẩy",
+      "C. Vấn đề 'Nó chạy tốt trên máy của tôi (It works on my machine) nhưng lên Server lại bị lỗi'",
+      "D. Tối ưu hóa Database"
+    ],
+    "answer": 2,
+    "explanation": "Docker đóng gói mã nguồn của bạn CÙNG VỚI tất cả môi trường, hệ điều hành (nhẹ), thư viện (dependencies) vào một chiếc Hộp (Container). Cầm hộp đó quăng lên bất kỳ máy nào có cài Docker (dù là Mac, Win hay Linux Server), nó đều chạy chính xác 100% như trên máy bạn.",
+    "tip": "Docker = Bỏ cái code và cái môi trường (RAM, hệ điều hành con) vô 1 cái container. Bưng đi đâu chạy cũng y chang.",
+    "tags": ["system-design", "docker", "containerization"]
+  },
+  {
+    "id": "B8-018", "module": "B", "topic": "B8", "difficulty": "medium",
+    "question": "Kubernetes (K8s) thường được dùng chung với Docker để làm công việc gì?",
+    "options": [
+      "A. Quét mã độc",
+      "B. Thiết kế giao diện (UI)",
+      "C. Điều phối (Orchestration): Quản lý hàng ngàn Docker Container đang chạy, tự động khởi động lại nếu chúng bị chết (Self-healing), và tự động tăng giảm số lượng Container khi có bão traffic (Auto-scaling).",
+      "D. Viết code AI"
+    ],
+    "answer": 2,
+    "explanation": "Docker tạo ra các Container. Kubernetes là thuyền trưởng (Helmsman) quản lý các container đó trên hàng chục máy chủ vật lý. K8s tự lo việc Load Balancing, đảm bảo lúc nào cũng có đủ 5 container chạy, nếu 1 cái chết, nó tự bật cái mới lên thay.",
+    "tip": "Docker = Tạo ra các container. Kubernetes = Tàu chở hàng khổng lồ quản lý, sắp xếp hàng ngàn container đó tự động.",
+    "tags": ["system-design", "kubernetes", "docker", "orchestration"]
+  },
+  {
+    "id": "B8-019", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Trong System Design, Định lý CAP (CAP Theorem) phát biểu rằng một hệ thống dữ liệu phân tán (Distributed System) KHÔNG THỂ thỏa mãn ĐỒNG THỜI 3 đặc tính nào?",
+    "options": [
+      "A. Consistency (Nhất quán), Availability (Sẵn sàng), Partition Tolerance (Chịu lỗi chia cắt mạng)",
+      "B. Create, Add, Print",
+      "C. Cache, API, Proxy",
+      "D. Confidentiality, Authenticity, Privacy"
+    ],
+    "answer": 0,
+    "explanation": "Định lý CAP chỉ ra bạn chỉ có thể chọn TỐI ĐA 2 TRONG 3. Vì thực tế Partition Tolerance (Đứt cáp mạng giữa các server) là điều luôn xảy ra, các kỹ sư thường phải đau đầu chọn giữa CP (Bảo đảm dữ liệu tuyệt đối giống nhau nhưng web có thể bị sập lúc đứt cáp) hoặc AP (Web luôn truy cập được nhưng người dùng có thể đọc phải dữ liệu cũ/sai).",
+    "tip": "Định lý CAP: Chỉ được chọn 2 trong 3 (Consistency, Availability, Partition Tolerance).",
+    "tags": ["system-design", "cap-theorem", "distributed-computing"]
+  },
+  {
+    "id": "B8-020", "module": "B", "topic": "B8", "difficulty": "hard",
+    "question": "Rate Limiting (Giới hạn tốc độ) ở tầng API Gateway được cài đặt nhằm mục đích chính yếu nhất là gì?",
+    "options": [
+      "A. Đếm số người dùng",
+      "B. Ngăn chặn các cuộc tấn công DDoS, quét dữ liệu (Crawling/Scraping) quá mức, hoặc lỗi Code gây spam request, bảo vệ Server không bị quá tải sụp đổ.",
+      "C. Tăng tốc mạng",
+      "D. Dịch ngôn ngữ tự động"
+    ],
+    "answer": 1,
+    "explanation": "Rate Limit quy định một User/IP chỉ được phép gọi API 100 lần/phút. Nếu gọi quá, API trả về mã lỗi 429 (Too Many Requests) và chặn ở cửa (Gateway) không cho lọt vào Server. Đây là khiên bảo vệ sống còn của mọi hệ thống lớn.",
+    "tip": "Rate Limiting = Khống chế lượng Yêu cầu. (Bảo vệ Server khỏi Hacker DDoS hoặc các thằng Crawl data điên cuồng).",
+    "tags": ["api", "rate-limiting", "security", "system-design"]
+  }
+]

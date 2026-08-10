@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C12-001", "module": "C", "topic": "C12", "difficulty": "easy",
+    "question": "Sentiment Analysis (Phân tích Cảm xúc) thường được sử dụng nhiều nhất cho loại dữ liệu nào?",
+    "options": [
+      "A. Hình ảnh phong cảnh",
+      "B. Review/Đánh giá Của Khách hàng trên Sàn Thương Mại Điện Tử (Shopee/Tiki) hoặc Mạng xã hội để tự động xếp loại bình luận là Tích cực, Tiêu cực hay Trung tính.",
+      "C. File Excel kế toán",
+      "D. Đăng ký thông tin"
+    ],
+    "answer": 1,
+    "explanation": "Có 10,000 comment chửi bới sản phẩm bị móp méo, nhân viên chăm sóc không thể đọc tay kịp. AI phân tích cảm xúc (NLP Classifier) sẽ tự bắt từ khóa 'tệ', 'hư hỏng' và Gắn nhãn 0 (Tiêu cực), chuyển thẳng cho Giám đốc xử lý.",
+    "tip": "Phân tích cảm xúc (Sentiment Analysis) = Trợ lý đọc trộm comment của Khách Hàng xem đang chửi hay đang khen Sản Phẩm cty.",
+    "tags": ["nlp", "sentiment-analysis"]
+  },
+  {
+    "id": "C12-002", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Trong Tiền xử lý NLP cho Tiếng Việt, kỹ thuật Regex (Regular Expression - Biểu thức chính quy) rất hay được dùng để dọn rác gì?",
+    "options": [
+      "A. Xóa ảnh mờ",
+      "B. Tìm và xóa bỏ/thay thế các Emoji, Link HTML, Email, Số Điện Thoại hoặc Chuỗi ký tự đặc biệt theo một MẪU LUẬT (Pattern) nhất định (Ví dụ: `http[s]?://\\S+` để tìm link Web).",
+      "C. Tự động dịch tiếng Anh",
+      "D. Đổi phông chữ"
+    ],
+    "answer": 1,
+    "explanation": "Dữ liệu cào từ Web rác như một bãi chiến trường: 'Hàng lởm quá nha mợi @@, link mua chỗ khác uy tín hơn: https://aaa.com'. Nhét mớ Link Web kia vào Model AI nó sẽ bị nổ não. Regex là công cụ Dọn Rác số 1, dò theo định dạng Link (http) và chém sạch nó đi.",
+    "tip": "Regex (Biểu thức chính quy) = Lão phu quét rác. Quét sạch Link, Tag HTML, Email, Ký tự lạ bằng Mật mã Khớp Mẫu (Pattern).",
+    "tags": ["nlp", "regex", "preprocessing"]
+  },
+  {
+    "id": "C12-003", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Topic Modeling (Mô hình hóa Chủ đề) điển hình là thuật toán LDA (Latent Dirichlet Allocation) khác với Phân loại (Classification) ở điểm cốt tử nào?",
+    "options": [
+      "A. Classification chạy chậm hơn LDA",
+      "B. Không khác biệt",
+      "C. Classification cần có File Đáp án nhãn sẵn (Supervised). LDA LÀ THUẬT TOÁN HỌC KHÔNG GIÁM SÁT (Unsupervised). Bạn quăng cho nó 10,000 bài báo không có nhãn. Nó TỰ ĐỘNG GOM NHÓM từ vựng và 'Phát hiện' ra có 5 Chủ Đề ẩn giấu trong đống báo đó.",
+      "D. LDA chỉ xử lý hình ảnh"
+    ],
+    "answer": 2,
+    "explanation": "Quăng 1 vạn bài báo Dân Trí. Máy đọc, thấy chữ 'Messi, Ronaldo, Sút' hay xuất hiện chung (Gom thành Cụm 1). Thấy chữ 'Chứng khoán, Lãi suất, Vàng' đi chung (Gom thành Cụm 2). LDA tự tìm ra các cụm từ (Chủ đề Ẩn), mình chỉ việc đặt tên lại (Cụm 1 = Thể thao, Cụm 2 = Kinh tế).",
+    "tip": "Topic Modeling (LDA) = Chuyên gia phân loại Hồ Sơ Mù. Đưa núi Giấy Lộn, tự nó xếp thành từng xấp Chủ đề (Học không giám sát).",
+    "tags": ["nlp", "topic-modeling", "lda", "unsupervised-learning"]
+  },
+  {
+    "id": "C12-004", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Text Summarization (Tóm tắt Văn bản) được chia thành 2 phương pháp kinh điển là Extractive và Abstractive. Extractive làm việc như thế nào?",
+    "options": [
+      "A. Extractive dịch sang ngôn ngữ khác",
+      "B. Extractive (Trích xuất) KHÔNG VIẾT RA CHỮ MỚI. Nó chạy thuật toán Đánh Giá (TF-IDF/TextRank) xem 100 câu trong Bài văn thì 3 CÂU NÀO LÀ QUAN TRỌNG NHẤT. Xong Bốc Nguyên Xi 3 Câu đó ra làm Bản tóm tắt.",
+      "C. Dùng mạng Transformer",
+      "D. Extractive viết thêm từ vựng khó"
+    ],
+    "answer": 1,
+    "explanation": "Extractive y hệt việc bạn cầm cây bút Dạ Quang (Highlighter) gạch đít những câu mang KeyWord, rồi chép nguyên câu gạch đít đó ra vở (Khá an toàn, không sợ sai nghĩa nhưng bị lủng củng). Ngược lại Abstractive (như ChatGPT) đọc nguyên bài rồi TỰ HỌC TỪ, VIẾT LẠI 1 CÂU VĂN MỚI TOANH để tóm tắt.",
+    "tip": "Extractive (Trích xuất) = Cầm bút Dạ Quang gạch đít những câu Xịn Nhất bài rồi Copy Paste. Abstractive (Tạo sinh) = Viết lại câu văn tóm tắt bằng chữ mới (GPT).",
+    "tags": ["nlp", "text-summarization", "extractive", "abstractive"]
+  },
+  {
+    "id": "C12-005", "module": "C", "topic": "C12", "difficulty": "easy",
+    "question": "Question Answering (QA - Hỏi Đáp) là bài toán bóc tách cực kỳ phổ biến. Hệ thống QA truyền thống (SQuAD) mong đợi Đầu vào (Input) và Đầu ra (Output) là gì?",
+    "options": [
+      "A. Hỏi hình ảnh, trả lời Text",
+      "B. Nhập vào: Một CÂU HỎI + Một ĐOẠN VĂN CẢNH (Context). Trả ra: Một ĐOẠN CHỮ (Span) ĐƯỢC CẮT TRỰC TIẾP TỪ TRONG ĐOẠN VĂN ĐÓ để làm đáp án (Báo chính xác vị trí chữ bắt đầu và kết thúc).",
+      "C. Nhập câu hỏi, trả ra Video",
+      "D. Đoán số tuổi của người hỏi"
+    ],
+    "answer": 1,
+    "explanation": "Đưa đoạn văn 'Nam sinh năm 1990 ở Hà Nội'. Hỏi: 'Nam sinh năm mấy?'. Model QA (như BERT-QA) sẽ quét đoạn văn, chỉ tay vào đúng vị trí bắt đầu là chữ '1990' (Start/End Token) bốc ra làm đáp án. Nó không tự sinh chữ mới.",
+    "tip": "Hệ QA Cổ điển = Cho Đoạn Văn + Câu Hỏi. Bắt con AI lấy cây kéo Cắt Bốc đúng cái Chữ chứa Đáp Án trong đoạn văn đó (Span Extraction).",
+    "tags": ["nlp", "qa", "bert"]
+  },
+  {
+    "id": "C12-006", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Khi thực hiện Machine Translation (Dịch máy) bằng kiến trúc Encoder-Decoder (Transformer). Hiện tượng 'Exposure Bias' ở khâu Decoder sinh ra từ đâu?",
+    "options": [
+      "A. Máy tính bị thiếu điện",
+      "B. Khi Train, nếu Decoder lỡ đoán Sai 1 từ, Lập trình viên CỐ TÌNH MỚM CHO NÓ TỪ ĐÚNG (Teacher Forcing) để nó đoán từ tiếp theo. Khi Deploy chạy thật, KHÔNG CÒN AI MỚM, lỡ nó đoán sai từ số 1, từ số 2 sẽ ăn Cục Phân, từ số 3 nát bét (Sai số dây chuyền hòn tuyết lăn).",
+      "C. Bộ nhớ bị tràn",
+      "D. Đổi ảnh 2D sang 3D"
+    ],
+    "answer": 1,
+    "explanation": "Mạng Generative tạo chữ theo hiệu ứng Domino (Sinh 1 từ, ném vào tính từ thứ 2). Train thì có đáp án nên Kỹ sư chơi trò 'Teacher Forcing' sửa lưng nó liên tục. Lúc chạy Live tự thân vận động, 1 bước lỡ chân gõ nhầm chữ là nguyên câu còn lại hóa ra văn Vô Nghĩa.",
+    "tip": "Exposure Bias (Bệnh Phụ Thuộc) = Lúc luyện tập có Thầy Giáo sửa lưng. Lúc đi Thi tự làm sai 1 bước là Nát Nguyên Câu Cờ luôn (Hòn tuyết lăn).",
+    "tags": ["nlp", "machine-translation", "exposure-bias", "teacher-forcing"]
+  },
+  {
+    "id": "C12-007", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Part-of-Speech Tagging (POS Tagging) là nhiệm vụ gán nhãn gì cho từng từ trong câu?",
+    "options": [
+      "A. Gán số đếm thứ tự",
+      "B. Gán nhãn TỪ LOẠI Ngữ pháp cho nó (Ví dụ: Danh từ [Noun], Động từ [Verb], Tính từ [Adjective], Đại từ). Cực kỳ quan trọng để giải quyết tính Đa nghĩa của từ.",
+      "C. Dịch từ vựng",
+      "D. Phát âm từ vựng"
+    ],
+    "answer": 1,
+    "explanation": "Từ 'Book'. Nếu POS Tag = Danh Từ -> Cuốn Sách. Nếu POS Tag = Động Từ -> Đặt chỗ (Book vé máy bay). NLP không có POS Tagging thì sẽ mù Ngữ pháp cơ bản, dịch thuật sẽ bị ngáo ngơ.",
+    "tip": "POS Tagging = Cô Giáo dạy Tiếng Việt cấp 1. Chấm điểm rạch ròi đâu là Danh Từ, đâu là Động Từ.",
+    "tags": ["nlp", "pos-tagging", "preprocessing"]
+  },
+  {
+    "id": "C12-008", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Trong Search Engine (Công cụ tìm kiếm Text như ElasticSearch hoặc RAG), phép đo 'BM25' vượt trội hơn hẳn TF-IDF cổ điển nhờ vào yếu tố nào?",
+    "options": [
+      "A. Sử dụng Mạng CNN",
+      "B. Không thể so sánh",
+      "C. BM25 giới hạn (Capping) việc Đếm Tần Suất Từ (Chữ 'AI' xuất hiện 10 lần không có nghĩa là tài liệu quan trọng gấp 10 lần so với xuất hiện 1 lần). Đồng thời nó ĐIỀU CHỈNH THEO ĐỘ DÀI TÀI LIỆU (Tài liệu quá dài sẽ bị Phạt điểm để công bằng với bài viết ngắn).",
+      "D. Đọc được ảnh"
+    ],
+    "answer": 2,
+    "explanation": "TF-IDF đếm từ rất đần: Một bài báo chép chữ 'iPhone' 100 lần sẽ lên Top 1 (Bị Spam Keyword). BM25 có Hằng số K và B. Qua mốc K (khoảng 3 lần), điểm số bão hòa không tăng nữa (Chống Spam). Và nó phạt các bài viết Rác Cóp Nhặt siêu dài (Chuẩn hóa độ dài). BM25 là cốt lõi của ElasticSearch.",
+    "tip": "BM25 (Kẻ diệt Spam) = Nâng cấp của TF-IDF. Chống nhồi nhét Keyword vô tội vạ và Phạt nặng các bài báo Rác lê thê.",
+    "tags": ["nlp", "search", "bm25", "rag"]
+  },
+  {
+    "id": "C12-009", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Trong hệ thống RAG (Retrieval-Augmented Generation), Vector Database (Cơ sở dữ liệu Vector như Pinecone, Milvus) được sinh ra để TIẾN HÀNH PHÉP TOÁN NÀO tốc độ bàn thờ?",
+    "options": [
+      "A. JOIN nhiều Bảng lại với nhau",
+      "B. Sửa lỗi chính tả",
+      "C. Tìm kiếm Láng Giềng Gần Nhất (K-Nearest Neighbors / ANN - Approximate Nearest Neighbors). Nó tính Khoảng Cách Cosine giữa Câu Hỏi của bạn và Triệu văn bản trong CSDL, bốc ra Top 3 Câu có Ý NGHĨA GẦN GIỐNG NHẤT trong 1 phần nghìn giây.",
+      "D. Lưu ảnh Video"
+    ],
+    "answer": 2,
+    "explanation": "Câu hỏi (300 chiều). Data cty có 10 triệu Vector (300 chiều). Nếu nhân ma trận toàn bộ (Brute-force) sẽ đứng máy. Vector Database dùng chỉ mục Không gian (như HNSW - Đồ thị) để tìm kiếm xấp xỉ siêu tốc. Bạn gõ 'Con cún', nó moi ra được file ghi chữ 'Chú chó nhỏ' (Hiểu ngữ nghĩa).",
+    "tip": "Vector Database (Pinecone, Milvus) = Thư Viện Tốc Độ Bàn Thờ. Moi móc Tìm Kiếm Văn bản Bằng Khoảng Cách Cosine Nhanh gấp 1000 lần so với Tìm Kiếm truyền thống.",
+    "tags": ["nlp", "rag", "vector-database", "search"]
+  },
+  {
+    "id": "C12-010", "module": "C", "topic": "C12", "difficulty": "easy",
+    "question": "Chatbot phân loại Ý định (Intent Classification - như Rasa/Dialogflow) xử lý câu nói của người dùng như thế nào?",
+    "options": [
+      "A. Dịch sang âm thanh",
+      "B. Nhận một câu văn (Vd: 'Cho tôi ly Trà sữa trân châu') và lập tức GÁN NHÃN Ý ĐỊNH CHÍNH (Intent: Mua_Hang) đồng thời bóc tách CÁC BIẾN SỐ Bổ Trợ (Entities: Đồ_Uống='Trà sữa', Topping='Trân châu').",
+      "C. Trả lời luôn lập tức",
+      "D. Đổi màn hình ứng dụng"
+    ],
+    "answer": 1,
+    "explanation": "Chatbot Ngân hàng/Bán hàng kiểu cũ (Rule-based kết hợp NLP cơ bản) không có Transformer bự. Nó chỉ cần Nhận Diện đúng 2 thứ: INTENT (Nó muốn Mua hay muốn Chửi?) và ENTITY (Nó mua Cái Gì, Bao Nhiêu Tiền, Mấy Giờ Giao?). Có 2 Biến này, bắn vào Logic Code Code là tạo Đơn Hàng thành công.",
+    "tip": "Chatbot Bán Hàng (Intent-Entity) = Dò Ý Định Chính (Hỏi Giá) và Gạch Chân Từ Khóa (Trà Sữa, Size L). Xong đá qua Lập Trình Viên xử lý.",
+    "tags": ["nlp", "chatbot", "intent-classification"]
+  },
+  {
+    "id": "C12-011", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Zero-shot Text Classification cho phép bạn phân loại văn bản MÀ KHÔNG CẦN BỘ DỮ LIỆU HUẤN LUYỆN NÀO. Nó hoạt động nhờ mẹo gì?",
+    "options": [
+      "A. Gắn máy tính lượng tử",
+      "B. Dùng mô hình NLI (Natural Language Inference). Nó ghép [CÂU VĂN] và [TÊN CÁC NHÃN MUỐN PHÂN LOẠI] vào chung 1 Phép thử: 'Bức ảnh này có nghĩa là NHÃN_A không?'. Nếu mô hình bảo 'Đúng', nhãn đó thắng. (Lợi dụng khả năng Hiểu Ngữ Nghĩa sâu xa của BERT/LLM).",
+      "C. Random ngẫu nhiên",
+      "D. Dịch sang mã nhị phân"
+    ],
+    "answer": 1,
+    "explanation": "Công ty bạn có 500 bài review, sếp bắt phân loại vào 3 nhãn mới toanh: [Giá cả, Giao hàng, Thái độ]. Không có data cũ để train SVM. Chỉ cần ném lên HuggingFace xài Pipeline Zero-Shot (Mô hình Bart/Roberta). Nó hiểu nghĩa của từ 'Thái độ' và tự Match (Khớp) vào bài Review luôn.",
+    "tip": "Zero-shot Classification = Phép màu tay không bắt giặc. Quăng Bài viết + 3 Tên Nhãn Bất Kỳ. AI tự hiểu Tiếng Người mà Ghép cặp, Éo cần Train Data cũ.",
+    "tags": ["nlp", "zero-shot", "nli", "classification"]
+  },
+  {
+    "id": "C12-012", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Trong mô hình Language Model (Đoán từ tiếp theo), chỉ số Perplexity (Sự bối rối) dùng để Đánh giá Mức Độ Thông Minh. Perplexity CÀNG THẤP thì mô hình CÀNG LÀM SAO?",
+    "options": [
+      "A. Càng dốt",
+      "B. Không liên quan",
+      "C. Perplexity càng thấp (Càng ít bối rối) => Mô Hình CÀNG THÔNG MINH, Tự tin đoán đúng từ tiếp theo một cách chuẩn xác. (Ví dụ: Thấy chữ 'Xin', nó chốt ngay 99% từ tiếp theo là 'Chào' mà không hề băn khoăn).",
+      "D. Máy tính càng bị lag"
+    ],
+    "answer": 2,
+    "explanation": "Perplexity về mặt toán học là Exp(Cross-Entropy Loss). Nếu P = 1, mô hình đoán đúng 100% không lệch tấc nào. Nếu P = 10,000 (Siêu cao), tức là mô hình đang đứng ngã tư đường bối rối giữa 10,000 từ vựng không biết bốc từ nào. Perplexity giảm là tín hiệu Train LLM đang thành công.",
+    "tip": "Perplexity (Chỉ số Bối Rối) = Độ Ngáo của AI. Perplexity Càng Thấp (Hết Ngáo) -> Mô hình Càng Đỉnh (Đoán từ siêu dính).",
+    "tags": ["nlp", "perplexity", "language-model", "evaluation"]
+  },
+  {
+    "id": "C12-013", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Tính năng Masked Language Modeling (MLM - Đục lỗ đoán chữ) của BERT có sức mạnh gì Vượt trội hơn kiểu đoán Next-Token của GPT?",
+    "options": [
+      "A. Lên màu văn bản",
+      "B. Không mạnh hơn",
+      "C. GPT chỉ được đọc từ Trái sang Phải. MLM che 1 lỗ ở GIỮA câu, ép BERT phải Đọc Nguồn Thông Tin Cả Ở Đầu Lẫn Đuôi Câu để đoán. Nhờ vậy, Bản Thể (Vector nhúng) của Từ Vựng do BERT tạo ra ngậm Đầy Đủ Ngữ Cảnh 2 Chiều, cực kỳ hoàn hảo cho Phân Loại.",
+      "D. Đọc được ảnh"
+    ],
+    "answer": 2,
+    "explanation": "GPT mạnh việc SINH CHỮ dài. BERT vô địch việc ĐỌC HIỂU (Phân loại thư rác, Trích xuất tên người NER, QA). Vì lúc Train, BERT rèn luyện mắt Liếc qua Liếc lại cả câu, hiểu ngọn ngành sâu xa ý tứ. Nếu công ty cần Xử lý Phân loại Data, BERT (Encoder) luôn vả vỡ mồm GPT.",
+    "tip": "MLM (Che lỗ) của BERT = Đọc hiểu 2 chiều. Chuyên gia bóc tách, soi mói phân tích Văn bản. GPT = Sinh chữ 1 chiều luyên thuyên.",
+    "tags": ["nlp", "bert", "mlm", "gpt"]
+  },
+  {
+    "id": "C12-014", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Thuật toán Byte-Pair Encoding (BPE) hay WordPiece giải quyết được THẢM HỌA 'Out-of-Vocabulary (OOV) - Gặp từ vựng lạ' của Bag-of-words như thế nào?",
+    "options": [
+      "A. Xóa từ lạ",
+      "B. Mua thêm RAM",
+      "C. Nó là thuật toán Tách Từ dạng Bán Ký Tự (Subword). Nếu gặp Từ Lạ (Chưa từng học), nó sẽ tự động CHẶT TỪ LẠ ĐÓ THÀNH CÁC KHÚC NHỎ HƠN (mà nó đã học). Ví dụ: 'playing' -> 'play' + '##ing'. Giúp Từ Điển nhỏ lại mà cân được mọi từ trên đời.",
+      "D. Dịch sang tiếng Anh"
+    ],
+    "answer": 2,
+    "explanation": "Word2Vec cũ tạo từ điển 500,000 từ. Gặp từ lạ 'HuggingFace' (Chưa có trong từ điển) -> AI báo LỖI (OOV - Ký tự <UNK> bí ẩn). BPE/WordPiece của BERT/GPT tách nhỏ 'HuggingFace' thành ['Hugg', '##ing', '##Face']. AI lập tức ráp nghĩa lại đọc ngon lành. Không có từ nào có thể làm khó hệ Subword.",
+    "tip": "BPE (Subword Tokenization) = Gặp Từ Lạ (OOV) thì Lấy Dao Cắt Khúc Lắp Ráp Lại. 'Superhero' -> 'Super' + '##hero'. Khai tử bệnh Không Hiểu Từ Mới.",
+    "tags": ["nlp", "tokenization", "bpe", "oov"]
+  },
+  {
+    "id": "C12-015", "module": "C", "topic": "C12", "difficulty": "easy",
+    "question": "Text-to-Speech (TTS) là hệ thống biến Văn Bản thành Giọng Nói. Kiến trúc Neural TTS (như Tacotron) thường trải qua mấy giai đoạn chính?",
+    "options": [
+      "A. Gắn hình môi",
+      "B. Dịch tiếng Ả rập",
+      "C. 2 Giai đoạn: GĐ1 (Gán Text thành Dải Phổ Âm Thanh Mel-Spectrogram - Hình ảnh tần số). GĐ2 (Dùng công cụ Vocoder để nặn cái Dải Phổ Âm đó Bật Ra Thành Sóng Âm Audio dạng Wave .wav có thể nghe được).",
+      "D. 1 giai đoạn duy nhất"
+    ],
+    "answer": 2,
+    "explanation": "Máy tính không thể ợ ra thẳng File Audio mượt mà. Nó phải đọc Text (Xin chào) -> Dựng lên bức tranh Ảnh Tần Số Âm (Mel-Spectrogram - Đặc trưng siêu quan trọng). Sau đó, một cỗ máy khác (như HiFi-GAN Vocoder) chuyên nấu món Ảnh Tần Số thành Âm Thanh Lọt Lỗ Tai Người (Sóng dạng Waveform).",
+    "tip": "TTS (Text-to-Speech) = Text -> Tranh Ảnh Tần số (Mel-Spectrogram) -> Nặn ra Sóng Âm File mp3 (Vocoder).",
+    "tags": ["nlp", "tts", "speech", "mel-spectrogram"]
+  },
+  {
+    "id": "C12-016", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Cosine Similarity có điểm yếu gì khi so khớp 2 câu: 'Tôi mua vé máy bay rồi' và 'Tôi chưa mua vé máy bay' nếu dùng phương pháp Bag-of-Words?",
+    "options": [
+      "A. Gây chậm mạng",
+      "B. Tràn RAM",
+      "C. HAI CÂU NÀY CÓ KẾT QUẢ GIỐNG NHAU ĐẾN 95% (Vì trùng lập 5/6 từ). BoW mù Ngữ Pháp nên từ 'chưa' bé xíu bị chìm lấp. Trong khi thực tế Nghĩa Của 2 Câu là NGƯỢC NHAU HOÀN TOÀN (1 cái đi du lịch, 1 cái ở nhà). Đòi hỏi phải dùng BERT Embedding để giải quyết.",
+      "D. Mất mạng internet"
+    ],
+    "answer": 2,
+    "explanation": "Khoảng cách Cosine rất ngu nếu đi cặp với Đặc trưng Tần suất (BoW/TFIDF). Nó chỉ đếm Từ giống nhau. BERT tạo ra Contextual Embedding (Vector ngậm toàn bộ ngữ cảnh câu). Nhờ đó Vector của câu Trái Nghĩa (dù lặp lại từ y chang) sẽ bị bắn ra 2 góc ngược nhau (Cosine = 0 hoặc -1).",
+    "tip": "Lỗ hổng BoW + Cosine: Chữ 'KHÔNG' quá bé bị chìm. Dẫn đến Trái Nghĩa mà Cosine báo Giống 99%. Phải thay ruột BoW bằng Não BERT.",
+    "tags": ["nlp", "cosine-similarity", "bow", "bert"]
+  },
+  {
+    "id": "C12-017", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "BLEU Score phạt cực nặng lỗi nào của Mô hình Dịch máy (Machine Translation)?",
+    "options": [
+      "A. Lỗi đổi phông chữ",
+      "B. Lỗi viết hoa",
+      "C. Lỗi 'NHAI LẠI' TỪ VỰNG (Over-generation). Nếu Dịch chuẩn là 'the cat is on the mat' (Có 2 chữ the). Nếu AI dở hơi dịch là 'the the the the the the the'. Nó chấm được trùng 7 chữ the, NHƯNG BỊ HÀM CAPPING (Phạt) chém điểm về bằng 2 (Chỉ thưởng tối đa bằng số lần xuất hiện ở đáp án thật).",
+      "D. Đổi ảnh màu đen trắng"
+    ],
+    "answer": 2,
+    "explanation": "Các cỗ máy AI lúc đầu rất hay bị lỗi Lặp Từ (Mắc Kẹt Đĩa). Cứ 'the the the' để ăn gian điểm. Modified n-gram precision của BLEU xử lý triệt để: Đếm được chữ 'The' xuất hiện trong Lời Dịch, lập tức Gạch Bỏ chữ 'The' ở Lời Gốc, Cấm tính điểm nhai lại (Clipping).",
+    "tip": "BLEU Score ghét nhất trò Nhai Lại (Ví dụ lặp chữ 'the the the'). Gạch bỏ điểm ngay lập tức (Clipping) chống ăn gian.",
+    "tags": ["nlp", "bleu", "machine-translation", "evaluation"]
+  },
+  {
+    "id": "C12-018", "module": "C", "topic": "C12", "difficulty": "hard",
+    "question": "Tính năng Attention trong NLP giải quyết triệt để Cú lừa 'Coreference Resolution' (Xác định đồng tham chiếu) như thế nào trong câu: 'Con khỉ không ăn được quả chuối vì [nó] đã bị thối'?",
+    "options": [
+      "A. Xóa quả chuối",
+      "B. Xóa con khỉ",
+      "C. Chữ [nó] là ai? (Con khỉ hay Quả chuối). Self-Attention của BERT Tính Toán Ma Trận Chéo, phát hiện ra Chữ [nó] đang Gắn Trọng số (Attention Weight) rất mạnh vào chữ 'thối'. Mà 'thối' chỉ tính chất của 'quả chuối'. Suy ra [Nó] = Quả Chuối.",
+      "D. Dịch sang tiếng Anh"
+    ],
+    "answer": 2,
+    "explanation": "Đại từ nhân xưng (Nó, Hắn, Chúng) là thảm họa của Dịch Thuật cổ đại (Sinh ra các bản dịch Ngáo Đét). Self-Attention mô phỏng tư duy con người: Đọc chữ 'Thối', mắt liếc ngay tới 'Quả chuối' thay vì 'Con Khỉ'. Nhờ Ma Trận Liếc Mắt này, AI biết Đại từ đó trỏ vào vật thể nào trong quá khứ.",
+    "tip": "Coreference Resolution (Đồng Tham Chiếu): Khắc tinh của chữ [Nó]. Self-Attention soi xét Văn Cảnh (Chữ Thối) để Phán xem [Nó] là Con Khỉ hay Quả Chuối.",
+    "tags": ["nlp", "coreference-resolution", "attention"]
+  },
+  {
+    "id": "C12-019", "module": "C", "topic": "C12", "difficulty": "easy",
+    "question": "Named Entity Recognition (NER) rất được ưa chuộng trong MLOps ngành Y Tế. Nó dùng để làm gì?",
+    "options": [
+      "A. Tăng doanh thu bán thuốc",
+      "B. Tự động RÚT TRÍCH TỪ KHÓA BỆNH LÝ (Ví dụ: 'Tim đập nhanh', 'Ung thư') và TÊN THUỐC ('Paracetamol 500mg') từ hàng triệu Trang Sổ Khám Bệnh (Viết tay hoặc Ghi âm ngổn ngang) nhét thẳng vào Cơ sở dữ liệu Cột Bảng gọn gàng.",
+      "C. Đuổi bác sĩ",
+      "D. Hack tiền ngân hàng"
+    ],
+    "answer": 1,
+    "explanation": "Hồ sơ y tế là mỏ vàng Data vô giá, nhưng tồn tại dưới dạng Văn bản Tự Do (Unstructured Text dài miên man). NER đóng vai trò 'Anh Gạch Chân': Đi đọc ngấu nghiến từng dòng, móc Tên Thuốc, Triệu Chứng, Liều Lượng ra ngoài tạo thành Tệp CSV sạch sẽ để làm Nghiên cứu.",
+    "tip": "NER trong Y tế = Cỗ máy Lọc Vàng từ Cát. Nhai nuốt Sổ Khám Bệnh lộn xộn -> Trích xuất Tên Bệnh/Tên Thuốc sạch đẹp nhét Excel.",
+    "tags": ["nlp", "ner", "medical-ai", "information-extraction"]
+  },
+  {
+    "id": "C12-020", "module": "C", "topic": "C12", "difficulty": "medium",
+    "question": "Công nghệ RAG (Retrieval-Augmented Generation) gặp khó khăn chí mạng (Bottleneck) nhất ở khâu nào?",
+    "options": [
+      "A. Khâu vẽ giao diện Web UI",
+      "B. Chỉnh tốc độ mạng LAN",
+      "C. KHÂU RETRIEVAL (TÌM KIẾM - Search). Nếu Vector Database bốc lên 3 bài báo SAI/Không liên quan tới Câu hỏi, LLM (Dù siêu thông minh như GPT-4) cũng sẽ Đọc phải Báo Rác và Trả lời SAI BÉT (Garbage in, Garbage out).",
+      "D. Khâu đổi màu chữ"
+    ],
+    "answer": 2,
+    "explanation": "Nhiều người thần thánh hóa RAG, mua GPT-4 đắt tiền. Nhưng RAG phụ thuộc 90% vào cái Máy Tìm Kiếm Truy Xuất (ElasticSearch/Vector DB). Khách hỏi 'Mua xe Toyota', Máy Tìm bốc nhầm Bài Hướng dẫn đi Xe Máy mớm cho GPT-4 đọc. Kết cục là con GPT-4 phun ra lời khuyên Đi xe máy (Sai thảm họa).",
+    "tip": "Gót chân Achilles của RAG: Cỗ Máy Tìm Kiếm Bốc Thuốc (Retrieval). Nếu Bốc nhầm Data Rác, GPT-4 có thông minh cỡ nào cũng trả lời Rác (Garbage In - Garbage Out).",
+    "tags": ["nlp", "rag", "retrieval", "limitations"]
+  }
+]

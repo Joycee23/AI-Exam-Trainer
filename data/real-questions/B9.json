@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B9-001", "module": "B", "topic": "B9", "difficulty": "easy",
+    "question": "Trong quy trình phát triển phần mềm, Unit Testing (Kiểm thử đơn vị) nhắm đến việc kiểm tra thành phần nào?",
+    "options": [
+      "A. Kiểm tra toàn bộ hệ thống từ đầu đến cuối",
+      "B. Kiểm tra giao diện người dùng",
+      "C. Kiểm tra TỪNG HÀM (Function) hoặc LỚP (Class) nhỏ nhất một cách ĐỘC LẬP để đảm bảo nó hoạt động đúng như mong đợi",
+      "D. Kiểm tra xem người dùng có thích app không"
+    ],
+    "answer": 2,
+    "explanation": "Unit (Đơn vị) là mẩu code nhỏ nhất có thể test được (thường là một hàm `def`). Viết Unit Test giúp phát hiện lỗi cực sớm ngay tại gốc rễ, trước khi các hàm này được ráp nối lại với nhau.",
+    "tip": "Unit Test = Kiểm tra từng cái 'bánh răng' nhỏ xíu trước khi ráp thành cái đồng hồ.",
+    "tags": ["testing", "unit-test"]
+  },
+  {
+    "id": "B9-002", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Sự khác biệt giữa Unit Testing và Integration Testing (Kiểm thử tích hợp) là gì?",
+    "options": [
+      "A. Không khác gì",
+      "B. Unit test viết bằng Python, Integration test viết bằng Bash",
+      "C. Unit Test cô lập từng hàm bằng Mocking. Integration Test kiểm tra XEM CÁC HÀM/MODULE CÓ NÓI CHUYỆN ĐƯỢC VỚI NHAU KHÔNG (ví dụ: API có lưu đúng xuống Database thật hay không).",
+      "D. Integration test chạy nhanh hơn"
+    ],
+    "answer": 2,
+    "explanation": "Có thể 2 cái bánh răng (Unit) đều hoàn hảo, nhưng khi ráp vào nhau (Integration) thì khớp răng không vừa. Integration Test đảm bảo các hệ thống (API, Database, File System) hoạt động trơn tru khi kết nối lại.",
+    "tip": "Unit: Lắp riêng từng cục Lego. Integration: Gắn 2 cục Lego lại xem có khớp nhau không.",
+    "tags": ["testing", "integration-test"]
+  },
+  {
+    "id": "B9-003", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "TDD (Test-Driven Development) là một phương pháp luận lập trình, trong đó trình tự code ĐÚNG là gì?",
+    "options": [
+      "A. Code tính năng -> Viết Test -> Sửa lỗi",
+      "B. Viết Test (sẽ thất bại vì chưa có code) -> Viết Code NHỎ NHẤT để Test pass -> Refactor (Làm gọn code)",
+      "C. Chỉ viết Test, không viết tính năng",
+      "D. Code tính năng xong giao cho QA viết Test"
+    ],
+    "answer": 1,
+    "explanation": "Chu trình của TDD là 'Red - Green - Refactor'. Đầu tiên viết 1 cái Test báo Đỏ (Fail). Sau đó viết hàm tính năng sao cho Test Xanh (Pass) nhanh nhất có thể. Cuối cùng Refactor để code sạch đẹp mà vẫn giữ Test Xanh.",
+    "tip": "TDD: Viết cái Test 'bắt bẻ' trước, rồi mới viết cái Code 'chữa cháy' cho qua ải.",
+    "tags": ["testing", "tdd", "best-practices"]
+  },
+  {
+    "id": "B9-004", "module": "B", "topic": "B9", "difficulty": "easy",
+    "question": "Thư viện mặc định của Python được dùng để viết các Unit Test là gì?",
+    "options": [
+      "A. pytest",
+      "B. unittest",
+      "C. nose",
+      "D. tox"
+    ],
+    "answer": 1,
+    "explanation": "`unittest` là thư viện tiêu chuẩn (built-in) có sẵn trong mọi bộ cài Python, sử dụng phong cách hướng đối tượng giống với JUnit của Java (phải tạo Class kế thừa `unittest.TestCase`). Dù hiện nay `pytest` rất phổ biến, nhưng `unittest` vẫn là chuẩn gốc.",
+    "tip": "Built-in (có sẵn) = `unittest`. Cài ngoài cực xịn xò = `pytest`.",
+    "tags": ["testing", "python", "unittest"]
+  },
+  {
+    "id": "B9-005", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Vì sao `pytest` lại được cộng đồng Python yêu thích hơn `unittest` mặc định?",
+    "options": [
+      "A. Vì nó chạy trên trình duyệt",
+      "B. Vì nó cho phép viết test bằng các HÀM (function) đơn giản, sử dụng thẳng từ khóa `assert` quen thuộc của Python mà không cần phải viết Class lằng nhằng hay học các hàm `assertEqual`.",
+      "C. Vì nó có AI tự động sinh test",
+      "D. Vì nó cài sẵn hệ điều hành"
+    ],
+    "answer": 1,
+    "explanation": "Trong `unittest`, bạn phải nhớ `self.assertEqual()`, `self.assertTrue()`. Trong `pytest`, bạn chỉ cần viết `assert x == y`, và nếu lỗi, pytest sẽ in ra thông báo lỗi cực kỳ chi tiết, tô màu rõ ràng chỗ sai.",
+    "tip": "`pytest` siêu xịn vì dùng duy nhất 1 chữ `assert`. Báo lỗi cực kỳ chi tiết dễ đọc.",
+    "tags": ["testing", "python", "pytest"]
+  },
+  {
+    "id": "B9-006", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Khái niệm 'Mocking' trong Unit Testing dùng để giải quyết vấn đề gì?",
+    "options": [
+      "A. Chế giễu code của đồng nghiệp",
+      "B. Tạo ra các phiên bản 'GIẢ' của các hàm/hệ thống bên ngoài (như gọi API, truy vấn Database) để ĐẢM BẢO TÍNH CÔ LẬP, giúp Test chạy nhanh và không phụ thuộc vào internet/hệ thống thực.",
+      "C. Tự động sinh ra dữ liệu thật",
+      "D. Đóng băng ứng dụng"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ hàm của bạn gọi API bên thứ 3. Nếu API đó sập, Unit Test của bạn fail (dù code bạn viết đúng). Để test code của CHÍNH BẠN, bạn phải 'Mock' (làm giả) cái API kia, cấu hình cho nó LUÔN LUÔN trả về dữ liệu thành công. Thư viện hay dùng là `unittest.mock`.",
+    "tip": "Mock = Đồ giả (Fake). Giả lập API/Database để test chạy nhanh mà không cần cắm mạng.",
+    "tags": ["testing", "mocking", "unit-test"]
+  },
+  {
+    "id": "B9-007", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Thuật ngữ 'Test Coverage' (Độ phủ mã) có ý nghĩa gì?",
+    "options": [
+      "A. Số lượng máy tính chạy được test",
+      "B. Tỷ lệ phần trăm DÒNG CODE (hoặc các nhánh If/Else) ĐƯỢC THỰC THI (chạy qua) khi bộ Test Suite tự động của bạn được khởi chạy.",
+      "C. Độ mạnh của mật khẩu test",
+      "D. Tốc độ chạy test"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Code bạn có 100 dòng. Khi chạy pytest, chỉ có 80 dòng được gọi đến, vậy Code Coverage là 80%. Coverage giúp phát hiện ra những khu vực code (ví dụ như một khối lệnh `except Exception`) chưa bao giờ được kiểm tra.",
+    "tip": "Test Coverage = Phần trăm dòng code được test 'sờ' tới. (Càng cao càng yên tâm).",
+    "tags": ["testing", "test-coverage"]
+  },
+  {
+    "id": "B9-008", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Tại sao Test Coverage 100% KHÔNG đồng nghĩa với việc ứng dụng KHÔNG CÓ BUG?",
+    "options": [
+      "A. Test Coverage là chỉ số vô dụng",
+      "B. Vì Coverage chỉ đo xem dòng code ĐÃ ĐƯỢC CHẠY QUA, nhưng không đảm bảo rằng TẤT CẢ các logic/trường hợp biên (edge cases) và dữ liệu bất thường đã được kiểm tra tính đúng đắn.",
+      "C. Vì bug luôn sinh ra do virus",
+      "D. Vì 100% là số quá nhỏ"
+    ],
+    "answer": 1,
+    "explanation": "Bạn có thể viết một cái Test chạy qua hàm `chia(a, b)`, nhưng bạn chỉ test `chia(4, 2)`. Coverage báo 100%. Nhưng bạn quên test trường hợp `chia(4, 0)`. Khi user nhập số 0, app sập. Coverage 100% chỉ là điều kiện cần, không phải điều kiện đủ.",
+    "tip": "Coverage 100% chỉ nói: Code này đã chạy qua rồi. Còn chạy đúng hay sai với data dị thì chưa chắc.",
+    "tags": ["testing", "test-coverage", "best-practices"]
+  },
+  {
+    "id": "B9-009", "module": "B", "topic": "B9", "difficulty": "easy",
+    "question": "Khi sử dụng lệnh print() để tìm lỗi (Debug), hạn chế lớn nhất là gì?",
+    "options": [
+      "A. Chữ quá nhỏ",
+      "B. Rất khó theo dõi các lỗi phức tạp lồng nhau, phải thêm/xóa print liên tục, làm bẩn code và dễ lỡ push lệnh print rác lên production.",
+      "C. Không thể in ra số",
+      "D. Bị cấm sử dụng trong Python"
+    ],
+    "answer": 1,
+    "explanation": "Dùng print() (Print-debugging) rất nhanh, nhưng nếu hệ thống lớn, màn hình sẽ ngập lụt trong log rác. IDE (như VSCode/PyCharm) cung cấp công cụ Debugger đàng hoàng, cho phép dừng code (Breakpoint) để soi xét mọi biến mà không cần viết 1 chữ print nào.",
+    "tip": "Bỏ thói quen `print('aaa')`. Tập xài công cụ Debug có Breakpoint của IDE.",
+    "tags": ["debugging", "print-debug"]
+  },
+  {
+    "id": "B9-010", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Khái niệm 'Breakpoint' (Điểm dừng) trong công cụ Debugger có nghĩa là gì?",
+    "options": [
+      "A. Điểm mà code bị xóa",
+      "B. Một điểm đánh dấu trên dòng code, khiến chương trình TẠM DỪNG (Pause) thực thi tại đó, cho phép bạn nhảy vào xem giá trị hiện tại của tất cả các biến.",
+      "C. Đoạn code bị treo (crash)",
+      "D. Tự động sửa lỗi"
+    ],
+    "answer": 1,
+    "explanation": "Breakpoint là tính năng xịn nhất của Debugger. Chương trình sẽ chạy tốc độ cao bình thường, nhưng đến đúng dòng có Breakpoint (dấu chấm đỏ), thời gian sẽ 'ngưng đọng'. Bạn có thể Step Over (chạy từng dòng), soi giá trị biến, tìm ra lỗi cực kỳ dễ dàng.",
+    "tip": "Breakpoint = Dấu chấm đỏ thần thánh. Bắt code đứng im để khám nghiệm hiện trường.",
+    "tags": ["debugging", "breakpoint", "ide"]
+  },
+  {
+    "id": "B9-011", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Trong Python, hàm `pdb.set_trace()` (hoặc `breakpoint()` ở Python 3.7+) dùng để làm gì?",
+    "options": [
+      "A. Vẽ biểu đồ",
+      "B. Kích hoạt môi trường Debug tương tác ngay trên Giao diện dòng lệnh (Terminal/CLI) tại đúng vị trí đó",
+      "C. Đóng ứng dụng ngay lập tức",
+      "D. Dịch code sang C++"
+    ],
+    "answer": 1,
+    "explanation": "Nếu bạn phải debug code trên một Server Linux không có giao diện VSCode (không thể click chuột đặt dấu chấm đỏ), việc gõ `breakpoint()` sẽ làm code dừng lại, mở ra một màn hình gõ lệnh (PDB - Python Debugger). Bạn gõ lệnh `p x` để in biến x, `n` để qua dòng mới.",
+    "tip": "`breakpoint()` = Bật chế độ Debug bằng dòng lệnh (PDB) trên Terminal. Siêu xịn khi soi lỗi trên Server.",
+    "tags": ["debugging", "python", "pdb"]
+  },
+  {
+    "id": "B9-012", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "E2E Testing (End-to-End Testing) đóng vai trò gì trong tháp kiểm thử (Test Pyramid)?",
+    "options": [
+      "A. Kiểm tra xem code có tuân thủ PEP8 không",
+      "B. Kiểm tra tốc độ của database",
+      "C. Kiểm thử toàn bộ dòng chảy hệ thống từ ĐẦU ĐẾN CUỐI, mô phỏng GIỐNG HỆT hành vi của một người dùng thật (Click nút, điền Form, chuyển trang).",
+      "D. Là kiểm thử nhỏ nhất thay thế Unit test"
+    ],
+    "answer": 2,
+    "explanation": "E2E test nằm trên đỉnh tháp kiểm thử (số lượng ít nhất, chạy chậm nhất, khó bảo trì nhất, nhưng thực tế nhất). Công cụ hay dùng: Selenium, Cypress, Playwright. Nó bật hẳn một trình duyệt Chrome lên và tự động click/gõ phím như ma làm để test.",
+    "tip": "E2E (End-to-End) = Lập trình con Robot làm tester, click chuột, gõ phím y như người thật.",
+    "tags": ["testing", "e2e"]
+  },
+  {
+    "id": "B9-013", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Đặc tính 'Flaky Test' (Test chập chờn) là một nỗi ác mộng. Nó nghĩa là gì?",
+    "options": [
+      "A. Test luôn bị thất bại (Fail)",
+      "B. Test khi chạy ở máy này thì Pass, máy kia thì Fail, hoặc CHẠY 2 LẦN TRÊN CÙNG 1 MÁY cũng cho ra kết quả lúc Xanh lúc Đỏ mặc dù code không hề thay đổi.",
+      "C. Test chạy quá lâu",
+      "D. Test tự động sinh ra bug"
+    ],
+    "answer": 1,
+    "explanation": "Flaky test làm mất hoàn toàn niềm tin của team vào bộ Test. Nguyên nhân thường do phụ thuộc vào thời gian (Timezone), thứ tự chạy ngẫu nhiên, hoặc độ trễ mạng ảo. Hễ thấy Flaky test là phải xóa hoặc sửa ngay lập tức.",
+    "tip": "Flaky Test = Lúc xanh lúc đỏ (Chập chờn). Kẻ thù số 1 làm team mất lòng tin vào hệ thống Test.",
+    "tags": ["testing", "flaky", "best-practices"]
+  },
+  {
+    "id": "B9-014", "module": "B", "topic": "B9", "difficulty": "easy",
+    "question": "Công cụ 'Linter' (ví dụ như Pylint, Flake8 trong Python) giúp giải quyết vấn đề gì?",
+    "options": [
+      "A. Dịch code",
+      "B. Chạy Unit Test",
+      "C. Đọc code tĩnh để phân tích, chỉ ra các lỗi Cú Pháp, sai Chuẩn Định Dạng (PEP8), biến không dùng đến TRƯỚC KHI code được chạy.",
+      "D. Triển khai lên Cloud"
+    ],
+    "answer": 2,
+    "explanation": "Linter giống như cô giáo dạy văn gạch chân đỏ dưới những chữ bạn viết sai chính tả hay sai ngữ pháp. Nó giúp code của toàn bộ team đồng nhất một style, dễ đọc, và phát hiện lỗi thụt lề (Indentation) nguy hiểm ở Python.",
+    "tip": "Linter (Flake8) = Máy quét lỗi chính tả, soi xét định dạng Code (PEP8).",
+    "tags": ["testing", "linter", "pep8", "python"]
+  },
+  {
+    "id": "B9-015", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "CI/CD (Continuous Integration / Continuous Deployment) ứng dụng Test tự động như thế nào?",
+    "options": [
+      "A. Test phải được chạy bằng tay trước khi nộp code",
+      "B. Hệ thống tự động kích hoạt bộ Test mỗi khi một Lập trình viên đẩy (Push) code lên Github. Nếu Test FAIL, code đó sẽ bị từ chối hợp nhất (Block Merge).",
+      "C. Không cần test nữa vì đã có CI/CD",
+      "D. Test sẽ được chạy sau khi đưa lên production"
+    ],
+    "answer": 1,
+    "explanation": "Continuous Integration (CI) là trái tim của làm việc nhóm. Công cụ như Github Actions hay Jenkins sẽ mượn một con server nhỏ, tự động cài môi trường, tự chạy `pytest`. Nếu ai đó viết code làm vỡ hệ thống (Đỏ), CI sẽ chặn không cho Merge vào nhánh chính.",
+    "tip": "CI (Continuous Integration) = Con bot gác cổng Github. Đứa nào push code lên làm Fail test là ăn cái X đỏ chót, cấm Merge.",
+    "tags": ["testing", "ci-cd"]
+  },
+  {
+    "id": "B9-016", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Khái niệm 'Regression Bug' (Lỗi thoái lui) là gì?",
+    "options": [
+      "A. Lỗi xảy ra do người dùng nhập số âm",
+      "B. Một tính năng A đã từng hoạt động rất TỐT trong quá khứ, nhưng bỗng nhiên BỊ HỎNG khi bạn thêm một tính năng B mới vào hệ thống.",
+      "C. Lỗi do không cài đủ RAM",
+      "D. Lỗi hiển thị màu sắc"
+    ],
+    "answer": 1,
+    "explanation": "Chữa lợn lành thành lợn què là chuyện thường ở huyện. Việc chạy 'Regression Testing' (chạy lại toàn bộ bộ test cũ mỗi khi thêm tính năng mới) nhằm đảm bảo bạn không vô tình đụng chạm làm gãy vỡ những cái đang chạy tốt. Đó là lý do tự động hóa Test là bắt buộc.",
+    "tip": "Regression = Thoái lui = Code tính năng mới lại làm hỏng tính năng cũ.",
+    "tags": ["testing", "regression"]
+  },
+  {
+    "id": "B9-017", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Rubber Duck Debugging (Debug với con vịt cao su) là một phương pháp gỡ lỗi thực tế. Nó có nghĩa là gì?",
+    "options": [
+      "A. Một phần mềm AI tên là Rubber Duck",
+      "B. Một thuật toán duyệt đồ thị",
+      "C. Giải thích TỪNG DÒNG CODE MỘT thật to, rõ ràng bằng lời nói cho một vật vô tri (như con vịt cao su) nghe. Thông qua việc cố gắng diễn đạt logic bằng ngôn ngữ con người, LTV thường TỰ NHẬN RA ĐIỂM VÔ LÝ trong code của mình.",
+      "D. Một loại virus máy tính"
+    ],
+    "answer": 2,
+    "explanation": "Đây là một kỹ năng tâm lý học rất kinh điển. Khi bạn phải nói to ra ý định của mình ('Đầu tiên tôi lấy mảng A, tôi lặp qua nó, sau đó lấy i trừ đi 1... Khoan đã, i trừ đi 1 sẽ bị âm!'), bạn chuyển đổi não bộ từ trạng thái đọc mã sang trạng thái phân tích ngữ nghĩa, và lỗi tự động lộ ra.",
+    "tip": "Rubber Duck Debugging: Bí quá không tìm ra lỗi? Bắt con gấu bông ra ngồi kể cho nó nghe từng dòng code chạy ra sao, tự nhiên sẽ thấy mình viết sai chỗ nào.",
+    "tags": ["debugging", "rubber-duck", "best-practices"]
+  },
+  {
+    "id": "B9-018", "module": "B", "topic": "B9", "difficulty": "hard",
+    "question": "Trong Machine Learning, 'Data Leakage' (Rò rỉ dữ liệu) là một dạng Bug nghiêm trọng không báo lỗi cú pháp. Đặc điểm của nó là gì?",
+    "options": [
+      "A. Database bị hacker trộm (Leaked)",
+      "B. Thông tin từ tập TEST (hoặc tương lai) vô tình lọt vào (leak) quá trình huấn luyện (TRAIN), khiến mô hình đạt độ chính xác cao ảo tưởng 99%, nhưng khi chạy thực tế lại dự đoán cực tệ.",
+      "C. RAM bị quá tải làm tràn biến",
+      "D. Lỗi do dữ liệu quá nhiều"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Bạn điền khuyết Missing Value (Imputation) bằng giá trị Mean của TOÀN BỘ dữ liệu (trước khi tách Train/Test). Tập Train đã vô tình 'nhìn trộm' được thông tin của tập Test. Lỗi này rất khó debug bằng code thông thường, phải debug bằng quy trình toán học.",
+    "tip": "Data Leakage (Rò rỉ): Học sinh nhìn trộm đề thi (tập Test) lúc ôn tập (tập Train) -> Thi thử được 10đ nhưng ra thi thật 0đ.",
+    "tags": ["testing", "machine-learning", "data-leakage"]
+  },
+  {
+    "id": "B9-019", "module": "B", "topic": "B9", "difficulty": "medium",
+    "question": "Fixture trong `pytest` đóng vai trò gì?",
+    "options": [
+      "A. Vá lỗi code tự động",
+      "B. Tạo Giao diện UI",
+      "C. Đóng gói các thiết lập khởi tạo (Ví dụ: Mở Database, tạo dữ liệu nháp) và dọn dẹp sau khi Test xong. Các hàm Test chỉ cần truyền Tên Fixture vào tham số để tái sử dụng.",
+      "D. Chạy code vĩnh viễn"
+    ],
+    "answer": 2,
+    "explanation": "Nếu 5 cái Test đều cần 1 user đăng nhập, thay vì viết lại 5 lần, bạn viết 1 hàm Fixture tên `logged_in_user` và gắn cờ `@pytest.fixture`. Từ đó, hàm test nào cần user, chỉ việc gọi `def test_mua_hang(logged_in_user):`. Rất mạnh và thanh lịch.",
+    "tip": "Pytest Fixture = Người hầu dọn sẵn mâm bát đồ ăn (Môi trường test) trước khi bạn vô ăn, ăn xong tự động rửa dọn.",
+    "tags": ["testing", "pytest", "fixtures"]
+  },
+  {
+    "id": "B9-020", "module": "B", "topic": "B9", "difficulty": "easy",
+    "question": "Cụm từ 'Exception Handling' (Xử lý ngoại lệ) trong Debugging có nghĩa là gì?",
+    "options": [
+      "A. Tìm lỗi sai dấu phẩy",
+      "B. Code trước các kịch bản dự phòng (Try-Catch) để KHI MỘT LỖI BẤT THƯỜNG XẢY RA (như Đứt mạng, Chia cho 0), chương trình không bị chết cứng (Crash) mà sẽ chạy theo đường rẽ an toàn.",
+      "C. Cấm người dùng nhập sai",
+      "D. Bỏ qua tất cả các lỗi"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Hàm tải Avatar, nếu ảnh bị xóa, thay vì chết App (Crash), Try-Catch sẽ hứng cái Exception lỗi đó, in ra Log để kỹ sư Debug, đồng thời trả về màn hình cái ảnh Default màu trắng xám. App vẫn sống nhăn răng.",
+    "tip": "Exception Handling (Try-Catch) = Mở sẵn túi khí/dù thoát hiểm. Lỡ có tai nạn (Lỗi) thì không chết sảng.",
+    "tags": ["debugging", "exception-handling"]
+  }
+]

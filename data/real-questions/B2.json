@@ -1,0 +1,272 @@
+[
+  {
+    "id": "B2-001", "module": "B", "topic": "B2", "difficulty": "easy",
+    "question": "Hàm khởi tạo (Constructor) của một Class trong Python luôn có tên là gì?",
+    "options": ["A. __start__", "B. __init__", "C. __main__", "D. __constructor__"],
+    "answer": 1,
+    "explanation": "Trong Python, phương thức `__init__` đóng vai trò là hàm khởi tạo. Nó tự động được gọi mỗi khi bạn tạo ra một đối tượng (instance) mới từ một Class để gán giá trị ban đầu cho các thuộc tính.",
+    "tip": "Nhớ 2 dấu gạch dưới ở 2 đầu: `__init__` (initiation).",
+    "tags": ["python", "oop", "constructor", "init"]
+  },
+  {
+    "id": "B2-002", "module": "B", "topic": "B2", "difficulty": "easy",
+    "question": "Tham số đầu tiên bắt buộc phải có trong mọi phương thức (method) thông thường của một Class là gì?",
+    "options": ["A. this", "B. cls", "C. self", "D. object"],
+    "answer": 2,
+    "explanation": "Theo quy ước (và bắt buộc cú pháp), tham số đầu tiên của một instance method phải là `self`. Nó đại diện cho chính đối tượng đang gọi phương thức đó. (Giống như `this` trong Java/C++).",
+    "tip": "Python luôn dùng `self`. Kể cả khi gọi hàm không có tham số, bạn vẫn phải truyền `self` lúc định nghĩa.",
+    "tags": ["python", "oop", "self"]
+  },
+  {
+    "id": "B2-003", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Thuộc tính (attribute) nào là thuộc tính của LỚP (Class Attribute), khác với thuộc tính của ĐỐI TƯỢNG (Instance Attribute)?",
+    "options": [
+      "A. Thuộc tính được khai báo bên trong hàm __init__ với self.",
+      "B. Thuộc tính được khai báo trực tiếp dưới tên Class, bên ngoài tất cả các phương thức.",
+      "C. Thuộc tính có dấu gạch dưới đằng trước",
+      "D. Cả A và B đều là Class Attribute"
+    ],
+    "answer": 1,
+    "explanation": "Class Attribute được khai báo thẳng dưới định nghĩa class và chia sẻ chung một giá trị duy nhất cho MỌI đối tượng. Instance Attribute khai báo trong `__init__` thông qua `self.ten_bien`, mỗi đối tượng sẽ giữ một giá trị riêng độc lập.",
+    "tip": "Biến nằm ngoài hàm = Xài chung cả lò (Class Attribute). Biến nằm trong __init__ = Của riêng mỗi người (Instance Attribute).",
+    "tags": ["python", "oop", "class-attribute", "instance-attribute"]
+  },
+  {
+    "id": "B2-004", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Làm thế nào để tạo một thuộc tính hoặc phương thức 'Riêng tư' (Private) trong Python?",
+    "options": [
+      "A. Dùng từ khóa private ở đầu",
+      "B. Bắt đầu tên biến bằng hai dấu gạch dưới (VD: __private_var)",
+      "C. Bắt đầu tên biến bằng một dấu gạch dưới (VD: _private_var)",
+      "D. Python hoàn toàn không hỗ trợ biến private"
+    ],
+    "answer": 1,
+    "explanation": "Python không có từ khóa `private` thực sự. Dùng 1 dấu gạch dưới `_var` chỉ là quy ước lịch sự ('đừng đụng vào'). Dùng 2 dấu gạch dưới `__var` sẽ kích hoạt Name Mangling (đổi tên biến ngầm để khó truy cập từ bên ngoài), tạo ra một dạng private mềm.",
+    "tip": "1 gạch `_`: Lịch sự nhắc nhở (Protected). 2 gạch `__`: Đổi tên ngầm giấu đi (Private).",
+    "tags": ["python", "oop", "encapsulation", "private"]
+  },
+  {
+    "id": "B2-005", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Tính kế thừa (Inheritance) trong Python được khai báo theo cú pháp nào?",
+    "options": [
+      "A. class Child extends Parent:",
+      "B. class Child inherits Parent:",
+      "C. class Child(Parent):",
+      "D. class Child: Parent"
+    ],
+    "answer": 2,
+    "explanation": "Để lớp Child kế thừa lớp Parent trong Python, ta đặt tên lớp Parent vào trong dấu ngoặc đơn ngay sau tên lớp Child.",
+    "tip": "Python kế thừa bằng dấu ngoặc đơn `class Con(Cha):`. Java xài `extends`.",
+    "tags": ["python", "oop", "inheritance"]
+  },
+  {
+    "id": "B2-006", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Hàm `super()` có tác dụng gì trong lập trình hướng đối tượng Python?",
+    "options": [
+      "A. Chấm dứt chương trình khẩn cấp",
+      "B. Cấp quyền truy cập vào các biến Private",
+      "C. Trả về đối tượng proxy đại diện cho lớp Cha, thường dùng để gọi phương thức của lớp Cha bị lớp Con ghi đè (override)",
+      "D. Ép kiểu dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "`super()` thường được sử dụng nhất bên trong hàm `__init__` của lớp con để gọi lại hàm `__init__` của lớp cha, đảm bảo các thuộc tính của cha được khởi tạo đúng cách trước khi con thêm các thuộc tính mới.",
+    "tip": "super() = Gọi cha (Gọi phương thức của Parent class).",
+    "tags": ["python", "oop", "super", "inheritance"]
+  },
+  {
+    "id": "B2-007", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Python hỗ trợ Đa kế thừa (Multiple Inheritance). Nếu Class C kế thừa từ cả Class A và Class B, khi C gọi một phương thức trùng tên có ở cả A và B, Python sẽ ưu tiên gọi phương thức của ai?",
+    "options": [
+      "A. Luôn ưu tiên A (lớp bên trái)",
+      "B. Luôn ưu tiên B (lớp bên phải)",
+      "C. Báo lỗi cú pháp",
+      "D. Chạy theo thứ tự phân giải phương thức MRO (Method Resolution Order)"
+    ],
+    "answer": 3,
+    "explanation": "Python giải quyết xung đột đa kế thừa bằng MRO (thường dùng thuật toán C3 Linearization). Theo cú pháp `class C(A, B):`, MRO sẽ quét từ dưới lên trên, từ trái sang phải, nên phương thức của A sẽ được gọi trước B. Ta có thể xem thứ tự này bằng `C.__mro__`.",
+    "tip": "Đa kế thừa xử lý bằng MRO (Ưu tiên từ Trái sang Phải, Từ Con lên Cha).",
+    "tags": ["python", "oop", "multiple-inheritance", "mro"]
+  },
+  {
+    "id": "B2-008", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Đa hình (Polymorphism) thể hiện rõ nhất trong Python qua khái niệm nào?",
+    "options": [
+      "A. Duck Typing",
+      "B. Static Typing",
+      "C. Private Variables",
+      "D. Global Scope"
+    ],
+    "answer": 0,
+    "explanation": "Python dùng 'Duck Typing': 'Nếu nó đi như vịt và kêu như vịt, thì nó là vịt'. Tức là, nếu hàm cần gọi `obj.speak()`, Python không cần biết obj thuộc Class nào (chó hay mèo), miễn là obj có hàm `speak()`, nó sẽ chạy được. Đây là đỉnh cao của tính đa hình động.",
+    "tip": "Đa hình Python = Duck Typing. Chỉ quan tâm đối tượng CÓ THỂ LÀM GÌ, không quan tâm nó LÀ AI.",
+    "tags": ["python", "oop", "polymorphism", "duck-typing"]
+  },
+  {
+    "id": "B2-009", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Hàm @classmethod và @staticmethod khác nhau ở tham số mặc định đầu tiên nào?",
+    "options": [
+      "A. Cả hai đều bắt buộc có `self`",
+      "B. @classmethod nhận `cls`, @staticmethod không nhận tham số mặc định nào",
+      "C. @staticmethod nhận `cls`, @classmethod không nhận gì",
+      "D. Cả hai đều không cần tham số mặc định"
+    ],
+    "answer": 1,
+    "explanation": "Hàm trang trí `@classmethod` tự động truyền Class (thường gọi là `cls`) vào tham số đầu tiên, có thể dùng để truy cập/sửa Class Attribute hoặc làm Alternative Constructor. `@staticmethod` thì hoàn toàn không truyền `self` hay `cls`, nó giống hệt một hàm thường nhưng nằm ké trong Class cho gọn gàng namespace.",
+    "tip": "Instance method -> self. Classmethod -> cls. Staticmethod -> (Không có gì).",
+    "tags": ["python", "oop", "classmethod", "staticmethod"]
+  },
+  {
+    "id": "B2-010", "module": "B", "topic": "B2", "difficulty": "easy",
+    "question": "Magic methods (Dunder methods) trong Python là gì?",
+    "options": [
+      "A. Là những hàm chỉ gọi được vào ban đêm",
+      "B. Các phương thức đặc biệt được bao bọc bởi 2 dấu gạch dưới ở hai đầu (ví dụ: __str__, __len__), dùng để ghi đè các toán tử và hành vi tích hợp",
+      "C. Các hàm tạo giao diện đồ họa",
+      "D. Là tên gọi khác của staticmethod"
+    ],
+    "answer": 1,
+    "explanation": "Magic methods (Dunder = Double UNDERscore) cung cấp một cách tinh tế để các đối tượng custom của bạn phản hồi lại với các toán tử Python tiêu chuẩn. Ví dụ viết `__add__` để hỗ trợ toán tử `+`, `__len__` để hàm `len()` hoạt động.",
+    "tip": "Dunder = Double Underscore. Hỗ trợ nạp chồng toán tử (Operator Overloading).",
+    "tags": ["python", "oop", "magic-methods", "dunder"]
+  },
+  {
+    "id": "B2-011", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Phương thức `__str__` khác `__repr__` ở điểm cơ bản nào?",
+    "options": [
+      "A. __str__ dùng để tính toán, __repr__ dùng để in",
+      "B. __str__ dành cho end-user (đọc dễ hiểu), __repr__ dành cho developer (chính xác, thường là code để tái tạo đối tượng)",
+      "C. __repr__ là bắt buộc, __str__ không được phép dùng",
+      "D. Không có khác biệt gì"
+    ],
+    "answer": 1,
+    "explanation": "`print(obj)` sẽ gọi `__str__`. Nếu không có `__str__`, nó dự phòng gọi `__repr__`. `__str__` hiển thị đẹp mắt cho người dùng. `__repr__` hiển thị cấu trúc chi tiết, lý tưởng nhất là trả về một chuỗi có thể copy-paste vào eval() để tạo lại đối tượng.",
+    "tip": "STR = Cho Khách hàng đọc (dễ thương). REPR = Cho Dev đọc (chính xác, rành mạch).",
+    "tags": ["python", "oop", "magic-methods", "str-repr"]
+  },
+  {
+    "id": "B2-012", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Bạn có lớp Dog. Thuộc tính `Dog.legs = 4`. Bạn tạo đối tượng `d = Dog()`, sau đó gọi `d.legs = 3`. Điều gì sẽ xảy ra với `Dog.legs`?",
+    "options": [
+      "A. `Dog.legs` bị đổi thành 3",
+      "B. Báo lỗi vì không thể thay đổi Class Attribute qua instance",
+      "C. `Dog.legs` vẫn là 4, nhưng đối tượng `d` có thêm một Instance Attribute tên `legs` có giá trị 3 đè lên",
+      "D. Cả class Dog và tất cả các con chó khác đều bị gãy 1 chân thành 3"
+    ],
+    "answer": 2,
+    "explanation": "Khi bạn gán giá trị qua instance (`d.legs = 3`), Python sẽ KHÔNG sửa Class Attribute. Thay vào đó, nó tạo ra một Instance Attribute mới toanh tên `legs` chỉ thuộc về `d`. Từ nay `d.legs` che khuất biến của Class. Các con chó khác truy cập `legs` vẫn được số 4.",
+    "tip": "Đọc thì chia sẻ chung. Nhưng GÁN qua đối tượng thì sẽ sinh ra biến riêng (Shadowing). Muốn đổi chung phải gán qua tên Class: `Dog.legs = 3`.",
+    "tags": ["python", "oop", "class-attribute", "shadowing"]
+  },
+  {
+    "id": "B2-013", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Decorator `@property` được sử dụng vào mục đích gì?",
+    "options": [
+      "A. Tạo một hằng số",
+      "B. Biến một phương thức (method) trở thành một thuộc tính (attribute) có thể truy cập không cần dấu ngoặc ()",
+      "C. Xóa các biến riêng tư",
+      "D. Tự động sinh ra constructor"
+    ],
+    "answer": 1,
+    "explanation": "`@property` giúp tạo Getter. Nó cho phép bạn thực thi code (tính toán, kiểm tra) mỗi khi người dùng gọi `obj.x` thay vì phải gọi `obj.get_x()`. Giúp interface của class sạch sẽ và tự nhiên như truy cập biến trực tiếp.",
+    "tip": "@property giúp che giấu hàm get/set. Xài hàm như xài biến.",
+    "tags": ["python", "oop", "property", "getter-setter"]
+  },
+  {
+    "id": "B2-014", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Điều kiện để tạo một Abstract Class (Lớp trừu tượng) đúng chuẩn trong Python là gì?",
+    "options": [
+      "A. Đặt chữ abstract ở đầu tên class",
+      "B. Kế thừa class từ mô-đun `abc` (ABC) và dùng decorator `@abstractmethod`",
+      "C. Để hàm __init__ trống",
+      "D. Không truyền tham số self"
+    ],
+    "answer": 1,
+    "explanation": "Python không có từ khóa abstract trực tiếp. Bạn phải import module `abc` (Abstract Base Classes), cho lớp kế thừa từ `ABC`, và gắn `@abstractmethod` lên các hàm muốn lớp con bắt buộc phải ghi đè. Bạn KHÔNG THỂ khởi tạo đối tượng trực tiếp từ lớp ABC này.",
+    "tip": "Muốn Abstract: `from abc import ABC, abstractmethod`.",
+    "tags": ["python", "oop", "abstract-class", "abc"]
+  },
+  {
+    "id": "B2-015", "module": "B", "topic": "B2", "difficulty": "easy",
+    "question": "Trong OOP, tính chất Đóng gói (Encapsulation) có nghĩa là gì?",
+    "options": [
+      "A. Nén code lại bằng ZIP",
+      "B. Kế thừa nhiều lớp cùng lúc",
+      "C. Gói gọn cả Dữ liệu (Thuộc tính) và Hành vi (Phương thức) thao tác trên dữ liệu đó vào trong một khối (Class), và kiểm soát quyền truy cập chúng",
+      "D. Tạo nhiều đối tượng từ 1 class"
+    ],
+    "answer": 2,
+    "explanation": "Đóng gói giúp che giấu chi tiết cài đặt phức tạp bên trong (data hiding), chỉ bộc lộ các phương thức cần thiết ra bên ngoài để tương tác (interface), bảo vệ dữ liệu khỏi bị sửa đổi sai cách.",
+    "tip": "Đóng gói (Encapsulation) = Gom Biến + Hàm vào 1 Class. Dấu cái riêng tư, phô cái công khai.",
+    "tags": ["oop", "principles", "encapsulation"]
+  },
+  {
+    "id": "B2-016", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Phương thức `__del__` (Destructor) sẽ chạy khi nào?",
+    "options": [
+      "A. Ngay khi class được định nghĩa",
+      "B. Khi người dùng gọi obj.__del__()",
+      "C. Khi số tham chiếu (Reference count) của đối tượng bằng 0 và đối tượng bị Garbage Collector thu hồi",
+      "D. Khi thoát hàm __init__"
+    ],
+    "answer": 2,
+    "explanation": "`__del__` là Destructor, dọn dẹp tài nguyên (đóng file, ngắt mạng) trước khi đối tượng chết. Không nên lạm dụng `__del__` trong Python vì thời điểm Garbage Collector dọn rác đôi lúc không thể đoán trước. Dùng context manager (`with`) an toàn hơn.",
+    "tip": "`__init__` lúc sinh ra. `__del__` lúc chết đi (Số người tham chiếu = 0).",
+    "tags": ["python", "oop", "destructor", "magic-methods"]
+  },
+  {
+    "id": "B2-017", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Trong Python, thuộc tính đặc biệt `__slots__` dùng để làm gì?",
+    "options": [
+      "A. Giới hạn số đối tượng có thể tạo ra",
+      "B. Ngăn chặn việc sinh ra dictionary `__dict__` cho mỗi đối tượng, tiết kiệm cực nhiều RAM cho class có hàng triệu instances",
+      "C. Lưu lịch sử các hàm đã gọi",
+      "D. Cung cấp vị trí chạy đa luồng"
+    ],
+    "answer": 1,
+    "explanation": "Mặc định mỗi instance tạo ra 1 `__dict__` riêng chứa các biến của nó, rất linh hoạt (cho phép add thêm biến tùy ý) nhưng tốn RAM. Dùng `__slots__ = ['x', 'y']` sẽ khóa cấu trúc lại, không cho phép add biến lạ, loại bỏ `__dict__`, giúp tiết kiệm rất lớn bộ nhớ và tăng tốc độ đọc ghi.",
+    "tip": "Tạo Hàng Triệu đối tượng? -> BẮT BUỘC dùng `__slots__` để chống tràn RAM.",
+    "tags": ["python", "oop", "slots", "memory-optimization"]
+  },
+  {
+    "id": "B2-018", "module": "B", "topic": "B2", "difficulty": "medium",
+    "question": "Hàm built-in `isinstance(obj, Class)` và `type(obj) == Class` khác nhau chỗ nào về mặt kế thừa?",
+    "options": [
+      "A. Không khác biệt",
+      "B. `type()` kiểm tra kiểu chính xác, KHÔNG quan tâm kế thừa. `isinstance()` báo True nếu obj thuộc Class đó HOẶC thuộc các lớp Con của Class đó.",
+      "C. `isinstance` chạy chậm hơn",
+      "D. `type()` hoạt động với mọi kiểu, `isinstance` chỉ dùng cho OOP"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ chó kế thừa Động vật. `type(cho) == DongVat` ra False. `isinstance(cho, DongVat)` ra True. Trong lập trình, luôn được khuyến khích dùng `isinstance` để tôn trọng tính Đa hình (Polymorphism).",
+    "tip": "Đừng dùng type() == Class. Luôn dùng `isinstance()` để hỗ trợ kế thừa.",
+    "tags": ["python", "oop", "type-checking", "isinstance"]
+  },
+  {
+    "id": "B2-019", "module": "B", "topic": "B2", "difficulty": "easy",
+    "question": "Nếu lớp con KHÔNG viết hàm `__init__`, điều gì sẽ xảy ra khi khởi tạo đối tượng lớp con?",
+    "options": [
+      "A. Báo lỗi ngay lập tức",
+      "B. Lớp con sẽ không có biến nào",
+      "C. Tự động thừa kế và chạy hàm `__init__` của lớp Cha (nếu có)",
+      "D. Hàm `__init__` bị bỏ qua"
+    ],
+    "answer": 2,
+    "explanation": "Theo cơ chế thừa kế, nếu một phương thức không được định nghĩa ở lớp con, Python sẽ tự động lên lớp cha để tìm kiếm (thông qua MRO). Do đó, `__init__` của cha sẽ được kích hoạt.",
+    "tip": "Con không có thì lấy của Cha xài.",
+    "tags": ["python", "oop", "inheritance", "init"]
+  },
+  {
+    "id": "B2-020", "module": "B", "topic": "B2", "difficulty": "hard",
+    "question": "Làm thế nào để khởi tạo và nạp chồng toán tử cộng `+` cho 2 đối tượng tự định nghĩa (Ví dụ Vector1 + Vector2)?",
+    "options": [
+      "A. Viết hàm `__add__(self, other)`",
+      "B. Viết hàm `__sum__(self, other)`",
+      "C. Viết hàm `add(self, other)`",
+      "D. Python không cho phép cộng 2 đối tượng tự định nghĩa"
+    ],
+    "answer": 0,
+    "explanation": "Magic method `__add__` chịu trách nhiệm định nghĩa hành vi cho toán tử `+`. Bạn sẽ viết trả về một đối tượng Vector mới có các thuộc tính là tổng của `self` và `other`. Tương tự có `__sub__` (-), `__mul__` (*)...",
+    "tip": "Toán tử `+` = `__add__`. Toán tử `-` = `__sub__`.",
+    "tags": ["python", "oop", "operator-overloading", "magic-methods"]
+  }
+]

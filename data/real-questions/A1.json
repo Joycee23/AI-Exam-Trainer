@@ -1,0 +1,257 @@
+[
+  {
+    "id": "A1-001", "module": "A", "topic": "A1", "difficulty": "easy",
+    "question": "Trong không gian vector R^2, chuẩn L2 (Euclidean norm) của vector v = [3, 4] là bao nhiêu?",
+    "options": ["A. 5", "B. 7", "C. 25", "D. 1"],
+    "answer": 0,
+    "explanation": "Chuẩn L2 của vector v = [x, y] được tính bằng công thức ||v||_2 = sqrt(x^2 + y^2). Với v = [3, 4], ||v||_2 = sqrt(3^2 + 4^2) = sqrt(25) = 5.",
+    "tip": "Nhớ bộ ba số Pytago cơ bản: 3-4-5.",
+    "tags": ["linear-algebra", "l2-norm", "vector"]
+  },
+  {
+    "id": "A1-002", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Cho hai vector u = [1, 2, 3] và v = [4, -5, 6]. Tích vô hướng (dot product) của u và v bằng bao nhiêu?",
+    "options": ["A. 0", "B. 12", "C. 15", "D. 32"],
+    "answer": 1,
+    "explanation": "Tích vô hướng u.v = (1)(4) + (2)(-5) + (3)(6) = 4 - 10 + 18 = 12.",
+    "tip": "Tích vô hướng là tổng của tích các phần tử tương ứng: Σ(u_i * v_i).",
+    "tags": ["linear-algebra", "dot-product"]
+  },
+  {
+    "id": "A1-003", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Định thức (Determinant) của ma trận A = [[2, 1], [3, 4]] là:",
+    "options": ["A. 5", "B. 8", "C. 11", "D. 14"],
+    "answer": 0,
+    "explanation": "Định thức ma trận 2x2 [[a, b], [c, d]] là ad - bc. det(A) = (2)(4) - (1)(3) = 8 - 3 = 5.",
+    "tip": "Quy tắc nhân chéo: det = đường chéo chính trừ đi đường chéo phụ.",
+    "tags": ["linear-algebra", "determinant", "matrix"]
+  },
+  {
+    "id": "A1-004", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Tính chất nào sau đây KHÔNG đúng đối với ma trận khả nghịch (invertible matrix) A kích thước n x n?",
+    "options": [
+      "A. Định thức của A bằng 0 (det(A) = 0)",
+      "B. Các cột của A độc lập tuyến tính",
+      "C. Hạng (Rank) của A bằng n",
+      "D. Tồn tại ma trận B sao cho AB = BA = I (I là ma trận đơn vị)"
+    ],
+    "answer": 0,
+    "explanation": "Ma trận A khả nghịch khi và chỉ khi định thức của nó khác 0 (det(A) ≠ 0). Nếu det(A) = 0, ma trận được gọi là ma trận suy biến (singular matrix) và không có ma trận nghịch đảo.",
+    "tip": "Khả nghịch (invertible) ⇔ Không suy biến (non-singular) ⇔ det(A) ≠ 0.",
+    "tags": ["linear-algebra", "inverse-matrix", "determinant"]
+  },
+  {
+    "id": "A1-005", "module": "A", "topic": "A1", "difficulty": "easy",
+    "question": "Phép nhân hai ma trận A (kích thước m x n) và B (kích thước p x q) chỉ thực hiện được khi nào?",
+    "options": [
+      "A. m = p",
+      "B. m = q",
+      "C. n = p",
+      "D. n = q"
+    ],
+    "answer": 2,
+    "explanation": "Để nhân hai ma trận A và B, số cột của ma trận đứng trước (A) phải bằng số hàng của ma trận đứng sau (B). Tức là n = p. Kết quả sẽ là một ma trận kích thước m x q.",
+    "tip": "(m x n) * (p x q) khả thi khi phần trong bằng nhau (n=p), kết quả là phần ngoài (m x q).",
+    "tags": ["linear-algebra", "matrix-multiplication"]
+  },
+  {
+    "id": "A1-006", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Cho ma trận A kích thước 3x3. Nếu nhân một hàng bất kỳ của A với một hằng số k, định thức của ma trận mới sẽ thay đổi như thế nào so với det(A)?",
+    "options": [
+      "A. Không thay đổi",
+      "B. Bằng k * det(A)",
+      "C. Bằng k^3 * det(A)",
+      "D. Bằng det(A) / k"
+    ],
+    "answer": 1,
+    "explanation": "Theo tính chất của định thức, khi nhân một hàng (hoặc cột) của ma trận vuông với k, định thức của nó cũng sẽ được nhân với k.",
+    "tip": "Nhân k vào 1 hàng -> det mới = k * det cũ. Nhân k vào toàn bộ ma trận (n x n) -> det mới = k^n * det cũ.",
+    "tags": ["linear-algebra", "determinant"]
+  },
+  {
+    "id": "A1-007", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Cho 3 vector v1 = [1, 0, 0], v2 = [0, 1, 0], v3 = [2, 3, 0]. Nhận định nào sau đây là đúng?",
+    "options": [
+      "A. Ba vector tạo thành một cơ sở (basis) của R^3",
+      "B. Ba vector phụ thuộc tuyến tính (linearly dependent)",
+      "C. v1, v2, v3 trực giao (orthogonal) với nhau từng đôi một",
+      "D. Hạng (Rank) của ma trận tạo bởi 3 vector này là 3"
+    ],
+    "answer": 1,
+    "explanation": "Ta thấy v3 = 2*v1 + 3*v2. Vì một vector có thể biểu diễn dưới dạng tổ hợp tuyến tính của các vector còn lại, tập hợp này là phụ thuộc tuyến tính. Do đó hạng chỉ là 2, không thể tạo thành cơ sở cho R^3.",
+    "tip": "Nếu có vector = tổng các vector kia (tổ hợp tuyến tính) => Phụ thuộc tuyến tính.",
+    "tags": ["linear-algebra", "linear-independence", "basis"]
+  },
+  {
+    "id": "A1-008", "module": "A", "topic": "A1", "difficulty": "easy",
+    "question": "Ma trận đơn vị (Identity matrix) I_n có đặc điểm nào sau đây?",
+    "options": [
+      "A. Tất cả các phần tử đều bằng 1",
+      "B. Các phần tử trên đường chéo chính bằng 1, còn lại bằng 0",
+      "C. Các phần tử trên đường chéo chính bằng 0, còn lại bằng 1",
+      "D. Định thức của I_n bằng n"
+    ],
+    "answer": 1,
+    "explanation": "Ma trận đơn vị có các phần tử trên đường chéo chính từ trên trái xuống dưới phải bằng 1, và tất cả các phần tử khác đều bằng 0. Định thức của I_n luôn bằng 1.",
+    "tip": "I_n hoạt động như số 1 trong phép nhân ma trận: A * I = I * A = A.",
+    "tags": ["linear-algebra", "identity-matrix"]
+  },
+  {
+    "id": "A1-009", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Đâu là kết quả đúng của (AB)^T (chuyển vị của tích hai ma trận)?",
+    "options": [
+      "A. (AB)^T = A^T B^T",
+      "B. (AB)^T = B^T A^T",
+      "C. (AB)^T = (BA)^T",
+      "D. (AB)^T = A^{-1} B^{-1}"
+    ],
+    "answer": 1,
+    "explanation": "Tính chất của phép chuyển vị (Transpose) đối với tích ma trận: Chuyển vị của một tích bằng tích các chuyển vị theo thứ tự ngược lại.",
+    "tip": "Đảo ngược thứ tự khi lấy chuyển vị hoặc nghịch đảo của một tích: (AB)^T = B^T A^T và (AB)^-1 = B^-1 A^-1.",
+    "tags": ["linear-algebra", "transpose"]
+  },
+  {
+    "id": "A1-010", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Chuẩn L1 (Manhattan norm) của vector v = [-3, 4] là:",
+    "options": ["A. 1", "B. 5", "C. 7", "D. -1"],
+    "answer": 2,
+    "explanation": "Chuẩn L1 của vector được tính bằng tổng giá trị tuyệt đối của các phần tử. ||v||_1 = |-3| + |4| = 3 + 4 = 7.",
+    "tip": "Chuẩn L1 (Manhattan) = tổng giá trị tuyệt đối (đường đi zig-zag trong thành phố).",
+    "tags": ["linear-algebra", "l1-norm", "vector"]
+  },
+  {
+    "id": "A1-011", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Nếu u và v là hai vector khác vector 0 và có tích vô hướng (dot product) bằng 0, điều này có ý nghĩa hình học gì?",
+    "options": [
+      "A. u và v song song với nhau",
+      "B. u và v vuông góc (trực giao) với nhau",
+      "C. u và v có cùng độ dài",
+      "D. u và v tạo với nhau góc 45 độ"
+    ],
+    "answer": 1,
+    "explanation": "Tích vô hướng u.v = ||u|| ||v|| cos(theta). Khi u.v = 0 (và u,v khác 0), thì cos(theta) = 0, suy ra góc theta = 90 độ. Hai vector vuông góc nhau.",
+    "tip": "Tích vô hướng bằng 0 ⇔ Hai vector vuông góc (Orthogonal).",
+    "tags": ["linear-algebra", "dot-product", "orthogonality"]
+  },
+  {
+    "id": "A1-012", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Trace của một ma trận vuông A (Ký hiệu: Tr(A)) được tính như thế nào?",
+    "options": [
+      "A. Tích của các phần tử trên đường chéo chính",
+      "B. Tổng của các phần tử trên đường chéo chính",
+      "C. Tổng của tất cả các phần tử trong ma trận",
+      "D. Định thức của ma trận đó"
+    ],
+    "answer": 1,
+    "explanation": "Trace (Vết) của một ma trận vuông là tổng các phần tử nằm trên đường chéo chính của ma trận đó. Tr(A) = a_11 + a_22 + ... + a_nn.",
+    "tip": "Trace = Tổng chéo chính. Tr(A) cũng bằng tổng các Eigenvalues của A.",
+    "tags": ["linear-algebra", "trace", "matrix"]
+  },
+  {
+    "id": "A1-013", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Hệ phương trình tuyến tính Ax = b có duy nhất một nghiệm khi và chỉ khi:",
+    "options": [
+      "A. A là ma trận vuông",
+      "B. Định thức của A bằng 0",
+      "C. A khả nghịch (có ma trận nghịch đảo A^-1)",
+      "D. b là vector không"
+    ],
+    "answer": 2,
+    "explanation": "Khi A khả nghịch (tồn tại A^-1), ta có thể nhân cả hai vế với A^-1 để tìm được nghiệm duy nhất x = A^-1 b. Nếu A không khả nghịch, hệ có thể vô nghiệm hoặc vô số nghiệm.",
+    "tip": "Hệ phương trình vuông Ax=b có 1 nghiệm duy nhất ⇔ det(A) ≠ 0 ⇔ A khả nghịch.",
+    "tags": ["linear-algebra", "linear-system"]
+  },
+  {
+    "id": "A1-014", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Hình chiếu trực giao (Orthogonal Projection) của vector u lên vector v (v khác 0) là:",
+    "options": [
+      "A. ((u.v) / (v.v)) * v",
+      "B. ((u.v) / (u.u)) * u",
+      "C. (u.v) * v",
+      "D. ((u.v) / ||v||)"
+    ],
+    "answer": 0,
+    "explanation": "Công thức hình chiếu của u lên phương của v là một vector có hướng của v và độ dài tỷ lệ theo tích vô hướng: proj_v(u) = ((u.v) / ||v||^2) * v = ((u.v) / (v.v)) * v.",
+    "tip": "Chiếu u lên v thì mẫu số là v.v, và nhân với vector v. Hướng thuộc về v.",
+    "tags": ["linear-algebra", "projection", "vector"]
+  },
+  {
+    "id": "A1-015", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Tính chất nào sau đây đúng về phép nhân ma trận (giả sử kích thước các ma trận đều hợp lệ để nhân)?",
+    "options": [
+      "A. Giao hoán: AB = BA",
+      "B. Kết hợp: (AB)C = A(BC)",
+      "C. Cả giao hoán và kết hợp đều đúng",
+      "D. Cả giao hoán và kết hợp đều sai"
+    ],
+    "answer": 1,
+    "explanation": "Phép nhân ma trận có tính kết hợp: A(BC) = (AB)C và tính phân phối A(B+C) = AB + AC, nhưng nói chung KHÔNG có tính giao hoán (AB ≠ BA).",
+    "tip": "Nhân ma trận KHÔNG giao hoán, CÓ kết hợp. Thứ tự rất quan trọng!",
+    "tags": ["linear-algebra", "matrix-multiplication"]
+  },
+  {
+    "id": "A1-016", "module": "A", "topic": "A1", "difficulty": "easy",
+    "question": "Tích có hướng (Cross product) của hai vector trong không gian R^3 tạo ra:",
+    "options": [
+      "A. Một số vô hướng (Scalar)",
+      "B. Một vector trực giao với cả hai vector ban đầu",
+      "C. Một ma trận 3x3",
+      "D. Một vector song song với một trong hai vector ban đầu"
+    ],
+    "answer": 1,
+    "explanation": "Cross product (u x v) trong R^3 trả về một vector thứ ba vuông góc (trực giao) với mặt phẳng chứa u và v. Độ dài của nó bằng diện tích hình bình hành tạo bởi u và v.",
+    "tip": "Tích VÔ hướng (Dot) = Số. Tích CÓ hướng (Cross) = Vector vuông góc.",
+    "tags": ["linear-algebra", "cross-product"]
+  },
+  {
+    "id": "A1-017", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Ma trận đối xứng (Symmetric matrix) là ma trận vuông A thỏa mãn điều kiện gì?",
+    "options": [
+      "A. A = A^{-1}",
+      "B. A = -A",
+      "C. A = A^T",
+      "D. Các phần tử trên đường chéo chính bằng 0"
+    ],
+    "answer": 2,
+    "explanation": "Ma trận đối xứng là ma trận bằng chính chuyển vị của nó (A = A^T). Có nghĩa là các phần tử qua đường chéo chính đối xứng nhau (a_ij = a_ji).",
+    "tip": "Đối xứng: A = A^T. Phản đối xứng (Skew-symmetric): A = -A^T.",
+    "tags": ["linear-algebra", "symmetric-matrix"]
+  },
+  {
+    "id": "A1-018", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Hạng (Rank) lớn nhất có thể của ma trận A kích thước 4x6 là bao nhiêu?",
+    "options": ["A. 10", "B. 6", "C. 4", "D. 24"],
+    "answer": 2,
+    "explanation": "Hạng của ma trận A kích thước m x n không thể vượt quá min(m, n). Do đó, rank(A) <= min(4, 6) = 4.",
+    "tip": "Rank không bao giờ lớn hơn kích thước nhỏ nhất của ma trận (số hàng hoặc số cột).",
+    "tags": ["linear-algebra", "rank"]
+  },
+  {
+    "id": "A1-019", "module": "A", "topic": "A1", "difficulty": "medium",
+    "question": "Khoảng cách Cosine (Cosine similarity) giữa hai vector u và v đo lường điều gì?",
+    "options": [
+      "A. Khoảng cách vật lý giữa hai điểm đầu mút",
+      "B. Góc giữa hai vector trong không gian",
+      "C. Tỉ lệ độ dài của hai vector",
+      "D. Số lượng các chiều khác nhau của vector"
+    ],
+    "answer": 1,
+    "explanation": "Cosine similarity đo lường góc giữa hai vector (cos(theta) = u.v / (||u|| ||v||)), giúp so sánh định hướng của chúng mà không quan tâm đến độ lớn (magnitude).",
+    "tip": "Cosine Similarity: Đánh giá xem 2 vector có 'cùng hướng' không, độ dài không quan trọng (thường dùng trong NLP).",
+    "tags": ["linear-algebra", "cosine-similarity", "vector"]
+  },
+  {
+    "id": "A1-020", "module": "A", "topic": "A1", "difficulty": "hard",
+    "question": "Cho ma trận trực giao (Orthogonal Matrix) Q. Tính chất nào sau đây luôn đúng?",
+    "options": [
+      "A. Định thức của Q luôn bằng 0",
+      "B. Ma trận nghịch đảo Q^{-1} bằng chuyển vị Q^T",
+      "C. Q luôn là ma trận đường chéo",
+      "D. Các cột của Q phụ thuộc tuyến tính"
+    ],
+    "answer": 1,
+    "explanation": "Ma trận trực giao Q có các cột (và hàng) tạo thành một cơ sở trực chuẩn (orthonormal basis). Tính chất quan trọng nhất là Q^T * Q = I, suy ra Q^{-1} = Q^T.",
+    "tip": "Orthogonal Matrix: Q^-1 = Q^T. Rất hữu ích vì không cần thuật toán phức tạp để tìm nghịch đảo.",
+    "tags": ["linear-algebra", "orthogonal-matrix"]
+  }
+]

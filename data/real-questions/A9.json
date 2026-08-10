@@ -1,0 +1,282 @@
+[
+  {
+    "id": "A9-001", "module": "A", "topic": "A9", "difficulty": "easy",
+    "question": "Trong Lý thuyết đồ thị (Graph Theory), Đồ thị G được định nghĩa là một cặp G = (V, E). V và E đại diện cho điều gì?",
+    "options": [
+      "A. V là Vertices (Đỉnh/Nút), E là Edges (Cạnh)",
+      "B. V là Vectors (Đại lượng hướng), E là Energy (Năng lượng)",
+      "C. V là Values (Giá trị), E là Errors (Sai số)",
+      "D. V là Variables (Biến), E là Equations (Phương trình)"
+    ],
+    "answer": 0,
+    "explanation": "Đồ thị bao gồm tập hợp các đỉnh V (Vertices/Nodes) và tập hợp các cạnh E (Edges/Links) kết nối các đỉnh đó.",
+    "tip": "V = Vertex (Đỉnh/Nút). E = Edge (Cạnh/Đường nối).",
+    "tags": ["graph-theory", "basics"]
+  },
+  {
+    "id": "A9-002", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Đồ thị vô hướng (Undirected graph) khác đồ thị có hướng (Directed graph/Digraph) ở điểm nào?",
+    "options": [
+      "A. Cạnh vô hướng không có trọng số",
+      "B. Cạnh vô hướng biểu diễn mối quan hệ 2 chiều đối xứng (A nối B thì B nối A), cạnh có hướng chỉ đi 1 chiều",
+      "C. Cạnh có hướng không thể tạo thành chu trình",
+      "D. Đồ thị vô hướng không cho phép khuyên (self-loop)"
+    ],
+    "answer": 1,
+    "explanation": "Trong đồ thị vô hướng, cạnh {u,v} là một tập hợp không có thứ tự, nghĩa là có thể đi từ u sang v hoặc v sang u (như con đường 2 chiều). Đồ thị có hướng cạnh (u,v) có mũi tên từ u tới v.",
+    "tip": "Vô hướng = Bạn bè trên Facebook. Có hướng = Follower trên Twitter/Instagram.",
+    "tags": ["graph-theory", "directed-graph", "undirected-graph"]
+  },
+  {
+    "id": "A9-003", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Bậc (Degree) của một đỉnh V trong đồ thị vô hướng là gì?",
+    "options": [
+      "A. Khoảng cách từ đỉnh đó đến gốc",
+      "B. Số lượng đỉnh trong đồ thị",
+      "C. Số lượng cạnh nối trực tiếp (kề) với đỉnh đó",
+      "D. Trọng số lớn nhất của cạnh nối với nó"
+    ],
+    "answer": 2,
+    "explanation": "Bậc của đỉnh v (ký hiệu deg(v)) là số lượng cạnh liên thuộc với v. Lưu ý, một khuyên (cạnh nối đỉnh với chính nó) đóng góp 2 vào bậc của đỉnh.",
+    "tip": "Degree = Số đường đâm vào (hoặc chĩa ra) từ cái đỉnh đó.",
+    "tags": ["graph-theory", "degree"]
+  },
+  {
+    "id": "A9-004", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Định lý bắt tay (Handshaking Lemma) phát biểu điều gì đối với đồ thị vô hướng?",
+    "options": [
+      "A. Tổng bậc của tất cả các đỉnh luôn bằng tổng số cạnh",
+      "B. Tổng bậc của tất cả các đỉnh bằng 2 lần số cạnh, do đó luôn là số chẵn",
+      "C. Số lượng đỉnh bậc lẻ luôn luôn là số lẻ",
+      "D. Không thể có đỉnh nào có bậc bằng 0"
+    ],
+    "answer": 1,
+    "explanation": "Mỗi cạnh nối 2 đỉnh, vì vậy khi tính tổng bậc của tất cả các đỉnh, mỗi cạnh được tính đúng 2 lần. Do đó, Σ deg(v) = 2|E|. Hệ quả: Số lượng các đỉnh có bậc lẻ luôn phải là một số chẵn.",
+    "tip": "Handshaking Lemma: Tổng các bậc = 2 * Số Cạnh (luôn chẵn). Số người bắt tay lẻ lần luôn phải chẵn.",
+    "tags": ["graph-theory", "handshaking-lemma"]
+  },
+  {
+    "id": "A9-005", "module": "A", "topic": "A9", "difficulty": "easy",
+    "question": "Một đồ thị liên thông (Connected Graph) là đồ thị như thế nào?",
+    "options": [
+      "A. Mọi đỉnh đều có cạnh nối TRỰC TIẾP tới mọi đỉnh khác",
+      "B. Có đường đi (path) giữa BẤT KỲ cặp đỉnh nào trong đồ thị",
+      "C. Đồ thị không có chu trình",
+      "D. Đồ thị có thể vẽ trên mặt phẳng mà không có 2 cạnh cắt nhau"
+    ],
+    "answer": 1,
+    "explanation": "Đồ thị vô hướng gọi là liên thông nếu từ một đỉnh bất kỳ, ta luôn có thể tìm được ít nhất 1 đường (đi qua nhiều cạnh) để tới bất kỳ đỉnh nào khác trong đồ thị (không bị chia cắt thành các 'đảo' rời rạc).",
+    "tip": "Connected (Liên thông) = Liền một khối, không bị đứt đoạn thành các vùng cách ly.",
+    "tags": ["graph-theory", "connectivity"]
+  },
+  {
+    "id": "A9-006", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Cây (Tree) trong Lý thuyết đồ thị được định nghĩa là một đồ thị:",
+    "options": [
+      "A. Liên thông và Không có chu trình (Acyclic)",
+      "B. Đầy đủ (mọi đỉnh nối nhau)",
+      "C. Có hướng và mọi đỉnh đều có bậc ra bằng 1",
+      "D. Có thể tô bằng 2 màu"
+    ],
+    "answer": 0,
+    "explanation": "Cây là một đồ thị vô hướng liên thông và không chứa bất kỳ chu trình nào. Một tính chất quan trọng: Một cây có N đỉnh sẽ có chính xác (N - 1) cạnh.",
+    "tip": "Tree = Liên thông + Không chu trình. Số đỉnh = Số cạnh + 1.",
+    "tags": ["graph-theory", "tree"]
+  },
+  {
+    "id": "A9-007", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Ma trận kề (Adjacency Matrix) A của đồ thị VÔ HƯỚNG có tính chất toán học nào đặc biệt?",
+    "options": [
+      "A. Ma trận đường chéo",
+      "B. Ma trận đối xứng (Symmetric Matrix) A = A^T",
+      "C. Ma trận khả nghịch",
+      "D. Định thức luôn bằng 1"
+    ],
+    "answer": 1,
+    "explanation": "Trong ma trận kề, phần tử A[i][j] = 1 nếu có cạnh nối đỉnh i và đỉnh j. Vì đồ thị vô hướng, có cạnh (i,j) thì cũng có cạnh (j,i), nên A[i][j] = A[j][i]. Ma trận A đối xứng qua đường chéo chính.",
+    "tip": "Adjacency Matrix của đồ thị VÔ hướng luôn đối xứng. (Bạn FB thì 2 bên đều có mặt).",
+    "tags": ["graph-theory", "adjacency-matrix", "linear-algebra"]
+  },
+  {
+    "id": "A9-008", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Danh sách kề (Adjacency List) có ưu điểm gì so với Ma trận kề (Adjacency Matrix)?",
+    "options": [
+      "A. Kiểm tra 2 đỉnh có cạnh nối hay không nhanh hơn (O(1))",
+      "B. Tiết kiệm không gian bộ nhớ (Space Complexity) đối với đồ thị thưa (Sparse graph - ít cạnh)",
+      "C. Dễ dàng dùng các phép tính ma trận đại số tuyến tính",
+      "D. Biểu diễn được chu trình"
+    ],
+    "answer": 1,
+    "explanation": "Ma trận kề dùng mảng 2 chiều tốn O(V^2) bộ nhớ, kể cả khi không có cạnh nối (đầy số 0). Danh sách kề chỉ lưu trữ các đỉnh thực sự được nối với nhau, nên tốn O(V + E) bộ nhớ, cực kỳ tiết kiệm cho đồ thị thưa.",
+    "tip": "Đồ thị thưa (Ít cạnh) -> Dùng Danh sách kề. Đồ thị đặc (Nhiều cạnh) hoặc cần tính toán Ma trận -> Dùng Ma trận kề.",
+    "tags": ["graph-theory", "data-structures"]
+  },
+  {
+    "id": "A9-009", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Thuật toán BFS (Breadth-First Search - Tìm kiếm theo chiều rộng) thường sử dụng cấu trúc dữ liệu nào?",
+    "options": [
+      "A. Stack (Ngăn xếp)",
+      "B. Queue (Hàng đợi)",
+      "C. Priority Queue",
+      "D. Hash Map"
+    ],
+    "answer": 1,
+    "explanation": "BFS duyệt đồ thị theo từng 'lớp' (level-by-level), từ gần ra xa. Để làm điều này, nó dùng cấu trúc Hàng đợi (Queue - FIFO: Vào trước Ra trước) để đảm bảo các đỉnh gần được duyệt xong trước khi sang các đỉnh xa hơn.",
+    "tip": "BFS (Chiều Rộng/Lớp) = Queue. DFS (Chiều Sâu) = Stack (hoặc Đệ quy).",
+    "tags": ["graph-theory", "bfs", "algorithms"]
+  },
+  {
+    "id": "A9-010", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Ứng dụng quan trọng nhất của thuật toán BFS trên đồ thị KHÔNG TRỌNG SỐ (Unweighted graph) là gì?",
+    "options": [
+      "A. Tìm cây khung nhỏ nhất (Minimum Spanning Tree)",
+      "B. Tìm đường đi ngắn nhất (Shortest Path) từ đỉnh nguồn đến mọi đỉnh khác",
+      "C. Sắp xếp tô pô (Topological Sort)",
+      "D. Phát hiện chu trình Hamilton"
+    ],
+    "answer": 1,
+    "explanation": "Vì BFS lan tỏa ra theo từng lớp, khi nó chạm đến một đỉnh lần ĐẦU TIÊN, đường đi nó vừa đi qua chính là đường đi ngắn nhất (tính bằng số cạnh) từ nguồn đến đỉnh đó.",
+    "tip": "Đường đi ngắn nhất + Đồ thị KHÔNG trọng số = BFS. Đồ thị CÓ trọng số = Dijkstra.",
+    "tags": ["graph-theory", "bfs", "shortest-path"]
+  },
+  {
+    "id": "A9-011", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Thuật toán Dijkstra được sử dụng để giải quyết bài toán nào?",
+    "options": [
+      "A. Đường đi ngắn nhất (Shortest path) từ một đỉnh nguồn trên đồ thị CÓ trọng số KHÔNG ÂM",
+      "B. Tìm cây bao trùm nhỏ nhất (MST)",
+      "C. Luồng cực đại (Maximum flow)",
+      "D. Sắp xếp Topological"
+    ],
+    "answer": 0,
+    "explanation": "Thuật toán Dijkstra tìm đường đi ngắn nhất từ một điểm đến tất cả các điểm khác trên đồ thị có trọng số. Tuy nhiên, nó sẽ chạy sai nếu đồ thị có cạnh mang trọng số âm (phải dùng Bellman-Ford).",
+    "tip": "Dijkstra: Tìm đường ngắn nhất siêu nhanh, KHÔNG chịu được TRỌNG SỐ ÂM.",
+    "tags": ["graph-theory", "dijkstra", "shortest-path"]
+  },
+  {
+    "id": "A9-012", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Thuật toán Bellman-Ford vượt trội hơn thuật toán Dijkstra ở điểm nào?",
+    "options": [
+      "A. Chạy nhanh hơn về mặt thời gian (Time complexity thấp hơn)",
+      "B. Xử lý được đồ thị vô hướng",
+      "C. Xử lý được cạnh có trọng số ÂM và phát hiện được Chu trình Âm (Negative cycle)",
+      "D. Dùng ít bộ nhớ hơn"
+    ],
+    "answer": 2,
+    "explanation": "Dijkstra dùng tham lam (Greedy) nên sẽ thất bại nếu có cạnh âm. Bellman-Ford dùng quy hoạch động (DP), kiểm tra tất cả các cạnh lặp lại V-1 lần, nên hoạt động đúng với cạnh âm. Lần lặp thứ V sẽ giúp phát hiện nếu đồ thị có chu trình âm (điều khiến đường ngắn nhất có thể tiến về âm vô cùng).",
+    "tip": "Bellman-Ford: 'Chậm mà chắc', cân được cạnh trọng số ÂM.",
+    "tags": ["graph-theory", "bellman-ford", "shortest-path"]
+  },
+  {
+    "id": "A9-013", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Bài toán Minimum Spanning Tree (MST - Cây khung nhỏ nhất) giải quyết vấn đề thực tế nào sau đây?",
+    "options": [
+      "A. Tìm đường đi ngắn nhất từ nhà đến trường",
+      "B. Thiết kế mạng lưới dây điện/ống nước nối liền tất cả các ngôi nhà với chi phí dây cáp ít nhất",
+      "C. Sắp xếp thứ tự các công việc phụ thuộc nhau",
+      "D. Chia nhóm khách hàng (Clustering)"
+    ],
+    "answer": 1,
+    "explanation": "MST là một 'cây' (không có chu trình) bao trùm tất cả các đỉnh của đồ thị liên thông sao cho tổng trọng số các cạnh là nhỏ nhất. Nó ứng dụng trong thiết kế mạng viễn thông, mạch điện, hệ thống đường bộ...",
+    "tip": "MST (Cây khung nhỏ nhất) = Nối TẤT CẢ các điểm lại với nhau tốn ít chi phí (cáp) nhất.",
+    "tags": ["graph-theory", "mst", "application"]
+  },
+  {
+    "id": "A9-014", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Hai thuật toán kinh điển nhất để tìm Minimum Spanning Tree (MST) là gì?",
+    "options": [
+      "A. BFS và DFS",
+      "B. Dijkstra và Bellman-Ford",
+      "C. Kruskal và Prim",
+      "D. Ford-Fulkerson và Edmonds-Karp"
+    ],
+    "answer": 2,
+    "explanation": "Thuật toán Kruskal (chọn các cạnh nhỏ nhất không tạo thành chu trình) và Thuật toán Prim (chọn cạnh nhỏ nhất mở rộng dần từ một cây con) là 2 thuật toán Greedy chuẩn mực để tìm Cây khung nhỏ nhất (MST).",
+    "tip": "MST -> Kruskal (sắp xếp cạnh nhỏ nhất) hoặc Prim (loang từ 1 điểm).",
+    "tags": ["graph-theory", "mst", "algorithms"]
+  },
+  {
+    "id": "A9-015", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Sắp xếp Tô pô (Topological Sort) CHỈ có thể thực hiện được trên loại đồ thị nào?",
+    "options": [
+      "A. Đồ thị vô hướng (Undirected Graph)",
+      "B. Đồ thị có hướng KHÔNG có chu trình (DAG - Directed Acyclic Graph)",
+      "C. Đồ thị liên thông mạnh (Strongly Connected Graph)",
+      "D. Đồ thị đầy đủ (Complete Graph)"
+    ],
+    "answer": 1,
+    "explanation": "Sắp xếp topo là sắp xếp các đỉnh sao cho với mọi cạnh (u,v), đỉnh u luôn đứng trước đỉnh v. Nó thường dùng lập lịch các công việc phụ thuộc nhau (task A phải làm trước task B). Nếu đồ thị có chu trình (A cần B, B lại cần A) thì sẽ bị kẹt (Deadlock), không thể sắp xếp.",
+    "tip": "Topological Sort (Lập lịch công việc) BẮT BUỘC dùng DAG (Directed Acyclic Graph). Có chu trình là Deadlock.",
+    "tags": ["graph-theory", "topological-sort", "dag"]
+  },
+  {
+    "id": "A9-016", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Trong mạng Neural đồ thị (Graph Neural Networks - GNN), bước 'Message Passing' (Truyền thông điệp) mô phỏng điều gì?",
+    "options": [
+      "A. Đạo hàm ngược (Backpropagation)",
+      "B. Việc mỗi đỉnh cập nhật feature (đặc trưng) của nó bằng cách tổng hợp thông tin (features) từ các ĐỈNH HÀNG XÓM (neighbors) xung quanh nó",
+      "C. Tính định thức ma trận kề",
+      "D. Việc thêm cạnh ngẫu nhiên"
+    ],
+    "answer": 1,
+    "explanation": "Message Passing (ví dụ trong GCN, GraphSAGE) là cơ chế lõi của GNN. Tại mỗi layer, một đỉnh sẽ thu thập (aggregate) vector đặc trưng của các đỉnh kề nó, kết hợp với đặc trưng của chính nó, đưa qua lớp neural để tạo ra vector biểu diễn mới. Nhờ đó, đỉnh nhận thức được ngữ cảnh cục bộ của đồ thị.",
+    "tip": "GNN (Message Passing) = Hỏi hàng xóm mày là ai, rồi gộp lại với tao để ra bản thân tao ở version mới.",
+    "tags": ["graph-theory", "gnn", "deep-learning"]
+  },
+  {
+    "id": "A9-017", "module": "A", "topic": "A9", "difficulty": "easy",
+    "question": "Chu trình Euler (Eulerian Cycle) là đường đi trên đồ thị thỏa mãn tính chất gì?",
+    "options": [
+      "A. Đi qua tất cả các ĐỈNH, mỗi đỉnh đúng 1 lần",
+      "B. Đi qua tất cả các CẠNH, mỗi cạnh ĐÚNG 1 LẦN và quay về đỉnh ban đầu",
+      "C. Đi qua 50% số cạnh",
+      "D. Là đường đi ngắn nhất"
+    ],
+    "answer": 1,
+    "explanation": "Chu trình Euler đi qua mọi CẠNH của đồ thị đúng một lần. (Giống bài toán vẽ hình không nhấc bút). Theo định lý Euler, một đồ thị liên thông có chu trình Euler khi và chỉ khi mọi đỉnh của nó đều có BẬC CHẴN.",
+    "tip": "Euler Cycle = Duyệt tất cả CẠNH. (Để nhớ: Chữ Cạnh bắt đầu bằng C, C gần E trong ABC).",
+    "tags": ["graph-theory", "eulerian-path"]
+  },
+  {
+    "id": "A9-018", "module": "A", "topic": "A9", "difficulty": "easy",
+    "question": "Chu trình Hamilton (Hamiltonian Cycle) là đường đi trên đồ thị thỏa mãn tính chất gì?",
+    "options": [
+      "A. Đi qua tất cả các CẠNH đúng 1 lần",
+      "B. Đi qua tất cả các ĐỈNH, mỗi đỉnh ĐÚNG 1 LẦN và quay về đỉnh ban đầu",
+      "C. Không đi qua điểm nào 2 lần (ngoài điểm đầu)",
+      "D. Cả B và C đều đúng"
+    ],
+    "answer": 3,
+    "explanation": "Ngược với Euler, chu trình Hamilton quan tâm đến ĐỈNH. Nó yêu cầu đi qua tất cả các đỉnh của đồ thị, mỗi đỉnh một lần duy nhất, sau đó trở về điểm xuất phát. Việc tìm chu trình Hamilton là bài toán NP-hard (rất khó giải).",
+    "tip": "Hamilton Cycle = Duyệt tất cả ĐỈNH. (Bài toán Người chào hàng - TSP).",
+    "tags": ["graph-theory", "hamiltonian-path"]
+  },
+  {
+    "id": "A9-019", "module": "A", "topic": "A9", "difficulty": "medium",
+    "question": "Đồ thị lưỡng phân (Bipartite Graph) là gì?",
+    "options": [
+      "A. Đồ thị bị đứt làm 2 mảnh rời rạc",
+      "B. Đồ thị mà tập đỉnh V có thể chia thành 2 tập rời nhau U và W, sao cho mọi cạnh chỉ nối 1 đỉnh từ U sang 1 đỉnh của W",
+      "C. Đồ thị mỗi đỉnh đều có bậc 2",
+      "D. Đồ thị chỉ có 2 cạnh"
+    ],
+    "answer": 1,
+    "explanation": "Đồ thị lưỡng phân có đỉnh chia làm 2 tập (ví dụ: Tập người lao động và Tập công việc). Không có bất kỳ cạnh nào nối 2 đỉnh trong CÙNG MỘT TẬP. Điều kiện để đồ thị là Bipartite là nó KHÔNG chứa chu trình độ dài LẺ (tô được bằng 2 màu).",
+    "tip": "Bipartite = Chia 2 phe (nam/nữ, client/server). Không ai nối với người cùng phe.",
+    "tags": ["graph-theory", "bipartite"]
+  },
+  {
+    "id": "A9-020", "module": "A", "topic": "A9", "difficulty": "hard",
+    "question": "Luật PageRank của Google mô hình hóa website như một đồ thị có hướng. Hành vi của một 'Random Surfer' (người lướt web ngẫu nhiên) tạo thành quá trình toán học nào?",
+    "options": [
+      "A. Cây khung nhỏ nhất (MST)",
+      "B. Chuỗi Markov (Markov Chain)",
+      "C. Gaussian Mixture Model (GMM)",
+      "D. Hồi quy phi tuyến"
+    ],
+    "answer": 1,
+    "explanation": "PageRank mô phỏng một người lướt web ngẫu nhiên đi theo các link (cạnh). Xác suất người đó đứng tại trang i phụ thuộc vào trạng thái trước đó (trang j), cấu thành một Chuỗi Markov. PageRank Score chính là Phân phối xác suất trạng thái dừng (Stationary Distribution) của chuỗi Markov đó.",
+    "tip": "PageRank = Random Walk trên Directed Graph = Markov Chain.",
+    "tags": ["graph-theory", "pagerank", "markov-chain"]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D3-001", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Sự khác biệt CỐT LÕI NHẤT giữa Cơ sở dữ liệu Vận hành (OLTP) và Kho dữ liệu Data Warehouse (OLAP) là gì?",
+    "options": [
+      "A. OLTP miễn phí, OLAP trả phí",
+      "B. OLTP thiết kế để ĐỌC BÁO CÁO NHANH. OLAP thiết kế để GHI GIAO DỊCH NHANH.",
+      "C. OLTP (Ví dụ: MySQL) thiết kế để GHI GIAO DỊCH LIÊN TỤC VỚI TỐC ĐỘ SIÊU NHANH (Insert/Update từng dòng). OLAP (Ví dụ: Data Warehouse) thiết kế để LƯU TRỮ LỊCH SỬ HÀNG CHỤC NĂM VÀ ĐỌC BÁO CÁO KHỔNG LỒ (Chạy câu lệnh Select đếm Tỷ dòng, không có tác vụ Ghi đè sửa xóa).",
+      "D. Cả 2 đều giống nhau"
+    ],
+    "answer": 2,
+    "explanation": "Shopee dùng Database OLTP để Hứng Lệnh Đặt Hàng lúc 12h đêm (Bắn súng liên thanh Ghi dữ liệu). Nhưng Sáng hôm sau, Giám Đốc muốn xem 'Tổng doanh thu bán Áo của Nam giới từ độ tuổi 18-25 trong 5 năm qua'. Nếu ném câu lệnh quét tỷ dòng này vào OLTP, Shopee sẽ sập Web bán hàng ngay lập tức. Do đó ta phải copy Data sang 1 kho riêng (Data Warehouse) cấu hình siêu bự để dành riêng cho việc Đọc Báo cáo chậm rãi (OLAP).",
+    "tip": "OLTP = Lính Ra Trận. Chạy Vòng lặp Ghi Giao dịch lẹ lẹ né sập Web. OLAP (Data Warehouse) = Cụ Khốt Ở Nhà. Ngồi Rung Đùi Cắn Hạt Dưa Ngẫm Nghĩ Xài Lệnh Đọc Phân Tích Dữ Liệu Khủng Chục Năm.",
+    "tags": ["data-warehouse", "oltp", "olap", "architecture"]
+  },
+  {
+    "id": "D3-002", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Quy trình ETL (Extract, Transform, Load) là xương sống của mọi Data Warehouse. Bước Chữ 'T' (Transform - Biến đổi) đóng vai trò QUAN TRỌNG gì?",
+    "options": [
+      "A. Đổi mật khẩu Database",
+      "B. Dịch Web sang tiếng Anh",
+      "C. Tẩy rửa DỮ LIỆU RÁC (Làm sạch). Đồng bộ Định Dạng Từ Nhiều Nguồn Khác Nhau (Nguồn A ghi 'VN', Nguồn B ghi 'Việt Nam' -> Gom về 1 chuẩn). Và tính toán các Cột Dữ Liệu Tóm Tắt (Ví dụ: Tuổi = Năm Hiện Tại - Năm Sinh) Trực Tiếp Để Đổ Lên Data Warehouse Sạch Bóng.",
+      "D. Đổi ảnh thành file text"
+    ],
+    "answer": 2,
+    "explanation": "Dữ liệu Hút (Extract) từ 10 hệ thống của cty về là Đống Rác Khổng Lồ Hỗn Tạp. Thằng thì Null, Thằng thì sai Form Date. Transform là Máy Giặt. Nếu bưng thẳng Đống rác dơ dáy đó (Extract -> Load) vào Data Warehouse, Giám đốc chạy Báo cáo sẽ sai Số Tiền bét nhè (Garbage In - Garbage Out). Transform là Mạch Đập Xương Máu Sống Còn.",
+    "tip": "ETL (Extract - Transform - Load): Chữ T Ở Giữa (Transform) Là Thằng Dọn Bồn Cầu Sạch Rác Đóng Chuẩn Bột Nước Cất Trước Khi Ném (Load) Lên Tủ Lạnh Báo Cáo Sạch Đẹp.",
+    "tags": ["data-warehouse", "etl", "data-engineering"]
+  },
+  {
+    "id": "D3-003", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Kiến trúc Lược Đồ Hình Sao (Star Schema) Rất Được Ưa Chuộng Để Xây Dựng Báo Cáo Data Warehouse. Cấu trúc Trung Tâm của Lược đồ này là Bảng nào?",
+    "options": [
+      "A. Bảng Mật Khẩu (Password Table)",
+      "B. Bảng Hằng Số (Constant Table)",
+      "C. BẢNG SỰ KIỆN / THỰC TẾ (FACT TABLE) NẰM Ở TÂM. Bao bọc Xung quanh nó là các BẢNG CHIỀU (DIMENSION TABLES). Vị trí y hệt Một Ngôi Sao nhiều Cánh.",
+      "D. Không có bảng trung tâm"
+    ],
+    "answer": 2,
+    "explanation": "Fact Table (Sự Kiện Đơn Hàng - Bảng To Tỷ Dòng Chứa Con Số Đo Lường Được Tức Thời Như Giá, Số Lượng). Dimension Tables (Các Chiều Góc Cạnh: Khách Hàng Nào, Ngày Nào, Ở Đâu - Bảng Chứa Chữ Mô Tả). Star Schema đập nát Kiến trúc 3NF Truyền thống, chỉ chừa đúng 1 bước JOIN từ Tâm ra Rìa, Nhanh Thần Tốc Dành Riêng Cho Báo Cáo Chém Tách Phân Tích.",
+    "tip": "Star Schema (Lược đồ Hình Sao) = Tâm là SỰ KIỆN Đo Lường Được (Fact). Các Cánh Sao Chĩa Ra Trỏ Vào Các Bảng PHỤ CHI TIẾT Giải Nghĩa (Dimension: Khách Hàng, Sản Phẩm, Thời Gian).",
+    "tags": ["data-warehouse", "star-schema", "fact-table", "dimension-table"]
+  },
+  {
+    "id": "D3-004", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Sự Khác Biệt Chí Mạng Giữa Lược Đồ Hình Sao (Star Schema) VÀ Lược Đồ Bông Tuyết (Snowflake Schema) Làm Chậm Tốc Độ Báo Cáo Của Thằng Nào Hơn?",
+    "options": [
+      "A. Star Schema vẽ Hộp vuông bọc lại",
+      "B. Không Cái Nào Chậm Hơn",
+      "C. SNOWFLAKE SCHEMA TIẾP TỤC CHUẨN HÓA (TÁCH) CÁC BẢNG CHIỀU (DIMENSION) RA NHIỀU NHÁNH ĐUÔI CON (Bảng Thành Phố Trỏ Về Bảng Tỉnh, Trỏ Về Bảng Quốc Gia). Do Sự Lồng Ghép Móc Xích Quá Sâu, Lệnh Truy Vấn Phải Kéo JOIN Liên Tục Rất Đau Lưng CPU -> Snowflake Chạy CHẬM HƠN Star Schema Trực Diện 1 Điểm Nối Rất Đáng Kể Mọi Hệ Dây Dẫn Lệnh Chấm Góc.",
+      "D. Đổi Tên Bảng Về Tầng Nghĩa"
+    ],
+    "answer": 2,
+    "explanation": "Star Schema là Phi Chuẩn Hóa (Gộp Gốc Quốc Gia Thành Phố Tỉnh Vô 1 Bảng Dimension Vị Trí Dư Thừa Kệ Mẹ Nó). Snowflake lại Giữ Đạo Lý Cổ Trạch Chuẩn Hóa 3NF Nát Ra (Tiết Kiệm Ổ Cứng Nhỏ Bé Nhưng Vắt Kiệt RAM Khổ Bán Mạng Ngồi Viết Cú JOIN Khùng Điên Nhảy Tầng Cầu Thang Mờ Hụt Tốc Độ Lập Báo Cáo Kinh Khủng Chậm Bò). Đời Data Tránh Snowflake Càng Tốt.",
+    "tip": "Star Schema Mập Mạp Béo Ú (Ít Cần JOIN) -> Báo Cáo Kẻ Cắp Nhanh Cực Tốt Tốc Độ. Snowflake Gầy Trơ Xương Cành Nhánh Chĩa Nhằng Nhịt Tỏa Nhánh Con (JOIN Khóc Rống Mót Hơi) -> Báo Cáo Ì ạch Sên Kéo Nhai Bã Bọn Server Trúng Lọc Rác Lỗ Mạch CPU.",
+    "tags": ["data-warehouse", "star-schema", "snowflake-schema", "data-modeling"]
+  },
+  {
+    "id": "D3-005", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Columnar Database (Cơ sở dữ liệu dạng Cột - Tiêu Biểu Cho Mọi Data Warehouse Như Amazon Redshift, Google BigQuery) Ăn Đứt Tốc Độ Row-based Database Khi Nào?",
+    "options": [
+      "A. Cả Hai Giao Diện In Dấu Trắng",
+      "B. KHI BẠN CHẠY BÁO CÁO CẦN TÍNH TỔNG (SUM, AVG) TRÊN MỘT VÀI CỘT TRONG BẢNG TỶ DÒNG (VD: Tổng Doanh Thu). Row-based Lưu Dữ Liệu Theo Dòng Nằm Ngang Sát Nhau Dưới Ổ Đĩa (Tốn 1 Tiếng Để Quét Rác). Columnar Lôi Nguyên Cục Dữ Liệu Bụng Của CỘT GIÁ TIỀN Nằm Sát Nhau Liền Mạch Dưới Ổ Đĩa Lên Cắn Nát Nhanh Gấp 1000 Lần Không Dính Kẹt Mẩu Rác Text Bên Cạnh Kề Bám Dính.",
+      "C. Xóa Khóa Đuôi Ảnh Vector Chéo Góc Màng Sóng Âm Vực Trí Dò Chặn Điểm Đầu Vị Cắt Chỉ",
+      "D. Viết Lệnh Thử Thách Không Kẹp Điểm Bám Code"
+    ],
+    "answer": 1,
+    "explanation": "Row-based DB (MySQL): Lưu [ID 1, Tên A, Lương 10]. Bạn múc Lương, nó phải bốc Tên A lên theo (Rác Băng Thông Thảm Họa). Bảng 100 Cột Quét 1 Cột Tốn Công Mang 99 Cột Phế Liệu Kéo Ổ Đĩa Xong Vứt Đi. Columnar Lưu Cả Triệu Số Lương Thành 1 Khúc Ruột Căng Sát Cạnh Nhau Cục Điện Liên Tiếp Lưới Gắn Ổ SSD Thổi Ngược. Ép Kích Lệnh Bóp (Compress) Bốc Thẳng Cục Số 0 Mắc Bóng Rác. Độc Bá Cho Nghề Data Analysist BI Báo Cáo Tỷ Dòng Khởi Chạy Lên Màn Tức Thì Siêu Chói Lọi Vén Bụi Trắng Xóa Tắt Sóng.",
+    "tip": "Cú Quét Báo Cáo (SUM 1 Cột): Columnar Database Múc Sạch Riêng Biệt 1 Khối Nhấn Gọt (Bỏ Rác Bên Cạnh) Phóng Thắng Mạch. Row-Based Rùa Bò Ráp Nhai Xương Trống 99% Gây Ngộp Mạng Truyền.",
+    "tags": ["data-warehouse", "columnar-database", "redshift", "bigquery"]
+  },
+  {
+    "id": "D3-006", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Data Lake (Hồ Dữ Liệu) Ra Đời Giải Quyết Nỗi Đau Khổ Nghẹt Thở Gì Mà Thằng Khổng Lồ Data Warehouse Chưa Đáp Ứng Được Ở Kỷ Nguyên AI?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. DATA WAREHOUSE ÉP PHẢI GỌT DŨA GẮN LƯỢC ĐỒ RÕ RÀNG (SCHEMA-ON-WRITE, GHI LÀ PHẢI CHUẨN FORM CỘT). Data Lake Là Bãi Đáp Rác Thuần Túy Nguyên Sinh. Ghi Ảnh, Nhét Video Chó Mèo, Bơm Loạn Log Cảm Biến Cục Kệ Mẹ Không Cần Biết. Nó Rẻ Rúng Vứt Hết Xuống Hồ Giữ Giáng Gốc Sơ Khai Tột Cùng 100% Cứu Nghề Máy Cày Huấn Luyện Deep Learning Tương Lai Bới Lại Mỏ Vàng Mù Kín (Schema-On-Read).",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 2,
+    "explanation": "Có Cái Video Sếp Phát Biểu Không Thể Nhét Lên Kho Cột Bảng Data Warehouse (Bị Chặn Vì Form Text Khung Sườn Báo Cáo BI Khước Từ). Phải Có Dòng Suối Data Lake (AWS S3 Khổng Lồ Bụng Phệ Siêu Cấp Rẻ Bèo Đựng Hỗn Mang). Nước Bẩn Dơ Hỗn Lạp Cứ Thải Hết Vô Chứa. Đợi Kỹ Sư Khoa Học Dữ Liệu Nào Đó Tìm Mô Hình Phát Triển Mới Vác Máy Xúc Tới Hút Bùn Đọc Đúc Ra Vàng Tự Do Vẽ Luật Lệ Đoán Form Dữ Liệu Lúc Chọc Đọc Moi Sàng Lọc Kéo Mở Sổ Cấu Hình Sau. Tầm Nhìn Cho Trí Tuệ Nhân Tạo Không Biết Bỏ Phí Khúc Đuôi.",
+    "tip": "Data Lake (Hồ Dữ Liệu Hỗn Mang Amazon S3 Vứt Tạp Phế Lù Cứu Sinh Mạng Cặn Đáy Bùn Cho Dân Làm Deep Learning Móc Bới Sau Này Khỏi Trách Đứa Nào Xóa Quá Khứ Gọn Gàng Đều Hút Gắn Ép Hư Data Lõi Nguyên Nhựa). Data Warehouse Chảnh Cún Phải Bóp Form Nặn Mép Cột Dọc Vuông Vắn Mới Chịu Lưu Cửa Khép Hộp Vô Tủ Kính Phơi Trưng BI Dashboard Ngồi Ngó.",
+    "tags": ["data-warehouse", "data-lake", "schema-on-read", "architecture"]
+  },
+  {
+    "id": "D3-007", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Hệ Trục Thay Đổi Chậm SCD (Slowly Changing Dimensions) Trong Data Warehouse Lưu Giữ Bánh Xe Thời Gian Lịch Sử Lệch Góc. Đặc Trưng Loại 2 (SCD Type 2) Chạy Cắt Lớp Kiểu Gì Khéo Nhất Bảo Quản Mọi Thứ Nguyên Đai Án Mạng?",
+    "options": [
+      "A. Xóa Đè Hết Viết Sạch Cửa Sổ Bẻ Lạc Bước Xóa Hình Ảnh Gương Gãy Vứt Vỡ",
+      "B. KHI SẾP BẠN ĐỔI CHỨC VỤ QUẢN LÝ SANG TRƯỞNG PHÒNG HÔM NAY. SCD T2 KHÔNG XÓA (GHI ĐÈ LẤP LIẾM) LỊCH SỬ CŨ NGHỀ CHÍNH SẾP NHƯ TYPE 1 LÀM ẢNH HƯỞNG BÁO CÁO CŨ NĂM NGOÁI. Nó TẠO RA 1 DÒNG DỮ LIỆU MỚI ĐEO KÈM (Bản Ghi Hiện Tại: CÓ HIỆU LỰC). Dòng Cũ Nhấn Nút Chết Chìm Gắn Đóng Khóa Mốc Ngày Hết Hạn 'ĐÃ KẾT THÚC CŨ' (Giữ Gốc Gác Ràng Buộc Hóa Đơn Trích Rút Từ Kiếp Trước Chuẩn Đét Khít Lỗ Không Lỗi Phá Toang Lỗi Vỡ Lệch Điểm Thống Kê).",
+      "C. Đổi Mật Mã Két Sắt Khóa Gắn Mở Quên Vang Trắng Ố Màng Mã Gập Ổ Khoen Hở Cửa Mành Nẹp Hẹp Rách",
+      "D. Code Kịch Bản Mới Ngôn Ngữ Hình Tròn"
+    ],
+    "answer": 1,
+    "explanation": "Type 1 Xóa Đè Mất Trắng Lịch Sử Dấu Vết Phạm Tội Ảo Diệu Đổi Số Lùi Ảm Đạm Chui Vô Móng Tay Sập Cấu Trúc Kiểm Kê Lấy Hóa Đơn Dây. SCD T2 Chặn Ác Mộng BI Chênh Số. Nhân Viên X Đổi Vị Trí Công Tác Cứ Rặn Đẻ 1 Bản Bản Sao Lưu Hết Mép Khóa Bảng Theo Mã Date. Muốn Coi Hóa Đơn Năm Xưa Có Đủ Lịch Trình Chạy Tìm Đích Đoạn Tướng Mã Khúc Thác Vọng Trùng Nắn Cột Giáp Vừa Khít Sống Còn Khó Rụng Đứt Gẫy Ám Ảnh Chữa.",
+    "tip": "SCD Type 2 = Lịch Sử Nhập Hồn Chuyển Kiếp Giữ Vẹn Toàn Nguồn Cội Xác Ướp Đóng Khóa Kéo Về. Dòng Cũ Bấm Đèn Đỏ Cáo Chung Nghỉ Hưu Nằm Sổ Mộ (Không Xóa Bỏ Đi Không Cụt Vết Tích Kéo Méo BI). Dòng Đẻ Mới Bật Đèn Xanh Tươi Áp Hóa Đơn Mạng Tức Thì Nay.",
+    "tags": ["data-warehouse", "scd-type-2", "dimensional-modeling", "etl"]
+  },
+  {
+    "id": "D3-008", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Thuật Ngữ ELT (Extract, LOAD, Transform) Lên Ngôi Cướp Quyền Đạp Đổ Ông Vua Kinh Điển Nguồn Gốc Cũ Kỹ ETL (Chữ L Với T Đổi Chỗ Tráo Gắn Mâm) Vì Căn Bản Lý Giải Máy Đập Đạn Khổng Lồ Data Nào Ở Cloud Đã Quá Trâu Chó Rẻ Mạt Nhờ Tiến Hóa Đấu Pháp Cuốn Hút Kẻ Hở Nhồi Nhét Khách Đỡ Lo Lõi Mòn Mỏi Rớt Nát Bét?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Rút Phích Mạng Máy Phát Vi Vu Sóng Trắng Không Gây Bóng Nhiễu Mất Khống Đo Đèn Tín Báo Ám Bụi Nhòe Vệt Tím Vằn Chóp Hình Đứt Quãng Giật Gắn Hạt Quá Cắt",
+      "C. DATA WAREHOUSE CLOUD (BIGQUERY, SNOWFLAKE) HIỆN NAY XÀI CƠ BẮP XỬ LÝ SIÊU CẤP ĐẠI PHÁO. KHÔNG CẦN CỰC KHỔ LÀM SẠCH RÁC CHUẨN BỊ (Transform) Ở MÁY CHỦ BÊN NGOÀI KHÁC BIỆT KÍCH THƯỚC YẾU XÌU NHƯ XƯA (Nghẽn Cổ Chai Cà Chớn Rách Chạy Bò Chết Mỏi Tiền Ép Tăng Đội Máy Tính Ảo Nền Tảng Chuyển Tiếp X). CỨ RÚT ĐẠI (EXTRACT) ĐỔ TẠP HẠ TẤT CẢ RÁC RẾN (LOAD) THẲNG VÀO CLOUD CỦA NÓ ĐI. RỒI XÀI CHÍNH SỨC MẠNH VÔ CỰC BĂM NÁT HỐT GỌN TÍNH TOÁN CỦA CÁI ĐÁM MÁY CHỦ WAREHOUSE CHẠY CÂU LỆNH SQL DỌN RÁC SAU (TRANSFORM) XONG CHỚP NHOÁNG DỄ NHÀNG RÉT LÒNG CHƯA ĐẾN 3 NỐT NHẠC TIẾT KIỆM TỶ TIỀN SỞ HỮU GIA CÔNG.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Đỉnh Điểm Tiến Hóa Cloud Data. Xưa Kho Yếu Nên Máy Lọc Máy Giặt T Đứng Giữa Gánh Hút Xịt Nặn Chà Khổ Rác Khóc Chậm Mãi Cà Rề. Nay Cái Tủ Lạnh Kho Chứa BigQuery Quá Ác Tích Hợp Động Cơ Mổ Sẻ Siêu Thanh Tán Đứt Vạn Vành Vách Nhánh Server Google Nuốt Hết Sụp Sò Rác Xuống Dùng Lệnh SQL Khổng Lồ Đập Dọn Sạch Bong Chỉnh Phẳng Trực Tiếp Trên Sân Khách Kho Báo Cáo Giải Tán Khỏi Thuê Server Lọc Cặn Ở Giữa. Đổi Chữ Thành E-L-T Lột Xác Tầm Nhìn Thế Hệ Dev Khỏe Re Bơm Rác.",
+    "tip": "ETL Đổi Đời Thành E-L-T (Load Xong Mới Dọn Transform Kệ Rác Tống Sạch Vô Kho Cứu Tải): Đẩy Toàn Bộ Cái Bãi Rác Ảo Ngập Lên Tủ Kính Mua Cloud Gánh Hết Chịu Trận (Tận Dụng Trâu Bò Điện Phân Tán Mạng BigQuery Cày Xéo Chữ Múc Dọn Khỏi Tổ Chức Tạp Dịch Khổ Lọc Nước Thải Bên Khâu Trung Gian Kẹt Kẹt Sên Kéo).",
+    "tags": ["data-warehouse", "elt", "etl", "cloud-computing"]
+  },
+  {
+    "id": "D3-009", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Thuật Ngữ 'Data Mart' Đứng Trú Ngụ Nhỏ Bé Hơn Lúp Xúp Dưới Bóng Đỉnh Mái Trùm Đỉnh Của Kho Dữ Liệu Khổng Lồ Toàn Tập Của Công Ty (Enterprise Data Warehouse) Lập Ra Chuyên Trị Nghĩa Vụ Phân Lô Tác Động Gắn Chặt Cho Đối Tượng Nào Rõ Rệt Tránh Lấn Bãi Dò Kén Gặp Cản Gián Đứt?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. DATA MART ĐƯỢC CHIA TÁCH THU NHỎ LẠI MANG TÍNH CHẤT RIÊNG LẺ PHỤC VỤ VẮT KIỆT CHUYÊN SÂU ĐỘC LẬP CHO ĐÚNG 'MỘT PHÒNG BAN CỤ THỂ'. BỘ PHẬN TÀI CHÍNH KẾ TOÁN XÀI CHỖ MART A. BỘ PHẬN NHÂN SỰ ĐỌC KẾ TOÁN MART B (Xẻ Cắt Gọn Nhẹ Nhàng Bỏ Rác Dư Thừa Bị Ác Bủa Vây Chói Chống Quá Tải Toàn Hệ Khối Tránh Khó Lọc Khó Trích Xài Bơm Mù Rác Làm Căng Xé).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Tạo Ảnh Màu Xanh Điệp Khúc Đóng Bóng Tái Lạc Khép Mảng Điểm Đầu Vị Cắt Lệch Ổ Sợi Vạch Nắn Cột Bẻ Hình"
+    ],
+    "answer": 1,
+    "explanation": "Cái Data Warehouse Là 1 Siêu Thị Khổng Lồ Chứa Mọi Mặt Hàng. Dân Kế Toán Không Muốn Chạy 1 Lệnh Query Khổ Cực Vô Mớ Bòng Bong Đồ Lót Quần Áo Đặng Tìm Đống Sổ Sách Của Nó Để Báo Cáo. Sếp Cắt Chẻ 1 Cái Tiệm Tạp Hóa Tráng Chéo Lập Tức Chứa Riêng Khu Tập Trung Sổ Sách Nhất Ký Cho Riêng Tụi Tài Chính Ngồi Rót Trà Bóc Lệnh Múc Nhanh Cực Độ Chơi Tiêng Cho Sang Đỡ Nhầm Đỡ Mệt Đỡ Gây Gổ Cãi Lộn Nghẽn Truy Vấn Lấn Át Quá Tải Cùng. Đó Là Data Mart Cô Đọng Hóa Rác Góc Khía Từng Vùng Riêng Lập Phường Cục Bộ Bẻ Cánh Ráp Nối Thẳng Tay Tránh Chui Vô Rừng Lạc Đường Dữ Liệu Kéo Thừa Mứa Chìm Ngập Kẹp Oan Khung.",
+    "tip": "Data Mart = Gian Hàng Chuyên Biệt Nước Ép Trái Cây Quẩy Khát Thu Gọn Ở Rìa (Phục Vụ Cục Bộ Từng Đứa Phòng Ban HR Riêng Marketing Bán Hàng Riêng Cắt). Đỡ Bắt User Đi Bộ Vào Lõi Lạc Rừng Bãi Đất Data Warehouse Khổng Lồ Tràn Lan Hàng Hóa Tạp Nhạp Tứ Lu Lạc Chết Tìm Ốm Não Nghẽn Nặng Kẹt Truy Cập Giao Băng Dày Đậm Thác Gây Điếc Nhòe Lọc Quét Tìm Không Ra Kẹp Oan.",
+    "tags": ["data-warehouse", "data-mart", "architecture"]
+  },
+  {
+    "id": "D3-010", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Tính Năng 'Data Partitioning' (Phân Cắt Vùng Dữ Liệu Rải Theo Vách Ngăn Khối Bảng Chốt Cắt Cục Cụ Thể Lập Khắc Lưới Đóng Dán Nhãn Lọc Vị Trí Phóng Thẳng Tắt) Trong BigQuery/Hadoop Ứng Nghiệm Giết Chết Cái Ác Mộng Hao Phí Tiền Bạc Của Công Ty Giải Quyết Cái Kẹt Bẫy Tiền Bạc Nào Rành Mạch Nặng Bóp Trí Não Ngộp?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp Lạc Nhạc Nhanh Căng Cắt Lệch Vi Dây Đứt Đoạn Nẹp Nhựa Đuôi Chốt",
+      "C. TẠO RA VÁCH NGĂN CHIA LÔ DỮ LIỆU TỶ DÒNG THEO TỪNG THÁNG/NĂM (VD CẮT RA FOLDER DATE NGÀY). NẾU LỆNH TRUY VẤN CẦN LẤY BÁO CÁO DOANH THU 3 NGÀY MỚI NHẤT, MÁY CHỦ BỎ QUA HOÀN TOÀN KHÔNG THÈM CHẠM XUỐNG QUÉT ĐỌC (FULL SCAN) DỮ LIỆU HÀNG NGHÌN NGÀY CŨ MƯA NẮNG 10 NĂM TRƯỚC RÉT TIẾT KIỆM TỶ TIỀN THANH TOÁN (Vì Lấy Tiền Thu Theo Cú Scan Lọc Trả Data Trên Cloud Hốt Chớp Khoảng Lưới Chặn Góc Lách Góc Đích Lép Lọc Khỏi Kém Khéo Lép Chống Oan Hỏng Rác Nhồi Dày Bể Lỗ Nhờ Nhắm Thẳng Lọt Hang Quét 3 Ô Ngày Tìm Liền).",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Trên BigQuery (Hệ Đám Mây), Khách Hàng Bị Tính Tiền Bằng Dung Lượng Quét Đọc Cú Query (Scan Data Giả Đụng Data = 10$). Nếu Select Mà Dò Sóng Lạc Nhầm Quét Xóa Hết Đống Hàng Cặn Kẽ Tỷ Dòng Khắp Nơi Suốt 10 Năm Chỉ Vì Coi Hóa Đơn 3 Ngày Này Gấp Mệt Não -> Cty Sạch Vốn Móc Túi Trả Phí Tiền Đọc Ngáo Trả Giá Nặng Khủng Hoảng Lòi Trĩ. Băm Cái Đất Bảng Ra Lưới Từng Khối Lô Nhỏ Thắt Tên Thẻ Bài Nhãn Gắn Chốt Góc Định Tuyến Quanh Phân Vùng Lựa Hộp Trống Rà Nét Đâm Nhắm Lọc Cắt Hộp Không Ngập Rác Quét Mò Tạp Hóa Lục Lạo Khắc Giải Quyết Hết Giới Hạn Tiết Kiệm Gấp 10 Ngàn Lần Tiền Tức Tốc Ốm Não Thoát Nghẽn Bần Cùng Bóp Chi Phí Kéo Xẻ Cloud Đỉnh Chóp Áp Kẹp Tốt Dành Dân Báo Cáo Siêu Hạng Bền Chắc Nắm Gốc Kỹ Thuật Đọc Rỗng Tối Tân Giữ Túi Mở Góc Giám Đốc Mở Nở Lòng Tin Yêu Chóp Nhất Gắn Ngợp.",
+    "tip": "Data Partitioning (Cắt Khoang Xé Dán Lô Hộp Kéo Ngăn Quăng Gọn Nhẹ Theo Góc Thẻ Ngày/Tháng Cột Đích) = Bí Mật Tránh Phá Sản (Phạt Tiền Scan Data Ngu Của Google BigQuery). Đọc Phóng Kéo Đích Quét Vèo Rút Trúng Nguồn Nhấc Hàng Cắt Viêm Tiền Xẹp Véo Khỏi Đọc Đổ Oan Tốn Chi Phí Tầm Ruồi (Chạm Cứt Vét Rác Phạt Quét Ngáo Vơ Vét).",
+    "tags": ["data-warehouse", "partitioning", "bigquery", "cost-optimization"]
+  },
+  {
+    "id": "D3-011", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Tính Năng 'Data Governance' (Quản Trị Quản Lý Xuyên Thấu Đóng Cửa Dữ Liệu) Giữ Nòng Cốt Vị Thế Sắt Đá Cục Bộ Nào Mật Chặn Sập Mất Lệch Nền Tảng Cái Hồ Data Lake Tạp Nham Dơ Bẩn Hỗn Mát Tan Vỡ Bể Sóng Vi Rút Cốt Tử Cây Cầu Xương Khớp Báo Hủy Hủy Bỏ Rút Xích Chốt Dò Khung Án Lỗi Phạt Nộp Tiền Chết Vi Phạm Pháp Luật?",
+    "options": [
+      "A. Xóa Code Bug Bắt Diệt Đổi Ổ",
+      "B. Gắn Đèn Đỏ Vạch Báo Giật Nảy Vi Bão Gây Đứt Bóng Giấy Màng Dính Xoay Lướt Bóng Nứt Trục Mép Kẹt In Ráp Phim Khúc Vuông Rỗng Bóng Nháy Kẹp Vang Âm Góc Điếc Sóng Ám Mùi Gấp",
+      "C. ĐẢM BẢO CHẶT CHẼ DỮ LIỆU ĐƯỢC AI CÓ QUYỀN ĐỌC SỔ (BẢO MẬT PHÂN QUYỀN LÓT CĂN CƯỚC KHÁCH), THEO DÕI NGUỒN GỐC SINH RA (LINEAGE HƯỚNG TỪ ĐÂU RA MÓC), ĐÁNH CHUẨN ĐỘ SẠCH RÁC CHẤT LƯỢNG MÁY KHỚP LỆCH (QUALITY LỖ HỔNG XÓA TRỐNG ĐỂ HỦY NGƯỜI LÀM BÁO CÁO NÁT ÓC SAI LẠC), MÃ HÓA CẮT CHE ĐIỂM DẤU RĂNG RƠI NHẠY CẢM TỘI LỘT VÍA NGƯỜI DÙNG ÁP LUẬT ĐẬP ĐUỔI TRỪ TIỀN (GDPR). Cứu Chữa Data Lake Tránh Bị Biến Thái Trở Về Thành 'Bãi Lầy Rác Không Đáy' Hôi Thối Vô Dụng Không Biết Nguồn Cội Trôi Về Chốn Cục Nào Lọc.",
+      "D. Chạy Khóa Hộp Điểm Chặn Không In Điểm Đầu Cắt"
+    ],
+    "answer": 2,
+    "explanation": "Đẩy Hết 1 Tỷ Hồ Sơ Sức Khỏe Lên Ném Ở Đáy Sông Dưới Hồ Nhũn Nước Ngâm Data Lake. Mà Bỏ Quên Nắm Quyền Ai Đọc Được Hút Lên? Hút Lên Liệu Rác Lỗi Thiếu Tên Kéo Vào Huấn Luyện Con Mô Hình Chẩn Đoán Lỗi Ngáo Phạt Hủy Lỗi Ám Án Luật Trích Cắt Cấp Lầm Thuốc Phản Viêm Bán Án Lương Y. Lineage Không Đánh Dấu Gốc Sợ Rò Rỉ Đột Xuất Ai Hack Mạng Cứu Bệnh Vô Phương Thủng Rách Đền Tiền Phạt Toàn Cầu Gấp 100 Tỷ Đô. Data Lake Sinh Vàng Nhưng Bơm Lắp Không Đúng Cái Đập Kẽm Lưới Kẽm Rào Trụ Khóa Lệnh Sắt Nối Nền Khống Bắt Giám Đốc Data Governance Kéo Đứt Thả Lỏng Lơi Thì Biến Lẹ Cái Hồ Đó Thành Đống Đầm Lầy Bốc Cứt Lấp Cốt Khắc Khởi Khởi Họa Gây Lỗi Sụp.",
+    "tip": "Data Governance (Quản Trị Giam Thúc Đạo Luật Nội Bộ Khống Mốc Sắt Mài Khóa Quyền Dữ Liệu Rành Báo Xích Data Lake Cầm Ngục Nhựa Kính Nhốt Xóa) = Lệnh Đóng Thẻ Bảo Kê Che Cắt Báo Cáo Kiểm Tra Gốc Gác Soi Rọi Độ Sạch Bãi Mở Luận Chống Phạt Giam Mát Đầu Óc Rò Tẩy Mã Hóa Data Lake Khỏi Bị Báo Tên Biệt Hiệu Kẻ Mua Vứt Thành Rác Lầy Đầm Vô Tích Sự.",
+    "tags": ["data-warehouse", "data-governance", "data-lake", "data-engineering"]
+  },
+  {
+    "id": "D3-012", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Tính Chất Bất Khả Biến (Immutability) Được Tôn Thờ Bảo Dưỡng Nằm Sâu Cốt Gốc Trong Đại Kho Dữ Liệu (Data Warehouse) Đóng Kỷ Cương Cho Hệ Khóa Báo Cáo Không Chối Cãi Giãy Giật Phản Bác Sai Trái Đánh Đu Đảo Lạc Vì Cơ Đồ Lý Sự Nào Định Ranh Tường Nứt?",
+    "options": [
+      "A. Giảm Dung Lượng Phân Nét Căng Chóp",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. ĐÃ GHI VÀO LÀ CẤM SỬA CHỮA XÓA ĐÈ (BẤT DI BẤT DỊCH KHÓA KÍN CẶP ĐÁ LƯU TỬ). SẾP KÊU NĂM NGOÁI BÁN BÁO CÁO 1 TỶ, NẾU THẰNG NÀO LÉN NHẢY VÔ GÕ LỆNH UPDATE LÀM SAI BÓP MÉO LỆCH GÓC MẤT DẤU VẾT XỬ BẢN ÁN TRUY CỨU GIAN LẬN NỘI BỘ KÊ KHỐNG TRỘM CẮP. LỊCH SỬ CHỨNG KHOÁN LÀ SỔ NAM TÀO GIAO DỊCH CHỨNG CỚ RẠCH RÒI BÊ TÔNG CHÉM ĐỨT. (Sai Thì Ghi Bù Dòng Mới Điểm Trừ Cộng Hiệu Chỉnh Ráp Sợi).",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 2,
+    "explanation": "Đem Update Data Xóa Sửa Khống Lấy Lại Tiền Lén Ở Trong Data Warehouse Thì Đem Vứt Chữ Kho Đi. Nó Sinh Ra Là Dòng Sông Chảy Tuôn Ghi Đè Sổ Phạt Nhật Ký Mọi Vết Xước Hằn Phải Bị Dấu Dập Đánh Gục Không Cho Tua Trả Xóa Bản Án Dấu Tội Phạm. Đảm Bảo Truy Vấn Kết Quả 100 Khách Kéo Data Cũ 2 Năm Truoc Sẽ Hiện Bảng Số Chuẩn Chỉ Giống Y Hệt Lệnh Kéo Của 5 Năm Trước Đóng Khung Bảo Trợ Audit Soi Lỗi Lọc Điểm Nhắn Gốc Gọn Đét An Toàn Đáng Tin Đỉnh Điểm Tin Cậy Nắm Nguồn Gốc Chóp Bu Cực Độ Chế Vận.",
+    "tip": "Immutability (Bất Biến Bút Sa Gà Chết Bê Tông Chết Khảm): Đóng Cửa Không Cho Ông Kẹ Nào Update Tẩy Xóa Ghi Đè Gian Lận Rửa Hóa Đơn Trắng Vô Danh Dưới Tầng Đáy Kho Data Warehouse Xâm Phạm Lịch Sử Sổ Nam Tào Lập Án Cứu Lỗi Kháng Gian Ác Ảo. Chỉ Cho Nhét Lệnh Bù Trừ Dòng Dưới Ráp Sổ Đóng Vạch Chốt Sống Cắt Xé Tươi Áp Rút.",
+    "tags": ["data-warehouse", "immutability", "architecture", "audit"]
+  },
+  {
+    "id": "D3-013", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Tính Đột Phá Hồ Chứa Dữ Liệu Tiên Tiến Gắn Máy Băng Xích Khóa Cuộn Mới Toanh Data Lakehouse (Đỉnh Chóp Nhuộm Bãi Như Databricks Delta Lake) Lai Ghép Cái Hay Nào Sinh Ra Để Hủy Diệt Hai Đứa Tiền Nhiệm Cổ Xưa Data Lake Và Warehouse Ở Khúc Giao Tán Chặn Trục Sông Lệch Vi Bó Tụ Cấu Khớp Nứt Băng Đứt Rác Vở Ám?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. LAI TẠO HOÀN MỸ ĐÁNH MẢNG ÚP SỌT CẶP ĐÁY HỒ BỌC VÀNG (LƯU DỮ LIỆU RÁC ĐA DẠNG HÌNH ẢNH VIDEO RẺ BÈO KIỂU HỒ CÁ TẠP MANG ĐỦ THỨ XÔNG NHƯ DATA LAKE) + ĐẮP LÊN LỚP MẶT NẠ CAO CẤP GẮN BẢO HIỂM HÀNH ĐỘNG GIAO DỊCH NHẤT QUÁN ĐÚNG CHUẨN CỨNG RÁP KHÓA ACID, KÈM LỰC ĐẨY INDEX CỘT THỐNG KÊ QUÉT MỞ LỆNH ĐỌC BÁO CÁO CỰC NHANH LÓE CHỚP (CHỈ CÓ Ở ĐẾ VƯƠNG KHO CỨNG WAREHOUSE CHẢNH). Khỏi Chia 2 Ngăn 2 Nơi Ép Kéo Copy Đi Tốn Mất Rách Rối.",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm Sợi Đút Phim Lồi Nứt Ngắn Sóng Mờ Vỡ Rìa Đỏ Độc Gấp Cuộn Bẻ Nhàu Nhăn Vạch Ổ Lệch Áp Cong Nẹp Kẹt Bóng Khép",
+      "D. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa"
+    ],
+    "answer": 1,
+    "explanation": "Kiểu Xưa Công Ty Giàu Mua Cả Hồ Lake Chứa Rác Video, Mua Thêm Cái Kho Warehouse Cất Két Khóa Sổ Thuế Hóa Đơn (Tính Tiền Copy 2 Lần Khùng Ốm Tốn Kém Cực Rã Rời Dọn Rác Rời Đồng Bộ ETL Sang Chiết Bóc Mở Giam). Lakehouse Ốp Phẳng Trống. 1 Chỗ Duy Nhất (Lưu Đáy S3 Rẻ Mạt Hồ Rác Kệ Nhưng Đắp Quấn Áo Choàng Siêu Khóa Khung Sắt Áp ACID Transaction Sửa Xóa Bù Dòng Y Như Đồ Thật Data BI Chuẩn Két Đóng Giáp). Không Đói Ngốn Chờ Đợi Delay Nhúng Bắn AI Cắm Vào Uống Nước Liền Học Khớp Nhất Đạt Không Trễ Đo Cắt Ép Tiện Rụng Chốp.",
+    "tip": "Data Lakehouse = Đứa Con Lai Bá Đạo Xóa Sổ Cha Mẹ Nó Bóp Khung Xé Chỗ. Lưu Tiền Chỗ Cực Rẻ Kiểu Dưới Đầm Đáy Sông Tạp Nhạp Tùm Lum Thập Cẩm Hồ Rác Rến Đổ Đi Bóp Phí Cắn Tí + Gắn Mắt Xích Bộ Áo Đóng Lưới Khóa Sổ Cứng Cựa Áp Luật Báo Cáo Siêu Nhanh Phá Cửa Ải Chống Hack Chuẩn Báo Cáo Ngân Hàng Kho Lạnh Siêu Cấp Xịn Mịn (Delta Lake ACID Khống Góc).",
+    "tags": ["data-warehouse", "data-lakehouse", "architecture", "databricks"]
+  },
+  {
+    "id": "D3-014", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Tính Năng 'Data Lineage' (Truy Vết Nguồn Gốc Sợi Chỉ Dây Huyết Thống Dữ Liệu) Giúp Nhà Khảo Cổ Kỹ Sư Kho Cứu Sinh Mạng Của Cty Thế Nào Lúc Báo Cáo Doanh Thu Bị Lỗi Dư Âm Kéo Căng Ngầm Đục Chích Phá Toang Lỗi Vỡ Ám Khóc Đau?",
+    "options": [
+      "A. Giết Hack Lặn Vi Trùng Máy Tính Áp Góc Kẹt Sâu Ổ Khóa Nhòe Cuộn Tụ",
+      "B. KHI SẾP BÁO BẢNG BÁO CÁO NỘI BỘ VẼ BẢN DOANH THU LỖI SAI LỆCH VÀNG CON SỐ (THỤT KÉT Hụt Mất Chục Tỷ), DATA LINEAGE NHƯ CHIẾC CAMERA AN NINH TUA NGƯỢC THỜI GIAN THEO DÕI NGƯỢC XEM BẢNG DATA BÁO CÁO NÀY ĐƯỢC CHẾ BIẾN NẤU CHÍN TỪ LÒ SẢN XUẤT CẮT CỘT GỘP TỔNG TỪ ĐÁM BẢNG CON NÀO NÀO NÀO... LẦN LỘN VỀ ĐÚNG TẬN CÁI GỐC ĐÁY HỆ THỐNG GIAO DỊCH LẦM LỖI RÁC (GỐC RỄ BỆNH NGUỒN CỘN RÁC KHÚC NÀO VIẾT SAI) BẮT LỖI TẠI TRẬN THẰNG BUG DIỆT LIỀN KHÔNG CẦN BỚI TÌM MÙ QUÁNG 1 TRIỆU BẢNG LẠC HƯỚNG BÓ TAY.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa Vệt Tím Rạch Ám Khung Gập Cong Chạm",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Ông Sếp Hỏi Cái Bảng Kết Quả Này Ở Đâu Rơi Xuống Móc Số Ở Đâu Cộng Ra Đâu Ai Rút Rút Tính Tính Ở Đâu Chui Vào? Đưa Data Lineage Cho Mở Graph Sơ Đồ Đồ Thị (Mũi Tên Dẫn Từ Bảng Nguồn Sales Database MySQL Đổ Chạy Gắn Hàm Transform 1 Đẩy Kéo Lệnh Update Rút Bắn Tọa Bảng Data Mart Chạy Bơm Dashboard Nhả Bụi Kết). Vẽ Toạc Ngược Nguồn Theo Dây Thừng Xích Dấu Dò Cứt Tìm Vết Chặt Khóa Đo Đoạn Hỏng Kẹt Lỗi Mất Dữ Liệu Rơi Gãy Nối. Thuốc Giải Mọi Chứng Hoang Tưởng Sai Số Data Quality Vỡ Đứt Lệch.",
+    "tip": "Data Lineage = Bản Đồ ADN Gia Phả Cuộn Sợi Chỉ Len Kéo Dây. Bảng Báo Cáo Sếp Ngó Thấy Hư Lỗi. Nhìn Sợi Chỉ Tua Kéo Rút Móc Trở Về Bới Lội 10 Đời Ông Tổ Bảng Dữ Liệu Nguồn Coi Thằng Nào Gõ Bậy Cấp Rác Số Đúp Trùng Thụt Rỗng Vào (Tìm Mọi Gốc Rễ Bug Mù Rừng) Tắt Hốt Khắc Khởi Trị Bệnh.",
+    "tags": ["data-warehouse", "data-lineage", "data-governance", "data-engineering"]
+  },
+  {
+    "id": "D3-015", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Vũ Khí Thay Đổi Luật Chơi Streaming Xé Nát Lịch Sử Kho Đọng (Batch Processing - Chạy Xử Lý Báo Cáo Rùa Lần Đợi Qua Cả Đêm 1 Lần Tính) Là Apache Kafka Đã Mở Cửa Áp Lên Bàn Kéo Dữ Liệu Ở Động Đất Tầng Giao Tranh Sự Cố Rót Vi Thời Gian Chớp Đỉnh Mức Tụ Khí Ảo Diệu Sống Động Gì Áp Ngược Cho Kho Lắp Hút?",
+    "options": [
+      "A. Rỗng Không Tạo Mạch Đánh Phá Cụt",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp Lạc Nhạc Nhanh Căng Cắt Lệch Vi Dây Đứt Đoạn Nẹp Nhựa Đuôi Chốt",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm Sợi Đút Phim Lồi Nứt Ngắn Sóng Mờ Vỡ Rìa Đỏ Độc Gấp Cuộn Bẻ Nhàu Nhăn Vạch Ổ Lệch Áp Cong Nẹp Kẹt Bóng Khép",
+      "D. ĐÁNH SẬP KIỂU LOAD RÁC THEO LÔ TRỄ NẢI NGỦ ĐẾN MỜ SÁNG MỚI CHẠY LỘP ĐỘP 1 LẦN DỒN CỤC CỦA ĐỜI CŨ BI. KAFKA PHUN LỖ SÓNG HÚT MỞ ĐƯỜNG ỐNG ĐẨY SỰ KIỆN DATA NHƯ SUỐI CHẢY VÔ TẬN REAL-TIME (THỰC TẾ THEO TỪNG MILI-GIÂY NGAY LẬP TỨC KHÁCH CLICK CHUỘT). Giao Hàng Hốt Trích Đẩy Ép Bơm Tưới Kho Data Bùng Lên Lập Dashboard Số Nhảy Liên Tục Sống Còn Giám Đốc Phản Ứng Đổi Khuyến Mãi Ngay Không Kịp Thoát Hơi Giãn Rút Treo Án Trễ 1 Ngày Khóc Phí Tiền Quá Hạn Phá Khóa Chết."
+    ],
+    "answer": 3,
+    "explanation": "Đời Cũ Data Warehouse Nghèo Là Chờ 12h Khuya Vắng Vẻ User Xong Tắt Hệ Thống Web Đi Đi Ngủ Mới Bắt Đầu Đơm Data Rác Batch Từng Lô Chuyển Tải Nạp Kho Phục Vụ Báo Cáo Sáng Hôm Sau Sếp Coi (Trễ Pha Lỗi Nhịp). Hiện Đại Big Data Dùng Kafka Lắp Đường Ống Streaming Đục Bơm Không Ngừng Nghỉ Liên Thanh Ngay Tắp Khách Mua Hàng Lập Tức Nhảy Vọt Nảy Lên Báo Cáo Tức Tốc Live Thẳng Luôn Kịp Bơm Deal Phục Hồi Hàng Kịp (Vận Chuyển Real-Time Hủy Diệt Đóng Khối Bọc Vạc Batch Cũ Rách Treo Chậm Chạp Dấu Ế Ảm Đạm Chán Rời).",
+    "tip": "Kafka Streaming Real-time = Cái Ống Nước Bơm Nối Dài Xối Xả Suối Nguồn Tuôn Trào Liên Thanh Bấm Nháy Xuyên Cửa Áp Số Đẩy Dữ Liệu Tươi Nhảy Lên Màn Giám Đốc Nhìn Sống Động Thẳng Góc Ngay Giây Đó Mua Hàng Xong Chứ Éo Đợi Trễ Mòn Cỏ Sang Hôm Cửa Hàng Đóng Chốt Két 1 Đêm Mới Quăng Rác Cắt Gom Chuyển Chậm Ngáp Dài Trễ Tiết Tấu Làm Ăn Thời Thế Lỡ Bước Cháy Túi (Quẳng Xóa Phế Lịch Xử Lý Lô - Batch Processing Xưa Kéo Lạc Cung Cấp).",
+    "tags": ["data-warehouse", "apache-kafka", "streaming", "real-time"]
+  },
+  {
+    "id": "D3-016", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Tính Chất Phép Màu Ảo (Serverless) Được Gắn Áp Đỉnh Vô Địch Lên Cái Mác Báo Giá Bán Nền Mây Kéo Thuế Nặng Của Kho BigQuery (Google Cloud) Hay Snowflake Có Hàm Ân Kéo Giải Phóng Thoát Rũ Bỏ Sức Ám Nặng Việc Cực Dọc Xương Nào Cho Kỹ Sư Công Ty Khi Đặt Chân Gửi Gắm Tầm Chóp Báo Cáo Lắp Form BI Ngay Lập Tức Chờ Hút Gọi Bắn Lệnh Tìm Data Khủng Rút?",
+    "options": [
+      "A. KỸ SƯ DATA KHÔNG CẦN QUAN TÂM NẶN ÓC THUÊ MƯỚN BAO NHIÊU MÁY CHỦ, CÀI ĐẶT CPU BÉ HAY TO RA SAO ĐỂ CHẠY CÂU LỆNH (ÉO PHẢI VẼ SỔ TRÔNG COI SERVER HẠ TẦNG XÓT TIỀN RỖNG TREO). Nó Tự Động Túm Máy Nhảy Phình Bụng Lên Gấp Ngàn Lần Khi Chạy Query Siêu Tỷ Cột, Xong Rút Cụt Co Ốm Lại Không Tính Đồng Bạc Nào Nằm Im Bờ (CHỈ BỊ THU TIỀN KHI LỆNH CHẠY SÉT LƯỚT QUÉT SỐ DATA CHẠM TRÚNG LÚC ĐỌC ÁP DỤNG TRẢ TIỀN - PAY PER QUERY KHÔNG TRẢ TIỀN MÁY CHỜ MỎI MẮT RỜI ĐÍCH KÉO CỐ THU TIỀN DƯ).",
+      "B. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "C. Đóng Nát Chặn Form In Bằng Giấy",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám Sạch Đổ Ổ"
+    ],
+    "answer": 0,
+    "explanation": "Đời Cổ Lỗ Xưa Mua 1 Cục Server Oracle Máy Kho Kính Tốn 10 Tỷ Nhét Nhà Kéo Điện Chạy Quạt. Nửa Đêm Đéo Đứa Nào Vô Xem Báo Cáo Dữ Liệu Vẫn Mất 1 Tỷ Tiền Nuôi Điện Ảo Phí Băng Lọt Sông Kép. Serverless Đập Hết (BigQuery Cáo Già): Vứt 1 Tỷ Data Lên Chả Tốn Cắc Nuôi Trâu Bò Nào Trống Núp. Trưa Kéo Thằng Giám Đốc Ra Click Chạy Lệnh Query, Trúng Vài Giây Đó Đọc Lọc Quét 500GB Tiêu Hao Lực Mạng Hút Móc -> Tính Cước Xong Nhả Cửa (Thu 5 Đô). Trả Tiền Chớp Nhoáng Cắt Khúc Chớp Đo Lượng Tiêu Dùng Rất Phê Kích Giám Đốc Phá Vỡ Băng Sạn Không Phí Tiền Nuôi Kẻ Hút Khí Ảo Rỗng Tuếch Ám Trễ Cột Kẹp Đầu Áp.",
+    "tip": "Serverless Data Warehouse (Kho Áo Tàng Hình Của BigQuery) = Lăng Kính Ác Quỷ Tính Tiền Bằng Dung Lượng Đọc Cú Pháo Nổ Kéo Data Chạm Chút Phút Đó (Pay-per-Query Không Trả Tiền Theo Giờ Giam Máy Chủ Oan Uổng Cầm Cự Lấy Rỗng Dơ Điện Tốn Tiền Ngu Ngồi Không Chờ Thở Bụng Rỗng Tắt Giữ Không Ai Làm Khí Treo Mòn Bão Bếp Nắng Hư Thối Án Gian Băng Đá Treo Khung Rìa Vắng Rơi Trắng). Sếp Khỏe Kỹ Sư Cày Đỡ Sợ Server Hư Sập Ổ Cháy Vất Hết Lo Âu Kéo Lắp Sẵn Trọn Đời Khép Quản Trị Trống Sạch Túi Nước Gắn Xong Đích.",
+    "tags": ["data-warehouse", "serverless", "bigquery", "cloud-computing"]
+  },
+  {
+    "id": "D3-017", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Tính Chất Bảng Dimension Phình Bụng Tăng Size (Degenerate Dimension) Phá Vỡ Hoàn Toàn Lẽ Thường Hình Sao (Star Schema) Xảy Ra Khi Một Mảnh Chữ Thuộc Tính Kẹt Lại Ngay Giữa Trái Tim Bảng Lõi Fact Table Đơn Bấm Mà Không Có Bảng Rời Nào Đứng Hứng. Kéo Sự Hợp Thể Oái Oăm Vết Rác Này Ám Nét Vì Căn Nguyên Đơn Giản Lỗi Chi Mà Nát Mạch Vi Khớp Rời Bỏ Tách Ngoài Chống Dính Liên Quan Kết Nối Cầu Khớp?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp Lạc Nhạc Nhanh Căng Cắt Lệch Vi Dây Đứt Đoạn Nẹp Nhựa Đuôi Chốt",
+      "C. MỘT SỐ THUỘC TÍNH NHƯ 'SỐ MÃ HÓA ĐƠN' (ORDER NUMBER), MÃ GIAO DỊCH (TRANSACTION ID) LÀ DUY NHẤT LẺ TẺ TRÊN TỪNG DÒNG MUA BÁN RỜI RẠC, NÓ KHÔNG MANG NHIỀU THUỘC TÍNH CON ÁP VÀO ĐỂ MỞ 1 CÁI BẢNG DIMENSION RIÊNG BIỆT. Nên Nó NẰM CHẾT DI DÍNH YÊN LUÔN TRONG BẢNG FACT TABLE LÕI ĐÓ NHƯNG LẠI KHÔNG PHẢI LÀ CON SỐ ĐO LƯỜNG TÍNH TỔNG NÀO CẢ (Đóng Vai Bảng Phụ Lạ Kỳ Kẹp Lõi Bắn Sát Lồng Khép Mù Hóa Đứt Hơi Cắt Vạch Đứt Không Gian Rỗng Lấp Nghĩa). Lọc Vết Nối Phụ Không Bản.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Fact Table Bình Thường Chỉ Toàn Số Khô Khan Gộp Nén Cứng Lấy Hàm Toán SUM AVG (Lương Tiền, Khối Lượng). Nhưng Cái Chữ Hóa Đơn Lòi Ra Số Invoice #1231 Đéo SUM Gộp Cộng Dồn Lại Tính Đo Được Vẹo Gì. Cũng Đéo Mở Cắt Ra Làm Bảng Báo Hóa Đơn Chứa Chữ Chơi Được Vì Nó Đẻ Ra Một Nùi Bảng Rác 1-1 Nát Kẹt Hút Nối JOIN Bỏ Đống Kéo Mò Lệch Mắc Quá. Nên Đút Mẹ Vô Chết Cứng Kẹt Đính Khóa Nằm Yên Liệt Vào Fact Luôn Cho Nhẹ Óc Nhất Ráp Góp Thân. Phế Đuôi Phá Kẽ Rạn Thể Tính Toàn Chức Lõi Lạ Kỳ Trông Trộm Cứt Trắng Khói Chìm Vi Độc.",
+    "tip": "Degenerate Dimension (Chiều Nằm Ì Phế Rụng Dính Mép Thối Ở Bụng Bảng Sóng Lõi Tâm Fact): Là Cái Số Mã Hóa Đơn (Order Number) Cà Chớn Không Có Anh Em Họ Hàng Rễ Chĩa Tính Phụ Tính Lái Đặng Lên Kế Hoạch Xé Mở Hưởng Lập 1 Bảng Phụ Chi Tiết Tách Dimension Ở Ngồi Rìa Khuyên. Đành Phải Để Gộp Nó Nằm Dai Lỳ Bám Chết Thúi Khít Lỗ Ở Rễ Góc Trọng Tâm Bảng Lõi Con Chốt Lọc Phẩm Trắng Tinh Cho Gọn Cục Mù Không Áo Sáng Bóng Kết Liên Dây Dưa Dài Thòng Đau Não Đập Cốt Ngáo Tách Nhập.",
+    "tags": ["data-warehouse", "degenerate-dimension", "dimensional-modeling", "data-modeling"]
+  },
+  {
+    "id": "D3-018", "module": "D", "topic": "D3", "difficulty": "medium",
+    "question": "Tính Chất Giao Lập Hàm Quét Đọc View Vật Lý Gắn Ổ Chết Sắt Áp Kéo Trọng Tính 'Materialized View' Át Vía Bảng Ảo Tạm Lệch Băng Tĩnh Thuần View Cổ Điển Nhờ Sự Sống Xong Vi Hành Thắt Máy Đứt Ráng Tiết Độ Quá Ư Gốc Điểm Đứng Nhịp Thở Điên Phục Khách Đặt Ép Báo Cáo Tính Sát Cuồng Phong Giật Chói Khét Băng Đóng Vững Rẽ Lấp Mọi Gọng Cửa Kẹp Trục Vênh Đá Kệ Vi Vong Tước Ép Buộc Ách Lọc Phóng Hạt Đẩy Nhám Bắn Phá Cầu Điểm Bóng Điếc Nghẽn Phân Nhánh Bóng Vết Tróc Kéo Vi Lạc Sợi Băng Vách Nát Đứt Kẽ Đất Nhàu Mạch Ố Trắng Khúc Tụ Bấm Phá Chớp Cuộn Vi Tàn Gãy Gập Khung Hụt Đốm Lùi Méo Nhòe Đèn Chết?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. BẢNG ẢO VIEW BÌNH THƯỜNG TRUYỀN THỐNG CHỈ ĐÓNG GÓI CHỨA CÂU CODE CHỮ TRẮNG (SELECT MỚI). MỖI LÚC NHẤN NÚT LOAD KÉO VIEW, SERVER PHẢI ĐỤC TÍNH LẠI HẾT TỪ ĐẦU TỐN CẢ THÁNG GOM KÉO DATA LỘN XỘN. VIEW VẬT LÝ (MATERIALIZED) NÓ TÍNH TOÁN LẬP TỔNG KẾT BÁO CÁO CỤC MÁU DỒN QUÁ NGON SẴN LƯU VÔ KẾT TỦA CHẾT ĐÔNG THÀNH MỘT CÁI BẢNG CỨNG XẢY RA LÊN Ổ ĐĨA DỰ PHÒNG XONG ĐÓNG BĂNG RỒI. ĐỨA KHÁCH LÚC SAU NÚP VÀO ĐỌC VỚ MÚC LUÔN CỤC BÁO CÁO SẴN Ở MÂM TRƯỚC RẼ NHOÁNG ĐỈNH SIÊU XA BẰNG KHÔNG ĐỢI TRỄ XÉT NÁT MỘT PHÚT BỚI MÓC LẠI SỐ LIỆU ĐỌC LUÔN VỀ SỐ (KHẮC TINH DÙNG CACHING KẾT QUẢ ĐỠ CHẾT NẶNG TẢI CPU TÍNH LẠI CÁI ĐÃ RÕ LÓE)."
+    ],
+    "answer": 3,
+    "explanation": "Báo Cáo Sếp Đòi Năm Cần Chạy Hàm SUM 5 Tỷ Dòng Khắp Các Chi Nhánh Lên Tốn 3 Tiếng Đứt Mạng Kéo Mòn Nhựa Tụt Giáp Bể Bánh Kẹt Dòng Hú Nổ Lỗi Tràn Dây Dẫn Rỉ Sợi Vi Mạch Cắm Đứng Giây Chết Góc Đóng CPU. Tụi Kỹ Sư Đưa Nó Chạy 1 Lần Trong Đêm Xong Gói Cục Cứt Số Vàng Đã Tính Sẵn Đó Nhét Thành 1 Bảng View Vật Lý Đóng Nặng Chì Cốt Ghi Nhận Xuống Đất. Sáng Bảnh Mắt Sếp Lại Mở App Coi Báo Cáo Click Chuột 1 Nhát Bơm Máy Đẩy Phụt Lên Màn Tức Lập Hình Ngay Chớp Nhoáng Chưa Tới Điểm Quên Gõ Dấu Mắt Ngợp Vì Không Bị Máy Hành Tính Lại Lệnh Vô Dụng Tốn Mồ Hôi. Chỉ Có Điều Nó Cần Dọn Reset Cập Nhật Data Mới Làm Lại Fresh Lúc Định Kỳ Lại Lớp Mặt Dơ Chút Thôi.",
+    "tip": "Materialized View (View Chết Vật Lý Sẵn Áo Lên Ổ Đĩa Gỗ Khung Kép) = Lẩu Nấu Sẵn Hâm Nóng Sáng Lên Mâm Lẹ Ám Ảo Cứu Đó Đời User Click Ăn Khỏi Phải Nấu Lại Nước Mất Nửa Buổi Đi Bắt Lợn Làm Lại Chậm Cực Gây Nghẽn (Caching Lưu Hết Lệnh Sẵn Result Báo Cáo Cuối Cùng). Vị Cứu Tinh Siêu Chạy Tốc Độ Data Warehouse.",
+    "tags": ["data-warehouse", "materialized-view", "performance", "query-optimization"]
+  },
+  {
+    "id": "D3-019", "module": "D", "topic": "D3", "difficulty": "easy",
+    "question": "Tính Chất Mô Hình Data Vault Nằm Ở Đoạn Khúc Nào Chống Phá Bệnh Thay Đổi Khốc Liệt Của Nghiệp Vụ Cty Nổi Đình Nổi Đám Điên Cồng Xé Sợi Hỏng Lưới Đập Mặt Thủng Lồng Lưới Giữ Nguyên Bãi Chặn Nhốt Ác Mộng BI Chết Kẹt Máng Lỗ Thủng Rớt Chôn Ám Cửa Bọc Chớp Điểm Bể Nhựa Cấp Nối Cán Đứt Dây Ngắn Pháo Áo?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Tách Nát Gỡ Rối Lịch Sử Kinh Hoàng Cột Cắm (Schema Khóa Cứng). DATA VAULT ĐẬP NÁT BẢNG KHÁCH HÀNG THÀNH 3 BỘ PHẬN ĐỘC LẬP: HUB (Lõi Tên Số Két Cứng Bất Biến ID Nhốt Gốc Gác), LINK (Khớp Dây Chuyền Bám Cạnh Nối Các Hub Chắp Vá Tình Làng Nghĩa Xóm Sợi Dây Chéo Xé Nhau Xâu Nối Xích) VÀ SATELLITE (Vệ Tinh Rác Phụ Thuộc Bám Lệ Lấp Ló Thay Đổi Liên Tục Update SDT, Tên Vợ Kéo Vào Ở Trọ Ngoài Rìa Ốp Hộ Vệ Thân Trăng Sao Xoay Quanh Bọc Vòng Trụ Chắn Kéo Chống Bay Nhảy Xổ). NHỜ ĐÓ NGHIỆP VỤ CTY CÓ SẬP CỘT UPDATE ĐỔI HỌ TÊN XÓA SỐ LỆCH KIỂU GÌ CHỈ SATELLITE RƠI RỤNG TỰ BẮP RÁP CODE NHẸ NHÀNG KHÔNG ĐÁNG QUAN TÂM KỆ LẠC, HUB GỐC VÀ DÂY XÍCH KHÔNG BAO GIỜ GÃY HƯ KHUNG SƯỜN NÁT NỀN MÓNG CỘT TAY XÉ TẢ TƠI MẢNG TƯỜNG APP CỐT LÕI.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa Vệt Tím Rạch Ám Khung Gập Cong Chạm",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đẩy Cục Cty Gộp Xác Siêu Phát Triển Khủng Hoảng Vòng Báo Cáo. Sếp Kêu Đổi Nhập Data Nguồn Cty Bạn Khác Sát Nhập Hỗn Bầy Cốt Khớp Mép Nước Nổ Bể Ngập Bão Kẽ Đáy Tràn Ống Form Xưa Đứt Gãy Sập BI Dashboard Cháy Vi Mạch Oan Khuất Đứt Dây Phim. Data Vault Giúp Cứu Lẽ Đời Sống Lâu Kỷ Băng Hà Ngàn Năm Chống Động Đất Khung (Chỉ Gắn Ráp Rời Thêm Vệ Tinh Trụ Trăng Vệ Tinh Kéo Cắm Đuôi Satellite Chắp Xoay Quanh Hub Khỏi Gây Chạm Phá Tường Cột Nền Móng Dây Rốn Hub Tủy Lõi Lịch Sử Thần Kỳ An Toàn Xé Nét Sống Vẫn Bền Cứng Ráp Kết). Đồ Thị Linh Hoạt Hấp Thu Mọi Thay Đổi Khốn Nạn Kinh Hoàng Doanh Nghiệp Cào Xé Khống Rác Lộ.",
+    "tip": "Data Vault (Két Sắt Ngầm Bảo Hiểm Phân Nhánh Giữ Linh Hồn Áp Đảo Ảo Phép Bức Tường Xé Lưới An Toàn Tột Cùng) = Băm Tên Khách Hàng (3 Nhánh): Khóa Lõi (Hub Không Sửa) + Khóa Xích Nối (Link Chốt Điểm Mép Kép Không Hỏng Sợi) + Khóa Thân Vệ Tinh Đồ Rác Trắng SDT Áo Tên Lược Cập Nhật Ở Trọ Bám Xung Quanh Gốc Bất Cứ Lúc Nào Đứt Rơi Quăng Thêm Xếp Hàng Mới Kệ Lịch Sử Gốc Chống Oan Khủng Hoảng Phá Sản Mở Rộng Ảo Bão Tát Đập Khúc Căng Lỗi Gắn Bền Viêm Kéo Sợ Cháy Hư Tường Data Lõi Xoạc Dữ Liệu.",
+    "tags": ["data-warehouse", "data-vault", "architecture", "data-modeling"]
+  },
+  {
+    "id": "D3-020", "module": "D", "topic": "D3", "difficulty": "hard",
+    "question": "Tính Chất Bí Mật (Surrogate Key - Khóa Đại Diện Đóng Bàn Thờ Khác Thay Khóa Tự Nhiên Lệch Natural Key Của Móng Cổ Đại) Ốp Buộc Buộc Ép Gắn Lên Khung Ngực Cái Bảng Dimension Cốt Chi Bảo Vệ An Nguy Cái Data Warehouse Cứu Sinh Mạng Đổ Tường Mất Điểm Nào Ác Nhất Chặn Gây Chết 100% Rác Tội Lỗi Chạm Vỡ Chỉnh Bị Lệch Óc Phá Tội Bắn Xóa Cập Nhật Ngu Người Kẹt Khớp Nối Nạp Lưới Dò Trống Khuyết Cụt Cắt Hư Lõi Bóng Trụ Rắn Sứt Chui Phim Xé Màng Hỏng Rìa Nhựa Mở Gắn Nhòe?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp Lạc Nhạc Nhanh Căng Cắt Lệch Vi Dây Đứt Đoạn Nẹp Nhựa Đuôi Chốt",
+      "C. CHỐNG SỰ PHẢN BỘI TỪ NGUỒN (Lệnh Của Tụi Ngân Hàng Kế Toán Đặt Láo Tự Đổi SỐ CMND, Gõ Nhầm Của Khách Bị Sửa). NẾU LẤY CMND THẬT LÀM KHÓA CHÍNH BẢNG KẾT NỐI, KHI SỬA LẠI CMND Ở BẢNG NGUỒN APP, NÓ SẼ BẺ GÃY TOÀN BỘ SỢI XÍCH FOREIGN KEY Ở DATA WAREHOUSE (Đứt Liên Kết Báo Cáo Nát Bét Xóa Trắng Mất Tăm). KỸ SƯ DATA TỰ SINH RA 1 CÁI ID ẢO DUY NHẤT LÀM SỐ KHÓA CHÍNH KHÔNG CÓ Ý NGHĨA NGOÀI ĐỜI THỰC ĐỂ KẾT NỐI BẢNG GIỮA CÁC ĐỜI (Vô Can Đời Thực). Bất Chấp Tụi Ở Ngoài App Sửa Số CMND Mấy Lần, Sợi Dây Khóa Chốt Kéo Lõi Này Vẫn Kẹt Cứng Bảo Đảm Lịch Sử An Toàn Không Móp Méo Chạy Tuột Quá Ám Ảnh Rối Gắn Gián Sáp Hạt Lưới Nháy.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Đỉnh Cao Đau Thương Đầy Kinh Nghiệm Kỹ Sư Kho Cứu. Tụi App Dev Quản Lý Database Gốc Kẹt Chết Bấm Xóa Chỉnh Ngu Lấy Tên Đuôi Mã Hóa Đơn Số Báo Danh Nhân Viên Làm Khóa Sát Trục. Lúc Lỗi Sai Update Đổi Căn Cước Sang CCCD Mới, Cả Kho Warehouse Đứt Kết Nối Rớt Bảng Trống Rỗng Kéo Gặp Ma Dư Hút Tịt Điếc Ống Chết Gục Lòi Xương Kép Viêm Nghẽn Kẹp Phân Lưới Gãy Lệnh Rỗng. Data Warehouse Đập Thẳng Đẻ Tạo 1 Cái ID Số Tự Động (1, 2, 3...) Chết Dính Gọi Tên Là Mồi Khóa Đại Diện Bất Biến Giả (Surrogate Key). Dùng Nó Móc Cột Buộc Chặt Các Bảng Fact Đi Theo Chơi Sáng Rạp, Cấm Đoán Không Quan Tâm Dăm Ba Cái Sự Vụ Code Chữ Tự Nhiên (Natural Key) Ngoài App Giờ Nó Văng Nát Bể Chấm Lệch Thế Nào Góp Cút Phá Hoại Băng Hủy.",
+    "tip": "Surrogate Key (Khóa Ảo Thế Mạng Đội Mồ Sống Ráp Xích Lõi Vàng Trấn Yểm) = Số Thẻ Sinh Viên Đóng Dấu Chấm Độc Lập Ở Data Warehouse Ép Buộc Cho Chắc Cú Giữ Cửa Nhà Kết Nối Giao Vạch Fact Dimension. Không Đem Cái Số CMND Hay SĐT Của Khách (Đời Thực Dễ Sửa Láo Thường Đổi Tráo Chết Dây Nhòe Khớp Ống Nhánh Nhựa Hụt) Khóa Ở Đây Chịu Trận Lịch Sử Nát Đầu Kẹt Óc Bứt Trục Lấp Khe Gãy Lực Tức Quằn Lệch Đít Áp Đỏ Rớt.",
+    "tags": ["data-warehouse", "surrogate-key", "dimensional-modeling", "data-modeling"]
+  }
+]

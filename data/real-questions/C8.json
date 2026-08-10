@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C8-001", "module": "C", "topic": "C8", "difficulty": "easy",
+    "question": "Trong AI, thuật ngữ 'Scalar', 'Vector', 'Matrix' và 'Tensor' chỉ sự khác biệt về cái gì?",
+    "options": [
+      "A. Kích thước file dữ liệu",
+      "B. Tốc độ tính toán",
+      "C. Số chiều (Dimensions/Rank) của dữ liệu. Scalar = 0 chiều (1 số), Vector = 1 chiều (Cột số), Matrix = 2 chiều (Bảng số), Tensor = 3 chiều trở lên (Khối số lập phương).",
+      "D. Đuôi file lưu trữ"
+    ],
+    "answer": 2,
+    "explanation": "Machine Learning xử lý dữ liệu bảng Excel (Rows x Cols) -> Dùng Matrix (Ma trận 2D). Deep Learning xử lý Ảnh màu (Rộng x Cao x Màu sắc) hoặc Video (Thời gian x Rộng x Cao x Màu sắc) -> Bắt buộc dùng Tensor (3D, 4D). Thư viện TensorFlow nghĩa là 'Dòng chảy của các Tensor'.",
+    "tip": "Scalar (Số vô hướng 0D) -> Vector (Mảng 1D) -> Matrix (Bảng 2D) -> Tensor (Khối 3D trở lên).",
+    "tags": ["math", "linear-algebra", "tensor"]
+  },
+  {
+    "id": "C8-002", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Phép nhân Ma trận (Matrix Multiplication - Dot Product) yêu cầu ĐIỀU KIỆN TIÊN QUYẾT nào về kích thước giữa 2 ma trận A và B (A x B)?",
+    "options": [
+      "A. Số lượng Hàng của A phải bằng số lượng Cột của B",
+      "B. Hai ma trận phải có kích thước GIỐNG HỆT NHAU",
+      "C. Số lượng CỘT của ma trận A bắt buộc phải BẰNG số lượng HÀNG của ma trận B. Kết quả tạo ra ma trận mới có kích thước (Hàng của A x Cột của B).",
+      "D. Ma trận A phải lớn hơn ma trận B"
+    ],
+    "answer": 2,
+    "explanation": "Ví dụ: Ma trận A (2x3). Ma trận B (3x5). Hai con số ở giữa (3) giống nhau -> Nhân được. Ma trận kết quả lấy 2 số ở hai đầu -> Kích thước (2x5). Trong Mạng Nơ-ron (Dense Layer), Lỗi 'Shape Mismatch' cực kỳ kinh điển xuất phát từ việc vi phạm luật Nhân ma trận này.",
+    "tip": "Nhân 2 Ma trận (A x B): Phải giống nhau Khớp nối ở giữa (Cột A = Hàng B). Ma trận con đẻ ra có hình dáng lấy từ Hàng A và Cột B.",
+    "tags": ["math", "linear-algebra", "matrix-multiplication"]
+  },
+  {
+    "id": "C8-003", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Trong Không gian Vector, 'Khoảng cách Cosine' (Cosine Similarity) đo lường cái gì giữa 2 Vector văn bản?",
+    "options": [
+      "A. Khoảng cách địa lý thực tế",
+      "B. GÓC TẠO THÀNH giữa 2 Vector. Bỏ qua chiều dài của Vector (độ dài văn bản), nếu góc bằng 0 độ (Cosine = 1) -> 2 văn bản có nội dung Y HỆT NHAU. Góc 90 độ (Cosine = 0) -> Hoàn toàn không liên quan.",
+      "C. Số lượng từ vựng bị trùng lặp",
+      "D. Tổng độ dài của 2 văn bản cộng lại"
+    ],
+    "answer": 1,
+    "explanation": "Bài văn A dài 1 trang. Bài văn B chép bài A nhưng dài 10 trang. Nếu dùng Khoảng cách hình học Euclid đo thì 2 bài này cách xa nhau vạn dặm. Nhưng nếu đo Góc (Cosine), 2 vector này chĩa CÙNG 1 HƯỚNG -> Cosine Similarity = 1 (Phát hiện đạo văn tuyệt đối). Trái tim của NLP, Search Engine và hệ thống Gợi ý.",
+    "tip": "Cosine Similarity đo độ GÓC (Đồng điệu về Nghĩa), bất chấp bài văn đó Dài hay Ngắn. Cùng chung chí hướng (0 độ) -> Giống nhau 100%.",
+    "tags": ["math", "linear-algebra", "cosine-similarity", "nlp"]
+  },
+  {
+    "id": "C8-004", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Ma trận hiệp phương sai (Covariance Matrix) giúp trực quan hóa điều gì trong bộ Dữ liệu?",
+    "options": [
+      "A. Phân loại ảnh chó mèo",
+      "B. Đo lường SỰ BIẾN THIÊN CÙNG CHIỀU/NGƯỢC CHIỀU giữa TẤT CẢ các cặp Đặc trưng (Features). Nếu Covariance > 0: Hai cột dữ liệu tăng cùng nhau. Covariance < 0: Cột này tăng, cột kia giảm.",
+      "C. Đếm số lượng giá trị thiếu (Null)",
+      "D. Chia dữ liệu thành Train và Test"
+    ],
+    "answer": 1,
+    "explanation": "Covariance Matrix là ma trận vuông. Đường chéo chính là Phương sai (Variance - Sự phân tán của chính cột đó). Các ô còn lại đo sự Hiệp Phương Sai (Tương quan). Nó là nền tảng cốt lõi để chạy thuật toán Giảm chiều dữ liệu PCA (Xoay trục dữ liệu theo hướng Covariance lớn nhất).",
+    "tip": "Ma trận Hiệp Phương Sai (Covariance Matrix) = Cái cân đo xem các cặp Cột (Features) 'Ăn ở' với nhau như thế nào (Cùng tiến, cùng lùi, hay chả liên quan).",
+    "tags": ["math", "statistics", "covariance", "pca"]
+  },
+  {
+    "id": "C8-005", "module": "C", "topic": "C8", "difficulty": "easy",
+    "question": "Đạo hàm (Derivative) của một hàm số tại 1 điểm mang ý nghĩa VẬT LÝ/HÌNH HỌC cốt lõi nào trong AI?",
+    "options": [
+      "A. Là diện tích dưới đường cong",
+      "B. Là hệ số góc (ĐỘ DỐC / SLOPE) của đường tiếp tuyến tại điểm đó. Cho ta biết Hàm số (Hàm Mất Mát Loss) đang đi LÊN hay đi XUỐNG, và dốc nhiều hay ít.",
+      "C. Là giá trị trung bình",
+      "D. Là tọa độ X, Y"
+    ],
+    "answer": 1,
+    "explanation": "Tưởng tượng bạn đang bịt mắt đứng trên sườn núi (Hàm Loss). Để tìm đường xuống thung lũng (Loss = 0), bạn thò chân ra dò xem nền đất đang DỐC về hướng nào. Cảm giác 'Dốc' đó chính là Đạo hàm. Nó chỉ hướng cho Gradient Descent bước đi.",
+    "tip": "Đạo hàm = Đo ĐỘ DỐC. Nếu dốc âm (đang lao dốc) -> Đi tiếp. Nếu dốc = 0 (bằng phẳng) -> Đã xuống tới đáy (Hoặc kẹt trên đỉnh).",
+    "tags": ["math", "calculus", "derivative", "gradient-descent"]
+  },
+  {
+    "id": "C8-006", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Gradient là gì và tại sao Gradient Descent lại đi NGƯỢC HƯỚNG với Gradient?",
+    "options": [
+      "A. Gradient là nhiệt độ của CPU",
+      "B. Không phải, nó đi cùng hướng",
+      "C. Gradient là MỘT VECTOR chứa các đạo hàm riêng (Đại diện cho hướng dốc LÊN nhanh nhất). Vì ta muốn giảm thiểu Lỗi (Tìm Đáy Loss), ta BẮT BUỘC phải bước đi NGƯỢC LẠI (-Gradient) để lao xuống thung lũng.",
+      "D. Gradient là độ sáng của hình ảnh"
+    ],
+    "answer": 2,
+    "explanation": "Đạo hàm là 1 chiều. Khi có 1 triệu Trọng số (W1, W2... W1tr), ta gom 1 triệu cái đạo hàm đó vào 1 cái Vector khổng lồ gọi là Gradient. Vector Gradient luôn có Mũi tên CHỈ NGƯỢC LÊN ĐỈNH NÚI. Chả ai muốn lỗi to lên cả, nên công thức Update là: `W_mới = W_cũ - LR * Gradient` (Dấu TRỪ để ép nó đi XUỐNG).",
+    "tip": "Gradient = Vector Hướng LÊN TRỜI (Lỗi to nhất). Gradient Descent (Đi xuống đồi) = Đi ngược lại (-Gradient) để tìm đáy vực (Lỗi nhỏ nhất = 0).",
+    "tags": ["math", "calculus", "gradient", "gradient-descent"]
+  },
+  {
+    "id": "C8-007", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Quy tắc Dây Chuyền (Chain Rule) trong Giải tích (Calculus) là xương sống của thuật toán nào trong Deep Learning?",
+    "options": [
+      "A. K-Means Clustering",
+      "B. Thuật toán Truyền ngược (Backpropagation), dùng để tính Đạo hàm xuyên qua một Mạng Neural sâu 100 lớp lồng ghép vào nhau (Hàm hợp f(g(x))).",
+      "C. Phân loại chó mèo",
+      "D. Thuật toán tạo ảnh Deepfake"
+    ],
+    "answer": 1,
+    "explanation": "Lớp số 3 thay đổi 1 đơn vị, làm lớp số 2 đổi 2 đơn vị, lớp số 2 làm lớp 1 (Output) đổi 3 đơn vị. Hỏi Lớp số 3 ảnh hưởng Output bao nhiêu? Theo Chain Rule, ta nhân hết lại: 1 * 2 * 3 = 6. Backprop chính là chuỗi phép Nhân Đạo Hàm liên hoàn từ cuối lên đầu mạng.",
+    "tip": "Quy tắc Dây chuyền (Chain Rule) = Cha đẻ của Backpropagation. Giúp bóc tách Lỗi (Loss) lội ngược dòng qua hàng chục lớp Nơ-ron.",
+    "tags": ["math", "calculus", "chain-rule", "backpropagation"]
+  },
+  {
+    "id": "C8-008", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Trong Xác suất Thống kê, Phân phối Chuẩn (Normal/Gaussian Distribution) có hình dạng như thế nào và đặc tính 68-95-99.7 là gì?",
+    "options": [
+      "A. Hình chữ nhật",
+      "B. Hình tháp Eiffel",
+      "C. Hình QUẢ CHUÔNG (Bell Curve). Quy tắc vàng: 68% dữ liệu rớt vào khoảng 1 Độ lệch chuẩn (Standard Deviation), 95% rớt vào 2 Độ lệch chuẩn, 99.7% rớt vào 3 Độ lệch chuẩn tính từ Trung bình.",
+      "D. Hình tròn"
+    ],
+    "answer": 2,
+    "explanation": "Chiều cao con người, Lương, Điểm thi đại học đa số đều tuân theo Phân phối Chuẩn (Rất đông người ở mức trung bình, rất hiếm người siêu cao/siêu thấp). Bất kỳ ai lọt ra khỏi Vùng 3 Độ Lệch Chuẩn (0.3% hiếm hoi đó) đều bị AI xếp vào danh sách Dị Biệt (Outliers/Fraud/Hackers).",
+    "tip": "Đường cong Quả Chuông (Phân phối chuẩn) = Chúa tể thống kê. Quá tam ba bận: Ai văng ra khỏi 3 Độ Lệch Chuẩn (3 Std) -> Kẻ dị biệt (Outlier).",
+    "tags": ["math", "statistics", "normal-distribution", "outliers"]
+  },
+  {
+    "id": "C8-009", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Định lý Bayes (Bayes' Theorem) P(A|B) = [P(B|A) * P(A)] / P(B) giải quyết bài toán tư duy nào trong Machine Learning?",
+    "options": [
+      "A. Vẽ biểu đồ miền",
+      "B. Xóa dữ liệu lỗi",
+      "C. CẬP NHẬT NIỀM TIN. Cho phép ta tính Xác suất xảy ra một nguyên nhân (A) khi ĐÃ QUAN SÁT THẤY một kết quả/bằng chứng mới (B) (Xác suất Hậu nghiệm - Posterior Probability).",
+      "D. Đổi hệ thập phân sang nhị phân"
+    ],
+    "answer": 2,
+    "explanation": "P(Spam) ban đầu = 10% (Niềm tin ban đầu - Prior). Bỗng nhiên ta thấy email chứa chữ 'Viagra' (Bằng chứng B). Định lý Bayes giúp ta Cập nhật lại niềm tin: Xác suất P(Spam|Viagra) tăng vọt lên 95% (Hậu nghiệm). Đây là cốt lõi của Naive Bayes Classifier.",
+    "tip": "Định lý Bayes = Cập nhật niềm tin. Thấy Bằng chứng mới (Chữ Viagra) -> Thay đổi ngay kết luận (Chắc chắn là Spam).",
+    "tags": ["math", "probability", "bayes-theorem"]
+  },
+  {
+    "id": "C8-010", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Logarithm (Log) có ứng dụng TO LỚN gì trong việc tính toán Xác suất (Probability) của Machine Learning?",
+    "options": [
+      "A. Phóng to chữ",
+      "B. Không có ứng dụng gì",
+      "C. Biến phép NHÂN (của các xác suất rất nhỏ) thành phép CỘNG (của các Logarithm âm). Tránh được hiện tượng TRÀN SỐ DƯỚI (Underflow) khi máy tính nhân hàng ngàn số 0.0001 lại với nhau.",
+      "D. Tạo ảnh 3D"
+    ],
+    "answer": 2,
+    "explanation": "Tính xác suất 1 câu dài 100 chữ: 0.1 * 0.02 * 0.05 * ... 100 lần. Máy tính sẽ cạn kiệt số thập phân và báo = 0.000000 (Tràn số dưới). Lấy Logarit 2 vế: Phép nhân hóa Phép Cộng (Log(0.1) + Log(0.02)...). Máy tính cộng các số âm (như -2 + -5) cực kỳ dễ dàng và không bao giờ bị tràn số. Mọi Hàm Loss của AI đều bọc Log (Log-Loss, Cross-Entropy).",
+    "tip": "Logarit = Ma thuật biến Nhân thành Cộng. Cứu rỗi CPU khỏi bị 'Tràn số dưới' khi nhân hàng ngàn Xác suất siêu nhỏ.",
+    "tags": ["math", "logarithm", "probability", "underflow"]
+  },
+  {
+    "id": "C8-011", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Hàm Mất Mát 'Cross-Entropy' (dùng cực nhiều trong Deep Learning cho Phân Loại) hoạt động dựa trên lý thuyết toán học nào?",
+    "options": [
+      "A. Đại số Boole",
+      "B. Hình học giải tích",
+      "C. Lý thuyết Thông tin (Information Theory). Nó đo lường 'KHOẢNG CÁCH' giữa 2 Phân phối xác suất: Phân phối Thực Tế (Ground truth [0, 1]) và Phân phối Dự Đoán (Predict [0.2, 0.8]). Hai phân phối càng lệch nhau, Loss càng cao.",
+      "D. Hình học không gian"
+    ],
+    "answer": 2,
+    "explanation": "Trong Hồi quy (dự đoán số tiền) ta dùng Lỗi Bình Phương (MSE). Nhưng trong Phân loại (Chó, Mèo), dự đoán là Xác suất %. MSE tỏ ra bất lực. Cross-Entropy (dựa trên Logarit) được sinh ra đặc trị cho Phân Loại. Nếu thực tế là Mèo (100%) mà AI đoán Mèo (1%), hàm Log sẽ 'phạt' AI một số điểm mất mát bự bằng Vô Cực.",
+    "tip": "Cross-Entropy = Thước đo 'Sự Bất Đồng' (Khoảng cách) giữa 2 bản Xác suất (Dự đoán vs Thực tế). Chân ái của mọi bài toán Phân Loại.",
+    "tags": ["math", "information-theory", "cross-entropy", "loss-function"]
+  },
+  {
+    "id": "C8-012", "module": "C", "topic": "C8", "difficulty": "easy",
+    "question": "Eigenvector (Vector riêng) và Eigenvalue (Giá trị riêng) xuất hiện trong Toán Cao cấp. Chúng được sử dụng làm 'Bộ Não' cho thuật toán Học Máy nào?",
+    "options": [
+      "A. Decision Tree",
+      "B. Neural Network",
+      "C. Thuật toán Giảm chiều dữ liệu PCA (Principal Component Analysis).",
+      "D. Naive Bayes"
+    ],
+    "answer": 2,
+    "explanation": "Khi PCA đè bẹp không gian 1000 chiều, nó cần tìm cái HƯỚNG TỐT NHẤT (ít mất thông tin nhất). Hướng đó chính là Eigenvector. Độ dài/Sự quan trọng của hướng đó chính là Eigenvalue. Cứ sắp xếp Eigenvalue từ to đến nhỏ, giữ lại top 5, ta cắt được 995 chiều rác.",
+    "tip": "Eigenvector/Eigenvalue (Vector Riêng) = Chiếc La bàn của PCA, chỉ ra cái Trục (Hướng) chứa nhiều Thông tin dữ liệu nhất để giữ lại.",
+    "tags": ["math", "linear-algebra", "eigenvectors", "pca"]
+  },
+  {
+    "id": "C8-013", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Tính chất 'Minima Cục Bộ' (Local Minima) trong Tối ưu hóa đa chiều gây ra khó khăn gì cho Mô hình AI?",
+    "options": [
+      "A. Làm đầy ổ cứng",
+      "B. Máy tính bị sập nguồn",
+      "C. Thuật toán Gradient Descent khi lăn xuống dốc có thể bị KẸT Ở MỘT CÁI THUNG LŨNG CẠN (Local Minima) và lầm tưởng đó là đáy sâu nhất. Khiến mô hình hội tụ sớm và dự đoán kém, không bao giờ tìm được ĐÁY TOÀN CỤC SÂU NHẤT (Global Minima).",
+      "D. Xóa mất file code"
+    ],
+    "answer": 2,
+    "explanation": "Không gian nghìn chiều của Deep Learning lởm chởm như núi Hymalaya. Hòn bi (SGD) lăn xuống 1 cái hố trũng nhỏ, đạo hàm = 0 -> Bi đứng im luôn. Để thoát ra, người ta dùng Optimizer xịn như Adam (có đà Momentum) để bi lăn lố qua hố nhỏ, rớt xuống được hố to nhất.",
+    "tip": "Local Minima = Vũng nước cạn trên sườn núi. Dễ làm hòn bi (AI) kẹt lại, tưởng nhầm là đã tới đích (Đáy núi Global Minima).",
+    "tags": ["math", "optimization", "local-minima", "gradient-descent"]
+  },
+  {
+    "id": "C8-014", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "L1 Regularization (Lasso) và L2 Regularization (Ridge) sử dụng Toán học để Phạt (Penalize) các Trọng số lớn nhằm CHỐNG OVERFITTING. Chúng khác nhau ở điểm nào?",
+    "options": [
+      "A. L1 dùng Đạo hàm, L2 dùng Tích phân",
+      "B. Không khác biệt",
+      "C. L1 cộng thêm Trị Tuyệt Đối (Tạo ra các Trọng số bằng ĐÚNG SỐ 0 -> Loại bỏ biến thừa). L2 cộng thêm Bình Phương (Chỉ ÉP NHỎ các trọng số lại nhưng hiếm khi bằng 0).",
+      "D. L1 cộng, L2 trừ"
+    ],
+    "answer": 2,
+    "explanation": "Có 100 cột dữ liệu. Bạn xài L1, thuật toán sẽ nhẫn tâm 'Giết chết' 90 cột (cho Weight = 0), chỉ giữ lại 10 cột lõi. Nó kiêm luôn chức năng Chọn Lọc Đặc Trưng (Feature Selection). Xài L2, 100 cột vẫn còn đó, nhưng giá trị Weight nhỏ xíu đều nhau, giúp mô hình ổn định.",
+    "tip": "L1 (Lasso) = Trị Tuyệt Đối (Sát thủ máu lạnh, chém các cột phế vật về Số 0). L2 (Ridge) = Bình Phương (Chỉ bóp nhỏ lại cho đều, khoan hồng không giết).",
+    "tags": ["math", "regularization", "l1-l2", "overfitting"]
+  },
+  {
+    "id": "C8-015", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Tính chất Rời Rạc (Discrete) và Liên Tục (Continuous) của Biến ngẫu nhiên quyết định việc chọn Toán học nào?",
+    "options": [
+      "A. Đều dùng Số học cấp 1",
+      "B. Biến Rời Rạc (Mặt ngửa đồng xu, Xúc xắc) dùng Phép CỘNG (Sum/Sigma) để tính tổng xác suất. Biến Liên Tục (Chiều cao, Cân nặng) do có vô hạn giá trị, BẮT BUỘC dùng Phép TÍCH PHÂN (Integral) để tính diện tích dưới đường cong.",
+      "C. Rời rạc dùng tiếng Anh, Liên tục tiếng Việt",
+      "D. Không liên quan đến toán học"
+    ],
+    "answer": 1,
+    "explanation": "Không thể hỏi 'Xác suất một người cao chính xác 170.00000000cm là bao nhiêu?' (Nó bằng 0 vì có vô hạn chữ số). Với biến Liên tục, ta chỉ được phép hỏi 'Xác suất cao từ 169cm đến 171cm?'. Lúc này ta phải tính Tích phân (Integral) hàm mật độ xác suất trong đoạn [169, 171].",
+    "tip": "Biến Rời rạc (Đếm được) -> Dùng Dấu Sigma (Cộng). Biến Liên tục (Đo lường) -> Dùng Giun đất Tích Phân (Diện tích dưới đường cong).",
+    "tags": ["math", "probability", "statistics", "calculus"]
+  },
+  {
+    "id": "C8-016", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Hàm Sigmoid `1 / (1 + e^-x)` nhào nặn mọi giá trị thực đầu vào (-Vô cực đến +Vô cực) ép thành một con số nằm trong khoảng NÀO, và ý nghĩa của nó là gì?",
+    "options": [
+      "A. Khoảng (-1, 1), đại diện cho chiều không gian",
+      "B. Khoảng (0, 100), đại diện cho điểm thi",
+      "C. Ép cứng vào khoảng (0, 1), đại diện cho XÁC SUẤT (Probability). Giúp bài toán Hồi quy (số má tự do) biến thành bài toán Phân loại nhị phân (Có/Không).",
+      "D. Khoảng (0, 0), làm mất dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "Nếu Output của mô hình là +5.0 (Rất Bệnh). Qua hàm Sigmoid, nó bóp lại thành 0.99 (99% Bệnh). Nếu Output là -100.0 (Rất Khỏe). Sigmoid bóp thành 0.001 (0.1% Bệnh). Mốc 0.5 (ở giữa) thường được dùng làm ngưỡng (Threshold) để ra quyết định Cắt dao phẫu thuật.",
+    "tip": "Hàm Sigmoid = Cái máy Ép Phế Liệu. Dù số bự/số âm khủng khiếp cỡ nào, nhét vào Sigmoid cũng bị bóp nát thành 1 con số Xác suất TỪ 0 ĐẾN 1.",
+    "tags": ["math", "calculus", "sigmoid", "probability"]
+  },
+  {
+    "id": "C8-017", "module": "C", "topic": "C8", "difficulty": "easy",
+    "question": "Ma trận Thưa (Sparse Matrix) xuất hiện cực nhiều trong AI (Đặc biệt NLP sau khi One-hot Encoding). Đặc điểm của nó là gì?",
+    "options": [
+      "A. Ma trận bị xóa mất dòng",
+      "B. Ma trận bị chia đôi",
+      "C. Một ma trận mà HẦU HẾT các phần tử đều LÀ SỐ 0 (Chỉ có lác đác 1 vài số 1). Lưu trữ cả ma trận này bằng mảng 2D thông thường sẽ gây tràn RAM (Memory Error).",
+      "D. Ma trận có chứa chữ số âm"
+    ],
+    "answer": 2,
+    "explanation": "Từ vựng tiếng Anh có 100,000 từ. Khi dùng One-hot encoding cho từ 'Apple', tạo ra vector dài 100,000 ô (1 ô số 1, 99,999 ô số 0). Nếu nhân với 10,000 câu văn -> Ma trận khổng lồ toàn số 0. Giải pháp Toán học (Scipy Sparse) là CHỈ LƯU TỌA ĐỘ của số 1, bỏ qua số 0, giảm 99% RAM.",
+    "tip": "Sparse Matrix (Ma trận thưa) = Sa mạc toàn số 0, thi thoảng rớt hột cát số 1. Phải nén lại (chỉ nhớ vị trí số 1) để khỏi sập RAM.",
+    "tags": ["math", "linear-algebra", "sparse-matrix", "nlp"]
+  },
+  {
+    "id": "C8-018", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Norm (Chuẩn) L2 (Euclidean Norm) của một Vector toán học dùng để đo đại lượng vật lý nào?",
+    "options": [
+      "A. Khối lượng",
+      "B. ĐỘ DÀI TRỰC TIẾP (Khoảng cách đường chim bay) từ Gốc tọa độ (0,0) đến điểm ngọn của Vector đó, tính bằng định lý Pytago.",
+      "C. Thể tích hình hộp",
+      "D. Nhiệt độ GPU"
+    ],
+    "answer": 1,
+    "explanation": "Có Vector V = [3, 4]. Chuẩn L2 (Độ dài hình học) của nó = Căn bậc hai(3^2 + 4^2) = Căn(25) = 5. Đây chính là cách AI đo 'Khoảng cách' (KNN) xem 2 điểm dữ liệu xa nhau bao nhiêu trên không gian đa chiều.",
+    "tip": "Chuẩn L2 (Euclidean Norm) = Định lý Pytago muôn thuở. Tính Độ dài (Khoảng cách chim bay) của Vector.",
+    "tags": ["math", "linear-algebra", "l2-norm"]
+  },
+  {
+    "id": "C8-019", "module": "C", "topic": "C8", "difficulty": "hard",
+    "question": "Tính chất 'Độc lập tuyến tính' (Linearly Independent) của các Cột/Đặc trưng trong một Ma trận có nghĩa là gì?",
+    "options": [
+      "A. Các cột không dính vào nhau",
+      "B. Không thể sử dụng phép nhân/cộng của các Cột này để TẠO RA Cột kia. Tức là mỗi cột mang một lượng THÔNG TIN MỚI HOÀN TOÀN (Không dư thừa). Nếu 2 cột Phụ thuộc tuyến tính (vd: Cột Cân Nặng (kg) và Cột Cân Nặng (pound)) -> Mô hình AI bị Dư thừa, gây ra Đa cộng tuyến.",
+      "C. Ma trận chỉ có đường thẳng",
+      "D. Tất cả đều là số lẻ"
+    ],
+    "answer": 1,
+    "explanation": "Đưa cột 'Năm Sinh' và cột 'Tuổi' vào cùng 1 bảng train AI. Tuổi = 2024 - Năm Sinh. Cột Tuổi bị 'Phụ thuộc tuyến tính' 100% vào cột Năm sinh (Thừa thãi, rác). Toán học Đại số tuyến tính sẽ lập tức triệt tiêu cột này đi nếu tính Định Thức (Determinant = 0).",
+    "tip": "Độc lập tuyến tính = Không thằng nào Đạo Nhái thông tin của thằng nào. Đưa cột Tuổi và Năm Sinh vào chung 1 Model là sự Thừa Thãi ngốc nghếch (Phụ thuộc tuyến tính).",
+    "tags": ["math", "linear-algebra", "linear-independence"]
+  },
+  {
+    "id": "C8-020", "module": "C", "topic": "C8", "difficulty": "medium",
+    "question": "Tích vô hướng (Dot Product) của 2 Vector [A, B] và [C, D] được tính như thế nào, và nếu Dot Product = 0 thì 2 Vector đó có trạng thái hình học gì?",
+    "options": [
+      "A. = A+B+C+D. Nếu = 0 thì song song",
+      "B. = A*C + B*D. Nếu = 0, thì 2 Vector này VUÔNG GÓC VỚI NHAU (Orthogonal / Hoàn toàn không liên quan).",
+      "C. = A*D - B*C. Vuông góc.",
+      "D. Phép chia 2 số. Song song."
+    ],
+    "answer": 1,
+    "explanation": "Nhân từng thành phần tương ứng rồi Cộng lại. Nếu góc giữa 2 vector = 90 độ (Vuông góc) -> Cos(90) = 0 -> Dot Product = 0. Trong AI, hai từ vựng/hai đặc trưng có Dot Product = 0 nghĩa là chúng hoàn toàn Tách biệt, chả liên quan/chả trùng lặp thông tin nào với nhau.",
+    "tip": "Dot Product (Tích vô hướng) = Tính độ 'Tương đồng' (Cosine). Nếu = 0 -> Vuông Góc (Hai thế giới song song không bao giờ giao nhau/Không liên quan).",
+    "tags": ["math", "linear-algebra", "dot-product"]
+  }
+]

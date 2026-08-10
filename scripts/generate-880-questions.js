@@ -86,7 +86,17 @@ const genericOptions = [
   ["A. Python", "B. SQL", "C. Numpy", "D. C++"]
 ];
 
+const realQuestionsDir = path.join(__dirname, '../data/real-questions');
+
 function generateQuestionsForTopic(topic, index) {
+  const realQuestionsPath = path.join(realQuestionsDir, `${topic.id}.json`);
+  if (fs.existsSync(realQuestionsPath)) {
+    const realData = JSON.parse(fs.readFileSync(realQuestionsPath, 'utf-8'));
+    allQuestions.push(...realData);
+    console.log(`Loaded ${realData.length} real questions for ${topic.id}`);
+    return;
+  }
+
   for (let i = 1; i <= QUESTIONS_PER_TOPIC; i++) {
     const qId = `${topic.id}-${String(i).padStart(3, '0')}`;
     

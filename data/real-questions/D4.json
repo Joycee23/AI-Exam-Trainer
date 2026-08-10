@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D4-001", "module": "D", "topic": "D4", "difficulty": "easy",
+    "question": "Data Pipeline (Đường ống dữ liệu) được xây dựng nhằm giải quyết mục đích CỐT LÕI nào trong doanh nghiệp?",
+    "options": [
+      "A. Vẽ biểu đồ nến chứng khoán",
+      "B. Tự động hóa quá trình HÚT dữ liệu từ nhiều nguồn (DB, API, Log), DI CHUYỂN, BIẾN ĐỔI (Lọc rác) và ĐỔ nó vào Kho đích (Data Warehouse) một cách mượt mà, liên tục mà không cần con người copy-paste thủ công.",
+      "C. Tự động nhắn tin cho Khách hàng",
+      "D. Đổi giao diện Website"
+    ],
+    "answer": 1,
+    "explanation": "Có 10 cái Database rải rác khắp công ty. Nếu không có Pipeline, mỗi sáng Kế toán phải mở 10 cái File Excel, copy ghép lại rồi tự cộng (Rất dễ sai sót và mệt mỏi). Data Pipeline là hệ thống Bơm Nước tự động, hút từ 10 con suối nhỏ chảy thẳng về 1 cái Hồ Chứa lớn sạch sẽ.",
+    "tip": "Data Pipeline = Hệ thống Ống Nước Tự Động. Hút từ Nguồn (Bẩn) -> Chạy qua Bộ Lọc (Transform) -> Bơm vào Hồ Đích (Sạch/Data Warehouse).",
+    "tags": ["data-pipeline", "etl", "data-engineering"]
+  },
+  {
+    "id": "D4-002", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Trong kiến trúc Data Pipeline, luồng 'Batch Processing' (Xử lý theo Lô) khác biệt như thế nào so với 'Stream Processing' (Xử lý Luồng)?",
+    "options": [
+      "A. Batch đắt tiền hơn Stream",
+      "B. Không có sự khác biệt",
+      "C. BATCH gom rác cả ngày lại rồi Đợi Đến Nửa Đêm mới chạy 1 lần Bơm nguyên cục to (Chậm nhịp nhưng Chắc, ít tốn tài nguyên). STREAM thì có hạt rác nào sinh ra là Hút Bơm Ngay Lập Tức từng giọt (Real-time, Tốn cực nhiều tài nguyên để giữ ống luôn mở).",
+      "D. Batch chỉ áp dụng cho Text"
+    ],
+    "answer": 2,
+    "explanation": "Batch Processing giống như Xe rác (Gom cả xóm 1 đống rồi chở đi 1 chuyến - Rẻ tiền, nhưng rác bị ứ đọng cả ngày). Stream Processing giống như Băng chuyền nhà máy (Hàng ra tới đâu chạy tới đó - Đắt tiền, nhưng Giám đốc nhìn thấy Số Liệu nhảy real-time trên Báo cáo).",
+    "tip": "Batch = Chạy Lô / Chạy Cục (Thường cài hẹn giờ 12h đêm). Stream = Chạy Suối / Real-time (Có Data là Bơm Liền, Tốn Điện).",
+    "tags": ["data-pipeline", "batch-processing", "stream-processing"]
+  },
+  {
+    "id": "D4-003", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Tính chất BẤT BIẾN (Idempotent) là một Nguyên Tắc Vàng khi Lập trình Data Pipeline. Nó có nghĩa là gì?",
+    "options": [
+      "A. Pipeline không bao giờ bị lỗi",
+      "B. Pipeline KHÔNG thay đổi cấu trúc bảng",
+      "C. NẾU CHẠY PIPELINE MỘT LẦN HAY CHẠY LẠI 100 LẦN THÌ KẾT QUẢ VẪN PHẢI GIỐNG HỆT NHAU. Không được sinh ra dữ liệu trùng lặp (Duplicate) hoặc phá hỏng dữ liệu khi gặp sự cố phải Rerun (Chạy lại).",
+      "D. Dữ liệu chạy qua Pipeline bị mã hóa"
+    ],
+    "answer": 2,
+    "explanation": "Đang Bơm doanh thu ngày 15/8 vô Kho được một nửa thì Cúp điện. Bạn bấm nút Play chạy lại Pipeline từ đầu. Nếu code NGU, nó sẽ Cộng dồn gấp đôi số tiền của ngày 15/8 (Nổ tung Báo cáo). Code CHUẨN (Idempotent) sẽ tự động kiểm tra, XÓA sạch phần rác làm dở dang lúc nãy, và Bơm lại gọn gàng. Run 1 tỷ lần cũng chỉ ra 1 kết quả.",
+    "tip": "Idempotent (Tính Nhất Tề/Không đổi) = Đang Bơm Đứt Cáp Chạy Lại Khỏi Lo. Bấm Nút Rerun 100 lần Data vẫn Đẹp y nguyên, không sinh Rác Trùng Lặp 2 Lần Tiền.",
+    "tags": ["data-pipeline", "idempotency", "best-practices"]
+  },
+  {
+    "id": "D4-004", "module": "D", "topic": "D4", "difficulty": "easy",
+    "question": "Apache Airflow là công cụ 'Quốc Dân' của giới Data Engineer. Chức năng CHÍNH của nó là gì?",
+    "options": [
+      "A. Lưu trữ hình ảnh lớn",
+      "B. Mã hóa dữ liệu người dùng",
+      "C. Lên Lịch (Scheduling) và Lập Dàn Nhạc (Orchestration). Nó ĐIỀU PHỐI Từng Đoạn Code Python chạy đúng giờ, đúng thứ tự (A chạy xong tới B, B xong tới C), và báo động Đỏ khi có Đoạn nào bị Lỗi gãy gánh.",
+      "D. Tạo giao diện Báo cáo cho Sếp"
+    ],
+    "answer": 2,
+    "explanation": "Airflow KHÔNG PHẢI là Database (Không chứa dữ liệu). Airflow là TÊN NHẠC TRƯỞNG. Anh ta cầm gậy chỉ huy: 12h đêm gọi thằng Extract đi hút nước, hút xong ra hiệu cho thằng Transform bỏ hóa chất vô lọc, lọc xong gọi thằng Load đổ vô kho. Đứa nào làm chậm hay ngủ quên, Anh Nhạc Trưởng (Airflow) gửi Mail chửi sếp ngay.",
+    "tip": "Airflow = Nhạc Trưởng Điều Phối (Orchestrator). Chuyên ra lệnh, Hẹn giờ (Cron), và Chửi Lập Trình Viên (Báo Lỗi) chứ Không Thèm Lưu Data.",
+    "tags": ["airflow", "orchestration", "data-engineering"]
+  },
+  {
+    "id": "D4-005", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Khái niệm Cốt Lõi nhất của Airflow là DAG (Directed Acyclic Graph). Từ 'Acyclic' (Không có chu trình) bắt buộc Luồng Code của bạn KHÔNG ĐƯỢC PHÉP LÀM GÌ?",
+    "options": [
+      "A. Không được dùng Python",
+      "B. Không được Đọc Database",
+      "C. Không được QUAY VÒNG LẶP LẠI (Vòng luẩn quẩn). Task A chạy ra Task B, Task B ra Task C, nhưng C TUYỆT ĐỐI KHÔNG ĐƯỢC PHÉP TRỎ NGƯỢC VỀ TASK A. Nước chỉ được chảy một chiều từ Nguồn ra Biển.",
+      "D. Không được nối 3 Task lại"
+    ],
+    "answer": 2,
+    "explanation": "DAG là Sơ đồ Đồ thị có Hướng. Mũi tên A -> B -> C. Nếu C trỏ ngược về A, Hệ thống sẽ sinh ra Bệnh Kẹt Luân Hồi (Infinite Loop). Airflow sẽ giật điện báo Lỗi Ngay Lập Tức Lệnh Code đó trước khi cho chạy. Data phải trôi đi (Dù thành công hay Lỗi), không được chảy ngược.",
+    "tip": "DAG (Acyclic) = Dòng Sông Một Chiều. Nước Chảy Trôi Tuột Xuống Biển Cấm Chảy Ngược Lên Nguồn (Cấm Vòng Lặp Vô Tận).",
+    "tags": ["airflow", "dag", "architecture"]
+  },
+  {
+    "id": "D4-006", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Tính năng 'Backfilling' (Chạy bù quá khứ) của Airflow sinh ra để cứu rỗi Lập Trình Viên khỏi Cơn Ác Mộng nào?",
+    "options": [
+      "A. Cứu máy chủ bị Hacker phá",
+      "B. Không thể phục hồi Báo Cáo",
+      "C. Khi Bạn CODE XONG TÍNH NĂNG MỚI VÀO HÔM NAY (Ví dụ Thêm Cột Thuế). Sếp đòi Bơm Ngược Cột Thuế Đó Cho TOÀN BỘ DATA CỦA 2 NĂM TRƯỚC. Backfilling của Airflow TỰ ĐỘNG LÙI ĐỒNG HỒ, CHẠY LẠI TỪNG NGÀY TRONG QUÁ KHỨ Bơm Tròn Trĩnh Dữ Liệu Bù Lỗ Hổng 1 Cách Tự Động.",
+      "D. Đổi nền giao diện Airflow"
+    ],
+    "answer": 2,
+    "explanation": "Đời Data luôn có trò: Có Code Mới, bắt áp dụng Chữa Cháy Hồi Tố Quá Khứ. Nếu xài Windows Task Scheduler (Hẹn giờ), bạn phải tự viết lệnh For chạy chay rất cực. Ở Airflow, gõ dòng lệnh Cấp cho Nó 1 cái Mốc Quá Khứ (start_date=2021-01-01), nó tự tua ngược thời gian kích hoạt Lệnh Bơm lấp chỗ trống cực êm.",
+    "tip": "Backfilling (Bơm Lấp Hố Quá Khứ) = Cỗ Máy Thời Gian Tua Ngược. Đưa Code Mới Chạy Xuyên Về Quá Khứ Đắp Lại Dữ Liệu Thiếu (Hồi Tố).",
+    "tags": ["airflow", "backfilling", "data-pipeline"]
+  },
+  {
+    "id": "D4-007", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "X-Com (Cross-Communication) trong Airflow cho phép Tác vụ A (Task A) giao tiếp Gửi Tin Nhắn cho Tác vụ B. TUY NHIÊN, nó KHUYÊN CẤM Tuyệt đối việc gửi gì qua X-Com?",
+    "options": [
+      "A. Gửi Text ngắn",
+      "B. Gửi Mã số ID",
+      "C. Cấm gửi CỤC DỮ LIỆU TO (Ví dụ Gửi cục DataFrame 1 Triệu Dòng). X-Com Lưu tin nhắn VÀO CƠ SỞ DỮ LIỆU CỦA AIRFLOW (Postgres). Bơm Data To Vô Đó Là Kẹt Mạng, Sập Bụng Của Nhạc Trưởng Airflow Liền.",
+      "D. Gửi Ngày Tháng"
+    ],
+    "answer": 2,
+    "explanation": "Lỗi Ngáo nhất của Tấm chiếu mới. Task A Đọc Database Lấy 1 Triệu Dòng, Xong Push cái Data đó qua X-Com Đưa cho Task B (Bị Vỡ Bộ Nhớ Sập Ngay). Cách Chuẩn: Task A lưu 1 Triệu dòng đó RA Ổ ĐĨA NGOÀI (AWS S3) Dưới Tên 'File_A.csv'. Rồi Task A Chỉ Gửi 'Cái Đường Link Link File_A' (Vài Byte) Sang Cho Task B Đọc.",
+    "tip": "X-Com (Nối Mạng Chat Airflow) = Chỉ Gửi Mật Thư (Đường Link/Biến Nhỏ). CẤM NHÉT NGUYÊN CHIẾC XE TẢI DỮ LIỆU Đu Qua X-Com Làm Sập Ổ Cứng Nhạc Trưởng.",
+    "tags": ["airflow", "xcom", "anti-pattern", "best-practices"]
+  },
+  {
+    "id": "D4-008", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Khái niệm 'Sensor' (Cảm Biến) của Airflow có đặc tính 'Chờ Đợi' ưu việt hơn hẳn Lệnh Delay/Sleep Tĩnh Ở Đoạn Nào?",
+    "options": [
+      "A. Vẽ Ảnh Giao Diện",
+      "B. Dùng Sleep Cứ Khóa Chết Mạng",
+      "C. Thay Vì Bạn Bắt Pipeline 'Ngủ Đứng' (Sleep 5 Tiếng) Đợi Đứa Khác Cấp File. Sensor Dùng Thuật 'Thức Dậy Chớp Nhoáng' (Poke). Nó Chạy Lên Nhìn Coi Có File Chưa? Chưa Có -> Nó Đi Ngủ (Trả Lại CPU Cho Thằng Khác Xài). 5 Phút Sau Nó Thức Dậy Nhìn Lại. Đỡ Tốn Kẹt Tài Nguyên Ngâm Giấm 1 Lỗ.",
+      "D. Cảm Biến Ánh Sáng Màn Hình"
+    ],
+    "answer": 2,
+    "explanation": "Đợi File Từ Phòng Nhân Sự Đưa Chạy (Mà Tụi Nó Đưa Giờ Giấc Lúc Sáng Lúc Trưa Đéo Biết). Kỹ Sư Cắm 1 Cục Sensor (S3KeySensor). Cứ Cách 10 Phút Nó Thò Đầu Lên Dòm Thùng S3 Coi Có File Mới Lọt Vô Chưa, Có Phóng Chạy DAG Liền, Chưa Thì Thu Mạng Về. Tránh Code Treo Máy Treo CPU Căng Nảo Như Lệnh Hàm (Sleep).",
+    "tip": "Sensor Airflow = Thằng Lính Canh Ngủ Gật. 10 Phút Bật Dậy Ló Đầu Ra Dòm Coi Hàng (File) Về Chưa, Hàng Về Kích Chạy, Chưa Về Đi Ngủ Tiếp (Đỡ Hao Băng Mạng).",
+    "tags": ["airflow", "sensor", "operators"]
+  },
+  {
+    "id": "D4-009", "module": "D", "topic": "D4", "difficulty": "easy",
+    "question": "Công Cụ Fivetran (Thường Ghép Với Airflow/dbt) Là Một Giải Pháp Tiên Tiến Đỉnh Cao Làm Trùm Mảng EL (Extract - Load). Nó Cứu Lập Trình Viên Khỏi Ác Mộng Gì?",
+    "options": [
+      "A. Xóa Màu Khung Màn Hình",
+      "B. Code Game Java",
+      "C. THAY VÌ KỸ SƯ PHẢI NGỒI ĐỤC TỰ VIẾT CODE ĐỂ KÉO KẾT NỐI API CỦA FACEBOOK, SHOPEE, MYSQL (API Rất Dễ Đổi Báo Lỗi). FIVETRAN XÂY DỰNG SẴN CÁC ĐẦU NỐI (CONNECTORS) CHUẨN XỊN CHỈ BẰNG 3 CÚ CLICK CHUỘT LÀ DATA TỰ ĐỘNG CHẢY RÀO RÀO TỪ MỌI NGUỒN VỀ KHO CỦA BẠN (Cắm Phích Là Chạy).",
+      "D. Đổi Mã Đăng Nhập Điện Thoại"
+    ],
+    "answer": 2,
+    "explanation": "Viết Code Kéo Data Từ API Của Facebook Ads Cực Kỳ Chua (Tụi Nó Đổi Chuẩn Xác Thực Liên Tục Code Chết Mệt). Fivetran / Airbyte Bán Dịch Vụ SaaS: Bơm Tiền Cho Nó, Nhập Account FB Vào, Nhập Tên Data Warehouse Chỗ Khách. Đóng Khóa Mở Ống Nó Auto Chuyển Data Nhịp Nhàng Cực An Toàn. Khỏi Thuê Dev Tự Xây.",
+    "tip": "Fivetran/Airbyte (ETL Tools) = Bán Dây Ống Chuyển Cắm Sẵn Ổ Điện. Khỏi Tốn Máu Viết Code Nối API (Facebook, Salesforce) Cực Nhọc, Cắm Chuột Vô Là Nước Data Auto Chảy Mướt Mát Xuống Hồ.",
+    "tags": ["data-pipeline", "fivetran", "elt", "data-integration"]
+  },
+  {
+    "id": "D4-010", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Công cụ 'dbt' (Data Build Tool) Hiện Đang Làm Mưa Làm Gió Giới Data. Nó Giải Quyết Khâu Chữ T (Transform) Bằng THỨ NGÔN NGỮ KỲ DIỆU NÀO Lấy Cắp Hồn Của Tất Cả Dân Business?",
+    "options": [
+      "A. Ngôn Ngữ Hình Ảnh (Kéo Thả Kéo Lưới)",
+      "B. Ngôn Ngữ Python Khó Nhai Mức Cuối",
+      "C. KỸ SƯ CHỈ CẦN BIẾT VIẾT LỆNH 'SQL' CƠ BẢN. dbt Giúp Biến Mã SQL Đó Trở Thành Một Quy Trình Lập Trình Chuẩn (Có Test, Có Móc Nối Bảng Jinja). Giúp Đội Phân Tích (Data Analyst) Không Biết Python Vẫn Tự Tay Xào Nấu Dữ Liệu Dọn Rác Rào Rào Rực Rỡ.",
+      "D. Mã C++ Rườm Rà"
+    ],
+    "answer": 2,
+    "explanation": "Đời Cũ: Dọn Rác Đám Data Engineer Dùng Spark/Python Viết Dòng Chữ Nhức Đầu (Dân Báo Cáo Chịu Thua Không Can Thiệp Sửa Luật). dbt Sinh Ra Đảo Lộn: Anh Dân Kinh Tế Chỉ Cần Giỏi Lệnh Cấp SELECT SQL. Dbt Sẽ Nạp Lệnh SQL Của Anh Trộn Code (Macro Jinja) Kích Nó Chạy Thẳng Trực Tiếp Trên BigQuery Chà Xát Lọc Rác. Trả Quyền Nắm Lực Về Tay Dân Analysist.",
+    "tip": "dbt (Data Build Tool) = Thang Máy Đưa Dân Phân Tích Kém Python Lên Mây. Cho Phép Lấy Câu Lệnh SQL Bắn Phá Làm Transformation Dọn Rác Data Xịn Xò Chuyên Nghiệp Code Chuẩn Y Hệt Dân Kỹ Sư Cứng (Thằng Trùm Transform).",
+    "tags": ["data-pipeline", "dbt", "transformation", "sql"]
+  },
+  {
+    "id": "D4-011", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Trong Pipeline Dữ Liệu Thời Gian Thực (Streaming Pipeline Như Kafka -> Flink), Tại Sao Khái Niệm Lệch Nhịp Thời Gian Giữa 'Event Time' (Giờ Sự Kiện Rớt) Và 'Processing Time' (Giờ Cỗ Máy Bốc Xử Lý) Là Tử Huyệt Kinh Hoàng Gây Sai Lệch Thống Kê?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Dữ Liệu Ổ Kéo Góc Nhẹ Điểm Lệch Khung Hình Trụ",
+      "B. KHÁCH MUA HÀNG LÚC 12:00 (Event Time) NHƯNG ĐIỆN THOẠI MẤT MẠNG 3G NÊN HỆ THỐNG MÁY CHỦ BẠN CHƯA NHẬN. LÚC 12:05 KHÁCH VÀO WIFI, BẢN TIN BẮN LÊN SERVER, MÁY CHỦ HÚT VÀO XỬ LÝ (Processing Time). NẾU TÍNH DOANH THU THEO GIỜ PROCESSING (12:05), Bạn Đã Gây Lỗi Chậm Doanh Thu Vào Nhầm Khung Thống Kê Của Giờ Khác.",
+      "C. Đánh Băng Dày Đứt Rác Vở Tạp Loạn Phế Dấu Khúc Chóp",
+      "D. Sóng Chặn Nắn Mạch Quá Trễ Gây Xóa Hộp Điểm Máy Mờ Nền"
+    ],
+    "answer": 1,
+    "explanation": "Bài Toán Hắc Não Nhất Của Data Engineer Streaming (Watermark). Hàng Rớt Lúc Nào Thì Điểm Gắn Giờ Nước Sâu (Event). Hàng Chạy Vô Trễ Do Kẹt Xe Văng Tụt Nằm Xử Ở Mốc Sau (Processing). Phải Xài Windowing Rộng Rút Hạn Nạp Trễ Vớt Đủ Rác Mới Chốt Sổ Đặng Tránh Trả Về Con Số Báo Cáo Sai Cục Diện Rung Chấn Giám Đốc Nóng Mặt.",
+    "tip": "Event Time (Giờ Trọng Thương) vs Processing Time (Giờ Bác Sĩ Cấp Cứu Kẹp Kéo Chữa). Thằng Bị Lụi Dao 3 Tiếng Khuya (Event), 5 Sáng Mới Lết Vào Viện Cứu (Processing). Thống Kê Phải Gắn Tọa Độ Sát Nhân Vào Lúc 3 Tiếng Khuya Mới Chuẩn Hóa Trí Khôn Áp Chạm Khúc Nét Sự Đời Cảm Biến IOT Đứt Mạng Chuyển Đẩy Lùi Khúc.",
+    "tags": ["data-pipeline", "streaming", "event-time", "processing-time"]
+  },
+  {
+    "id": "D4-012", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Change Data Capture (CDC - Trích Xuất Bắt Biến Động Dữ Liệu) Tiêu Biểu Bằng Công Cụ Debezium, Rình Rập Và Hút Máu Dữ Liệu Bằng Cách Ký Sinh Đỉnh Chóp Nào Mà Không Hề Làm Chậm Database Gốc Của Cty?",
+    "options": [
+      "A. Nhét Code Python Vô Database Ám",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm",
+      "D. CẤM QUÉT LỆNH SELECT (SẼ LÀM NGHẼN BĂNG THÔNG DATABASE ĐANG BÁN HÀNG). CDC DEBEZIUM LẺN XUỐNG ĐỌC TRỘM CÁI CUỐN SỔ GHI NHẬT KÝ ĐÍCH DANH (TRANSACTION LOG / BINLOG Ở ĐÁY Ổ ĐĨA). HỄ CUỐN SỔ ĐÓ VỪA VẠCH THÊM 1 DÒNG GHI UPDATE GÌ, NÓ COPY DÒNG ĐÓ ĐẨY ĐI KAFKA. NHẸ TỰA LÔNG HỒNG KHÔNG MẤT 1 GIỌT RAM CỦA SERVER."
+    ],
+    "answer": 3,
+    "explanation": "Chiêu Cực Độc Của Data Pipeline Xịn. Đồng Bộ Dữ Liệu Liên Tục (Replication) Bằng Cách Gõ `SELECT *` Sẽ Vắt Kiệt Tủy CPU Gây Dừng Chết App Ứng Dụng Chứa. CDC Đọc Trộm Mẹ Nó Cái Log Phía Dưới Ổ Đĩa (Nơi Mà Thằng DB Bắt Buộc Phải Chép Sao Kê Hàng Chữ Chớp Nhoáng) Kích Kafka Bơm Thẳng Đi Đích Bơm Streaming Mượt Mã Xéo Không Sát Thương Nặng Tải Lên Phía Đầu Sóng Gọn Rác Đẹp Ngắn Tụ Bảng Vàng Chốt Cắt.",
+    "tip": "CDC (Debezium Tóm Sóng Thay Đổi Biên Biến): Kẻ Cắp Bơm Đáy Lặng Lẽ. Không Gõ SELECT Khùng Điên Nhai Ram. Chui Thẳng Đáy Bàn Gầm Ổ Đĩa Lọc Lấy Dòng Bút Sổ Lịch Sử (BinLog Nhật Ký Mới Viết Xong Lấy Rớt Cóp Bay Nhanh Nhẹ Tự Nhiên Không Gây Nghẽn Tắc Cổ Chai Hệ Thống Chính Gốc Tạp).",
+    "tags": ["data-pipeline", "cdc", "debezium", "database"]
+  },
+  {
+    "id": "D4-013", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Thuật Toán Tính 'Tải Trọng Trải Phẳng Chốt Rác' Trong Quá Trình Hút ETL Trượt Bằng UPSERT (Sáp Nhập Khớp Băng Nét Khuyết Lỗ) Là 1 Bước Thay Thế Giải Tòa Lệnh Đấm Nát Bể Chấm Gì So Với INSERT Truyền Thống Xóa Chướng Vi Khúc?",
+    "options": [
+      "A. Trống Bóng Rạch Điểm",
+      "B. UPSERT BẢN CHẤT LÀ NẾU CHƯA CÓ THÌ BƠM MỚI (INSERT) CÒN NẾU ĐÃ CÓ ID TỒN TẠI THÌ ĐÈ NÚT SỬA (UPDATE). MỘT MŨI TÊN TRÚNG 2 ĐÍCH VÉN CHẶN LỖI LẶP RÁC CHÌM ĐỤNG HÀNG TRÙNG LẶP SÚT BỂ RỐN BẢNG. CỨU KHỎI BỆNH CĂNG TRÀN VÙNG DỮ LIỆU ĐÚP BÁO CÁO NHÂN ĐÔI TRÁI PHÉP KHÓC BÊ TÔNG ĐÚC CHUẨN IDEMPOTENT (CHẠY 100 LẦN KẾT QUẢ KHÔNG PHÌNH).",
+      "C. Đổi Rỗng Bóng Khóa Xích Quét Trắng",
+      "D. Đóng Vi Rìa Điểm Tắt Cháy Chập Trục Nhòe Nẹt Cụt"
+    ],
+    "answer": 1,
+    "explanation": "Đẩy Khúc Dữ Liệu 10 Triệu Dòng Của Hôm Nay Lên Đích. Sợi Cáp Giữa Chừng Đứt Gãy Rớt Lại 3 Triệu Chạy Nối 2 Đầu. Nếu Lúc Chạy Lại Pipeline Đấm Nút Bơm Cũ Lệnh Dở Hơi INSERT Sẽ Sinh Rác (Nhồi Đứa Cũ Gấp 2, Tiền Gấp 2 Gây Cháy Báo Cáo Sếp Rớt Cổ Tức Nhầm Khủng Hoảng Lòi Trĩ). Lệnh UPSERT Bơm Ra Gặp Khóa ID Bảng Cũ Tồn Thì Cập Nhật Lớp Da Đè Không Xẻ, Khóa Chống Trùng Nổi Bọt Bóng Xà Phòng Lập Idempotent Nhanh Ác.",
+    "tip": "UPSERT (MERGE Xuyên Khúc Lồng Khớp Update+Insert) = Lá Chắn Đuổi Tạp Trùng (Duplicate). Có Hàng Nằm Sẵn Thì Sửa Cập Nhật Da Mặt. Không Có Hàng Trống Không Thì Nhét Nạp Thẳng Xóa Đứt Bệnh Bơm Trùng Tiền Lặp Cọc Oan Thảm Họa.",
+    "tags": ["data-pipeline", "upsert", "merge", "idempotency"]
+  },
+  {
+    "id": "D4-014", "module": "D", "topic": "D4", "difficulty": "easy",
+    "question": "Trong Hệ Sinh Thái Orchestrator Bóp Luồng DAG Sóng Ngoài Lão Làng Khủng Long Airflow Nổi Tiếng Mới Đây Bật Sáng Ngôi Sao Thế Hệ Mới Khắc Chế Lập Trình Linh Hoạt Dẻo Dao Vượt Áp Cung Đỉnh Vịn Trụ (Phục Sinh Bằng Công Nghệ Data Động) Tên Bảng Khảm Là Gì?",
+    "options": [
+      "A. Microsoft Word",
+      "B. PREFECT VÀ DAGSTER. NẾU AIRFLOW LÀ CÚ ĐẤM TÙ TÚNG DO SƠ ĐỒ DAG DÁN CỨNG (KHÔNG TRUYỀN DATA RẢNH TAY GIỮA CÁC TASK NHẸ LƯỚT NƯỚC). THÌ DAGSTER/PREFECT TIẾN HÓA KHÁI NIỆM TRUYỀN LỆNH LINH ĐỘNG NHƯ CODE PYTHON THÔNG THƯỜNG TRUYỀN BIẾN DATA FRAME BÉ BÉ QUA LẠI ÊM ÁI CHẠY THOÁNG SERVER KHÔNG BỊ TRÓI KẸT GÔNG CÙM GỈ MÒN TRỤ TRẮNG LÕI TRƯỚC HẸN KHÓC ĐAU.",
+      "C. Facebook",
+      "D. Google Maps"
+    ],
+    "answer": 1,
+    "explanation": "Airflow Chạy Rất Ngu Khâu Mở Động (Kẹt Lệnh Render Template XCom Lòi Bụng Chết Ốm Khó Test Local Khốc Liệt Trói Đùi Tụt Phân). Dagster Điểm Sáng Trọng Tâm Lập Asset-based Xoay Quanh Quản Trị Cục Data Bảng Data Rõ Rành Hơn Chấm Tọa Độ Phụ Thuộc Code Tác Vụ Cứng Họng Rạc Gân (Nâng Cấp Đời Sau Nhạc Trưởng Tinh Gọn Ánh Sáng Xanh Kế Cận Siêu Tốc Thay Máu Tương Lai Bới Lợi Điểm Dân Mới Python Rẽ Đỉnh Code Quẩy Dễ Hơn).",
+    "tip": "Đấu Thần Của Airflow (Đời 2.0 Đuổi Bóp Gắn Đích Rẽ) = Dagster & Prefect. Viết Code DAG Nhẹ Nhàng Mượt Trơn Đỡ Bó Cứng Rập Khuôn Ép Buộc Sắt Bọc Cổ Họng Thắt Kẹt Lỗi Mù XCom Thủng Mòn Ám Sóng Mờ Như Thằng Airflow.",
+    "tags": ["data-pipeline", "orchestration", "airflow-alternatives", "dagster", "prefect"]
+  },
+  {
+    "id": "D4-015", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Tính Đột Phá Hồ Chứa Dữ Liệu Tạm Staging Layer Trước Khi Ráp Biến Lọc Cặn Bã Data Đích Chống Bão Tại Sao Luôn Bị Khuyến Khích Đặt Chốt Ở Mọi Kiến Trúc Data Pipeline (Nơi Rác Được Đổ Ngồi Lót Sân Phơi)?",
+    "options": [
+      "A. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "B. KHI BƠM TỪ NGUỒN (DATABASE XA CÁCH API ĐANG BÁN HÀNG VĂN PHÒNG), NẾU VỪA KÉO VỪA LÀM SẠCH TRANSFORMATION GIỮA CHỪNG TRÊN KHÔNG (IN-MEMORY TRONG PIPELINE), RÚT LỆCH HÚT CHẬM LÀM TREO API SỤP DATABASE NGUỒN RĂNG RẮC KẸT. LƯU BÃI ĐÁP STAGING LÀ NHẮM MẮT KÉO COPY RAW 100% CỤC RÁC SẦN SÙI THẬT NHANH RA KHỎI NGUỒN CỨU RỖI DB GỐC THOÁT NGHẼN, SAU ĐÓ Ở VÙNG STAGING MÌNH THA HỒ NHẨN NHA MỔ XẺ CHÀ XÁT CODE RỬA THÚI VỪA CHẾ BẾP VỪA RẢNH TAY LỘT ĐÚC LỖI TÙY THÍCH MÀ KHÔNG GÂY ẢNH HƯỞNG API KẸT MÀN HÌNH AI CẢ.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Tới Vườn Người Ta Vừa Hái Táo Vừa Gọt Vỏ Ngay Dưới Gốc Gây Ách Tắc Đám Đông Đang Mua Táo (Nghẽn Lòi Database Ứng Dụng Hứng Phạt Đền Tiền Sập Web). Súc 1 Mớ Táo Trái Thùng Ném Lên Xe Về Tận Bãi Khỏ Staging Của Mình (Bãi Đáp Rác), Ở Chỗ Kho Nhà Đất Cty Tha Hồ Nấu Nướng Nện Chặt Gọt Ép Tùy Thích Rải Bơm Kho Đích Cuối Không Ảnh Hưởng Đám Bán Hàng Trạm Nguồn Cứu Tải Chớp Lửa Kéo Ác Nét Khẽ Vuốt Hầm Khối Áp Ác Trống Sứt.",
+    "tip": "Staging Layer (Bãi Trạm Tập Kết Hứng Rác Tạm): Kéo Nhanh Vác Trộm Toàn Bộ Hàng Rác Nguyên Gốc Về Ném Bãi Phơi Rảnh Tay Này Trước (Để Thả Nút Nghẽn Cho Thằng Nguồn Khỏi Sập Chết Dọc Mất Tải). Rồi Ở Đất Nhà Mình Này Đẩy Máy Xay Làm Sạch (Transform) Từ Từ Lấy Số Cất Đích Cứu Sóng Rủi Ro.",
+    "tags": ["data-pipeline", "staging-layer", "etl", "architecture"]
+  },
+  {
+    "id": "D4-016", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Bài Toán Gây Vỡ Đầu Bể Chén Ngành Bơm Dữ Liệu Dính Bão Tuyết 'Data Skew' (Lệch Nền Trọng Tâm Quá Tải Cục Bộ Lõm Phẳng 1 Bên Máy Góc Điếc Băng Chuyền). Hiện Tượng Quái Đản Nào Xảy Ra Khóc Thét Giữa Cụm Server Pipeline Đang Đẩy Rác Tính Toán Gộp Cụm Tải Xé Băng Xích Nặng Cân Đóng Gục Chết Lầm Than Trục Rỗng Vỡ Lở Hình Nhòe Giao Dịch?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. MỘT HỆ THỐNG CÓ 10 MÁY SERVER (WORKERS) CHẠY TÍNH TOÁN BÌNH ĐẲNG CHIA TÁCH THEO THEO KHÓA (GROUP BY QUỐC GIA). XÚI QUẨY 90% KHÁCH HÀNG LÀ TỪ NƯỚC 'MỸ'. DẪN TỚI 9 CÁI MÁY CÒN LẠI VỪA CHẠY XONG ĐÃ NGỒI RẢNH HÁNG RUNG ĐÙI UỐNG TRÀ CHỜ, NHƯNG DUY NHẤT 1 CÁI MÁY ÔM CHỮ MỸ THÌ BỊ NGHẸN CHỨT CỨNG DATA TRÀN RAM NỔ QUẠT CHẠY 3 NGÀY ĐÉO XONG. PIPELINE PHẢI ĐỢI CÁI MÁY LẾT CHẬM NHẤT NÀY SỤP ĐỔ GÃY TẮC NGHẼN BÁO CÁO CÀNH CHỚP LỘT MẢNG.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Chiêu Độc Ám Ảnh Data Cụm Server (Hadoop/Spark Dính Đòn Kẹp Cứng). Rải Việc Cho 10 Đứa Bốc Gạch Nhưng Áp Khóa Key Quá Lệch (Key Nằm Tụ Dồn Cục 1 Đống Ở Đứa A Mặc Đeo Tạ 10 Tấn Chết Trọng, 9 Đứa Kia Bốc Nhẹ Tênh Xong Ngồi Đợi Tốn Lương Treo Máy Lỗ Thời Gian Ốm Óc). Bơm Salt (Muối Đổi Mật Cấu Tán Đều Random) Để Rải Khối Nặng Ép Cháy Ác Điểm Chốt Ngắn Khối Cong Xé Vang Tháo Góc Đụt Máy Phình RAM Chạm Chết Cột Áo Trục Khía Lọc.",
+    "tip": "Data Skew (Lệch Ác Tải Trọng Đổ Cục Đẩy Máy Tự Đứng Lấp Nứt Chết Nén Tràn Oom): Chia Đội Hình 10 Máy Nhưng Có Đúng 1 Thằng Ôm 90% Dữ Liệu Rác Lỗi Vì Tụ Tập Key Trùng Khớp Lớn Gắn Nhãn Đông. Thằng Đó Sập Máy Ốm Kéo Lệnh Toàn Hệ Thống Gãy Giao Thông Bóp Băng Chuyền Nát Móc Lõi (Phải Phá Băng Thêm Salt Rải Trọng).",
+    "tags": ["data-pipeline", "data-skew", "distributed-computing", "performance"]
+  },
+  {
+    "id": "D4-017", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Tính Năng Retries (Chạy Kéo Bù Thử Nhồi Nhịp Gượng Sống Lại) Kèm Trị Số Lợi Đỉnh Vua Nghề Móc Ép Vịn Thang Lên Của Exponential Backoff (Cơ Chế Lùi Bước Lũy Thừa Bùng Nhùng Cứu Ngạt Ác Cột Thẳng Chống Kẹt Rập Giật Chập Sóng) Áp Dụng Lợi Điểm Cứu Giá Sập Nguồn Căng Server Bằng Đạo Khí Lệnh Kích Nào?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép Giao Đứt Mạch Rung Tâm Bản Báo Tụ Gắn Sợi Thẳng",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. NẾU PIPELINE BỊ LỖI (VÍ DỤ GỌI API ĐANG SẬP TRẠNG THÁI 500), NẾU ĐÁM LẬP TRÌNH CODE RETRY ĐẬP NÚT LIÊN TỤC 100 LẦN TRONG 1 GIÂY SẼ LÀM API ĐỐI TÁC NGẬP LỤT DDOS CHẾT LUÔN CẢ WEB. EXPONENTIAL BACKOFF GẮN LUẬT 'CHỜ KHÔN NGOAN': THẤT BẠI 1-> CHỜ 2S GỌI LẠI. THẤT BẠI 2-> LUI RA CHỜ 4S MỚI GỌI LẠI. THẤT BẠI 3-> CHỜ KÉO DÀI 8S. (Bỏ Cơn Điên Kích Xả Súng Ngập Server).",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 2,
+    "explanation": "Chiêu Thức Chống Tranh Giành DDoS Cứu Mạng Xanh Sống Ngưng Thở Lỗi Đau Mỏi Hóc Ống Lòi Ruột. Web API Gốc Đang Bị Lag Bóp Thở Quá Tải Hút Cụt. Đám Bơm Rác Data Rớt Máy Văng Lệnh Nhào Vô Nhấn Cố Liên Hoàn Gây Sụp Gãy Hoàn Toàn Ổ DB Nguồn Sập App Hóa Rác Bốc Đục Khói Chết App Dịch Vụ Mảng To. Cấp Bách Lùi Dây Trễ Giãn Băng Cước Thu Bớt Nhịp Kéo Ác Góc Nới Dãn Từ Từ Thời Gian Thở Khớp Cứu Mạng Đỡ Nát Óc Dội Gãy Cột Hình Chớp.",
+    "tip": "Exponential Backoff (Chiêu Lùi Nhịp Hô Hấp Kéo Lũy Thừa Chống Bấm Phím Tự Sát DDos Bắn Mỏi). API Lỗi Cúp Máy Khỏi App. Mày Gọi Chậm Lại, Dãn Giãn Khoảng Cách Giờ Đi Ngủ 2s->4s->8s Tránh Ngu Khủng Nhồi Đạn Cháy Băng Thằng Nguồn Lạc Nét Khống Lỗ Cụt Chết Chìm.",
+    "tags": ["data-pipeline", "exponential-backoff", "retries", "resilience"]
+  },
+  {
+    "id": "D4-018", "module": "D", "topic": "D4", "difficulty": "hard",
+    "question": "Tính Chất Gỡ Cầu Hỏng Mòn Mỏi Dò Data Quality Checks (Rào Chắn Lưới Lọc Cặn Kiểm Dịch Test Mẫu Độc) Như Vị Vua Chóp Cứu Rỗi Mù Khuyết Gì Áp Ngay Liền Đặt Ở Giao Đoạn Bơm Gửi Data Lên Gác (Warehouse Đích) Ép Rõ Nghĩa Loại Bỏ Bóng Đen Đâm Sau Lưng Gây Điếc Nhòe Báo Cáo Khớp Hàng Giám Đốc Phanh Phui Hỏng Cục Rớt?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. CHẶN ĐỨNG THẢM HỌA 'GARBAGE IN - GARBAGE OUT' (RÁC VÀO RÁC RA BÁO CÁO). PIPELINE KHÔNG THỂ CỨ CHẠY XONG COPY TRÓT LỌT LÀ BÁO 'SUCCESS' (Kệ Mẹ Cột Số Tiền Bị Âm Hoặc 99% Cột Khách Hàng Bị Trống Null Đứt Gãy Do Nguồn Đổi Giao Diện). KHỐI TEST CHẶN LẠI VẠCH ĐO 'CỘT DOANH THU CÓ BỊ < 0 KHÔNG? CÓ VƯỢT LỆCH DỊ DẠNG ĐỘC TRÙNG KÉP DUP KHÔNG?'. CÓ 1 LỖI DỊ THƯỜNG -> NHẤN NÚT HỦY DỪNG NGAY BÁO ĐỘNG HÚ CÒI KHÔNG CHO ĐỔ CỨT LÊN SÀN KHO BI (Nơi Giám Đốc Nhìn Số).",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm Sợi Đút Phim Lồi Nứt Ngắn Sóng Mờ Vỡ Rìa Đỏ Độc Gấp Cuộn Bẻ Nhàu Nhăn Vạch Ổ Lệch Áp Cong Nẹp Kẹt Bóng Khép",
+      "D. Đổi Giao Dính Vi Trùng Nước Cản Cắt Đỉnh Tạp Đóng Cưa Hụt Lưới Ảm Bóng Cắn Phím Lốc"
+    ],
+    "answer": 1,
+    "explanation": "Đỉnh Cao Đẳng Cấp Data Engineer Chênh Dân Amatuer. Chạy Pipeline Xong App Chữ Vàng Success Mừng Khấp Khởi Kệ Con Báo Cáo Mai Tính Âm Tiền Sập Cổ Phiếu Vỡ Sổ 100 Tỷ. Test Data Quality (Great Expectations Dbt Test) Cắm Đo Đếm Đủ Thể Loại Độ Rỗng Lệch Băng Vượt Chỉ Tiêu. Thà Dừng Rớt Máy Báo Lỗi Fail Trực Tràng Chặn Nước Cống Dơ Đổ Ra Bảng Dashboard Nắm Tóc CEO Tránh Vượt Ngã Ngừa Thống Kê Oan Góc Phá Gây Ảm Đạm Cháy Két Ổ Phế Vi Khúc Vành.",
+    "tip": "Data Quality Test (Trạm Gác Diệt Kiểm Dịch Chặn Rác Giả Chạy Cứt Nhầm): Code Success Nhưng Hàng Trong Bụng Toàn Cứt (Lỗi Âm Tiền, Rỗng 100%). Thà Chặn Máy Đứng Kéo Còi Đỏ Hú Báo Động, Còn Hơn Vớt Đám Cứt Đó Bơm Sạch Lên Kho Để Sáng Mai Giám Đốc Coi Tưởng Báo Cáo Chữ Vàng Ảo Làm Lạc Trôi Định Hướng Lỗ Nặng Xé Nét Sấp Dấu Lệch.",
+    "tags": ["data-pipeline", "data-quality", "testing", "great-expectations"]
+  },
+  {
+    "id": "D4-019", "module": "D", "topic": "D4", "difficulty": "easy",
+    "question": "Tính Năng 'Alerting' (Bắn Pháo Kêu Cứu Oa Oa) Thường Được Gắn Trực Kèm Ngay Cửa Họng Báo Tử Gì Trên Dây Chuyền Băng Ráp Data Pipeline Cho Dân Cày Kỹ Sư Kho Lập Bắn Kín Đội Dev Nhanh Tay Lọc Vết Nối Cột Lụi Nguồn Gỡ Lực Rắn Sứt Răng Chết Ám?",
+    "options": [
+      "A. GHI NHẬN TÍN HIỆU ĐÁY HỒ RỚT MẠNG API, SẬP DATA TÌM KHÔNG THẤY FILE CHẠY KẾT QUẢ ĐẦU VÀO, HÀM ĐO ĐẾM RÁC QUALITY RỚT TÉ. HỆ THỐNG AIRFLOW / ĐỐI TÁC NGAY TẮP LỰC ĐÁNH LỆNH GỬI THƯ CẤP CỨU SLACK/ZALO MÀU ĐỎ QUÉT ĐÍCH DANH ĐỂ ANH ENGINEER 3 GIỜ SÁNG DẬY MỞ MÁY SỬA LẠI ĐƯỜNG ỐNG KHÔNG ĐỂ ĐẾN SÁNG MANG NHỤC BÁO CÁO CTY ĐỨT RỖNG ĐẾN TAY KẾ TOÁN VÔ SỐ LIỆU ĐỌC BÀI ĐUỔI VIỆC.",
+      "B. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 0,
+    "explanation": "Cài Hẹn Giờ 2h Khuya Chạy Đổ Cóp Lấy Rác (Mạng Yên Vắng Khách Hàng Tránh Nghẽn Lòi Ống Web Gốc Cty). Dân Data Kỹ Sư Đang Ngủ Ngon Cúp Cầu Dao. Hụt File Mạng API Lắc Quá Kẹt Gãy Chớp Failed. Nếu Không Alert Đánh Thức Slack Véo Nét Góc Ngắn Gấp Cứu. Sáng Lên Công Ty Cả Đám Tài Chính Marketing Bấm Web Phân Tích Dashboard Nhìn Đóng Gạch Không Cứt Số Báo Cáo Doanh Thu Qua Chốt Thủng Ám Vướng. Mất Việc Ăn Chửi Tại Trận Rớt Mặt (Chữa Cấp Cứu Lẽ Đứt Giấc 3 Tiếng Cắm Trực).",
+    "tip": "Alerting Slack (Lệnh Hú Còi Báo Động 3H Sáng Tắt Nút Lỗi Failed Airflow Cháy Web Khóc Ống): Kéo Chú Lên Mạng Mắt Nhắm Mở Bấm Sửa DB Liền Chớp Nhoáng Cứu Chữa Hồi Tố Lên Nước Kho Chữ Để Mai Sáng Sếp Kế Toán Coi Khỏi Ăn Cơm Gạch Thải Nát Góc Cú Pháo Nổ Ngáo Việc.",
+    "tags": ["data-pipeline", "alerting", "monitoring", "operations"]
+  },
+  {
+    "id": "D4-020", "module": "D", "topic": "D4", "difficulty": "medium",
+    "question": "Tính Chất Chia Luồng Fan-Out Khét Bảng Phân Tách Máy Máng Bơm Gắn Lạc Đầu Dây Sóng Ở Quá Trình Nhạc Trưởng Airflow Kéo Kế Hoạch Chạy Xuyên Đâm Thủng Điểm Sóng Nối Hàng Lô DAG Làm Trống Tải Vi Nhanh Điểm Thời Gian Lạc Bóng Kép Nát Là Nhờ Cái Tuyệt Chiêu Gì Vẽ Sơ Đồ Code Mở Góc?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. CHIA NHÁNH SỰ KIỆN SONG SONG (PARALLEL EXECUTION). TÁC VỤ 1 (LẤY FILE MỸ) VÀ TÁC VỤ 2 (LẤY FILE ANH) KHÔNG LIÊN QUAN RÀNG BUỘC KẾT QUẢ GÌ NHAU -> KẾT NỐI MŨI TÊN CHỈ CODE CHẠY SONG SONG TRÊN 2 MÁY CÙNG 1 LÚC THAY VÌ BẮT THẰNG NÀY HÁ MỒM CHỜ THẰNG KIA CHẠY XONG MỚI ĐƯỢC CHẠY THEO KIỂU NỐI ĐUÔI TÚM RỄ CHUỖI NHAI RÁC TUẦN TỰ NGU SI CỔ LỖ CHẬM ĐIẾC NÃO ỐNG CẦU RÃ XƯƠNG DỰNG CHỜ RỤNG NHIỆT.",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa Vệt Tím Rạch Ám Khung Gập Cong Chạm",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Code Luồng Rác Yếu Trói Lạc `Task_A >> Task_B >> Task_C` Nối Dây Liên Tiếp Thằng Sau Phải Há Đợi Thằng Trước Ngốn Lỗ Tốn Khúc Rác Rảnh Háng Chạy Điếc Mỏi Nước Nóng Tuôn Lề Chậm Máy (Mất 3 Giờ). Nếu Task B và C Vô Can, Bung Gắn Dây `Task_A >> [Task_B, Task_C]` Chạy Song Song Phóng Sát Nát Văng Điểm Server Cắt Đuôi Đi Đỡ Chờ Xóa Tốn Gian. Tăng Tốc Xé Gió Tiết Kiệm Gấp Bội Óc Góc Phân.",
+    "tip": "Fan-Out Airflow (Bung Mũi Tên Tỏa Nhánh Rút Trọng Song Song): Thằng B Và C Không Nợ Nần Cứt Tắm Đụng Kết Quả Nhau Thì Code Nhả Sóng Bắt Chạy Cùng Lúc Lồng Khúc Vang 1 Phút Nhanh Rẽ Thay Vì Đứng Đợi Tuần Tự A-B-C Cà Lết Rùa Ngáp Dài Chỉnh Giấc Nóng Đít Kéo Ảm Bụi Nén Xé Băng Xích Áp Khung Nát Trục Bẻ Hụt Dò Kẹt Vành Oan Lấp Gấp.",
+    "tags": ["data-pipeline", "airflow", "parallel-execution", "dag-design"]
+  }
+]

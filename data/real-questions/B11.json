@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B11-001", "module": "B", "topic": "B11", "difficulty": "easy",
+    "question": "Regular Expression (Regex/Regexp) là gì?",
+    "options": [
+      "A. Một ngôn ngữ lập trình trí tuệ nhân tạo",
+      "B. Một cấu trúc dữ liệu",
+      "C. Một chuỗi các KÝ TỰ ĐẶC BIỆT được dùng để TÌM KIẾM (Matching), trích xuất hoặc thay thế các MẪU (Pattern) chuỗi phức tạp trong văn bản.",
+      "D. Một phương thức bảo mật mật khẩu"
+    ],
+    "answer": 2,
+    "explanation": "Regex là 'bùa chú' mạnh nhất để xử lý Text. Thay vì viết 20 dòng `if else` dài dòng để kiểm tra xem một chuỗi có phải số điện thoại hợp lệ hay không, bạn chỉ cần gõ 1 dòng bùa chú Regex `^\\d{10,11}$`.",
+    "tip": "Regex (Biểu thức chính quy) = Cỗ máy siêu tốc tìm kiếm/nhận diện Mẫu Chữ (Pattern) trong đống văn bản khổng lồ.",
+    "tags": ["regex", "basics"]
+  },
+  {
+    "id": "B11-002", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Trong Regex, ký hiệu `\\d` đại diện cho điều gì?",
+    "options": [
+      "A. Một ký tự khoảng trắng (Space/Tab/Newline)",
+      "B. Bất kỳ MỘT chữ số (digit) nào từ 0 đến 9",
+      "C. Xóa chuỗi",
+      "D. Ký tự chữ cái từ a đến z"
+    ],
+    "answer": 1,
+    "explanation": "`\\d` (viết thường) là Digit (Số: 0-9). Ngược lại, `\\D` (viết HOA) nghĩa là KHÔNG PHẢI SỐ (có thể là chữ, khoảng trắng, dấu chấm phẩy...).",
+    "tip": "`\\d` = Số (Digit). `\\w` = Chữ, Số và Dấu gạch dưới (Word). `\\s` = Khoảng trắng (Space).",
+    "tags": ["regex", "metacharacters", "digits"]
+  },
+  {
+    "id": "B11-003", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Cặp ký tự mỏ neo (Anchors) `^` và `$` trong Regex có nhiệm vụ gì?",
+    "options": [
+      "A. Nhân đôi chuỗi",
+      "B. Bỏ qua phân biệt hoa/thường",
+      "C. Đánh dấu VỊ TRÍ ĐẦU CHUỖI (`^`) và CUỐI CHUỖI (`$`)",
+      "D. Đánh dấu chữ cái in hoa"
+    ],
+    "answer": 2,
+    "explanation": "Nếu bạn tìm Regex `apple`, nó sẽ khớp với 'apple', 'pineapple' và 'applepie'. Nếu bạn viết `^apple$`, nó BẮT BUỘC toàn bộ cái chuỗi đó phải BẮT ĐẦU BẰNG 'a' và KẾT THÚC NGAY LẬP TỨC ở chữ 'e'. Tức là nó chỉ khớp với chữ 'apple' đứng trơ trọi 1 mình.",
+    "tip": "`^` = Bắt đầu chuỗi. `$` = Kết thúc chuỗi. Nhớ câu: 'Mũ chóp đầu (`^`), Tiền ($) để đuôi'.",
+    "tags": ["regex", "anchors", "metacharacters"]
+  },
+  {
+    "id": "B11-004", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Định lượng từ (Quantifiers) `*`, `+` và `?` khác nhau như thế nào về số lần xuất hiện?",
+    "options": [
+      "A. Không khác biệt",
+      "B. `*` (0 hoặc nhiều), `+` (1 hoặc nhiều), `?` (0 hoặc 1 lần)",
+      "C. `*` (chỉ 1), `+` (chỉ 2), `?` (chỉ 3)",
+      "D. Phép nhân, phép cộng, và phép hỏi"
+    ],
+    "answer": 1,
+    "explanation": "Giả sử bạn có Regex `colou?r`. Dấu `?` làm cho chữ `u` có thể Có (colour) hoặc Không Có (color), đều match. Dấu `+` thì ký tự đó BẮT BUỘC phải xuất hiện ÍT NHẤT 1 LẦN.",
+    "tip": "`*` = Dễ dãi (Sao cũng được). `+` = Khắt khe (Ít nhất phải có 1). `?` = Tùy chọn (Có thì tốt, không có không sao).",
+    "tags": ["regex", "quantifiers"]
+  },
+  {
+    "id": "B11-005", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "Trong Regex, Ký tự Dấu Chấm (`.`) có quyền năng gì ĐẶC BIỆT?",
+    "options": [
+      "A. Chỉ đại diện cho dấu chấm câu",
+      "B. Khớp với khoảng trắng",
+      "C. Là một Thẻ Bí (Wildcard) khớp với BẤT KỲ ký tự nào trên đời (Chữ, số, ký hiệu), NGOẠI TRỪ ký tự xuống dòng (\\n)",
+      "D. Xóa dòng đó"
+    ],
+    "answer": 2,
+    "explanation": "Biểu thức `h.t` sẽ khớp với 'hot', 'hat', 'h_t', 'h9t'. Nếu bạn muốn TÌM KIẾM ĐÚNG một Dấu chấm thật (ví dụ trong địa chỉ IP `192.168.1.1`), bạn phải Vô hiệu hóa quyền năng của nó bằng Dấu gạch chéo ngược (Escape): `\\.`, nếu không nó sẽ khớp bậy bạ.",
+    "tip": "Dấu chấm `.` = Lá bài ma thuật (Khớp mọi thứ trừ enter xuống dòng). Muốn tìm dấu chấm thật phải dùng `\\.`.",
+    "tags": ["regex", "wildcard", "dot"]
+  },
+  {
+    "id": "B11-006", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "Tính chất 'Tham lam' (Greedy) của định lượng từ `*` và `+` có nghĩa là gì?",
+    "options": [
+      "A. Nó ngốn rất nhiều RAM máy tính",
+      "B. Nó luôn tìm kiếm MỘT CHUỖI DÀI NHẤT CÓ THỂ để thỏa mãn mẫu, đôi khi nuốt luôn cả phần văn bản không mong muốn.",
+      "C. Nó ưu tiên các ký tự in hoa",
+      "D. Nó thay đổi file gốc"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Có chuỗi HTML `<div>Code</div><div>AI</div>`. Mẫu `<.+>` sẽ không bắt chữ `<div>` đầu tiên. Vì `.+` tham lam, nó bắt 'phàm ăn' 1 lèo từ dấu `<` đầu tiên đến tận dấu `>` ở CUỐI CÙNG của câu. Để làm nó Hết tham lam (Lazy/Non-greedy), phải chèn thêm dấu `?` thành `<.+?>`.",
+    "tip": "Mặc định Regex rất Tham lam (Greedy). Muốn nó Bớt tham lam lại (Lazy) -> Thêm dấu hỏi chấm `?` vào sau `*` hoặc `+`.",
+    "tags": ["regex", "greedy", "lazy"]
+  },
+  {
+    "id": "B11-007", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Cú pháp `[a-zA-Z0-9]` đại diện cho một Lớp ký tự (Character Class). Nó sẽ khớp (match) với điều gì?",
+    "options": [
+      "A. Một chuỗi có chính xác 62 ký tự",
+      "B. Khớp với ĐÚNG MỘT ký tự bất kỳ, miễn là ký tự đó thuộc bảng chữ cái tiếng Anh (hoa hoặc thường) hoặc là chữ số.",
+      "C. Khớp với từ 'a-zA-Z0-9'",
+      "D. Báo lỗi do không có dấu phẩy"
+    ],
+    "answer": 1,
+    "explanation": "Dấu ngoặc vuông `[...]` mang nghĩa LỰA CHỌN. Dù bên trong có 1000 điều kiện, nó cũng chỉ bắt ra ĐÚNG 1 KÝ TỰ tại một thời điểm. Dấu gạch ngang `-` tạo ra Dải (Range). Ở đây nó tương đương hoàn toàn với `\\w` (nhưng không bao gồm dấu gạch dưới).",
+    "tip": "Ngoặc vuông `[ ]` = Vườn Bách Thú. Chọn ra 1 con vật bất kỳ nằm trong vườn.",
+    "tags": ["regex", "character-classes", "ranges"]
+  },
+  {
+    "id": "B11-008", "module": "B", "topic": "B11", "difficulty": "easy",
+    "question": "Dấu ngoặc đơn `(...)` được gọi là Capture Group (Nhóm Bắt Lại) có nhiệm vụ gì?",
+    "options": [
+      "A. Viết ghi chú",
+      "B. Gom nhóm các biểu thức lại với nhau và LƯU TRỮ (Ghi nhớ) đoạn text khớp với nhóm đó vào bộ nhớ để trích xuất sau này.",
+      "C. Tạo khoảng trắng",
+      "D. Xóa văn bản"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Cần tách Mã vùng và Số đuôi của ĐT `(024)-1234567`. Dùng Regex `\\((\\d{3})\\)-(\\d+)`. Khi đó, Group 1 sẽ chứa chữ '024', Group 2 chứa chữ '1234567'. Trong Python, bạn gọi `match.group(1)` để lấy trực tiếp mã vùng ra xài, cực mạnh.",
+    "tip": "Ngoặc đơn `( )` = Nhốt tù (Capture). Nhốt đoạn text đó lại để xách đi nơi khác xài.",
+    "tags": ["regex", "capture-group"]
+  },
+  {
+    "id": "B11-009", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "Cú pháp Lookahead Tích cực (Positive Lookahead) `(?=...)` hoạt động như thế nào?",
+    "options": [
+      "A. Đảo ngược chuỗi chữ cái",
+      "B. Nó chỉ NGÓ/NHÌN VỀ PHÍA TRƯỚC để KIỂM TRA ĐIỀU KIỆN (phải có ký tự này thì mới khớp), nhưng KHÔNG HỀ TIÊU THỤ (consume) hay bắt lấy ký tự đó vào kết quả.",
+      "C. Nó thay thế chuỗi bằng chữ mới",
+      "D. Nó chỉ dùng để đổi chữ hoa"
+    ],
+    "answer": 1,
+    "explanation": "Lookahead là ma thuật. Ví dụ Regex `Apple(?= Store)`: Nó sẽ tìm kiếm chữ 'Apple', nhưng CHỈ MATCH nếu đằng sau chữ đó CÓ chữ ' Store' (như Apple Store, không bắt Apple Pie). Khi match, kết quả thu được CHỈ LÀ chữ 'Apple' dài 5 ký tự. Đoạn ' Store' chỉ làm điều kiện, không bị 'nuốt' vào kết quả.",
+    "tip": "Lookahead `(?=...)` = Trinh sát. Ngó ra đằng trước xem có địch không, thấy thì báo chứ không bắn chết địch.",
+    "tags": ["regex", "lookahead", "advanced"]
+  },
+  {
+    "id": "B11-010", "module": "B", "topic": "B11", "difficulty": "easy",
+    "question": "Thư viện mặc định nào trong Python được dùng để làm việc với Regular Expression?",
+    "options": [
+      "A. regex",
+      "B. pandas",
+      "C. re",
+      "D. urllib"
+    ],
+    "answer": 2,
+    "explanation": "Thư viện built-in `re` (viết tắt của regular expression). Bạn import nó bằng lệnh `import re`. Các hàm phổ biến là `re.search()`, `re.findall()`, `re.sub()` (thay thế).",
+    "tip": "Làm việc với Regex trong Python -> Gõ ngay `import re`.",
+    "tags": ["python", "re", "regex"]
+  },
+  {
+    "id": "B11-011", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Định dạng tệp tin CSV (Comma Separated Values) có đặc điểm cấu trúc như thế nào?",
+    "options": [
+      "A. Mã hóa nhị phân chỉ đọc được bằng Python",
+      "B. Là một tệp văn bản THUẦN TÚY (Plain text), lưu dữ liệu dạng bảng, trong đó mỗi dòng là 1 bản ghi, các cột (trường) được NGĂN CÁCH nhau bởi dấu PHẨY (hoặc chấm phẩy).",
+      "C. Có thể chứa ảnh và video",
+      "D. Lưu dưới dạng cấu trúc cây lồng nhau (Tree)"
+    ],
+    "answer": 1,
+    "explanation": "Vì là file văn bản thuần túy (Mở bằng Notepad đọc ngon ơ), CSV siêu nhẹ và là định dạng trao đổi dữ liệu bảng (Tabular data) số 1 hành tinh. Tuy nhiên, CSV không lưu được KIỂU DỮ LIỆU (dtype), lúc đọc lên ta dễ nhầm chuỗi '01' thành số `1`.",
+    "tip": "CSV = Dữ liệu Bảng (Giống Excel) nhưng siêu nhẹ, không có màu mè, chỉ là chữ và Dấu phẩy ngăn cách.",
+    "tags": ["file-formats", "csv", "tabular"]
+  },
+  {
+    "id": "B11-012", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "JSON (JavaScript Object Notation) lưu trữ dữ liệu dưới cấu trúc nào?",
+    "options": [
+      "A. Lưới đa chiều giống Ma trận toán học",
+      "B. Chuỗi văn bản thuần túy dựa trên các cặp KEY-VALUE (Khóa-Giá trị) và Mảng (Arrays), rất giống cấu trúc của Dictionary và List lồng nhau trong Python.",
+      "C. File nén nén Zip",
+      "D. Cơ sở dữ liệu SQL thu nhỏ"
+    ],
+    "answer": 1,
+    "explanation": "JSON hoàn toàn linh hoạt. Khác với CSV ép mọi dòng phải có số cột như nhau, JSON cho phép một User có thuộc tính 'Vợ', còn User khác thì không. JSON sinh ra cho Web và là cấu trúc dữ liệu NoSQL chuẩn mực.",
+    "tip": "JSON = Chữ. Nhưng cấu trúc của nó đọc y chang Dictionary (Key-Value) của Python.",
+    "tags": ["file-formats", "json", "key-value"]
+  },
+  {
+    "id": "B11-013", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "Khi xử lý Big Data, tại sao các tập đoàn chuộng lưu dữ liệu bằng định dạng PARQUET thay vì CSV?",
+    "options": [
+      "A. Vì Parquet có logo đẹp hơn",
+      "B. Parquet lưu trữ dữ liệu theo HÀNG, CSV lưu theo CỘT",
+      "C. Parquet là định dạng lưu trữ theo CỘT (Columnar), áp dụng các thuật toán NÉN KHỦNG KHIẾP (Snappy/Gzip) trên từng cột, đọc cực nhanh cho các truy vấn phân tích (OLAP) và GHI NHỚ Kiểu dữ liệu (Schema).",
+      "D. Parquet dễ dàng đọc/sửa bằng ứng dụng NotePad"
+    ],
+    "answer": 2,
+    "explanation": "Nếu CSV là xe đạp, thì Parquet là tên lửa. CSV đọc chậm, phình to ổ cứng, làm mất type (Date thành String). Parquet (thường dùng chung với Hadoop/Spark) nén file 100GB xuống 10GB, nhớ từng cột là Int hay Timestamp, và cho phép bỏ qua (Skip) những cột không truy vấn tới. Điểm trừ: Không mở bằng Notepad đọc được (Định dạng nhị phân).",
+    "tip": "Parquet = Lưu theo Cột, Nén siêu nhỏ, Đọc siêu nhanh (Chân ái của Big Data). Bù lại: Mở bằng Notepad ra toàn mã vạch lạ.",
+    "tags": ["file-formats", "parquet", "big-data"]
+  },
+  {
+    "id": "B11-014", "module": "B", "topic": "B11", "difficulty": "easy",
+    "question": "YAML (.yml) thường được dùng vào MỤC ĐÍCH chính là gì trong các hệ thống phần mềm?",
+    "options": [
+      "A. Lưu trữ mã nguồn (Source Code)",
+      "B. Lưu trữ Video",
+      "C. Viết các file CẤU HÌNH (Configuration files) cho Docker, Kubernetes, CI/CD vì nó ĐỌC CỰC KỲ DỄ (Human-readable), không cần dùng Dấu ngoặc nhọn `{}` như JSON.",
+      "D. Tính toán Ma trận AI"
+    ],
+    "answer": 2,
+    "explanation": "YAML (YAML Ain't Markup Language) sử dụng THỤT LỀ (Indentation - giống Python) để biểu diễn cấp bậc lồng nhau thay cho các dấu `{ }` và `\" \"` chi chít của JSON. Nó cho phép viết Bình luận (Comment). Rất được dân DevOps/AI chuộng để setup môi trường.",
+    "tip": "YAML = Viết file Cấu hình cực nhanh, cực đẹp bằng cách Thụt Lề (Giống hệt cách Python code).",
+    "tags": ["file-formats", "yaml", "config"]
+  },
+  {
+    "id": "B11-015", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Đặc điểm CỐT LÕI của định dạng Pickle (.pkl) trong Python là gì?",
+    "options": [
+      "A. Tương thích với Java, C#, PHP",
+      "B. Là định dạng mã hóa hình ảnh",
+      "C. Là cơ chế 'Tuần tự hóa' (Serialization) giúp ĐÓNG GÓI ĐÔNG LẠNH mọi cấu trúc Object phức tạp CỦA RIÊNG PYTHON (ví dụ Mô hình AI Scikit-learn, Hàm, Class) xuống đĩa cứng để tái sử dụng sau.",
+      "D. Nó là định dạng an toàn tuyệt đối, chống virus"
+    ],
+    "answer": 2,
+    "explanation": "Bạn train xong con AI hết 10 tiếng, ra được cục Model. Bạn dùng lệnh `pickle.dump()` để lưu con AI xuống ổ cứng thành file `.pkl`. Mai mốt làm Web, chỉ cần `pickle.load()` là load lại y chang bộ não con AI. Nhược điểm: Chỉ Python đọc được, và chứa rủi ro RCE (Thực thi mã độc) nếu tải file pickle bậy bạ trên mạng.",
+    "tip": "Pickle = Đông lạnh (Serialize) mọi Object/Model của Python xuống ổ cứng. Rã đông lúc nào cũng được.",
+    "tags": ["file-formats", "python", "pickle", "serialization"]
+  },
+  {
+    "id": "B11-016", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "AVRO là một định dạng file Big Data (khá giống Parquet). Nhưng điểm KHÁC BIỆT LỚN NHẤT giữa Avro và Parquet là gì?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Avro lưu dữ liệu theo HÀNG (Row-based) cực kỳ thân thiện với thao tác Ghi Dữ Liệu (Write/Append) liên tục, cùng khả năng Schema Evolution mạnh mẽ. Parquet lưu theo CỘT, thân thiện cho việc Đọc/Phân tích (Read).",
+      "C. Avro chỉ lưu ảnh",
+      "D. Avro là file text"
+    ],
+    "answer": 1,
+    "explanation": "Kiến trúc hệ thống chuẩn: Dữ liệu bay vào liên tục từ Kafka -> Lưu dưới dạng AVRO (Lưu hàng ngang chèn vào siêu lẹ). Ban đêm chạy Batch Processing xử lý -> Lưu báo cáo cuối cùng vào PARQUET (Lưu cột để ban ngày sếp query nhanh).",
+    "tip": "Avro = Ghi (Write) nhanh như điện (Lưu theo Hàng). Parquet = Đọc (Read/Query) siêu tốc (Lưu theo Cột).",
+    "tags": ["file-formats", "avro", "big-data", "row-based"]
+  },
+  {
+    "id": "B11-017", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "HDF5 (.h5, .hdf5) là định dạng file khét tiếng trong giới Khoa học và Deep Learning. Khả năng đặc biệt của nó là gì?",
+    "options": [
+      "A. File cực nhẹ dưới 1MB",
+      "B. Lưu trữ hàng chục Cấu trúc Dữ liệu số học N-Chiều KẾCH XÙ (Numpy Arrays, Tensor) theo kiểu cấu trúc Thư Mục (như hệ thống File ảo) bên trong chỉ 1 tệp tin duy nhất, tối ưu I/O.",
+      "C. Có thể chạy ngay trên trình duyệt web",
+      "D. Tự động viết báo cáo"
+    ],
+    "answer": 1,
+    "explanation": "Khi bạn lưu một Mô hình mạng Neural Network (Deep Learning) khổng lồ của Keras/TensorFlow (chứa hàng trăm lớp, chục triệu trọng số weights/biases), người ta dùng file `.h5`. Nó giống như một cái đĩa cứng ảo, nén cực tốt các ma trận số siêu to.",
+    "tip": "HDF5 (.h5) = Chiếc USB nén không gian. Chuyên để nhét các Ma trận N-chiều (Trọng số Mô Hình AI) khổng lồ vào.",
+    "tags": ["file-formats", "hdf5", "deep-learning"]
+  },
+  {
+    "id": "B11-018", "module": "B", "topic": "B11", "difficulty": "easy",
+    "question": "File `.env` trong các dự án lập trình chứa thông tin gì?",
+    "options": [
+      "A. Chứa các file ảnh giao diện Web",
+      "B. Chứa mã nguồn biên dịch từ C++",
+      "C. Chứa CÁC BIẾN MÔI TRƯỜNG (Environment Variables) cực kỳ nhạy cảm như Mật khẩu Database, Secret Keys, API Tokens...",
+      "D. Chứa log lỗi hệ thống"
+    ],
+    "answer": 2,
+    "explanation": "Vì chứa các thông tin nhạy cảm định tuyến theo từng máy (Máy Dev xài pass Dev, Máy Pro xài pass Pro), file `.env` KHÔNG BAO GIỜ được đẩy (commit) lên Git công khai (Bắt buộc phải nhét vào `.gitignore`).",
+    "tip": "File `.env` = Cầm chìa khóa két sắt. BẤT TỬ phải giấu nó (cho vào .gitignore), lộ là bị Hacker rút trộm tiền ngay.",
+    "tags": ["file-formats", "env", "security"]
+  },
+  {
+    "id": "B11-019", "module": "B", "topic": "B11", "difficulty": "hard",
+    "question": "Encoding UTF-8 là chuẩn mã hóa ký tự phổ biến nhất. Tại sao việc mở file CSV bằng Excel hay bị Lỗi Font (ra các ký tự ô vuông, dấu hỏi chấm lạ)?",
+    "options": [
+      "A. Vì Excel bị virus",
+      "B. Vì file CSV thường được xuất mặc định bằng chuẩn UTF-8, nhưng các bản Microsoft Excel (đặc biệt bản cũ) cố gắng đọc file đó bằng chuẩn ANSI/Windows-1252 (Bảng mã truyền thống).",
+      "C. Vì file quá nặng",
+      "D. Do máy tính thiếu Card đồ họa"
+    ],
+    "answer": 1,
+    "explanation": "UTF-8 sinh ra để biểu diễn mọi ngôn ngữ trên Trái Đất (Tiếng Việt, Trung, Ả Rập, Emoji). Excel Mỹ mặc định nó đọc theo chuẩn của Mỹ hồi xưa. Sự 'Lệch pha' (Encoding Mismatch) làm các byte tạo ra dấu sắc huyền hỏi ngã của tiếng Việt bị dịch sai thành ký tự rác. Trong Python, nhớ ghi rõ `pd.read_csv('a.csv', encoding='utf-8-sig')`.",
+    "tip": "Lỗi Font chữ vuông/dấu hỏi = 100% do Lệch chuẩn Mã Hóa (Encoding mismatch). Giải pháp: Đóng đinh chuẩn `utf-8` hoặc `utf-8-sig` (cho Excel).",
+    "tags": ["file-formats", "encoding", "utf-8", "troubleshooting"]
+  },
+  {
+    "id": "B11-020", "module": "B", "topic": "B11", "difficulty": "medium",
+    "question": "Định dạng ảnh TIFF (so với JPEG hay PNG) thường được dân Data Science Y Tế và Không Gian ưa chuộng vì lý do gì?",
+    "options": [
+      "A. Ảnh nhẹ nhất",
+      "B. File ảnh lưu trữ không nén (Lossless) ở độ sâu pixel rất cao (16-bit, 32-bit), giữ lại NGUYÊN BẢN dữ liệu khoa học thuần túy (Mức độ bức xạ, nhiệt độ) mà không làm hỏng data gốc.",
+      "C. Ảnh tự động chuyển thành video",
+      "D. Hỗ trợ âm thanh"
+    ],
+    "answer": 1,
+    "explanation": "JPEG sử dụng thuật toán Nén Mất Dữ Liệu (Lossy). Nó làm mờ các chi tiết nhỏ để giảm dung lượng file (Mắt thường nhìn không thấy). Trong phân tích tế bào Ung thư hay Vệ tinh, làm mờ dữ liệu là thảm họa. TIFF giữ nguyên toàn bộ giá trị thực của các pixel.",
+    "tip": "Hình AI Y Tế / Không Gian -> Không bao giờ xài JPEG (Mất dữ liệu, làm mờ). Phải dùng TIFF/DICOM để bảo toàn mọi giá trị đo lường.",
+    "tags": ["file-formats", "image-formats", "data-science"]
+  }
+]

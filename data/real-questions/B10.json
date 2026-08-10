@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B10-001", "module": "B", "topic": "B10", "difficulty": "easy",
+    "question": "Thư viện Data Visualization (Vẽ biểu đồ) nền tảng và lâu đời nhất trong hệ sinh thái Python là gì?",
+    "options": [
+      "A. Seaborn",
+      "B. Plotly",
+      "C. Matplotlib",
+      "D. Bokeh"
+    ],
+    "answer": 2,
+    "explanation": "Matplotlib là 'ông tổ' của hầu hết các thư viện vẽ biểu đồ trong Python. Mặc dù cú pháp của nó khá dài dòng và rườm rà, nó cung cấp khả năng tinh chỉnh (customize) tới từng điểm ảnh nhỏ nhất.",
+    "tip": "Matplotlib = Nền móng. Các thư viện khác (như Seaborn) đều xây dựng dựa trên Matplotlib.",
+    "tags": ["visualization", "matplotlib"]
+  },
+  {
+    "id": "B10-002", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Sự khác biệt cốt lõi giữa `matplotlib.pyplot` (State-based) và Object-Oriented (OO) API trong Matplotlib là gì?",
+    "options": [
+      "A. Không có khác biệt",
+      "B. pyplot gọi lệnh vẽ trực tiếp lên một biểu đồ 'vô hình' hiện tại (giống MATLAB). OO API yêu cầu bạn phải tạo tường minh đối tượng Figure (khung tranh) và Axes (trục tọa độ) rồi gọi hàm vẽ lên các đối tượng đó.",
+      "C. OO API chỉ vẽ đồ thị 3D",
+      "D. pyplot chạy nhanh hơn"
+    ],
+    "answer": 1,
+    "explanation": "Dùng `plt.plot()` rất nhanh cho biểu đồ nháp 1 hình. Nhưng khi muốn vẽ 4 biểu đồ con (sub-plots) phức tạp, bạn BẮT BUỘC phải dùng OOP: `fig, ax = plt.subplots(2,2)`, sau đó gọi `ax[0,0].plot(...)` để kiểm soát chính xác vẽ cái gì vào ô nào.",
+    "tip": "Vẽ nháp = `plt.plot()`. Vẽ chuyên nghiệp/phức tạp = `fig, ax = plt.subplots()` (Object-Oriented).",
+    "tags": ["visualization", "matplotlib", "oop"]
+  },
+  {
+    "id": "B10-003", "module": "B", "topic": "B10", "difficulty": "easy",
+    "question": "Seaborn là một thư viện vẽ biểu đồ thống kê rất mạnh. Mối quan hệ của nó với Matplotlib là gì?",
+    "options": [
+      "A. Đối thủ cạnh tranh trực tiếp, không liên quan gì nhau",
+      "B. Seaborn được xây dựng TRÊN NỀN TẢNG của Matplotlib, giúp việc vẽ các biểu đồ thống kê phức tạp trở nên dễ dàng và đẹp mắt hơn chỉ với 1 dòng code.",
+      "C. Nó là một thư viện của ngôn ngữ R chuyển sang",
+      "D. Chỉ vẽ được bản đồ"
+    ],
+    "answer": 1,
+    "explanation": "Seaborn bọc (wrapper) Matplotlib lại. Nó làm sẵn các theme (màu sắc) rất đẹp và tích hợp sâu với Pandas DataFrame. Bạn có thể dùng hàm của Matplotlib (như `plt.title()`) để tinh chỉnh thêm cho biểu đồ của Seaborn.",
+    "tip": "Seaborn = Matplotlib đã được make-up đẹp đẽ và tự động hóa các hàm thống kê phức tạp.",
+    "tags": ["visualization", "seaborn", "matplotlib"]
+  },
+  {
+    "id": "B10-004", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Loại biểu đồ nào TỐT NHẤT để hiển thị SỰ PHÂN PHỐI (Distribution) của một biến liên tục (Ví dụ: Sự phân bố độ tuổi từ 1 đến 100 của 10,000 khách hàng)?",
+    "options": [
+      "A. Pie Chart (Biểu đồ tròn)",
+      "B. Bar Chart (Biểu đồ cột)",
+      "C. Histogram (Biểu đồ tần suất) hoặc KDE Plot",
+      "D. Line Chart (Biểu đồ đường)"
+    ],
+    "answer": 2,
+    "explanation": "Histogram chia dữ liệu liên tục thành các khoảng (Bins) - VD: từ 10-20 tuổi có 50 người, 20-30 tuổi có 200 người, và vẽ các cột sát nhau. Nó giúp ta nhìn thấy dáng của dữ liệu (Lệch trái, Lệch phải, Phân phối chuẩn chuông).",
+    "tip": "Xem Phân phối/Tập trung (Distribution) -> Luôn xài Histogram hoặc KDE (đường cong).",
+    "tags": ["visualization", "histogram", "distribution"]
+  },
+  {
+    "id": "B10-005", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Trong Boxplot (Biểu đồ hộp), hai đường râu (Whiskers) và các điểm chấm (Dots) nằm ngoài râu thể hiện ý nghĩa thống kê gì?",
+    "options": [
+      "A. Các điểm chấm là giá trị trung bình",
+      "B. Các điểm chấm là các Giá trị ngoại lai (Outliers) - những số liệu bất thường cách quá xa phần đông dữ liệu. Hộp thể hiện khoảng Tứ phân vị (IQR) chứa 50% dữ liệu ở giữa.",
+      "C. Các điểm chấm là lỗi hệ thống (Bug)",
+      "D. Thể hiện mật độ dữ liệu"
+    ],
+    "answer": 1,
+    "explanation": "Boxplot là vua trong việc tìm kiếm Outlier (VD: 99 người có lương 10 triệu, bỗng lọt vào 1 ông tỷ phú lương 10 tỷ). Ông tỷ phú đó sẽ biến thành 1 dấu chấm (Outlier) nằm tít mù tắp ngoài đường râu (râu thường kéo dài = 1.5 * IQR).",
+    "tip": "Boxplot = Cỗ máy quét rác (Dò tìm Outlier / Giá trị dị biệt).",
+    "tags": ["visualization", "boxplot", "outliers"]
+  },
+  {
+    "id": "B10-006", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Loại biểu đồ nào TỐT NHẤT để tìm SỰ TƯƠNG QUAN (Correlation) giữa HAI biến số liên tục (Ví dụ: Chiều cao và Cân nặng có đi liền với nhau không)?",
+    "options": [
+      "A. Scatter Plot (Biểu đồ phân tán)",
+      "B. Pie Chart",
+      "C. Histogram",
+      "D. Bar Chart"
+    ],
+    "answer": 0,
+    "explanation": "Scatter Plot vẽ 1 biến ở trục X, 1 biến ở trục Y. Mỗi dữ liệu (1 người) là 1 điểm. Nếu các điểm xếp thành một đường chéo đi lên, ta kết luận X và Y có Tương quan thuận (Thu nhập tăng thì Chi tiêu tăng).",
+    "tip": "Mối quan hệ giữa 2 con số (Tương quan) -> Chấm chấm chấm (Scatter Plot).",
+    "tags": ["visualization", "scatter-plot", "correlation"]
+  },
+  {
+    "id": "B10-007", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Biểu đồ đường (Line Chart) thường ĐƯỢC ƯU TIÊN SỬ DỤNG NHẤT khi trục X (trục hoành) biểu diễn đại lượng nào?",
+    "options": [
+      "A. Tên quốc gia",
+      "B. Thời gian (Time-series như Ngày, Tháng, Năm)",
+      "C. Giới tính (Nam, Nữ)",
+      "D. Tên sản phẩm"
+    ],
+    "answer": 1,
+    "explanation": "Line chart chuyên dùng để thể hiện Xu hướng (Trend) thay đổi qua thời gian. Mắt người sẽ dễ dàng thấy được sự đi lên/đi xuống (đỉnh/đáy) của dữ liệu chứng khoán, nhiệt độ, hay doanh thu. Nếu trục X là Danh mục (Categorical) thì Bar Chart phù hợp hơn.",
+    "tip": "Trend theo thời gian (Time-Series) -> Line Chart (Đường).",
+    "tags": ["visualization", "line-chart", "time-series"]
+  },
+  {
+    "id": "B10-008", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Tại sao các chuyên gia Data Viz thường KHUYÊN TRÁNH SỬ DỤNG Pie Chart (Biểu đồ tròn) đặc biệt khi có quá nhiều phần (nhiều hơn 5)?",
+    "options": [
+      "A. Vì nó chạy chậm",
+      "B. Vì mắt con người cực kỳ kém trong việc so sánh kích thước GÓC và DIỆN TÍCH. Rất khó để phân biệt một lát cắt 20% và một lát cắt 22%. (Bar chart làm tốt hơn nhiều).",
+      "C. Vì thư viện Python vẽ hình tròn bị méo",
+      "D. Vì nó tốn bộ nhớ"
+    ],
+    "answer": 1,
+    "explanation": "Nếu bạn vẽ biểu đồ Bar (Cột), mắt người so sánh chiều dài cực tốt. Nhưng với biểu đồ Tròn (Góc), nếu không ghi rõ con số %, bạn sẽ không biết miếng 20% hay miếng 23% to hơn. Pie chart chỉ tốt khi có 2-3 phần (VD: Nam vs Nữ). Đỉnh cao của sự tồi tệ là 3D Pie Chart.",
+    "tip": "Quy tắc vàng: Tránh Pie Chart (Tròn) nếu có nhiều hơn 3-4 mục. Hãy chuyển sang Bar Chart (Cột ngang).",
+    "tags": ["visualization", "pie-chart", "best-practices"]
+  },
+  {
+    "id": "B10-009", "module": "B", "topic": "B10", "difficulty": "easy",
+    "question": "Thư viện nào dưới đây nổi tiếng về việc tạo ra các biểu đồ TƯƠNG TÁC ĐƯỢC (Interactive - zoom in, hover chuột hiện số, pan) trên nền tảng Web?",
+    "options": [
+      "A. Matplotlib",
+      "B. Pandas",
+      "C. Plotly (hoặc Bokeh)",
+      "D. NumPy"
+    ],
+    "answer": 2,
+    "explanation": "Matplotlib/Seaborn sinh ra các bức ảnh tĩnh (PNG/SVG). Plotly và Bokeh sử dụng JavaScript dưới nền (như D3.js) để tạo ra các đồ thị HTML tương tác cực mạnh, là lựa chọn số 1 khi làm Dashboard báo cáo cho sếp.",
+    "tip": "Vẽ ảnh tĩnh nhét vô Word = Seaborn/Matplotlib. Vẽ Dashboard cho Sếp tương tác (Di chuột, Zoom) = Plotly.",
+    "tags": ["visualization", "plotly", "interactive"]
+  },
+  {
+    "id": "B10-010", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Heatmap (Bản đồ nhiệt) thường được sử dụng phổ biến nhất trong Machine Learning để trực quan hóa Ma trận nào?",
+    "options": [
+      "A. Ma trận hiệp phương sai",
+      "B. Ma trận Tương quan (Correlation Matrix) giữa tất cả các đặc trưng (Features) để xem biến nào có quan hệ mạnh với nhau",
+      "C. Ma trận dữ liệu Text",
+      "D. Ma trận ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Hàm `sns.heatmap(df.corr())` là một phần không thể thiếu của bước làm sạch dữ liệu (EDA). Nó dùng dải màu (đậm/nhạt) để báo hiệu các biến bị tương quan tuyến tính quá mạnh (Multicollinearity), giúp Kỹ sư loại bỏ bớt biến thừa trước khi đưa vào mô hình AI.",
+    "tip": "Heatmap + Tương quan (Correlation) = Cặp bài trùng để dọn rác dữ liệu (Feature Selection).",
+    "tags": ["visualization", "heatmap", "correlation"]
+  },
+  {
+    "id": "B10-011", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Khái niệm 'Anscombe's quartet' (Bộ tứ Anscombe) trong Data Visualization chứng minh điều gì?",
+    "options": [
+      "A. Rằng AI sẽ thay thế con người",
+      "B. Rằng có 4 loại biểu đồ duy nhất trên đời",
+      "C. Dữ liệu dù có các chỉ số thống kê (Mean, Variance, Correlation) GIỐNG HỆT NHAU, nhưng khi VẼ RA BIỂU ĐỒ (Visualize) thì hình dạng lại hoàn toàn khác biệt. Do đó, KHÔNG BAO GIỜ được chỉ tin vào các con số thống kê mà bỏ qua việc vẽ hình.",
+      "D. Rằng dữ liệu lớn tốn 4 lần bộ nhớ"
+    ],
+    "answer": 2,
+    "explanation": "Anscombe tạo ra 4 tập dữ liệu X, Y. Nếu bấm máy tính tính Trung bình, Phương sai, Tương quan... cả 4 tập này cho ra kết quả i chang nhau (VD R=0.816). Nhưng khi dùng Scatter Plot vẽ ra: Tập 1 là đường thẳng, Tập 2 là đường cong Parabol, Tập 3 có 1 Outlier khủng khiếp phá hỏng mô hình. Đây là lời cảnh tỉnh lịch sử về sự cần thiết của Vẽ biểu đồ.",
+    "tip": "Anscombe's quartet: Con số thống kê có thể nói dối, nhưng hình vẽ thì không. LUÔN LUÔN vẽ dữ liệu ra trước khi train Model.",
+    "tags": ["visualization", "anscombes-quartet", "statistics"]
+  },
+  {
+    "id": "B10-012", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Biểu đồ Cột chồng (Stacked Bar Chart) dùng để làm gì?",
+    "options": [
+      "A. Hiển thị dữ liệu không gian",
+      "B. So sánh TỔNG SỐ của các nhóm, đồng thời xem xét TỶ TRỌNG thành phần (Part-to-whole) bên trong mỗi nhóm đó.",
+      "C. Vẽ đồ thị chứng khoán",
+      "D. Tìm Outliers"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ: Cột Doanh thu năm 2023 cao hơn năm 2024. Bên trong thân cột 2023 chia làm 3 đoạn màu đại diện cho 3 nước (VN, US, UK). Nhìn 1 phát ta thấy được cả 2 thông tin: Tổng năm nào lớn hơn, và nước nào đóng góp nhiều nhất trong năm đó.",
+    "tip": "Stacked Bar = Vừa so Tổng thể (Độ cao cột), vừa soi Chi tiết (Độ dài từng cục màu).",
+    "tags": ["visualization", "bar-chart"]
+  },
+  {
+    "id": "B10-013", "module": "B", "topic": "B10", "difficulty": "easy",
+    "question": "Chức năng của tham số `hue` (ví dụ `sns.scatterplot(x='A', y='B', hue='Category')`) trong thư viện Seaborn là gì?",
+    "options": [
+      "A. Làm mờ hình ảnh",
+      "B. Đổi phông chữ",
+      "C. Phân loại (Tô màu) các điểm dữ liệu DỰA THEO MỘT BIẾN THỨ 3 (phân nhóm Categorical), tự động tạo thêm chú giải (Legend).",
+      "D. Xóa các điểm có giá trị Null"
+    ],
+    "answer": 2,
+    "explanation": "Rất quyền lực! ScatterPlot bình thường vẽ x, y chỉ có 1 màu xanh dương. Thêm `hue='Giới Tính'`, Seaborn sẽ tự tô màu Đỏ cho Nữ, màu Xanh cho Nam, giúp ta phân tích được mối quan hệ X, Y ở 2 phân khúc khách hàng khác nhau.",
+    "tip": "`hue` trong Seaborn = Tự động tô màu chia phe (Grouping/Clustering) siêu mượt.",
+    "tags": ["visualization", "seaborn", "hue"]
+  },
+  {
+    "id": "B10-014", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Pairplot (`sns.pairplot()`) trong Seaborn tạo ra cái gì?",
+    "options": [
+      "A. Một cặp 2 biểu đồ so sánh",
+      "B. Biểu đồ hình tổ ong",
+      "C. Một LƯỚI (Grid) các biểu đồ phân tán (Scatter Plot) cho TẤT CẢ các cặp biến số trong DataFrame, cùng với biểu đồ phân phối (Histogram) ở đường chéo chính.",
+      "D. Bản đồ địa lý"
+    ],
+    "answer": 2,
+    "explanation": "Được coi là 'chiêu cuối' khi Exploratory Data Analysis (EDA). Chỉ với 1 dòng code, nếu DataFrame có 5 biến số, nó vẽ một ma trận 5x5 = 25 biểu đồ, giúp bạn scan nhanh toàn bộ quan hệ của tập dữ liệu.",
+    "tip": "`sns.pairplot(df)` = Chiêu thức dọn mâm 1 phát xem hết mối quan hệ của mọi cặp con số trong cái bảng.",
+    "tags": ["visualization", "seaborn", "pairplot"]
+  },
+  {
+    "id": "B10-015", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Biểu đồ Bong bóng (Bubble Chart) thực chất là sự nâng cấp của Scatter Plot. Nó thêm chiều dữ liệu (Dimension) thứ 3 bằng cách nào?",
+    "options": [
+      "A. Thay đổi Hình dạng (Vuông, Tròn, Tam giác)",
+      "B. Bằng cách thay đổi KÍCH THƯỚC (Diện tích) của các điểm bong bóng tương ứng với giá trị của biến thứ 3",
+      "C. Bằng cách xoay biểu đồ 3D",
+      "D. Bằng cách thêm hiệu ứng chớp tắt"
+    ],
+    "answer": 1,
+    "explanation": "Scatter Plot biểu diễn X (GDP) và Y (Tuổi thọ). Nếu muốn thêm biến thứ 3 là Z (Dân số), ta thiết lập size bong bóng = Dân số. Trung Quốc, Ấn Độ sẽ là những quả bong bóng khổng lồ so với các nước khác. (Có thể kết hợp thêm màu sắc để tạo thành 4 chiều dữ liệu).",
+    "tip": "Bubble Chart = Scatter Plot + Size (Đại diện cho biến thứ 3). Dễ nhìn hơn biểu đồ 3D rất nhiều.",
+    "tags": ["visualization", "bubble-chart"]
+  },
+  {
+    "id": "B10-016", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Thực hành Kém (Bad Practice): Trục Y bị cắt bớt (Truncated Y-axis) trong Bar Chart (Biểu đồ Cột) gây ra hậu quả gì?",
+    "options": [
+      "A. Báo lỗi khi chạy code",
+      "B. Làm méo mó tỷ lệ trực quan, khiến sự khác biệt (Dù Rất Nhỏ 1-2%) trông có vẻ KHỔNG LỒ (Đánh lừa thị giác người xem). Trục Y của Bar Chart bắt buộc phải bắt đầu từ số 0.",
+      "C. Làm hình ảnh tốn dung lượng",
+      "D. Dữ liệu tự động biến đổi"
+    ],
+    "answer": 1,
+    "explanation": "Nếu cột A cao 100, cột B cao 102. Chênh nhau 2%. Nếu ta bắt đầu trục Y từ số 0, hai cột trông gần bằng nhau (Sự thật). Nếu kẻ xấu cắt trục Y bắt đầu từ số 99, thì trên hình vẽ, Cột B (chiều cao 3) sẽ trông cao GẤP 3 LẦN Cột A (chiều cao 1), đánh lừa sếp hoặc dư luận.",
+    "tip": "Quy tắc đạo đức: Biểu đồ Cột (Bar Chart) LÚC NÀO cũng phải mọc lên từ số KHÔNG (0).",
+    "tags": ["visualization", "best-practices", "misleading"]
+  },
+  {
+    "id": "B10-017", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Biểu đồ Violin (Violin Plot) là sự kết hợp của 2 loại biểu đồ nào?",
+    "options": [
+      "A. Bar Chart + Line Chart",
+      "B. Scatter Plot + Histogram",
+      "C. Boxplot (Biểu đồ hộp) + KDE Plot (Mật độ hạt nhân)",
+      "D. Pie Chart + Bubble Chart"
+    ],
+    "answer": 2,
+    "explanation": "Violin Plot có lõi ở giữa là một cái Boxplot thu nhỏ (chỉ ra Min, Max, Outliers, Median). Bao bên ngoài lõi đó là hình dạng của đường cong Mật độ (KDE), phình to ở nơi có nhiều dữ liệu, thóp lại ở nơi có ít, nhìn giống hình cây đàn Violin.",
+    "tip": "Violin Plot = Boxplot lai với KDE. Cung cấp thông tin phong phú hơn Boxplot rất nhiều (Thấy được cả 2 đỉnh dữ liệu).",
+    "tags": ["visualization", "violin-plot"]
+  },
+  {
+    "id": "B10-018", "module": "B", "topic": "B10", "difficulty": "easy",
+    "question": "Trong Python Pandas, làm sao để vẽ NHANH một biểu đồ cột từ DataFrame `df` (có 2 cột 'Month' và 'Sales') mà không cần import thư viện khác?",
+    "options": [
+      "A. df.create_bar('Month', 'Sales')",
+      "B. matplotlib(df)",
+      "C. df.plot(kind='bar', x='Month', y='Sales')",
+      "D. show_chart(df)"
+    ],
+    "answer": 2,
+    "explanation": "Pandas đã tích hợp sẵn Matplotlib vào trong object DataFrame dưới hàm `.plot()`. Đây là cách nhanh nhất để vẽ nháp ngay lập tức mà không cần rườm rà.",
+    "tip": "Pandas có thể tự đẻ ra biểu đồ. Xài `df.plot(kind='bar/line/hist/scatter')` để xem nhanh dữ liệu.",
+    "tags": ["visualization", "pandas"]
+  },
+  {
+    "id": "B10-019", "module": "B", "topic": "B10", "difficulty": "hard",
+    "question": "Treemap (Bản đồ cây) dùng ĐƯỜNG NÉT/HÌNH KHỐI nào để biểu diễn phân cấp (Hierarchy) và độ lớn của dữ liệu?",
+    "options": [
+      "A. Các hình tròn lồng vào nhau",
+      "B. Các hình Chữ Nhật lồng vào nhau, trong đó Diện Tích (Area) tỷ lệ thuận với giá trị biến số.",
+      "C. Các cành cây phân nhánh",
+      "D. Lưới 3D"
+    ],
+    "answer": 1,
+    "explanation": "Treemap (thường vẽ bằng Plotly) là một hình chữ nhật lớn (Ví dụ: Ngân sách Quốc gia). Nó bị chia thành các hình chữ nhật nhỏ hơn (Y tế, Giáo dục, Quốc phòng). Y tế lại bị chia nhỏ thành (Bệnh viện, Thuốc). Nhìn vào diện tích ô nào to nhất, ta biết tiền chảy đi đâu nhiều nhất. Rất đẹp và tiết kiệm không gian.",
+    "tip": "Treemap = Cắt cái Bánh hình chữ nhật thành các hình chữ nhật nhỏ. Rất hợp để thay thế Pie Chart khi có hàng chục Hạng mục phân cấp lồng nhau.",
+    "tags": ["visualization", "treemap"]
+  },
+  {
+    "id": "B10-020", "module": "B", "topic": "B10", "difficulty": "medium",
+    "question": "Định dạng màu sắc RGBA và RGB khác nhau ở ký tự 'A' (Alpha). Thuộc tính Alpha trong biểu đồ dùng để làm gì?",
+    "options": [
+      "A. Tăng độ bão hòa (Saturation)",
+      "B. Đổi màu sang Trắng Đen",
+      "C. Điều chỉnh độ TRONG SUỐT (Transparency/Opacity) của điểm dữ liệu",
+      "D. Đổi hệ tọa độ"
+    ],
+    "answer": 2,
+    "explanation": "Khi bạn dùng Scatter Plot vẽ 100,000 điểm, chúng sẽ chồng chéo lên nhau thành một cục đen xì (Overplotting). Khi set thuộc tính `alpha=0.1` (10% độ đậm), các điểm sẽ trong suốt. Vùng nào có nhiều điểm đè lên nhau, màu mới đậm lên. Rất tốt để trị Overplotting.",
+    "tip": "Thuộc tính `alpha` (0 đến 1) = Độ trong suốt. Chống kẹt xe màu sắc khi vẽ quá nhiều chấm lên biểu đồ.",
+    "tags": ["visualization", "color", "alpha", "overplotting"]
+  }
+]

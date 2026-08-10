@@ -1,0 +1,207 @@
+[
+  {
+    "id": "A7-001", "module": "A", "topic": "A7", "difficulty": "easy",
+    "question": "Bài toán ước lượng Fermi (Fermi problem) là loại bài toán gì?",
+    "options": [
+      "A. Bài toán yêu cầu tính toán chính xác tuyệt đối đến nhiều chữ số thập phân",
+      "B. Bài toán ước lượng một đại lượng khó đo lường trực tiếp bằng cách phân tích thành các giả định có thể tính nhẩm",
+      "C. Bài toán lập trình giải bằng thuật toán đệ quy",
+      "D. Bài toán vật lý lượng tử cơ bản"
+    ],
+    "answer": 1,
+    "explanation": "Ước lượng Fermi (đặt theo tên nhà vật lý Enrico Fermi) là phương pháp chia nhỏ một bài toán lớn, khó đo lường (như 'Có bao nhiêu thợ chỉnh piano ở Chicago?') thành nhiều yếu tố nhỏ có thể ước lượng hợp lý để ra kết quả theo cấp số nhân (order of magnitude).",
+    "tip": "Fermi Problem = Chia nhỏ để ước lượng nhanh (Guesstimation). Không cần chính xác, chỉ cần đúng cấp số (order of magnitude).",
+    "tags": ["quantitative", "fermi-problem", "estimation"]
+  },
+  {
+    "id": "A7-002", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Trong ước lượng 'Order of Magnitude' (Cấp số lớn), sự khác biệt 1 bậc (1 order of magnitude) tương đương với việc nhân hoặc chia cho số nào?",
+    "options": ["A. 2", "B. 10", "C. e (2.718)", "D. 100"],
+    "answer": 1,
+    "explanation": "Order of magnitude thường dùng cơ số 10. Lệch 1 bậc nghĩa là lớn/nhỏ hơn 10 lần. Lệch 3 bậc là lớn/nhỏ hơn 1000 lần.",
+    "tip": "Order of Magnitude = Hệ cơ số 10. Lệch 2 bậc = 10^2 = 100 lần.",
+    "tags": ["quantitative", "order-of-magnitude"]
+  },
+  {
+    "id": "A7-003", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Bạn có 8 quả bóng, trong đó 7 quả nặng bằng nhau và 1 quả nặng hơn. Bạn dùng cân đĩa thăng bằng (cân 2 bên). Hỏi số lần cân TỐI THIỂU để CẦM CHẮC tìm ra quả nặng hơn là bao nhiêu?",
+    "options": ["A. 1", "B. 2", "C. 3", "D. 4"],
+    "answer": 1,
+    "explanation": "Cân lần 1: Chọn 3 quả bên trái, 3 quả bên phải (còn dư 2 quả). Nếu cân bằng, quả nặng nằm trong 2 quả dư (cân lần 2 là ra). Nếu lệch, quả nặng nằm bên nặng hơn (có 3 quả). Cân lần 2: lấy 2 trong 3 quả nặng đó cân với nhau. Lệch bên nào bên đó nặng, cân bằng thì quả còn lại nặng. Tổng: 2 lần.",
+    "tip": "Cân đĩa có 3 trạng thái (trái nặng, phải nặng, cân bằng) -> Chia nhóm dữ liệu thành 3 (thay vì 2).",
+    "tags": ["quantitative", "logic-puzzle"]
+  },
+  {
+    "id": "A7-004", "module": "A", "topic": "A7", "difficulty": "easy",
+    "question": "Bạn đang ước lượng chi phí server hàng tháng cho 1 triệu người dùng. Giả sử mỗi người dùng tiêu tốn 0.01$ một ngày. Ước lượng nào gần đúng nhất chi phí 1 tháng?",
+    "options": [
+      "A. 10.000$",
+      "B. 30.000$",
+      "C. 300.000$",
+      "D. 1.000.000$"
+    ],
+    "answer": 2,
+    "explanation": "Chi phí 1 ngày = 1,000,000 * 0.01$ = 10,000$. Một tháng có khoảng 30 ngày -> 10,000$ * 30 = 300,000$.",
+    "tip": "Tính nhanh: 1 triệu = 10^6. 0.01 = 10^-2. 1 ngày = 10^4. 30 ngày = 3 * 10^5 = 300K.",
+    "tags": ["quantitative", "estimation", "cost"]
+  },
+  {
+    "id": "A7-005", "module": "A", "topic": "A7", "difficulty": "hard",
+    "question": "Xác suất để 2 người trong một phòng có 23 người CÙNG ngày sinh nhật (Bỏ qua năm nhuận) lớn hơn, nhỏ hơn hay bằng 50%?",
+    "options": [
+      "A. Nhỏ hơn 50% rất nhiều (khoảng 10%)",
+      "B. Nhỏ hơn một chút (khoảng 40%)",
+      "C. Lớn hơn 50%",
+      "D. Bằng đúng 50%"
+    ],
+    "answer": 2,
+    "explanation": "Đây là Nghịch lý ngày sinh (Birthday Paradox). Ta tính xác suất KHÔNG có ai cùng ngày sinh: (365/365) * (364/365) * ... * (343/365). Khi n = 23, xác suất này khoảng 49.3%. Suy ra xác suất có ÍT NHẤT 2 người cùng sinh nhật là 100% - 49.3% = 50.7% (> 50%).",
+    "tip": "Birthday Paradox: Chỉ cần 23 người, xác suất trùng sinh nhật đã > 50%. Cần 70 người thì > 99%.",
+    "tags": ["quantitative", "probability-puzzle", "birthday-paradox"]
+  },
+  {
+    "id": "A7-006", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Trong ước lượng chi phí Big Data, '1 PB (Petabyte)' xấp xỉ bằng bao nhiêu Gigabyte (GB)?",
+    "options": [
+      "A. 1,000 GB",
+      "B. 10,000 GB",
+      "C. 1,000,000 GB",
+      "D. 1.000.000.000 GB"
+    ],
+    "answer": 2,
+    "explanation": "1 PB = 1024 TB ≈ 1,000 TB. 1 TB = 1024 GB ≈ 1,000 GB. Vậy 1 PB ≈ 1,000 * 1,000 = 1,000,000 (1 triệu) GB.",
+    "tip": "KB -> MB -> GB -> TB -> PB -> EB. Mỗi cấp chênh lệch nhau 10^3 (1 ngàn lần).",
+    "tags": ["quantitative", "data-scale"]
+  },
+  {
+    "id": "A7-007", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Giả sử một mô hình AI suy luận (inference) tốn 100 milliseconds mỗi request. Server chạy 1 luồng (single thread). Server này có thể xử lý tối đa bao nhiêu request mỗi giây (QPS - Queries Per Second)?",
+    "options": ["A. 10 QPS", "B. 100 QPS", "C. 1000 QPS", "D. 1 QPS"],
+    "answer": 0,
+    "explanation": "1 giây = 1000 milliseconds. Số request tối đa = 1000 ms / 100 ms = 10 request/giây.",
+    "tip": "QPS (Queries Per Second) = 1 / Latency (đơn vị giây).",
+    "tags": ["quantitative", "system-capacity", "qps"]
+  },
+  {
+    "id": "A7-008", "module": "A", "topic": "A7", "difficulty": "hard",
+    "question": "Bạn tung 1 đồng xu công bằng liên tục. Kỳ vọng (Số lần tung trung bình) để xuất hiện chuỗi 'Ngửa - Ngửa' (HH) là bao nhiêu?",
+    "options": ["A. 2", "B. 4", "C. 6", "D. 8"],
+    "answer": 2,
+    "explanation": "Phân tích trạng thái (Markov Chain): Gọi E là kỳ vọng số lần tung. E = 1/2(tung được Sắp) * (E + 1) + 1/2(tung được Ngửa) * E_H. E_H = 1/2(ra Ngửa tiếp) * 2 + 1/2(ra Sắp) * (E + 2). Giải hệ phương trình ra E = 6.",
+    "tip": "Kỳ vọng để ra HH là 6. Kỳ vọng để ra HT (Ngửa - Sắp) là 4. Rất thú vị và hay được hỏi phỏng vấn Quantitative.",
+    "tags": ["quantitative", "markov-chain", "expected-value"]
+  },
+  {
+    "id": "A7-009", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Một thuật toán có độ phức tạp thời gian O(N^2). Nếu tăng lượng dữ liệu (N) lên gấp 10 lần, thời gian chạy sẽ tăng lên bao nhiêu lần?",
+    "options": ["A. 10 lần", "B. 20 lần", "C. 100 lần", "D. 1000 lần"],
+    "answer": 2,
+    "explanation": "Vì thời gian T tỉ lệ với N^2. Nếu N mới = 10*N, thì T mới tỉ lệ với (10N)^2 = 100*N^2. Thời gian tăng 100 lần.",
+    "tip": "O(N^2) -> N tăng k lần thì thời gian tăng k^2 lần.",
+    "tags": ["quantitative", "time-complexity"]
+  },
+  {
+    "id": "A7-010", "module": "A", "topic": "A7", "difficulty": "easy",
+    "question": "Quy tắc 80/20 (Nguyên lý Pareto) trong phân tích dữ liệu có nghĩa là gì?",
+    "options": [
+      "A. 80% thời gian chạy dành cho 20% code",
+      "B. 80% kết quả (hoặc vấn đề) xuất phát từ 20% nguyên nhân",
+      "C. Train set 80%, Test set 20%",
+      "D. Mô hình AI luôn đúng 80%"
+    ],
+    "answer": 1,
+    "explanation": "Nguyên lý Pareto chỉ ra rằng một phần nhỏ nguyên nhân (20%) thường tạo ra phần lớn kết quả (80%). Ví dụ: 80% doanh thu đến từ 20% khách hàng.",
+    "tip": "Quy tắc 80/20: Tập trung vào 20% quan trọng nhất để giải quyết 80% vấn đề.",
+    "tags": ["quantitative", "pareto-principle", "heuristics"]
+  },
+  {
+    "id": "A7-011", "module": "A", "topic": "A7", "difficulty": "hard",
+    "question": "Lý thuyết Monty Hall: Có 3 cánh cửa (1 xe hơi, 2 con dê). Bạn chọn cửa 1. Người dẫn chương trình (biết đằng sau có gì) mở cửa 3 và hiển thị con dê. Ông ta hỏi bạn có muốn đổi sang cửa 2 không. Xác suất trúng xe hơi nếu bạn ĐỔI cửa là bao nhiêu?",
+    "options": ["A. 1/3 (33.3%)", "B. 1/2 (50%)", "C. 2/3 (66.7%)", "D. 1/4 (25%)"],
+    "answer": 2,
+    "explanation": "Khi bạn chọn lúc đầu, xác suất trúng là 1/3, xác suất xe nằm ở 2 cửa kia là 2/3. Việc người dẫn chương trình mở 1 cửa chứa dê trong nhóm 2 cửa kia KHÔNG làm thay đổi xác suất của nhóm đó. Cửa 2 giờ gánh toàn bộ xác suất 2/3. Đổi luôn có lợi gấp đôi.",
+    "tip": "Monty Hall: Luôn luôn đổi cửa (Switch) -> Xác suất thắng tăng từ 1/3 lên 2/3.",
+    "tags": ["quantitative", "monty-hall", "conditional-probability"]
+  },
+  {
+    "id": "A7-012", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Dữ liệu có 1 triệu (10^6) phần tử. Thuật toán Binary Search sẽ cần nhiều nhất khoảng bao nhiêu phép so sánh (Log_2) để tìm thấy phần tử?",
+    "options": ["A. 10", "B. 20", "C. 30", "D. 100"],
+    "answer": 1,
+    "explanation": "Log cơ số 2 của 1,000,000 (10^6). Ta biết 2^10 = 1024 (xấp xỉ 1000). Vậy 2^20 = (2^10)^2 ≈ 1,000 * 1,000 = 1,000,000. Do đó, log_2(1,000,000) ≈ 20 phép so sánh.",
+    "tip": "Nhớ: 2^10 ≈ 10^3 (1 ngàn), 2^20 ≈ 10^6 (1 triệu), 2^30 ≈ 10^9 (1 tỷ).",
+    "tags": ["quantitative", "binary-search", "estimation"]
+  },
+  {
+    "id": "A7-013", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Tính toán nhanh: Mô hình ResNet-50 cần xử lý khoảng 4 tỷ phép toán (Giga FLOPs) mỗi hình ảnh. GPU của bạn tính được 10 TFLOPs (Tera FLOPs) mỗi giây. GPU này xử lý được khoảng bao nhiêu ảnh một giây?",
+    "options": ["A. 40", "B. 250", "C. 2500", "D. 25000"],
+    "answer": 2,
+    "explanation": "1 Tera FLOPs = 1000 Giga FLOPs. GPU chạy 10 TFLOPs = 10,000 GFLOPs. Mỗi ảnh tốn 4 GFLOPs. Số ảnh = 10,000 / 4 = 2500 ảnh/giây.",
+    "tip": "Đồng nhất đơn vị trước khi tính: TFLOPs (10^12) và GFLOPs (10^9).",
+    "tags": ["quantitative", "hardware-estimation", "flops"]
+  },
+  {
+    "id": "A7-014", "module": "A", "topic": "A7", "difficulty": "easy",
+    "question": "Quy tắc 72 (Rule of 72) trong tài chính có thể áp dụng cho tăng trưởng dữ liệu. Nếu dữ liệu tăng trưởng 12% mỗi năm, nó sẽ mất khoảng bao lâu để GẤP ĐÔI?",
+    "options": ["A. 12 năm", "B. 4 năm", "C. 6 năm", "D. 8 năm"],
+    "answer": 2,
+    "explanation": "Quy tắc 72: Số năm xấp xỉ để giá trị nhân đôi = 72 / (Tốc độ tăng trưởng hàng năm). Thời gian = 72 / 12 = 6 năm.",
+    "tip": "Rule of 72 = Công thức nhẩm siêu nhanh thời gian nhân đôi (72 / rate).",
+    "tags": ["quantitative", "rule-of-72", "growth"]
+  },
+  {
+    "id": "A7-015", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Trong Machine Learning, một dataset có 1 triệu ảnh, mỗi ảnh RGB kích thước 224x224 (dạng uncompressed float32). Dung lượng RAM để chứa hết tập này vào khoảng bao nhiêu?",
+    "options": ["A. Khoảng 600 MB", "B. Khoảng 6 GB", "C. Khoảng 600 GB", "D. Khoảng 6 TB"],
+    "answer": 2,
+    "explanation": "Mỗi ảnh: 224 * 224 pixels * 3 channels = ~150,000 thông số. Float32 tốn 4 Bytes -> ~600,000 Bytes = 600 KB/ảnh. 1 triệu ảnh: 600 KB * 1,000,000 = 600,000,000 KB ≈ 600 GB.",
+    "tip": "1 triệu ảnh 224x224 float32 ≈ 600GB. Dễ sập RAM nếu load toàn bộ, cần dùng Data Loader (batch).",
+    "tags": ["quantitative", "memory-estimation"]
+  },
+  {
+    "id": "A7-016", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Một thành phố có 100,000 gia đình. 50% gia đình có xe hơi. Mỗi xe hơi thay lốp (4 lốp) 3 năm một lần. Ước lượng số lốp xe hơi mới được bán mỗi năm tại thành phố này?",
+    "options": ["A. Khoảng 66,000", "B. Khoảng 200,000", "C. Khoảng 600,000", "D. Khoảng 1,000,000"],
+    "answer": 0,
+    "explanation": "Số xe hơi = 100,000 * 50% = 50,000 xe. Tổng số lốp thay 1 vòng = 50,000 * 4 = 200,000 lốp. Vòng đời là 3 năm, vậy trung bình 1 năm bán được: 200,000 / 3 ≈ 66,666 lốp.",
+    "tip": "Fermi Problem: Chia nhỏ bài toán -> Tính tổng cung/cầu -> Chia cho vòng đời (lifespan).",
+    "tags": ["quantitative", "fermi-problem", "business"]
+  },
+  {
+    "id": "A7-017", "module": "A", "topic": "A7", "difficulty": "hard",
+    "question": "Nghịch lý Cậu bé nói dối (False Positive Paradox): Một test phát hiện ung thư có độ chính xác 99% (True Positive = 99%, True Negative = 99%). Tỷ lệ mắc ung thư trong dân số là 0.1% (1/1000). Nếu 1 người test dương tính, xác suất họ THỰC SỰ bị ung thư là bao nhiêu?",
+    "options": ["A. 99%", "B. ~90%", "C. ~9%", "D. ~0.1%"],
+    "answer": 2,
+    "explanation": "Dùng Bayes. Giả sử 1000 người, có 1 người bệnh -> test dương tính 1 người. 999 người khỏe -> test sai (False Positive) 1% là ~10 người. Tổng người có test dương là 1 + 10 = 11 người. Xác suất bệnh thật = 1/11 ≈ 9%. Mặc dù test chính xác 99%, kết quả dương tính đa phần là dương tính giả do bệnh hiếm.",
+    "tip": "Khi Base Rate (tỷ lệ gốc) rất thấp, True Positive chìm nghỉm trong biển False Positive.",
+    "tags": ["quantitative", "bayes-theorem", "base-rate-fallacy"]
+  },
+  {
+    "id": "A7-018", "module": "A", "topic": "A7", "difficulty": "easy",
+    "question": "Đoạn mã chạy trong vòng lặp lồng nhau 3 lần: `for i in range(N): for j in range(N): for k in range(N):` có độ phức tạp thời gian Big-O là:",
+    "options": ["A. O(N)", "B. O(N log N)", "C. O(N^2)", "D. O(N^3)"],
+    "answer": 3,
+    "explanation": "Ba vòng lặp lồng nhau chạy từ 0 đến N độc lập với nhau sẽ thực hiện N * N * N = N^3 phép toán.",
+    "tip": "Đếm số vòng lặp lồng nhau phụ thuộc vào N -> Số mũ của O(N^k).",
+    "tags": ["quantitative", "big-o", "time-complexity"]
+  },
+  {
+    "id": "A7-019", "module": "A", "topic": "A7", "difficulty": "medium",
+    "question": "Tính nhẩm nhanh: (0.99)^365 ≈ ?",
+    "options": ["A. Gần bằng 0.99", "B. Khoảng 0.5", "C. Khoảng 0.03 (gần 0)", "D. Khoảng 0.9"],
+    "answer": 2,
+    "explanation": "1^365 = 1. Nhưng 0.99 < 1. Lũy thừa lớn làm giá trị giảm cực mạnh. Theo công thức (1 - 1/n)^n hội tụ về 1/e (khoảng 0.36). Ở đây 0.99 = 1 - 0.01, mũ 365 lớn hơn nhiều, nên nó sẽ tụt xuống rất thấp (thực tế ≈ 0.025). Câu châm ngôn 'Trễ nải 1% mỗi ngày, 1 năm sau bạn chả còn gì'.",
+    "tip": "Lũy thừa lớn của số < 1 sẽ tiến về 0 rất nhanh (Compound Interest Effect).",
+    "tags": ["quantitative", "estimation", "compound-interest"]
+  },
+  {
+    "id": "A7-020", "module": "A", "topic": "A7", "difficulty": "hard",
+    "question": "Nếu mô hình AI của bạn có 1 Tỷ tham số (1 Billion Parameters) định dạng Float16, nó sẽ chiếm bao nhiêu VRAM GPU (tối thiểu chỉ tính weight)?",
+    "options": ["A. 1 GB", "B. 2 GB", "C. 4 GB", "D. 10 GB"],
+    "answer": 1,
+    "explanation": "Float16 (FP16/BF16) sử dụng 16 bits = 2 Bytes. Số lượng tham số: 1 Tỷ (10^9). Dung lượng = 10^9 * 2 Bytes = 2 * 10^9 Bytes = 2 GB.",
+    "tip": "Tham số -> Dung lượng: Float32 nhân 4, Float16 nhân 2, Int8 nhân 1. Đơn vị GB (Gigabytes).",
+    "tags": ["quantitative", "hardware-estimation", "memory", "llm"]
+  }
+]

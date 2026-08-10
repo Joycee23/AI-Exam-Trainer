@@ -1,0 +1,267 @@
+[
+  {
+    "id": "A5-001", "module": "A", "topic": "A5", "difficulty": "easy",
+    "question": "Trung vị (Median) của tập dữ liệu {1, 3, 3, 6, 7, 8, 9} là bao nhiêu?",
+    "options": ["A. 3", "B. 6", "C. 7", "D. 5.2"],
+    "answer": 1,
+    "explanation": "Trung vị là giá trị nằm ở chính giữa tập dữ liệu đã được sắp xếp. Tập có 7 phần tử, giá trị ở vị trí thứ 4 là 6.",
+    "tip": "Sắp xếp dữ liệu từ nhỏ đến lớn trước khi tìm Median.",
+    "tags": ["statistics", "descriptive-statistics", "median"]
+  },
+  {
+    "id": "A5-002", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Yếu tố nào sau đây KHÔNG bị ảnh hưởng bởi các giá trị ngoại lai (outliers)?",
+    "options": ["A. Trung bình (Mean)", "B. Phương sai (Variance)", "C. Trung vị (Median)", "D. Khoảng biến thiên (Range)"],
+    "answer": 2,
+    "explanation": "Trung vị (Median) chỉ phụ thuộc vào thứ tự của dữ liệu, không bị ảnh hưởng bởi các giá trị quá lớn hoặc quá nhỏ ở hai đầu (outliers). Ngược lại, Mean, Variance và Range bị ảnh hưởng rất mạnh.",
+    "tip": "Median là đại lượng Robust (bền vững) trước ngoại lai. Mean thì không.",
+    "tags": ["statistics", "outliers", "robustness"]
+  },
+  {
+    "id": "A5-003", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Trong thống kê, P-value (giá trị P) là gì?",
+    "options": [
+      "A. Xác suất giả thuyết H0 đúng",
+      "B. Xác suất quan sát được kết quả cực đoan như trong mẫu, với giả định H0 là đúng",
+      "C. Xác suất H1 đúng",
+      "D. Mức ý nghĩa alpha"
+    ],
+    "answer": 1,
+    "explanation": "P-value không phải là xác suất H0 đúng. Nó là xác suất xảy ra dữ liệu hiện tại (hoặc dữ liệu cực đoan hơn) NẾU H0 thực sự đúng. P-value nhỏ -> Dữ liệu rất khó xảy ra nếu H0 đúng -> Bác bỏ H0.",
+    "tip": "P-value = Xác suất (Data | H0 đúng). P-value < alpha -> Bác bỏ H0.",
+    "tags": ["statistics", "p-value", "hypothesis-testing"]
+  },
+  {
+    "id": "A5-004", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "Sai lầm loại 1 (Type I Error) trong kiểm định giả thuyết là gì?",
+    "options": [
+      "A. Bác bỏ giả thuyết H0 khi H0 sai",
+      "B. Chấp nhận H0 khi H0 sai",
+      "C. Bác bỏ H0 khi H0 thực sự đúng",
+      "D. Chấp nhận H0 khi H0 đúng"
+    ],
+    "answer": 2,
+    "explanation": "Type I error (False Positive) xảy ra khi ta bác bỏ Null Hypothesis (H0) mặc dù nó thực sự đúng. Mức ý nghĩa (alpha) chính là xác suất tối đa chấp nhận được của sai lầm Loại 1.",
+    "tip": "Type I = False Positive (Báo cháy giả). Type II = False Negative (Có cháy nhưng báo không cháy).",
+    "tags": ["statistics", "type-1-error", "hypothesis-testing"]
+  },
+  {
+    "id": "A5-005", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "Quyền lực của kiểm định (Statistical Power) được định nghĩa là gì?",
+    "options": [
+      "A. Xác suất không mắc sai lầm loại 1",
+      "B. Xác suất mắc sai lầm loại 2",
+      "C. Xác suất bác bỏ đúng H0 khi H0 sai",
+      "D. Bằng mức ý nghĩa alpha"
+    ],
+    "answer": 2,
+    "explanation": "Statistical Power = 1 - beta. Nó là khả năng kiểm định phát hiện ra một hiệu ứng có thật (Bác bỏ H0 khi H1 đúng). Power càng cao, khả năng 'bỏ sót' càng thấp.",
+    "tip": "Power = Xác suất (True Positive) = 1 - (Xác suất Type 2 Error).",
+    "tags": ["statistics", "statistical-power", "hypothesis-testing"]
+  },
+  {
+    "id": "A5-006", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Công thức tính hệ số tương quan Pearson (Pearson correlation coefficient) giữa hai biến X và Y là:",
+    "options": [
+      "A. Cov(X, Y) / (Var(X)*Var(Y))",
+      "B. Cov(X, Y) / (Std(X)*Std(Y))",
+      "C. Var(X) / Cov(X, Y)",
+      "D. Std(X) * Std(Y)"
+    ],
+    "answer": 1,
+    "explanation": "Hệ số tương quan Pearson r = Cov(X, Y) / (σX * σY). Nó là phiên bản chuẩn hóa của hiệp phương sai, giúp r luôn nằm trong đoạn [-1, 1].",
+    "tip": "Pearson = Covariance chia cho tích các Độ lệch chuẩn (Std).",
+    "tags": ["statistics", "correlation", "pearson"]
+  },
+  {
+    "id": "A5-007", "module": "A", "topic": "A5", "difficulty": "easy",
+    "question": "Hệ số tương quan Pearson r = -0.9 thể hiện điều gì?",
+    "options": [
+      "A. X và Y không có tương quan",
+      "B. X và Y có tương quan tuyến tính thuận rất mạnh",
+      "C. X và Y có tương quan tuyến tính nghịch rất mạnh",
+      "D. Lỗi tính toán vì r không thể âm"
+    ],
+    "answer": 2,
+    "explanation": "Giá trị r nằm trong [-1, 1]. |r| càng gần 1 thì tương quan tuyến tính càng mạnh. r âm thể hiện tương quan nghịch (X tăng thì Y giảm).",
+    "tip": "r âm = nghịch (ngược chiều). r dương = thuận (cùng chiều). |r| gần 1 = Mạnh.",
+    "tags": ["statistics", "correlation", "pearson"]
+  },
+  {
+    "id": "A5-008", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Khi phân phối có đuôi dài về bên phải (Right-skewed / Positive skew), thứ tự của Mode, Median, Mean như thế nào?",
+    "options": [
+      "A. Mode < Median < Mean",
+      "B. Mean < Median < Mode",
+      "C. Mode = Median = Mean",
+      "D. Median < Mode < Mean"
+    ],
+    "answer": 0,
+    "explanation": "Trong phân phối lệch phải, các giá trị outlier lớn kéo Mean về phía đuôi bên phải nhiều nhất, Median bị kéo ít hơn, Mode (đỉnh) là giá trị nhỏ nhất.",
+    "tip": "Lệch bên nào thì Mean bị kéo lệch về phía đó mạnh nhất. Lệch phải -> Mean lớn nhất.",
+    "tags": ["statistics", "skewness"]
+  },
+  {
+    "id": "A5-009", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "Kiểm định t-test thường được sử dụng khi nào?",
+    "options": [
+      "A. Phương sai quần thể ĐÃ BIẾT và kích thước mẫu nhỏ",
+      "B. Phương sai quần thể CHƯA BIẾT và cần so sánh trung bình mẫu",
+      "C. Cần kiểm định tính độc lập của hai biến phân loại",
+      "D. Để tính toán phương sai"
+    ],
+    "answer": 1,
+    "explanation": "t-test được dùng để so sánh giá trị trung bình khi ta không biết phương sai của quần thể và phải dùng phương sai mẫu để ước lượng (đặc biệt hữu ích khi n < 30). Z-test dùng khi đã biết phương sai quần thể hoặc mẫu cực lớn.",
+    "tip": "Chưa biết phương sai quần thể -> Dùng t-test. Biết phương sai -> Dùng z-test.",
+    "tags": ["statistics", "t-test", "hypothesis-testing"]
+  },
+  {
+    "id": "A5-010", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "ANOVA (Analysis of Variance) được dùng để làm gì?",
+    "options": [
+      "A. So sánh phương sai của 2 nhóm",
+      "B. So sánh giá trị trung bình của TỪ 3 nhóm trở lên",
+      "C. Kiểm định tính chuẩn của dữ liệu",
+      "D. Dự đoán biến mục tiêu"
+    ],
+    "answer": 1,
+    "explanation": "Dù tên là 'phân tích phương sai', ANOVA thực chất dùng phân tích phương sai (giữa các nhóm và trong nội bộ nhóm) để kết luận xem TRUNG BÌNH của 3 nhóm (hoặc hơn) có bằng nhau hay không.",
+    "tip": "So sánh trung bình 2 nhóm: t-test. So sánh trung bình >= 3 nhóm: ANOVA.",
+    "tags": ["statistics", "anova"]
+  },
+  {
+    "id": "A5-011", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Chỉ số IQR (Interquartile Range) được tính như thế nào?",
+    "options": [
+      "A. Max - Min",
+      "B. Q3 - Q1",
+      "C. Mean - Median",
+      "D. Q2 - Q1"
+    ],
+    "answer": 1,
+    "explanation": "IQR là khoảng tứ phân vị, bằng giá trị của tứ phân vị thứ 3 (Q3, 75%) trừ đi tứ phân vị thứ 1 (Q1, 25%). Nó chứa 50% dữ liệu ở giữa và rất hữu ích để phát hiện outlier.",
+    "tip": "IQR = Q3 - Q1. Outlier thường được xác định nếu nhỏ hơn (Q1 - 1.5*IQR) hoặc lớn hơn (Q3 + 1.5*IQR).",
+    "tags": ["statistics", "iqr", "dispersion"]
+  },
+  {
+    "id": "A5-012", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Mối quan hệ 'Correlation does not imply causation' (Tương quan không đồng nghĩa với nhân quả) cảnh báo điều gì?",
+    "options": [
+      "A. Không thể dùng tương quan để dự đoán",
+      "B. Hai biến tăng cùng nhau có thể do cùng chịu ảnh hưởng của một biến thứ ba (Confounding variable)",
+      "C. Hệ số Pearson luôn sai",
+      "D. Phải dùng Spearman thay vì Pearson"
+    ],
+    "answer": 1,
+    "explanation": "Hai biến số có thể có tương quan rất mạnh (vd: lượng bán kem và số ca đuối nước) nhưng không phải biến này gây ra biến kia. Cả hai cùng bị ảnh hưởng bởi yếu tố thứ 3 (như mùa hè, thời tiết nóng).",
+    "tip": "Correlation ≠ Causation. Luôn coi chừng Confounding Variable (Biến nhiễu).",
+    "tags": ["statistics", "correlation", "causation"]
+  },
+  {
+    "id": "A5-013", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "Bootstrapping trong thống kê là kỹ thuật gì?",
+    "options": [
+      "A. Thêm nhiễu vào dữ liệu để tăng số lượng",
+      "B. Lấy mẫu ngẫu nhiên CÓ HOÀN LẠI (with replacement) nhiều lần từ dữ liệu gốc để ước lượng phân phối",
+      "C. Xóa các outlier bằng kỹ thuật IQR",
+      "D. Thuật toán phân cụm"
+    ],
+    "answer": 1,
+    "explanation": "Bootstrapping là kỹ thuật lấy mẫu lại (resampling) từ một tập dữ liệu gốc, bằng cách chọn ngẫu nhiên có hoàn lại (with replacement). Nó giúp tạo ra nhiều 'mẫu giả' để ước lượng sai số chuẩn, khoảng tin cậy của bất kỳ thống kê nào.",
+    "tip": "Bootstrapping = Lấy mẫu có hoàn lại (with replacement). Đừng nhầm với Cross-validation.",
+    "tags": ["statistics", "bootstrapping", "resampling"]
+  },
+  {
+    "id": "A5-014", "module": "A", "topic": "A5", "difficulty": "easy",
+    "question": "Đại lượng nào sau đây đo lường mức độ bất đối xứng của một phân phối?",
+    "options": ["A. Variance", "B. Kurtosis", "C. Skewness", "D. Standard Deviation"],
+    "answer": 2,
+    "explanation": "Skewness (Độ lệch) đo lường sự bất đối xứng của phân phối. Kurtosis (Độ nhọn) đo lường độ nặng của phần đuôi (tails). Variance đo lường mức độ phân tán chung.",
+    "tip": "Skewness = Lệch (Trái/Phải). Kurtosis = Nhọn/Đuôi béo.",
+    "tags": ["statistics", "skewness"]
+  },
+  {
+    "id": "A5-015", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Hệ số tương quan Spearman (Spearman's rank correlation) khác Pearson ở điểm nào?",
+    "options": [
+      "A. Spearman dùng cho biến liên tục, Pearson dùng cho biến phân loại",
+      "B. Spearman đo lường mối quan hệ đơn điệu (monotonic) dựa trên HẠNG, Pearson đo lường tuyến tính",
+      "C. Spearman có giá trị từ 0 đến 1",
+      "D. Không có khác biệt"
+    ],
+    "answer": 1,
+    "explanation": "Pearson đo mức độ tuyến tính. Spearman chuyển dữ liệu thành thứ hạng (rank) rồi mới tính Pearson, do đó nó bắt được các mối quan hệ đơn điệu (tăng đều, giảm đều) dù không phải đường thẳng, và ít nhạy cảm với outlier.",
+    "tip": "Spearman = Dựa trên Thứ hạng (Rank), bắt được quan hệ đơn điệu, chịu đòn outlier tốt.",
+    "tags": ["statistics", "correlation", "spearman"]
+  },
+  {
+    "id": "A5-016", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "Nghịch lý Simpson (Simpson's Paradox) xảy ra khi nào?",
+    "options": [
+      "A. Khi kích thước mẫu quá lớn",
+      "B. Khi một xu hướng xuất hiện trong nhiều nhóm khác nhau nhưng lại BIẾN MẤT hoặc ĐẢO NGƯỢC khi gộp các nhóm lại",
+      "C. Khi hai biến độc lập lại có tương quan",
+      "D. Khi p-value nhỏ hơn 0.05 nhưng H0 lại đúng"
+    ],
+    "answer": 1,
+    "explanation": "Nghịch lý Simpson là một hiện tượng trong xác suất và thống kê, trong đó một xu hướng xuất hiện ở các nhóm dữ liệu khác nhau nhưng biến mất hoặc đảo chiều khi các nhóm được kết hợp lại. Nguyên nhân do confounding variable (biến gây nhiễu) không được chia tách.",
+    "tip": "Simpson's Paradox = Gộp dữ liệu thì xu hướng bị đảo ngược.",
+    "tags": ["statistics", "simpsons-paradox"]
+  },
+  {
+    "id": "A5-017", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Kiểm định Chi-bình phương (Chi-square test of independence) dùng để làm gì?",
+    "options": [
+      "A. So sánh phương sai của 2 mẫu",
+      "B. Kiểm tra xem dữ liệu có tuân theo phân phối chuẩn không",
+      "C. Kiểm định tính độc lập giữa HAI biến phân loại (categorical variables)",
+      "D. So sánh 2 trung bình mẫu"
+    ],
+    "answer": 2,
+    "explanation": "Chi-square Test of Independence so sánh tần số quan sát (Observed) với tần số kỳ vọng (Expected) trong bảng chéo (contingency table) để xem hai biến hạng mục (categorical) có liên quan/độc lập với nhau hay không.",
+    "tip": "Kiểm tra 2 biến Categorical có độc lập không -> Dùng Chi-square.",
+    "tags": ["statistics", "chi-square", "hypothesis-testing"]
+  },
+  {
+    "id": "A5-018", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Trong A/B Testing, metric nào giúp xác định cỡ mẫu (Sample Size) cần thiết trước khi chạy test?",
+    "options": [
+      "A. Mức ý nghĩa (Alpha), Quyền lực (Power) và Minimum Detectable Effect (MDE)",
+      "B. Trung bình mẫu và Phương sai",
+      "C. Thời gian chạy server",
+      "D. Số lượng user hiện tại"
+    ],
+    "answer": 0,
+    "explanation": "Để tính cỡ mẫu cho A/B Test, cần 3 yếu tố chính: Alpha (thường 5%), Power (thường 80%), và MDE (Mức độ thay đổi nhỏ nhất muốn phát hiện). MDE càng nhỏ, số mẫu cần càng lớn.",
+    "tip": "Sample Size cần: Alpha, Beta (Power), MDE (Minimum Detectable Effect) và Phương sai cơ sở.",
+    "tags": ["statistics", "ab-testing", "sample-size"]
+  },
+  {
+    "id": "A5-019", "module": "A", "topic": "A5", "difficulty": "hard",
+    "question": "A/B Testing: Hiện tượng Peeking (liên tục xem kết quả sớm và dừng khi thấy p-value < 0.05) sẽ gây ra hậu quả gì?",
+    "options": [
+      "A. Giảm sai lầm Loại 2",
+      "B. Làm tăng đáng kể xác suất mắc sai lầm Loại 1 (False Positive)",
+      "C. Không ảnh hưởng gì",
+      "D. Tiết kiệm chi phí một cách an toàn"
+    ],
+    "answer": 1,
+    "explanation": "Kiểm định t-test truyền thống yêu cầu cố định cỡ mẫu N. Nếu liên tục 'nhòm ngó' (peeking) và dừng test ngay khi p < 0.05, bạn lạm dụng tính dao động ngẫu nhiên của p-value, khiến tỉ lệ False Positive thực tế cao hơn rất nhiều so với mức Alpha = 5% đã thiết lập.",
+    "tip": "Peeking làm phình to False Positive Rate. Cần dùng Sequential Testing nếu muốn dừng sớm.",
+    "tags": ["statistics", "ab-testing", "peeking"]
+  },
+  {
+    "id": "A5-020", "module": "A", "topic": "A5", "difficulty": "medium",
+    "question": "Công thức tính Z-score là gì và đơn vị của nó là gì?",
+    "options": [
+      "A. (X - Mean) / Variance, không đơn vị",
+      "B. (X - Mean) / Std, không đơn vị",
+      "C. (X - Median) / IQR, đơn vị gốc",
+      "D. (X - Mean) / Std, đơn vị gốc"
+    ],
+    "answer": 1,
+    "explanation": "Z = (X - μ) / σ. Phép chia cho Độ lệch chuẩn (Std) khử đi đơn vị của X. Vì thế Z-score là đại lượng phi thứ nguyên (không có đơn vị), thể hiện khoảng cách tính bằng số lần độ lệch chuẩn.",
+    "tip": "Z-score = Khoảng cách tới Mean tính bằng 'số lượng' Sigma. Không có đơn vị.",
+    "tags": ["statistics", "z-score", "standardization"]
+  }
+]

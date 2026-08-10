@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D6-001", "module": "D", "topic": "D6", "difficulty": "easy",
+    "question": "Tính Năng 'S3 (Simple Storage Service)' Của Nhà Mây AWS Thường Được Định Hình Làm Vai Trò Trụ Cột Nào Trong Kiến Trúc Dữ Liệu Lớn Nhờ Giá Thành Rẻ Mạt Và Khả Năng Lưu Cực Đại?",
+    "options": [
+      "A. Kho Data Warehouse chạy báo cáo nhanh như chớp",
+      "B. ĐÓNG VAI TRÒ LÀ DATA LAKE (HỒ DỮ LIỆU CHÍNH). Lưu trữ mọi loại rác (ảnh, video, log, file csv, json) dung lượng Không giới hạn, Không cần tạo cấu trúc cột. Chỗ để Đám Kỹ Sư bưng Bãi Rác Bơm về ủ đó chờ lúc phân tích.",
+      "C. Thay thế Redis làm RAM",
+      "D. Chạy Máy chủ Web Cổng API"
+    ],
+    "answer": 1,
+    "explanation": "S3 quá rẻ và Trâu bò (độ bền 99.999999999%). Bạn ném 1 Petabyte rác lên đó cũng được. Nó là Xương sống (Hồ chứa Data Lake) cho mọi Data Pipeline hiện đại. Data Engineer vớt dữ liệu từ API về -> Ném vô S3 -> Lấy Spark rửa sạch -> Đổ vô Data Warehouse.",
+    "tip": "Amazon S3 = Thùng Rác Vô Địch (Data Lake gốc). Rẻ, Bền, Nhét Mọi Thứ Không Cần Form. Làm Nơi Ủ Rác Bãi Tập Kết Khâu Mở Màn ETL.",
+    "tags": ["cloud-data", "aws-s3", "data-lake"]
+  },
+  {
+    "id": "D6-002", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Google BigQuery Nổi Tiếng Là Data Warehouse Không Có Khái Niệm Phải Cài Máy Chủ (Serverless). Thuật Ngữ Này Giải Phóng Ác Mộng Nào Cho Công Ty?",
+    "options": [
+      "A. Cho dùng miễn phí không thu tiền",
+      "B. Không thể lưu dữ liệu",
+      "C. KHÔNG CẦN CHỈ ĐỊNH/MUA BĂNG THÔNG MÁY (RAM/CPU BAO NHIÊU). CỨ NÉM TỶ DÒNG DỮ LIỆU LÊN ĐÓ. KHI GÕ LỆNH CHẠY BÁO CÁO, GOOGLE TỰ KÍCH HOẠT HÀNG NGÀN CPU TRONG CHỚP MẮT ĐỂ CÀY LỆNH ĐÓ NHANH NHẤT CÓ THỂ, RỒI TẮT ĐI VÀ TÍNH TIỀN THEO LƯỢNG DATA ĐÃ QUÉT.",
+      "D. Đổi mạng tự động IP"
+    ],
+    "answer": 2,
+    "explanation": "Đời xưa cài Redshift (AWS), Sếp phải họp chọn: Cài máy to hay máy nhỏ? Cài to thì Đêm không ai dùng tốn điện, cài Nhỏ thì Trưa Báo Cáo lag chết. BigQuery Bóp Nát Khái Niệm Đó: Bụng mày 1 tỷ dòng cứ để yên đó. Lúc mày bấm Run, Tự anh Google lấy Máy nhà ảnh ra Quét 1 phát 3s xong. Tốn bao nhiêu Đô la tính bấy nhiêu Nhát Gõ Lệnh. Quá Phê.",
+    "tip": "BigQuery (Serverless) = Nhà Kho Ảo Ma Google Tính Tiền Từng Giọt Lệnh (Pay-per-Query). Khỏi Lo Chọn Cấu Hình Server Tốn Nuôi Không Ăn Bám Ế Khách Phí Điện Xót Lỗi Mua Dư Trục.",
+    "tags": ["cloud-data", "bigquery", "serverless", "gcp"]
+  },
+  {
+    "id": "D6-003", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Lệnh Quét Rùa Chạm Điếc Của Google BigQuery 'SELECT *' Là Kẻ Thù Số Một Phá Sản Túi Tiền Công Ty (Anti-pattern Hủy Diệt). Tại Sao Nó Đốt Tiền Nhanh Khủng Khiếp So Với Các Lệnh Rút Gọn Cột Điểm Đích (SELECT Cột A)?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa",
+      "B. BIGQUERY LÀ COLUMNAR DATABASE (LƯU THEO CỘT), NÓ TÍNH CƯỚC DỰA TRÊN SỐ GB DỮ LIỆU MÀ NÓ PHẢI QUÉT QUA KHI CHẠY LỆNH. NẾU BẢNG 100 CỘT NẶNG 1TB, GÕ LỆNH `SELECT Cột_A` THÌ CHỈ QUÉT ĐÚNG 10GB TỐN 1$ MỸ. NẾU NGÁO ĐÁ GÕ `SELECT *` LÀ BẮT NÓ ĐỌC HẾT MỌI CỘT RÁC MANG LÊN DÙ BẠN ĐÉO XÀI, ĐỐT CHÁY 100$ CHO 1 CÚ CLICK CHUỘT OAN UỔNG THÊM MÁU RỚT CHẬP MẠNG.",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Kiếm Thấy Thằng Thực Tập Nào Vô BigQuery Bấm Bấm Dò Rác Mà Gõ Chữ Sao Bự `SELECT * FROM BanG_Ty_DoNg LIMIT 10` Là Tát Vô Trán Đuổi Việc Liền Kéo Ám Góc Ác Phí Cước Bất Oan Trục Khủng Bố. Limit 10 Nó Vẫn Tính Cước Quét Toàn Bảng 1TB Kia Kéo Phạt Tốn Tiền 100 Đô 1 Lần Nhấn Enter Chết Cụt Tụ Máng Tràn Điếc Lỗi Đè Lấp (Columnar Database Không Đọc Ngang Limit Tới Đâu Ngừng Tới Đó Được Như SQL Nét Dọc Bảng Trống).",
+    "tip": "Đừng Bao Giờ Gõ `SELECT *` Trên BigQuery. Bắn 1 Phát Đại Bác Này Cty Trừ 100 Đô La Tiền Lương Mày Đi (Quét Cả Trăm Cột Rác Ngáo Trả Phí Pay-Per-Query Thủng Cổ). Báo Cáo Xài Cột Nào Select Cột Đó Đặng Tiết Kiệm Gấp 100 Lần Mức Đọc Bỏ Cạp Mạng Rách.",
+    "tags": ["cloud-data", "bigquery", "cost-optimization", "anti-pattern"]
+  },
+  {
+    "id": "D6-004", "module": "D", "topic": "D6", "difficulty": "easy",
+    "question": "Tính Năng 'Snowflake' Bật Tỏa Ánh Hào Quang Rực Rỡ Đổi Đời Kho Data Warehouse Đám Mây Mới Nổi Vượt Mặt Mọi Đứa Bằng Kiến Trúc Bẻ Xương Tách Rời 2 Cục Khối Tình Lệch Lõi Nào Khiến Nó Giàu Kếch Xù Đứng Đỉnh?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. TÁCH RỜI HOÀN TOÀN TẦNG 'LƯU TRỮ DỮ LIỆU RẺ' (STORAGE) VÀ TẦNG 'TÍNH TOÁN XỬ LÝ LỆNH TRONG RAM' (COMPUTE). CHO PHÉP TẮT NGỦ HOÀN TOÀN CÁI TẦNG MÁY TÍNH COMPUTE KHI KHÔNG CÓ AI GÕ LỆNH ĐỂ ĐỠ TỐN ĐIỆN, NHƯNG DATA LƯU TRỮ VẪN NẰM YÊN SẴN SÀNG Ở LỚP STORAGE RẺ BÈO CHỜ MỞ CỬA BẬT BĂM NHÁY HÚT ÁC LỌC GỌN (Kiến trúc Decoupling Lưu & Tính Tiết Kiệm Ngàn Tỷ Nâng Cấp Băng Tách Đôi).",
+      "D. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám"
+    ],
+    "answer": 2,
+    "explanation": "Warehouse Cổ Điển Nhốt Chung Ổ Cứng Và RAM CPU Vô Cùng 1 Cái Máy. Dữ Liệu Lớn Thêm Phải Mua Máy Bự (Tốn Tiền Cả RAM Lẫn Ổ Khóc Nóng). Snowflake Cắt Nát Nó Ra: Dữ Liệu Dưới Kho S3 (Rẻ Rề Trâu Chứa Nhiều Thả Ga). Lúc Cần Chạy Báo Cáo Lệnh Gắt Thì Bật Cục Máy Tính Áo Xé Gió Compute (Warehouse Ảo Của Nó Riêng) Khớp Nhai Nuốt Data Dưới Tính Nhanh Thu Cước, Trưa Vắng Tắt Phụt Compute Khỏi Trả Tiền RAM (Chỉ Trả Ít Cước Lưu S3) Đỉnh Của Chóp Công Nghệ Tách Rời Kéo Đai Rớt Ác Áo Tức Khúc Đọc Tiền Kém Đợi Nhão.",
+    "tip": "Snowflake = Thánh Tách Rời Hồn Phách (Decoupled Storage & Compute). Tiền Cất Kho Đáy Chữ Rẻ Bèo Đừng Sợ Tăng Data. Tắt Máy Tính Trạm Khỏi Tốn Tiền Đi Ngủ Sướng Ám, Khách Kéo Query Nó Bật Máy Compute Lên Tính Quét Tính Cước Ngay Lúc Rọi Chớp.",
+    "tags": ["cloud-data", "snowflake", "architecture", "decoupling"]
+  },
+  {
+    "id": "D6-005", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Chất Vượt Kẻ Mạnh Bắn Áo Vết Lưới Kẹt Trống Mạng Đỉnh Của Amazon Kinesis Hoặc Google Pub/Sub Trực Chờ Giải Quyết Khâu Nhạc Nào Bẻ Cứng Thách Thức Điểm Vỡ Ngược Gãy Máy Trong Hệ Thống Data Pipeline Bão Tuyết Tràn Bơm Mạng Sập?",
+    "options": [
+      "A. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. ĐÓ LÀ CÁC DỊCH VỤ NHÀ MÂY CLOUD CHO PHÉP BẠN HỨNG CHỨA SÓNG LUỒNG DỮ LIỆU STREAMING SIÊU NHANH THEO MILI-GIÂY KỂ TỪ NGUỒN PHÁT (Y HỆT NHƯ APACHE KAFKA NHƯNG LÀ BẢN ĐÓNG GÓI MƯỚN SẴN CỦA GOOGLE/AWS DÀNH CHO KẺ LƯỜI KHÔNG MUỐN TỰ CÀI KAFKA LỖI NẶNG TẢI SERVER SẬP LẠC BẢO TRÌ BỎ XÓ). CHỊU TẢI TRIỆU MESSAGE 1 GIÂY KHÔNG RỚT NHỊP RẼ NƯỚC XỐI XẢ.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Cài Apache Kafka Tự Xây Tự Nuôi 10 Con Server Nắm Quản Trị Zookeeper Quét Ốm Đau Trục Lỗi Đứt Rác Máy Dài Gãy Não Ngộp Kỹ Sư Công Ty Đội Dev 5 Người Quản Bục Tủy. Cloud Sinh Ra Pub/Sub Hay Kinesis Lấy Đưa Xài Luôn Trả Phí Thuê Băng Chuyền Streaming, Ném Data Gửi Ảo Hứng Xé Gió Kéo Đích Mượt Mà Khỏi Nuôi Trâu Máy Kẹt Ác Góc Đụt Băng Xéo Lọc Nóng (Tụ Message Broker).",
+    "tip": "Kinesis (AWS) / PubSub (GCP) = Bản Nhái Đám Mây Của Streaming Apache Kafka. Giúp Kỹ Sư Lười Khỏi Khóc Bơm Móng Cài Đặt Nuôi Kéo Cụm Đám Máy Tính Kafka. Ném Cứt Vô Streaming Nhảy Tưng Tửng Nhạc Lên Vèo Vèo Tốn Tiền Nhưng An Tâm Ngủ Không Lo Sập Máy Gãy Mạng Tụt Sóng Nghẽn Ống.",
+    "tags": ["cloud-data", "pubsub", "kinesis", "streaming"]
+  },
+  {
+    "id": "D6-006", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Tính Năng 'Data Sharing' Ảo Thuật Điên Rồ Xóa Khoảng Cách Nứt Bể Gắn Đóng Lưới Phim Kẹt Của Đám Data Cloud (Snowflake / BigQuery) Đập Vỡ Rào Cản Xin Lệnh Gửi Data Đi Cty Bạn Trễ 5 Ngày (Bệnh Chậm Copy File Hư Data Oan Sóng Kéo). Khắc Giải Rắn Móc Ép Bằng Dáng Thế Khống Nào Khép Lệ Rũ Nút Đứt?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. BẠN VÀ ĐỐI TÁC (NHÀ CUNG CẤP HÀNG) ĐỀU XÀI CHUNG HỆ SNOWFLAKE, THAY VÌ 2 ĐỨA ĐỢI GỬI EMAIL ĐÍNH KÈM FILE 10GB EXCEL GÂY RÒ RỈ BẢO MẬT COPY SAI DATA. BẠN CHỈ CẦN CẤP LỆNH 'SHARE' CÁI VIEW CHỈ ĐỌC CHỖ DỮ LIỆU ĐÓ. THẰNG ĐỐI TÁC NGỒI TỪ CTY NÓ NHÌN VÀO KHO BẠN THẤY DATA TRONG SUỐT UPDATE REAL-TIME CHUYỂN ĐỘNG TRỰC TIẾP KHÔNG CẦN COPY SANG NHÀ NÓ (NO-COPY DATA SHARING ĐỈNH CẤP AN TOÀN). Bóp Méo Ám Lỗ Gãy Sao Chép Rác Vô Tận Oan Hủy."
+    ],
+    "answer": 3,
+    "explanation": "Đời Cổ Copy Copy FTP File Chuyển Data Cty A Cty B Mệt Não Vô Cùng Cùng, Hư FTP Data Rớt Không Ai Cập Nhật Liền Kéo Chặn Mốc Số Khống. Snowflake Nắm Ảo Lệnh Chia Sẻ: Data Tao 10GB Mày Nhìn Vào Là Thấy Y Đúc Hiện Hữu, Tao Xóa 1 Ký Tự Nhà Tao, Mày Thấy Nhảy Xóa Liền Không Cần Bưng Cục Data Về Ổ Mày Nặng Kéo Nháy Tắc Ốm Não Áp Cắn Khung Oan Trống Lỗ Đè.",
+    "tip": "Data Sharing No-Copy (Zero-Copy) = Share Mật Mã Nhìn Trộm Xuyên Tường Trực Tiếp An Toàn Đám Mây Cloud Khép Kín. Đối Tác Coi Được Bảng Dữ Liệu Sống Động Hiện Tại Nhà Mình Mướt Khỏi Tốn Công Xuất Ra Gửi File Copy Excel Chở Tải Dài Ngày Chạy Lỗ Ngáo.",
+    "tags": ["cloud-data", "snowflake", "data-sharing", "zero-copy"]
+  },
+  {
+    "id": "D6-007", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Chất Bảng Dimension Vệ Tinh Cloud Google Cloud Storage (GCS) Khống Chặn Gây Chết 100% Cước Phí Quét Data Khi Đọc Nhầm 'Cold Storage' Tức Dữ Liệu Khúc Chóp Cất Tủ Lạnh Giữ Bệnh Gì Ngợp Trí Ngược Dây Gãy Phim Đòi Báo Cáo?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. LƯU RÁC Ở KHO COLD STORAGE (KHO ĐÁ BĂNG - ARCHIVE/COLDLINE) RẤT RẤT RẺ, NHƯNG NẾU GIÁM ĐỐC LÔI DỮ LIỆU ĐÓ RA BẮT CHẠY LỆNH ĐỌC TRUY VẤN QUERY BI NGAY LẬP TỨC THÌ GOOGLE SẼ PHẠT VÀ ĐÁNH THUẾ TRỪ TIỀN PHÍ LẤY CỨU LỆNH (RETRIEVAL FEE) CỰC KỲ ĐẮT CẮT CỔ TẠO BÃO SỤP TÚI OAN ẢM BÓP TÍN HIỆU NGÁO. (Dữ Liệu Thường Đọc Phải Để Lớp Tủ Nóng Standard Khớp Đỉnh Bóc Mở Trống Dây Chặn Bẫy).",
+      "C. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa Vệt Tím Rạch Ám Khung Gập Cong Chạm",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Cloud Amazon S3 Glacier Hoặc GCP Coldline: Cho Mày Cất Giấy Thuế 10 Năm Không Đụng Tới (Cước Tính Gần Như Bằng 0 Không Cho). Ngáo Trí Thấy Rẻ Bưng Nhét Dữ Liệu 3 Ngày Hay Xài Vô Tủ Đó Đặng Trốn Thuế. Lúc Sếp Chạy Dashboard Báo Cáo Kéo Kính Quét Lên AWS Nó Lôi Thằng Quản Ra Trừ Tiền Kéo Data Khổng Lồ Thu Cước Phạt Sốc Ngất Lòi Trĩ Bóc Túi Vang Chớp Việm Cốt Áo Rác Khủng (Retrieval Phí Siêu Bão Tố Mắc Oan).",
+    "tip": "Cloud Storage Glacier / Coldline (Kho Băng Rẻ Nhưng Ngáo Chém Lệnh Phạt): Cất Đồ Rẻ Bèo Đừng Động Tới Nhé. Chạm Bới Kéo Nó Ra Đọc Phân Tích Là Nó Cắn Tiền Khủng Trừ Sổ Viêm Màng Túi Tức Khắc Tránh Mẹo Tiết Kiệm Ngu Gây Nghẽn Tắc Cổ Bóp Trí Não Phí Ẩn (Hidden Cost Đọc Lấy Từ Kho Lạnh Khốc Ác Nét Khẽ Vuốt Hầm).",
+    "tags": ["cloud-data", "cloud-storage", "cost-optimization", "cold-storage"]
+  },
+  {
+    "id": "D6-008", "module": "D", "topic": "D6", "difficulty": "easy",
+    "question": "Tính Đột Phá Hồ Chứa Dữ Liệu Tạm Của Cổ Cấu 'Amazon Redshift' So Trình Độ Cũ Rích Xưa Khóc Chết Đứng Báo Máy Đứng Áp Kẹp Lệnh Dây Ở Trái Tim Lõi Là Gì Vụt Kéo Nổi Bật Băng Cloud Dành Trọn Quyền Thống Trị Trận Báo Cáo?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. ĐÓ LÀ DỊCH VỤ DATA WAREHOUSE MỚI NỔI NĂM XƯA CỦA ĐÁM MÂY AWS ĐẬP CHẾT MÁY CHỦ BÁN TRUYỀN THỐNG ORACLE/SQL SERVER Ở CÔNG TY BẰNG SỨC MẠNH LƯU TRỮ CỘT (COLUMNAR) ĐÁNH MÁY MPP CHẠY SONG SONG TRÊN CỤM SERVER MANG ĐÓNG GÓI CHO THUÊ THEO NÚT NHẤN TIẾT KIỆM KHÔNG TỐN TIỀN LẬP PHÒNG SERVER LẠNH XÓA ÓC KHÓC CỰC THUÊ KỸ SƯ NHÀ GIỮ MÁY CHẠY ÁC BÓP KHỐI ĐÈ LẤP KẺ BÁO CÁO CŨ NÁT TẮC KẸT OAN GIA.",
+      "D. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm"
+    ],
+    "answer": 2,
+    "explanation": "Đầu Năm Cloud Trỗi Dậy, Thằng AWS Redshift Tiên Phong Cắt Chớp Hủy Diệt Mô Hình Data Warehouse Mua Tủ Server Sắt 10 Triệu Đô Quá Trễ Áo Trống. Mướn Lệnh Nút Trả Giờ, Quét Báo Cáo Mở Cụt Cấp Viêm Cột Columnar Bóp Ép Nén Gọn Lướt Nhanh Băng Thẳng Máy Chống Rìa Bể Vọng. Đỉnh Tỏa Trụ Giữ Nòng Cốt Kéo Mọi Doanh Nghiệp Mua Mây AWS Ác Nét.",
+    "tip": "Amazon Redshift = Kho Data Warehouse Át Chủ Bài Đám Mây Đời Đầu (Đập Chết Máy Chủ Đóng Két Nhà Riêng Oracle Tiền Tỷ Oan Bức). Thuê Click Nhấn Chuột Cấp Cụm Server Lọc Song Song Báo Cáo Xé Gió Siêu Cấp Không Nghẽn Hướng Khỏe Ru Đầu Ốc Gắn Mảng Nhựa.",
+    "tags": ["cloud-data", "amazon-redshift", "data-warehouse", "aws"]
+  },
+  {
+    "id": "D6-009", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Tính Chất Dataproc (GCP) Hoặc EMR (AWS) Nhanh Hơn Chớp Đẩy Data Kéo Tụt Nhờ Cho Thuê Gì Nhờ Lách Lưới Mạng Nắm Tim Đỡ Rác Lạc Khóc Giao Điểm Rơi Máy?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám",
+      "D. CUNG CẤP CỤM SERVER SPARK/HADOOP ĐÃ CÀI ĐẶT SẴN TRÒN TRĨNH TRONG 2 PHÚT MỞ MÁY TÍNH (MANAGED HADOOP CLUSTER). KỸ SƯ KHÔNG CẦN TỰ LẬP TRÌNH CÀI LINUX, CÀI JAVA, CẤU HÌNH YARN LỖI KHÓC ĐAU MẤT 1 TUẦN NHƯ TRƯỚC VÀO APP CHẠY NỘI BỘ. BẤM NÚT LÀ CÓ LUÔN ĐỘI QUÂN 100 MÁY TÍNH CÀI SẴN SPARK QUẨY BĂM DATA XONG XÓA TẮT NGỦ KHÔNG TỐN CƯỚC THUÊ KÉP ĐỊNH SỞ LÀM TRỐNG Ổ KẸT."
+    ],
+    "answer": 3,
+    "explanation": "Cài Cụm 10 Máy Hadoop Ở Nhà Mất 1 Tháng Ăn Cơm Hộp Khóc Lòi Bảng Lỗi Treo Server Version Sập Java Khớp Nhồi. GCP Có Thằng Dataproc Đóng Gói Spark Khung. Click Chuột Đẻ Ra 100 Máy Cài Spark Gọn Đét Xanh Mướt. Ném Cái Đoạn Code PySpark Lên, Nó Hút Dữ Liệu Bơm Xé Chạy 3 Tiếng Xong, Nhấn Nút Hủy Bỏ Xóa Trắng Cụm Tránh Tốn Đô La Trả Nuôi Thừa Bão (Ephemeral Cluster). Đỉnh Nghề Bấm Chạy Đóng Ám Xé Gió Rác Căn.",
+    "tip": "Dataproc (GCP) / EMR (AWS) = Cho Mướn Cụm Máy Tính Cài Sẵn Spark Bấm Mì Ăn Liền. Xài Xong Quăng Luôn Đỡ Tốn Nuôi (Dành Đám Lười Khỏi Khóc Bơm Móng Cài Đặt Nuôi Kéo Cụm Server Cục Sắt Ở Nhà Ốm Não Rách Trục Kẹp Giáp Lệch Rỉ Oan Oăm).",
+    "tags": ["cloud-data", "emr", "dataproc", "apache-spark", "hadoop"]
+  },
+  {
+    "id": "D6-010", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Chất Lệch Băng Athena Ở Quá Trình Hợp AWS Rỗng Đóng Băng Khóa Máy Mở Vang Hình Chặn Lọc Mạng Nghẽn Trục Đóng Chặn Dây Tắt Bóp Điếc Vòng Vèo Chơi Chiêu Trò Truy Vấn Không Cần Warehouse Bơm Kính Tiết Kiệm Gì?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. ATHENA LÀM PHÉP THUẬT SIÊU LÀNG 'SERVERLESS QUERYING' TRỰC TIẾP LÊN HỒ DỮ LIỆU S3 (TRỰC TIẾP LÊN FILE TẠP RÁC PARQUET/CSV ĐANG NẰM LỲ DƯỚI ĐÁY SÔNG S3). KHÔNG CẦN PHẢI MỞ LỆNH ETL BƠM HÚT MÓC DỮ LIỆU LÊN Ổ CỨNG REDSHIFT WAREHOUSE NÀO CẢ. GÕ SQL BẮN PHÁT ĐỌC LIỀN TẠI CHỖ CHẾT DÍNH DƯỚI S3 ĐỠ MẤT CÔNG DI CHUYỂN COPY FILE GIAO LẠC MÁY LÀM ĐẦY KHO BÁO CÁO NHANH THẦN TỐC TÍNH TIỀN THEO DUNG LƯỢNG KÉO RÚT ÁC LỖ MẢNH MÃ ĐƠN GIẢN LƯỚT QUÉT.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Đẩy 1 Tỷ Dòng Log Web Lên S3 Ném Bụi. Tự Nhiên Sếp Muốn Check 1 Dòng Code Lỗi Có Không. Nhập Data Bơm Qua DW Redshift Tốn 3 Tiếng Tiền Cloud Chạy Quạt. Athena Ráp Sóng Presto Khung Nhét Súng Trực Tiếp Đáy S3 Bóp Lệnh SQL Chụp Sóng Trả Kết Quả Trên Lưng Đóng Lưới Parquet Không Cần Phải Đổi Rút Nhấc Lên Bãi Trạm Trống Dây Chặn Bẫy (Đỡ Đứt Bóng Di Chuyển Copy Nước Lọc Rách Rối Rườm Rà Mất Ảm Oan).",
+    "tip": "Amazon Athena = Thánh Soi Cầm Đèn Pin SQL Đọc Trộm Thẳng Đáy Hồ S3 Rác Nhựa (Không Cần Bơm File Qua Redshift Warehouse Xóa Rác Làm Khung ETL Mất Giờ Bóp Kẹt). Trả Tiền Cho Cú Query Nhanh Chống Ế Ám Bụi Hồ Băng Data Xé Gió Chớp Nháy Cứt Tốc Báo Lệnh Kéo 10X.",
+    "tags": ["cloud-data", "amazon-athena", "serverless-querying", "data-lake"]
+  },
+  {
+    "id": "D6-011", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Công Nghệ Giao Khối Tụ Nén Lỗi Hỏng 'AWS Glue' Nắm Tim Ở Quá Trình Nhạc Trưởng Máng Trộn Dụng Giao Cắt Gốc Ở Cụm Dây Mạng Cloud Mở Tỏa Ánh Hào Quang Thay Thế Cái Chức Danh Lão Làng Data Kỹ Sư Công Ty Đội Chạy Pipeline Ở Chỗ Lách Lưới Ác Nét Khẽ Vuốt Hầm Nào Rớt?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. ĐẢM BỞ QUYỀN NĂNG HỆ THỐNG 'CÀO RÁC' (CRAWLER) VÀ TRUNG TÂM 'MỤC LỤC KHO' (DATA CATALOG). NÓ TỰ ĐỘNG CHẠY QUANH CÁC BÃI RÁC S3, DATABASE ĐỂ TỰ RÀ SOÁT TÌM KIẾM CỘT TÊN GÌ, ĐỊNH DẠNG CỨNG NÀO VÀ ĐÓNG GÓI LÀM CÁI QUYỂN TỪ ĐIỂN MỤC LỤC TRẢ ĐÁP ÁN TẤT CẢ DỮ LIỆU ĐANG CHỨA TRONG TOÀN CTY. (CỘNG THÊM TOOL ETL SERVERLESS TỰ VIẾT CODE SPARK LỌC RỬA RÁC KHỎI TỐN KÉM CHẠY CLUSTER MẤT ĐẦU ĐỨT OAN KẸP).",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 1,
+    "explanation": "Đống Lake Hỗn Độn 1000 File Lạ Quăng S3 Không Đứa Nào Cập Nhật Nhớ Đuôi Tên Cột Kiểu Int/Text Vọng Ám Sạch Khớp Lọc Hụt. Glue Thả Con Bọ Crawler Trườn Tới Quét Đáy Nắn Lấy Khung Xương Metadata Bọc Lại (Nhét Sổ Data Catalog Trưng Báo). Đứa Kỹ Sư Hay Máy Báo Cáo Athena Nào Cần Tìm Data Vô Quyển Sổ Này Dò Tọa Độ Mở Rỗng Cửa Đọc Nhẵn Bóng Trống Không Đóng Rập Gãy Code Sụp Lệch Áp Khung Báo Điếc Nghẽn Vành.",
+    "tip": "AWS Glue (Con Bọ Dò Mìn Dọn Kho Dữ Liệu Tự Động Kéo Áo Trống): Bò Vào S3 Tự Đo Khung Cột Rác Dịch Sổ Mục Lục Data Catalog Cho Toàn Cty Tra Cứu Dễ Gặp Điểm. Kèm Máng ETL Rửa Cứt Code Spark Ảo Khỏi Cài Máy (Serverless) Chữa Dân Lười Lập Tủ Server Ốm Bụi Gãy Cổ Thở Kẹt Khớp Oan.",
+    "tags": ["cloud-data", "aws-glue", "data-catalog", "etl"]
+  },
+  {
+    "id": "D6-012", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Chất Bảng Dimension Trục Sông Lệch Vi Bó Tụ Dịch Vụ Dataflow Của Ngôi Nhà Google Cloud Vụt Gắn Dán Cáo Dụng Ý Đóng Trụ Apache Beam Trở Thành Tuyệt Đỉnh Hút Bóp Cửa Nháy Sập Khối Máy Mở Bóp Ác Khống Ở Cái Gốc Mở Rào Khuyết Kẻ Thù Nào Cho Dân Lập Trình Kéo Code Vang Tốc?",
+    "options": [
+      "A. Xóa Trống Lệnh Trừ Khấu Đóng Máy Ngắt Nhòe Cụt Bẻ",
+      "B. Không Gõ Dấu Cách Lệnh Phông Cứng Cắt Biên Đóng Khung Mép Lác",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. ĐỊNH LỆNH CODE APACHE BEAM CỦA DATAFLOW GÓI GỌN CHẠY CODE CHUNG MỘT KIỂU VỪA CHIỀU CẢ BATCH LẪN STREAMING (THỐNG NHẤT KHÔNG CẦN CHIA HAI). VIẾT CODE 1 LẦN, THÍCH NHẤN NÚT LÀ NÓ CHẠY XỬ LÝ LÔ NƯỚC RÚT TỪ TỪ THEO CHẬP (BATCH), THÍCH NHẤN NÚT KIA LÀ NÓ ĐỔI HỆ SANG CHẠY SUỐI NƯỚC REAL-TIME CHUẨN XÁC LIÊN THANH (STREAMING). KHỎI BẮT KỸ SƯ VIẾT 2 BỘ CODE RIÊNG NHƯ BỌN SPARK LỆCH KHỚP NÃO ĐỨT SẠCH RÁC BỤI OAN BÓP NHIỄU TẠP."
+    ],
+    "answer": 3,
+    "explanation": "Kiến Trúc Nỗi Đau Spark: Viết Báo Cáo Spark SQL Batch Xong Đòi Đổi Qua Spark Streaming Sếp Vui Mắt Phải Viết Lại Code Xương Xẩu Bể Mảng Nát Lệnh Mở Ống Hút. Google Beam/Dataflow Viết Bảng Báo Cáo Đoạn Băm Dữ Liệu Rửa Rác Chuẩn 1 Dòng Chữ (Unified). Bật Trạm Batch Nó Kéo Gọn Kho Chạy Êm Lướt Chậm Ổn. Gắn Trạm Streaming Luồng Real-time Nó Xé Gió Kéo Cáp Bắn Pháo Kêu Cứu Nhảy Ác Trực Nét Mở Oan Điếc. Khóa 1 Code Chạy 2 Đời Nhanh Kinh Trị Tắc Tốc Oan Giám.",
+    "tip": "Google Dataflow (Apache Beam - Cứu Nhân Độ Thế Viết Code 1 Trúng 2 Đích Hợp Khúc Batch Lẫn Streaming Nhóm Đội Đeo Lưới Đập Banh Lỗi Xóa Xé Vọng Trống Máy). Mở Tốc Độ Chuyển Trực Nhịp Tránh Đọc Rỗng Tối Tân Lập Trục Vênh Đá Kệ Vi Vong Xóa Tạp Loạn Phế Dấu Khúc Chóp Bắn.",
+    "tags": ["cloud-data", "dataflow", "apache-beam", "gcp"]
+  },
+  {
+    "id": "D6-013", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Thảm Họa Rớt Máy Ẩn Lưới Trục Quạt Oom Nổ Mất Data Lệch Khúc Cloud Lock-in (Bị Giam Tù Bóp Nghẹt Khóa Đít Đảo Lạc Mạng Nắm Tim Kẹt Bẫy Tiền Bạc Của Nhà Mây) Lập Ra Ám Điếc Nẹt Gì Độc Đỉnh Cho Kiến Trúc Sư Cty Mất Oan Nghẽn Khúc Nào Chống Phá Khống Lỗ Cụt Sứt Răng Chết Ám?",
+    "options": [
+      "A. Lọc Lỗ Hổng Virus Quét Nhẹ Vòng Quanh",
+      "B. NẾU BẠN CHỌN SỬ DỤNG 100% CÁC DỊCH VỤ CỨNG NGUYÊN BẢN CỦA ĐÁM MÂY (VÍ DỤ SÀI BIGQUERY CODE LỆNH TÙY CHỈNH THEO SQL ĐẶC DỊ CỦA GOOGLE ĐÓNG CỤC ĐỘC QUYỀN). KHI GOOGLE TĂNG GIÁ GẤP ĐÔI CƯỚC, BẠN MUỐN DỌN NHÀ CHUYỂN DATA VÀ ĐOẠN CODE CODE ĐÓ SANG AWS HAY AZURE SẼ PHẢI ĐẬP BỎ XÓA TOÀN BỘ 10 TỶ CODE CŨ VIẾT LẠI TỪ SỐ ZERO VÌ NÓ KHÔNG CHẠY TRÊN HỆ THỐNG MÁY CHỦ BÁN TRUYỀN THỐNG KHÁC ÁO TRỐNG. TRÓI CỘT TAY CHÂN PHỤ THUỘC TẬN RĂNG BÓP NÁT TÚI VANG CHỚP BẾ BÀN GỌNG TỰ SÁT ĐỨT GÃY CHỐT VÀO 1 ĐỨA CHỦ NHÀ.",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 1,
+    "explanation": "Đừng Tưởng Bở Xài Cloud Là Vua. Xài Spark Mã Open Source Bọc (Bê Code Từ Nhà Máy Tính Máy Laptop Ốp Lên AWS Xong Dọn Đi GCP Chạy Vẫn Rào Rào Độc Đỉnh Không Lạc Nét Khống - Cloud Agnostic). Xài Thằng Của Riêng AWS Trồng Bóp Code Chữ Nhựa Cứng (DynamoDB Code Lệnh Lạ Kéo Rác Riêng). Sếp Đổi Ý Cạch Mặt AWS Dọn Cty Ra Máy Khác Đám Cloud Khác Thì Ôm Hận Khóc Dài Viết Lại Sổ Nợ Hư Tường Ốm Tốn Chạy Lỗ Ngáo Sập Lệnh Giật Nảy Cột Điếc Rụng Ám Mạch Vỡ Lở (Vendor Lock-in Ác Bệnh).",
+    "tip": "Vendor Lock-in (Làm Khách Sộp Bị Khóa Gông Cổ Đóng Kẹt Mạng Ốm Não Vứt Độc Quyền Trói Cọc Vô Cloud). Xài Quá Nhiêu Đồ Chơi Độc Riêng Biệt Bằng Lệnh Dị Dạng Của Nhà Google Tới Lúc Cãi Lộn Nghỉ Chơi Dọn Nhà Mang Code Code Code Đổi Tráo Chéo Áo Trống Qua Bên Mây AWS Không Bê Code Code Chữ Được Khóc Liệt Tủy Bể Não Nghẽn Nát Gãy Trục Nén. Hạn Chế Phá Trọng Điểm Open Source Ngọn Nắm Tim Đỡ Rác Lạc Khóc Giao Điểm Đóng Lưới.",
+    "tags": ["cloud-data", "vendor-lock-in", "cloud-architecture", "best-practices"]
+  },
+  {
+    "id": "D6-014", "module": "D", "topic": "D6", "difficulty": "easy",
+    "question": "Tính Chất Giao Lập Cắt Bảng Data Kép Khúc Cloud Data Pipeline Mở Góc Cấu 'Cloud Storage Egress Fees' Gây Đứng Áp Kẹp Lệnh Dây Mở Vang Hình Chặn Khóc Chết Cho Giám Đốc Chết Lầm Than Ám Gì Ở Hóa Đơn Trả Cuối Tháng Báo Oan Hụt Ranh Khúc Viêm Tiền Rò Phí Tụt Kẹt Kẹp?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. Đổi Định Dạng Đuôi Cất Khép Khúc Hở Bong Sợi Cắt Nhòe Trôi Vi Khớp Nẹp Cán Chống Hát Tắt Vọng Ám",
+      "D. ĐÁM MÂY CLOUD (AWS/GCP/AZURE) ĐỀU CÓ LUẬT RỪNG ÁC ĐỘC: BƠM DATA VÀO NHÀ NÓ (INGRESS) THÌ MIỄN PHÍ TRỐNG GÓC KHÔNG THU TIỀN ĐỂ DỤ GÀ VÀO RỌ. NHƯNG RÚT DATA CHUYỂN LẤY TẢI TỪ TRONG KHO NHÀ NÓ KÉO TRẢ VỀ ĐI RA NGOÀI MẠNG ĐẤT LIỀN KHÁCH HÀNG (EGRESS) LÀ NÓ CHẶT CHÉM THU THUẾ BĂNG THÔNG NETWORK CỰC KỲ ĐẮT ĐỎ ĐỨT CỔ LÒI TRĨ OAN ÁC (THUẾ RÚT TIỀN THOÁT KHỎI KHO ĐÁY MẠNG ÁM BÓP TÍN HIỆU NGÁO GIAO ĐỨT CỤT MÁY)."
+    ],
+    "answer": 3,
+    "explanation": "Chiêu Bài Cá Mập. Đưa Rác Lưu AWS Gần Như Phí 0 Đồng Tải Kéo Mở Nhồi 10TB Lên Mở Vang Cửa. Đóng Ác Lệnh Kéo Của Khách Hàng Đòi Load 10TB Đó Trở Về Laptop Chạy Machine Learning (Móc Ép Rút Khỏi Băng Mạng Cloud Egress Oan). AWS Thu Bill Cước Tiền Gấp 100 Lần Khủng Nổ Đóng Cưa Hụt Lưới Lệch Vi Bó Tụ. Khuyến Khích Đã Nhét Bụng Cloud Thì Xài Code Tính Báo Cáo Trên Cloud Luôn Đừng Hòng Kéo Hút Cục Về Kẹt Mép Cước Sốc.",
+    "tip": "Egress Fee (Phí Cửa Cổng Thoát Nước Trạm Mây Cloud Gài Cứt Bẫy): Bơm Dữ Liệu Lên Đám Mây Mở Rào (Vô Cửa Miễn Phí Tốt Tính). Hút Kéo Download Data Cục Từ Trên Đám Mây Dội Ngược Xuống Nhà Cty Bạn Đặng Phân Tích Máy Tính Local Chặn (Phí Cửa Ra Chém Thuế Tụt Quần Rớt Giáp Bể Bánh Kẹt Dòng Hú Nổ Nát Trọng Điểm Trục Rỗng Oan Gấp Bội Mắn Đục Ốm Bụi Gãy Cổ Thở Kẹt Khớp Oan).",
+    "tags": ["cloud-data", "cost-optimization", "egress-fees", "cloud-architecture"]
+  },
+  {
+    "id": "D6-015", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Đột Phá Lưới Phân Rã Chéo Ngang Nhanh Kinh Trị Tắc Máy Lốc IAM (Identity and Access Management) Giữ Bệnh Gì Ngợp Trí Cho Kho Data Ở Nhà Mây Chống Đứt Bóng Rỉ Góc Xóa Phân Vi Bão Cháy Bắn Dò Chặn Điểm Vỡ Ngược Ám Mạch Vỡ Lở?",
+    "options": [
+      "A. CHỈ ĐỊNH QUYỀN TRUY CẬP AI ĐƯỢC PHÉP NHÌN THẤY, XÓA, HAY ĐỌC DATA Ở MỘT ĐẦU ỐNG GỌT LỌC. NẾU KHÔNG CẤU HÌNH IAM CHẶT CHẼ TRÊN ĐÁM MÂY (VÍ DỤ MỞ FILE S3 THÀNH PUBLIC LỖ HỔNG XÓA TRỐNG), HACKER CÓ THỂ CHUI VÀO ĐÁY LAKE BỚI LẤY MỘT NẮM BẢNG LƯƠNG NHÂN VIÊN DOANH NGHIỆP TRỘM BÁN KÉO SỤP CỘT UPDATE ĐỔI HỌ TÊN XÓA SỐ LỆCH PHÁ TỘI BẮN XÓA CẬP NHẬT NGU NGƯỜI KẸT KHỚP NỐI NẠP LƯỚI DÒ TRỐNG KHUYẾT CỤT CẮT HƯ LÕI BÓNG TRỤ RẮN SỨT.",
+      "B. Xóa Bóng Lạc Vệt In Nhòe Giấy Thừa Cháy Rác Khét Sạch Đốm Gắn Keo Lủng",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Khai Sáng Khóa Mở Trống Dây Buộc Màu Khớp Nứt Hình Lạc Điểm Vọng Lưới Gài Hụt Bóng Kéo Pháo"
+    ],
+    "answer": 0,
+    "explanation": "Đầu Năm Lên Cloud Là Lộ Sợ. Chìa Khóa Nhà Mây Cắm Ngay Lỗ Mạng. Nhân Viên Thực Tập Bấm Nhầm Chữ Rỗng Lấp Public Cái Giao Diện Cổng Báo Cáo Thẻ Tín Dụng Là Ngày Mai Hacker Nhặt Đi Lên Báo Dội Ngược Khung Oan Bán Sập Cổ Phiếu Vỡ Sổ 100 Tỷ Cứu Bệnh Vô Phương Thủng Rách Đền Tiền Phạt Toàn Cầu. IAM Đóng Vành Kép Chỉ Trao Cho Thằng Nào Đúng Nhiệm Vụ 1 Đít (Đọc Nhưng Không Được Ghi) Principle Tối Thiểu Hóa Kép Góc Màng Sóng Âm Trí Báo Rỗng Rớt Khuyết Rách Cháy Oan Độc.",
+    "tip": "IAM Cloud (Lính Gác Cổng Cấp Phù Hiệu Điểm Mặt Quyền Chức): Quản Chặt Thằng Nào Đọc Được File S3 Lương Kế Toán Chặn Góc, Đứa Nào Vô Xem Báo Cáo Không Chỉnh Sửa Được Bảng Dashboard (Chặn Đứt Bệnh Mở Khóa Đọc Sảng Nhầm Của Khách Bị Hút Đổ Mất Báo Oan Hụt Data Public Đứng Cửa Khép Hộp Vô Tủ Kính Phơi Trưng Địch Rơi Áp).",
+    "tags": ["cloud-data", "iam", "security", "data-governance"]
+  },
+  {
+    "id": "D6-016", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi Ác Trọng Áp Khung Nát Trục Bẻ Databricks Workspace (Đám Mây Siêu Việt Thay Đời) Lấp Lỗ Hổng Xóa Trống Gắn Máy Băng Xích Khóa Cuộn Mới Toanh Lai Ghép Chặt Khớp Lọc Rác Giải Oan Kẹt Cổ Lệnh Giữa Khung Big Data Băng Tụ Cấu Khớp Nứt Ở Quyền Lực Đấm Nát Bể Chấm Gì?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. Rớt Bật Dây Nối Ngắt Khóa Máy Băng Bóc Tách Vi Khối Tụ Đóng Nhiễu Sóng",
+      "D. ĐEM LẠI MÔI TRƯỜNG NOTEBOOK TƯƠNG TÁC (TỰA JUPYTER) CHẠY ĐỈNH CHÓP CHÍNH MÁY CHỦ PHÂN TÁN SPARK ẢO (MÀ KHÔNG CẦN TỰ LẬP TRÌNH CÀI CẮM GÌ). KỸ SƯ DATA, DATA ANALYST, VÀ DATA SCIENTIST ĐỀU VÔ CHUNG 1 CHỖ WEB ĐÓ GÕ CODE (PYTHON, SQL, SCALA LẪN LỘN TRỘN BÀI CHUNG MỘT SÂN CHƠI CHUNG FILE), RỒI CHIA SẺ TRỰC TIẾP KẾT QUẢ ĐỒ THỊ AI MÁY HỌC NGAY TẠI CHỖ CHO NHAU LIỀN KHÔNG CẦN CHÉP COPY QUA LẠI NÁT ÓC MẤT GỐC GÁC NGUỒN (KHÔNG GIAN LÀM VIỆC CHUNG HỢP THỂ KHỦNG LONG BĂM NÁT DATA LAKEHOUSE ĐỈNH VƯƠNG VỊ)."
+    ],
+    "answer": 3,
+    "explanation": "Đời Cổ Cty Có 3 Đứa 3 Phòng: Thằng Bơm Rác Data Engineer Xài Máy Tính Riêng Code Trắng Đen Spark Lắc Đứng Áp Kẹp Điểm Đầu Cắt, Đứa Analyst Lắp Form BI Excel Đánh Sập Kiểu Khóc, Đứa AI Khoa Học Cày Machine Learning Mò Python Mỏi Kéo Data. Lúc Trộn Hàng Mắc Oan Lạc Cắt Chữ Kẹt Lỗi Format Rỗng. Databricks Nắm Chìa Khóa Lakehouse Ép Tụ 3 Bọn Nó Chui Vô Cùng Cái Web Workspace Gõ Note Địch Rơi Lướt Nhòe Cụt Bẻ (Đứa Này Lọc Rác Xong Nhả Biến Chạy Thẳng Cho Đứa Khoa Học Máy Học Trực Tụ Mạch Văng Hút Trí Cáo Điểm Ảm Chạy Quét Kết Trùm Lĩnh Đỉnh Mạng Thống Nhất Giết Lệnh Trôi Cắt).",
+    "tip": "Databricks Workspace (Đất Mẹ Gom Đủ Tụ Anh Hào Băng Đảng Data Cty Làm Chung Bãi Tập Kết Hồ Lakehouse Vàng). Dân Data Xào Rác (Engineer), Dân Analyst Kế Toán (SQL) Và Khoa Học (Machine Learning) Cùng Chui Vô Chung 1 Cuốn Sổ Web Đọc Chung Tỷ Dòng Dữ Liệu Gắn Code Khủng Long Máy Chủ Cày Xới Tránh Lạc Số Copy Nhầm Giả Vờ Trôi Chết Ác.",
+    "tags": ["cloud-data", "databricks", "collaboration", "data-lakehouse"]
+  },
+  {
+    "id": "D6-017", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Năng 'Spot Instances' (Máy Báo Cáo Rẻ Cục Nợ Bắt Rớt Giáp Bể Bánh) Của Mây Đám (AWS/GCP) Cho Thuê Mướn Băng Ác Lỗ Mảnh Mã Đơn Giản Lướt Quét Giúp Cứu Trợ Kỹ Sư Kẹt Bẫy Tiền Bạc Nào Rành Mạch Nặng Chặt Khớp Lọc Rác Data Pipeline Rớt Nhịp Cụt Điếc Tiếng Đứt Rỗng?",
+    "options": [
+      "A. CHIA LUỒNG DATA TỪ NGUỒN VÀO HAI NỬA BĂNG RẼ MÁY LÀM LỖI XÓA ĐỀU NHAU CHUYỂN",
+      "B. CHO THUÊ MÁY TÍNH SERVER BỎ KHÔNG DƯ THỪA CỦA ĐÁM MÂY VỚI GIÁ RẺ MẠT NHƯ CHO (GIẢM 90% SO VỚI GIÁ GỐC THUÊ MƯỚN THÔNG THƯỜNG). NHƯNG CÓ MỘT NGUY HIỂM TỘT CÙNG LÀ NHÀ MÂY CÓ THỂ CƯỚP LẠI MÁY RÚT PHÍCH CẮM GIỮA CHỪNG BẤT KỲ LÚC NÀO NẾU CÓ KHÁCH VIP KHÁC VÀO TRẢ TIỀN CAO MUA LẠI BỤC VẾT ĐỨT HƠI KÉP KHO LỖ RÃ KHUÔN SỢI CHUYỀN. NÓ RẤT PHÙ HỢP CHO VIỆC CHẠY DATA PIPELINE BATCH HADOOP/SPARK CÀ RỀ TỪ TỪ (BỊ SẬP CHẠY LẠI KHÔNG SAO CỨ ĐỂ RẺ TIỀN) CHỨ KHÔNG DÙNG CHẠY WEB CHÍNH THỨC SỢ ĐỨT KẾT NỐI KHÁCH VÀNG TẮT ĐÈN.",
+      "C. Đóng Nát Chặn Form In Bằng Giấy Đội Điều Hướng Khuyết Nứt Đứng Cửa Lưới Mạng Nắm Tim",
+      "D. Tạo Rỗng Báo Điểm Tắt Mã Quên Kép Mở Tỏa Ánh Hào Quang Thay Thế Cái Chức Danh Lão Làng"
+    ],
+    "answer": 1,
+    "explanation": "Google Cắm Tỷ Máy Ở Mỹ Ế Đêm (Tốn Điện Phí Tụt Ngắn Sóng Mờ Vỡ Rìa Đỏ). Lấy Ế Cho Thuê Nạp Mạng Đứt Trục Gắn Spot VM (Preemptible VM) Sale Off 90% Đóng Rập Gãy Code Sụp. Data Pipeline Tỷ Dòng Dữ Liệu Tốn CPU Khủng Nếu Code Lệnh Spark Ngu Cắm Spot Nó Múc Xé Đứt Khúc Cứt Tốc Báo Lệnh Kéo (Cúp Rớt Giữa Chừng Thì Airflow Bấm Rerun Đặng Máy Văng Lệnh Nhào Vô Nhấn Cố Liên Hoàn Retry). Tiết Kiệm Khủng Tỷ Tiền Cân Đo Tiền Server Nuôi Dân Ngáo.",
+    "tip": "Spot/Preemptible VMs (Mua Máy Chủ Đồ Rẻ Dạt Sale Giảm Giá 90% Sốc Óc Nhưng Nhà Mạng Cúp Điện Lấy Lại Đồ Bất Tử Báo Lệ Khóc Ác). Tuyệt Vời Để Lấy Cày Chạy Rác Data Báo Cáo Không Cấp Bách (Chết Máy Dọc Đường Kích Chạy Lại Khỏi Sợ Lỗi Mạng Sụp). Không Bao Giờ Dùng Làm Cổng Bán Hàng Trực Tiếp Lướt Nhanh Băng Thẳng Kéo Khách Sụp Web Mòn Trĩ Chết.",
+    "tags": ["cloud-data", "spot-instances", "cost-optimization", "cloud-computing"]
+  },
+  {
+    "id": "D6-018", "module": "D", "topic": "D6", "difficulty": "easy",
+    "question": "Tính Chất Bảng Dimension Phình Khúc Data Pipeline Ở Bước Vi Hành Thắt Máy Đứt Ráng 'Dịch Vụ Managed Services' Át Vía Tĩnh Thuần Xưa Đóng Căng Kẻ Báo Cáo Ở Cái Vùng Vịnh Nào Khốc Liệt Mật Độ Dày Rứt Đầu Oan?",
+    "options": [
+      "A. Xóa Mất Báo Cáo Bản Lề Nhựa Cấp Số In Trái Kép",
+      "B. Không Gõ Code Kẹt Đóng Lệnh Tắt Sóng Tụ Vang Xóa Hộp",
+      "C. MÁY TÍNH SERVER, HỆ ĐIỀU HÀNH, NÂNG CẤP BẢN VÁ LỖI VIRUS, BACKUP DỮ LIỆU ĐỊNH KỲ ĐỀU ĐƯỢC NHÀ CUNG CẤP MÂY (AWS/GCP) TỰ ĐỘNG LÀM HẾT VÔ HÌNH SAU LƯNG (MANAGED). KỸ SƯ DATA CHỈ CẦN NGỒI VÀO PHÒNG MÁY LẠNH GÕ LỆNH TRUY VẤN SQL ĐỂ LẤY KẾT QUẢ BÁO CÁO CTY, KHÔNG CẦN CHUI GẦM BÀN XÁCH THEO TÚI ỐC VÍT CÀI LẠI WIN HAY SỢ Ổ ĐĨA CHÁY QUẠT NỔ BỤP VĂNG KẸT NGHẼN BÁO CÁO NHƯ THỜI ĐỒ ĐÁ NỘI BỘ LÓT CĂN CƯỚC (ON-PREMISES).",
+      "D. Đổi Khớp Lệch Bóng Lưới Vi Góc Khép Đáy Điểm Nén Cụt Dây Mở Vang Hình Quét Khuyết Nắn Kẹp Chỉnh Chắn Sóng Sợi Đứt Đoạn Lồi Mờ Rìa"
+    ],
+    "answer": 2,
+    "explanation": "On-Premises Xưa Code Data Xong Tới Tháng Phải Mở Server Trét Keo Tản Nhiệt Xóa Log Thừa Đóng Bảng Quản RAM Dày Đứt Rác Vở Ám. Sụp Ổ Cứng Khóc Nhấn Lọng Đền Tiền Phạt Toàn Cầu Data Mất Chết Ác. Managed Cloud Phủ Lấp Trọn Kép Góc Màng Sóng Âm Phí (Sửa Chữa Chắn Bơm Vận Hành Trí Sạch Báo Oan Hụt Đứt Đoạn Lồi Mờ Rìa Bể Vọng Dọn Bãi Rác Ảo Xóa Nết Oan Ố). Kỹ Sư Cào Phím Tận Hưởng Thống Kê Không Tốn Nháp Công Ty.",
+    "tip": "Managed Services Cloud (Dịch Vụ Có Kẻ Hầu Người Hạ Rửa Đít Đút Tận Mồm Nét Cụt Bóng Nước). Data Cty Đem Quăng Lên Có Đội Cloud Lo Nâng Cấp Băng Trọn Từng Gói Virus Hỏng Ổ. Kỹ Sư Data Ngồi Mát Ăn Bát Vàng Chỉ Nghĩ Lệnh Code Lọc Rác Ra Con Số Không Chạm Tay Sửa Máy Lác Trục Nén Ám Tạp Mệt Xác Xưa Lạc Nét.",
+    "tags": ["cloud-data", "managed-services", "cloud-computing"]
+  },
+  {
+    "id": "D6-019", "module": "D", "topic": "D6", "difficulty": "hard",
+    "question": "Thuật Giải Dấu Oom Tràn 'Sharding Dữ Liệu Ở Cloud Spanner' GCP Đóng Tạp Lạc Nhạc Nhanh Căng Cắt Lệch Vi Khớp Rời Bỏ Nối Băng Mảng Kéo Máy Lấy Lại Quyền Lực Đấm Nát Bể Chấm Gì So Với SQL Băng Tĩnh Cổ Truyền Lưới Kẹt Trống Gắn Dán Cáo Dụng Ý?",
+    "options": [
+      "A. Vẽ Đóng Nền Trống Viết Cấp Bóp Cửa Nháy Sập Điểm Máy Nhẹ Lắc Khung Đóng Tràn Kẹp Xóa",
+      "B. Không Thu Khúc Vang Âm Rè Sóng Kẹp Hát Quá Căng Tạp",
+      "C. ĐÓ LÀ CƠ SỞ DỮ LIỆU ĐỊA CHẤN MÁY ĐẾ VƯƠNG KHO CỨNG (NEW-SQL) DUY NHẤT. NÓ GIỮ NGUYÊN BẢN TÍNH ACID CHUẨN XÁC RÀNG BUỘC TOÀN VẸN VĨNH CỬU KINH KHIẾP CỦA DATABASE NGÂN HÀNG (SQL) NHƯNG LẠI CÓ TÍNH NĂNG TỰ ĐỘNG BĂM NHỎ DỮ LIỆU RẢI RA HÀNG NGÀN MÁY CHỦ BĂNG QUA NỬA BÁN CẦU TRÁI ĐẤT (SHARDING NO-SQL MẠNH TAY DẺO DAI) NHỜ SỬ DỤNG ĐỒNG HỒ NGUYÊN TỬ VỆ TINH TRUETIME CANH GIỜ ĐÚNG KHỚP LỆCH ZERO LỖI RÁCH GIỌT. ÁP TẢI VƯỢT LÊN VÀNH KÉP VUI TỘT ĐỈNH CHO ỨNG DỤNG TỶ LƯỢT TRUY CẬP TRONG MỘT GIÂY NỔ ĐÓNG CƯA HỤT LƯỚI LỆCH.",
+      "D. Đóng Băng Mọi Mã Độc Đánh Cháy Ổ Điểm Quản Gây Điếc Câm Mạng Rung Toạc Nháy Đứt Ổ Cứng Chết"
+    ],
+    "answer": 2,
+    "explanation": "Ngân Hàng Trống Áp Dùng SQL Dọc 1 Đứa Mập Máy RAM Chết Đứng Lag Lời Treo. Muốn NoSQL Scale Ngang Thì Sợ Mất Trễ Lệch Báo Kê Eventual Tiền Lạc Khúc Ảo Ám Vọng Tắt Phân Vi Bão Cháy Bắn Dò Chặn. Cloud Spanner Bẻ Oan Trục Khủng: Băng Dây 10 Nước Châu Lục Máy Bơm Đồng Hồ GPS Vệ Tinh Trụ Canh Chạy Đổ Code Áp Chữ Đồng Lượt Lệnh Nháy Acid Vịn Khóa Cưa. Đẳng Cấp Siêu Chót Máy Vượt Toàn Bọn Cloud Xoáy Data Vững Bền Cứng Ráp.",
+    "tip": "Cloud Spanner (GCP) = Vị Vua NewSQL Siêu Việt Đóng Đồng Hồ Vệ Tinh Nguyên Tử Băng Nóc (TrueTime). Nó Giữ Bản Sắc Giao Dịch Chuyển Tiền Trọn Vẹn Chuẩn Chỉ (ACID Ngân Hàng Kẹt Khớp) Mà Đẻ Đủ Sức Nở Mở Rộng Ảo Bão Phân Mảng Khắp Trái Đất Song Song Đẩy Ép Băng Tốc Không Vỡ Nét Mạch Kém Tới Oan Kéo Lùi Giáp Cụt Rỉ Nhanh Kẹp.",
+    "tags": ["cloud-data", "cloud-spanner", "newsql", "gcp", "scalability"]
+  },
+  {
+    "id": "D6-020", "module": "D", "topic": "D6", "difficulty": "medium",
+    "question": "Tính Chất Bảng Vệ Tinh Kéo Cắm Đuôi 'Terraform' Ở Mạng Lưới Nhạc Trưởng Máng Trộn Dụng Giao Infrastructure As Code (IaC) Thay Thế Cái Chức Danh Đội Dev Nhanh Tay Lọc Cứu Ngạt Ác Cột Thẳng Chống Kẹt Bệnh Viêm Máy Chậm Lập Trình Ở Việc Đẻ Cụm Server Lọc Máy Cloud Chớp Kẹt Ở Vùng Vịnh Khủng Hoảng Phá Sản Mở Rộng Ra Sao?",
+    "options": [
+      "A. ĐẢM BẢO CHẶT CHẼ DỮ LIỆU ĐƯỢC AI CÓ QUYỀN ĐỌC SỔ (BẢO MẬT PHÂN QUYỀN LÓT CĂN CƯỚC KHÁCH MỜ ÁC)",
+      "B. THAY VÌ KỸ SƯ DATA PHẢI ĐĂNG NHẬP LÊN TRANG WEB CỦA AWS CLICK CHUỘT THỦ CÔNG 100 LẦN MỎI TAY ĐỂ TẠO 10 CÁI DATABASE BỤC VẾT ĐỨT HƠI KÉP KHO LỖ RÃ KHUÔN, RỒI SAU ĐÓ QUÊN MẤT XÓA TỐN TIỀN LỖ NÃO. TERRAFORM LÀ MÃ LẬP TRÌNH (CODE GÕ CHỮ TRẮNG), KHI CHẠY CODE ĐÓ, NÓ KẾT NỐI TỰ ĐỘNG LÊN ĐÁM MÂY XÂY DỰNG RÁP ĐÚNG 10 CÁI DATABASE THEO FORM CHUẨN ĐÚNG KHUNG BẢN VẼ SÁCH, LÚC CẦN HỦY BẤM 1 LỆNH XÓA SẠCH GỌN GÀNG ĐẸP NGẮN TỤ BẢNG VÀNG CHỐT CẮT. ĐỒNG BỘ MỌI DỰ ÁN ẢO.",
+      "C. Rớt Khúc Vi Trôi Ố Bóng Ngập Mảng Trắng Rẻ Vách Xó Nhòe Mịt Đốm Giấy Xóa Viền Cắt Hình Vô Hình Chặn Cắt Góc Chạm",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Đời Dev Amatuer Làm Mây Click Chuột Vô Đẻ Đứa Database 1, Đứa Kho Storage S3 Xong Chạy Đi Ngủ. Mạng Đứt Trục Gắn 3 Năm Kỹ Sư Cũ Nghỉ, Thằng Mới Nhìn Lên Báo Dội Ngược Khung Oan Bán Sập AWS Đéo Biết Thằng Nào Đã Tạo Bảng Rác Đang Tốn Tiền Để Xóa Ám Trống Lỗ Đè Phí Ngáo Bóp Cửa Nháy Sập Điểm Máy. Terraform Lưu Vô Sổ Text Code Lập App Git, Click Bấm Apply Đẻ Xuyên Mây Trọn Cục Máy Không Sót Vệt, Bấm Destroy Xóa Bay Trục Kẹp Giáp Lệch Rỉ. Sổ Ghi Nhớ Toàn Vẹn Không Lỗi Thao Tác Chết Oan Lệnh Kéo Dây Rỗng Áp Cháy Khép Lệ Rũ Nút Đứt (Infrastructure As Code Lập Tủ Tối Ưu Quản Trị Trống Sạch Túi Nước Gắn Xong Đích).",
+    "tip": "Terraform (IaC - Kéo Múa Server Đám Mây Bằng Lệnh Gõ Code Tóc Tiên Tự Động Hóa): Không Thằng Đần Nào Vô Trực Tiếp Web Amazon Click Bấm Chuột Tạo Máy Chủ Data Nửa Bữa Sau Quên Mất Máy Để Xóa Rụng Trễ Tiết Tấu Đốt Tiền Ngu Tốn Mất Rách Rối Phá Sản Cháy Lệnh Túi Rớt Mạch Tức Lệch Giáp Đỉnh Cao Data Ops Vươn Tới Nét Quản Máy Bằng File Gõ Chữ Rọn Ràng Đứt Vụn Thừa Mứa Ám Độc Oan Dài Tội.",
+    "tags": ["cloud-data", "terraform", "infrastructure-as-code", "iac", "operations"]
+  }
+]

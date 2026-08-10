@@ -1,0 +1,282 @@
+[
+  {
+    "id": "D2-001", "module": "D", "topic": "D2", "difficulty": "easy",
+    "question": "Sự khác biệt CƠ BẢN NHẤT khiến người ta PHÁT MINH ra NoSQL (Not Only SQL) để thay thế SQL trong một số trường hợp là gì?",
+    "options": [
+      "A. SQL không chạy được trên Windows",
+      "B. SQL (Quan hệ) ép buộc DỮ LIỆU PHẢI CÓ CẤU TRÚC ĐỊNH SẴN (Lược đồ Lõi/Schema cứng ngắc như Bảng Excel, 3 Cột là 3 Cột). NoSQL (Phi Quan hệ) sinh ra để XỬ LÝ DỮ LIỆU KHÔNG CẤU TRÚC (Unstructured - Bất quy tắc). Nó Mềm Dẻo, Đứa có 3 Trường, Đứa có 10 Trường nhét chung vô vẫn chạy tốt.",
+      "C. NoSQL cài đặt nhanh hơn",
+      "D. SQL bị thu phí bản quyền quá cao"
+    ],
+    "answer": 1,
+    "explanation": "Khách hàng A chỉ có tên. Khách hàng B có Tên, Ngày Sinh, Link Facebook, Sở Thích. Nếu nhét vào SQL, bạn phải tạo 5 Cột, và Khách Hàng A sẽ bị Dư thừa 4 Ô Rỗng (NULL). Rất ngu xuẩn và phí dung lượng. NoSQL quăng cái File JSON vào, đứa nào có nhiêu thuộc tính thì lưu bấy nhiêu. Quá sướng cho Dev.",
+    "tip": "SQL = Bảng Lịch Sự (Cột dòng cứng ngắc, Sai form Lỗi liền). NoSQL = Bao Tải Tạp Hóa. Cục Data C méo mó lồi lõm nhét chung Cục Data Tròn Vo vẫn ok (Schema-less).",
+    "tags": ["nosql", "basics", "sql-vs-nosql"]
+  },
+  {
+    "id": "D2-002", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Theo Định lý CAP (CAP Theorem) kinh điển của Hệ thống Phân tán, 3 yếu tố (Consistency, Availability, Partition Tolerance) có quy luật khắc nghiệt nào?",
+    "options": [
+      "A. Hệ thống có thể đạt được cả 3 yếu tố cùng lúc",
+      "B. Không thể đạt được bất kỳ yếu tố nào",
+      "C. MỘT HỆ THỐNG MẠNG CHỈ CÓ THỂ ĐẠT ĐƯỢC TỐI ĐA 2 TRONG 3 YẾU TỐ NÀY CÙNG MỘT LÚC (Trong trường hợp Mạng bị đứt/chia cắt - P). Phải CHỌN ĐÁNH ĐỔI giữa Tính Nhất Quán (C) VÀ Tính Sẵn Sàng (A).",
+      "D. Consistency luôn được ưu tiên"
+    ],
+    "answer": 2,
+    "explanation": "Đứt cáp quang biển (Tách rời mạng - P). Bạn Comment Facebook ở VN, Server Mỹ không nhận được. 1) Nếu chọn C (Consistency/Đồng Nhất): Facebook Chặn Không cho bạn Comment tới khi Mạng nối lại (Sập hệ thống với bạn). 2) Nếu chọn A (Availability/Sẵn Sàng): Facebook vẫn nhận Comment của bạn, cho bạn vui, nhưng Đứa bạn bên Mỹ chưa Thấy Comment (Chấp nhận Data Tạm Thời Lệch Pha). NoSQL Thường Chọn A, Bỏ C (Eventual Consistency).",
+    "tip": "Định lý CAP = Tam Giác Nghịch Lý. Có Nhất Quán (C) thì Mất Sẵn Sàng (A). Có Sẵn Sàng thì Dữ Liệu Lúc Có Lúc Không (Mất C). Chỉ Chọn Được 2/3.",
+    "tags": ["nosql", "cap-theorem", "distributed-systems"]
+  },
+  {
+    "id": "D2-003", "module": "D", "topic": "D2", "difficulty": "easy",
+    "question": "Cơ sở dữ liệu Document-based (Dựa trên Tài liệu) như MongoDB lưu trữ dữ liệu dưới định dạng Khung Sườn Nào?",
+    "options": [
+      "A. Bảng Excel và Cột",
+      "B. Dạng Đồ Thị có Node và Cạnh",
+      "C. FILE BSON (Tương tự cấu trúc JSON). Các dữ liệu được lồng ghép thành dạng Cây Cha-Con (Nested) như: `{ Tên: 'An', Xe: { Loại: 'Oto', So: '123'} }` rất quen thuộc với Dân Code Frontend/Backend Node.js.",
+      "D. Cột và Hàng lộn xộn"
+    ],
+    "answer": 2,
+    "explanation": "Với Web/App, dữ liệu truyền đi (API) mặc định là JSON. Nếu xài SQL, bạn phải Băm cục JSON đó ra nhét vào 5 Bảng khác nhau. Xài MongoDB, bê nguyên Cục JSON bự chà bá đó nhét Tọt xuống CSDL. Đọc lên nguyên vẹn. Tốc độ Dev Ứng dụng Bàn thờ (Mặc kệ dữ liệu dư thừa).",
+    "tip": "Document DB (MongoDB) = Chúa tể nuốt File JSON (BSON). Dân Web khoái nhất vì Lười không cần Băm dữ liệu nhét theo Hàng Cột.",
+    "tags": ["nosql", "mongodb", "document-db", "json"]
+  },
+  {
+    "id": "D2-004", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Khái niệm 'Eventual Consistency' (Nhất quán Cuối cùng) trong NoSQL có nghĩa là BẠN PHẢI CHẤP NHẬN MỘT THẢM HỌA NHỎ NÀO để hệ thống chạy siêu lẹ?",
+    "options": [
+      "A. Mất tiền thật",
+      "B. KHI BẠN GHI THÔNG TIN MỚI VÀO SERVER, BẠN CÓ THỂ ĐỌC LẠI NÓ... VÀ THẤY DỮ LIỆU CŨ. Nó sẽ có một Độ Trễ Vài Giây (Mili-giây) để Server LAN TRUYỀN bản Update Mới đó qua các Server Ảo Khác. 'Cuối cùng' thì nó sẽ Bằng Nhau (Đồng nhất), nhưng NGAY LÚC ĐÓ THÌ CHƯA CHẮC.",
+      "C. User bị chặn không cho đọc",
+      "D. Server tự xóa thông tin"
+    ],
+    "answer": 1,
+    "explanation": "Cập nhật Avatar Facebook ở SG (Server Châu Á), bạn thân Mở Máy Cùng Lúc đó ở Châu Âu (Đọc Server Đức) vẫn THẤY ẢNH CŨ CỦA BẠN. 5 Giây sau nó Load lại mới thấy Ảnh Mới. Facebook Chấp nhận Lỗi Nhất Quán Nhỏ Nhoi Đó (Chả Vấn Đề Gì Về Sinh Mạng), Đổi Lại Hệ Thống Không Bao Giờ Sập. (Khác với Ngân Hàng ACID Đòi Phải Nhất Quán Tuyệt Đối Ngay Lập Tức).",
+    "tip": "Eventual Consistency (Nhất quán Cuối cùng) = Cái Kim Trong Bọc Lâu Ngày Cũng Lòi Ra (Đồng bộ). Nhưng Ngay Lúc Mới Đổi Pass thì Bên KIA chưa Update kịp đâu (Lag Trạng Thái). Dân Ngân Hàng Ghét Cái Này Nhất.",
+    "tags": ["nosql", "consistency", "eventual-consistency", "cap-theorem"]
+  },
+  {
+    "id": "D2-005", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Key-Value Store (như Redis, Memcached) là loại NoSQL ĐƠN GIẢN VÀ CHẠY NHANH NHẤT TRÁI ĐẤT. Sức mạnh Khủng Khiếp của REDIS nằm ở Đâu?",
+    "options": [
+      "A. Thuật toán tìm kiếm mã hóa",
+      "B. Thiết kế Đồ họa 3D",
+      "C. NÓ LƯU TRỮ TOÀN BỘ DỮ LIỆU IN-MEMORY (TRONG BỘ NHỚ RAM) THAY VÌ Ổ CỨNG SSD CHẬM CHẠP. Tốc độ đọc/Ghi chưa tới 1 mili-giây. Chuyên Làm BỘ NHỚ ĐỆM Caching (Lưu kết quả Hot) để Đỡ Tải Cho SQL DB Cùi Bắp Bên Dưới.",
+      "D. Nén dung lượng 100 lần"
+    ],
+    "answer": 2,
+    "explanation": "Đọc Ổ Cứng (Database MySQL Thật) Mất 1 Giây. User Load Web chờ 1s là ném Điện Thoại. Redis đóng vai Trò Cái Kệ Bánh Để Sẵn Ở Cửa. Đứa A Vô Gõ 'Giá iPhone', Hệ thống xuống DB múc lên (Tốn 1s). Redis Chộp Lấy cái Giá đó, Gắn Bảng Tên [Key: 'Giá_iPhone_15', Value: '30 Tr'] LƯU TRONG RAM. 1 Triệu Đứa Sau Vào Gõ Tương tự, Redis Phun Ra 30TR trong 0.0001s. Sướng Rơn.",
+    "tip": "Redis (Key-Value) = Chúa Tể Caching Nằm Trong RAM. 1 Key (Thẻ Từ) ốp với 1 Value (Giá Trị). Tra Cứu Cực Nhanh (Dành cho Data Rác Hay Xem Nhiều).",
+    "tags": ["nosql", "redis", "key-value", "caching"]
+  },
+  {
+    "id": "D2-006", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Sharding (Phân mảnh Dữ Liệu ngang) là kỹ năng cốt lõi của NoSQL (Như MongoDB, Cassandra). Phân Mảnh Ngang (Horizontal Scaling) khác Phân Mảnh Dọc (Vertical Scaling) ở Đâu?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Dọc là Cưa máy chủ ra làm đôi",
+      "C. Tăng Dọc (Vertical) LÀ BƠM THÊM TIỀN MUA RAM, CPU VÀO MỘT CÁI MÁY CHỦ DUY NHẤT (Đến 1 lúc sẽ Cạn Cấu Hình, Nghẽn cổ Chai). Tăng Ngang (Horizontal/Sharding) LÀ CẮT 1 TỶ DỮ LIỆU RA LÀM 10 CỤC (Ví dụ Theo Tỉnh Thành), Mua 10 CÁI MÁY CHỦ RẺ TIỀN, MỖI MÁY ÔM 1 CỤC CHẠY SONG SONG BẤT TẬN.",
+      "D. Sharding Ngang áp dụng cho SQL"
+    ],
+    "answer": 2,
+    "explanation": "MySQL Mặc Định Bị Buộc Chặt Dữ Liệu Vào 1 Server (Gom Nhau Bơm Tiền). Mongodb đẻ ra Là để Rải Dữ Liệu Băm Nát Rải Ra 100 Cái Server (Node) giá rẻ ở khắp Nơi (Sharding). Node Nào Sập, Các Node Khác Gánh Thay (Phân tán Tự Nhiên). Đây là Sức mạnh Của Big Data.",
+    "tip": "Sharding (Scale Horizontal) = Tách Gánh Nặng. Thay Vì Mua Con Ngựa Mập Đắt Tiền Cân Tạ (Scale Dọc), Mua Lẹ 10 Con Chó Đàn (Sharding Máy Cỏ) Kéo Xe Cùng Nhau Rẻ Hơn Vạn Lần.",
+    "tags": ["nosql", "sharding", "scalability", "horizontal-scaling"]
+  },
+  {
+    "id": "D2-007", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Wide-Column Store (như Apache Cassandra, HBase) có điểm đặc dị nào so với Cột trong SQL để xử lý Time-Series (Chuỗi thời gian)?",
+    "options": [
+      "A. Xóa hết cột",
+      "B. Gộp hàng và cột",
+      "C. Trong SQL, Bảng Tĩnh, 3 Cột Là 3 Cột Khắp Tất Cả Các Hàng. Trong Wide-Column, MỖI MỘT HÀNG (ROW KEY) CÓ THỂ ĐỘNG TỰ MỌC RA HÀNG TRIỆU CÁI CỘT KHÁC NHAU BÊN TRONG NÓ (Ví dụ Cột Tên là 'Ngày 1', 'Ngày 2',... 'Ngày 1 Triệu'). Chạy Ghi Data Siêu Bão Tuyết.",
+      "D. Cột thay đổi màu"
+    ],
+    "answer": 2,
+    "explanation": "Ứng Dụng Đỉnh Cao: Ghi Log Server (Hoặc Đọc Nhiệt Độ IOT mỗi Giây). 1 Ngày Ghi 86,400 phát. MySQL Nổ Máy Khóc Thét. Cassandra Thiết Kế Hàng Ngang Bất Tận. 1 Cây Hàng Trống Tên 'Sensor_1', Nó Phóng Sinh Sinh Ra Hàng Vạn Cột Theo Tích Tắc Lệnh Ghi, Ghi lẹ hơn Điện Xẹt, Mặc kệ Truy Vấn Đọc.",
+    "tip": "Wide-Column (Cassandra) = Kẻ Đẻ Cột. Hàng Ngang Mọc Tự Do 1 Triệu Cái Cột Không Ai Quản Thúc. Chân Ái Cho Nghề Nhồi Bão Dữ Liệu Ghi Dây Chuyền (Time Series/Log).",
+    "tags": ["nosql", "cassandra", "wide-column", "big-data"]
+  },
+  {
+    "id": "D2-008", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Graph Database (Cơ sở dữ liệu Đồ thị - như Neo4j) sinh ra ĐỂ GIẾT CHẾT LỖ HỔNG LỆNH GÌ CỦA CƠ SỞ DỮ LIỆU QUAN HỆ (SQL)?",
+    "options": [
+      "A. Giết lệnh UPDATE",
+      "B. Giết CÚ PHÁP JOIN NHIỀU BẢNG LIÊN KẾT (Chạy Rất Rất Chậm). Khi Bài toán Đòi Hỏi Mối Quan Hệ Bạn Của Bạn Của Bạn Đã Xem Phim Gì (Mạng Xã Hội). Đồ Thị Neo4j Coi 'Dữ Liệu' Là Node, Coi 'Mối Quan Hệ' Là Cạnh (Edge), Truy Xuất Xuyên Qua Node Nhanh Gấp 1 Triệu Lần Cấu Trúc Bảng Lồng Nhau.",
+      "C. Xóa Lệnh Xóa Bảng",
+      "D. Đóng Băng Code"
+    ],
+    "answer": 1,
+    "explanation": "Hỏi SQL: 'Tìm Danh Sách Bạn Cấp 3 Của 5 Đứa Bạn Thân Của Ông A Đang Thích Nữ Diễn Viên B'. Vứt Lệnh SELECT Này Vô Database SQL Bự, Đảm Bảo Server Treo Máy Bốc Khói (Vì Cứ 1 Lớp Bạn Phải Cắn 1 Phát JOIN Đệ Quy). Đưa Qua Graph DB (Neo4j), Nó Phóng 1 Đường Cạnh Nối Các Dấu Chấm Trên Bản Đồ (Nodes) Đích Xác Trong 0.01 Giây. Vua Thuật Toán Đề Xuất Recommend.",
+    "tip": "Graph DB (Đồ Thị Neo4j) = Diệt Tuyệt Chủng Cú Pháp JOIN BẢNG Rườm Rà. Nó Lưu Thẳng Mối Tình Tay Ba Giữa Các Mảng (Làm App Hẹn Hò, Xã Hội).",
+    "tags": ["nosql", "graph-db", "neo4j", "relationships"]
+  },
+  {
+    "id": "D2-009", "module": "D", "topic": "D2", "difficulty": "easy",
+    "question": "Lệnh Ghi Dữ liệu (Write) vào NoSQL (Ví dụ Cassandra) NHANH HƠN ĐÁNG KỂ so với RDBMS (như PostgreSQL) là Nhờ Nó KHÔNG Phải Làm Việc Gì?",
+    "options": [
+      "A. Không Cần Bật Màn Hình",
+      "B. RDBMS KHI GHI (INSERT) PHẢI CHẠY KIỂM TRA ĐỦ THỨ LUẬT LỆ RÀNG BUỘC (Khóa Ngoại, Kiểu Dữ Liệu, Cập Nhật Chỉ Mục B-Tree - Rất Hao Điện). NoSQL 'Nuốt Không Cần Nhai', Cứ Ném Cục Dữ Liệu Vô Là Nó Đổ Thẳng Vào Ổ Cứng Hàng Loạt Chả Thèm Check Ai Ra Ai (Append-only).",
+      "C. Chạy Bằng Điện Áp Cao",
+      "D. Xóa Rác Tự Động"
+    ],
+    "answer": 1,
+    "explanation": "NoSQL áp dụng triết lý 'Tống Khứ Xuống Nhật Ký' (LSM-Tree / Append-only Log). Nó Ghi Tuần Tự (Sequential Write) lướt trên bề mặt Ổ Đĩa không có Khớp cản tốc. Cần Ghi Hàng Tỷ Giao Dịch Vào Black Friday (Lúc Bán Hàng Ảo Ạt) Chả Sợ Chết Máy.",
+    "tip": "NoSQL Viết Lẹ Vì Nó Hút Rác Không Lọc. RDBMS Bị Chậm Lúc Viết Vì Làm Bảo Vệ Săm Soi Từng CMND (Check Khóa Ngoại, Constraint) Xem Mày Có Phạm Luật Không Mới Cho Lưu.",
+    "tags": ["nosql", "performance", "write-optimization"]
+  },
+  {
+    "id": "D2-010", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Tính năng 'Tự Động Sắp Xếp Dữ Liệu Cũ Sang Sọt Rác' (TTL - Time To Live) của Redis/MongoDB cực kỳ Đáng Giá Trong Tình Huống Nào?",
+    "options": [
+      "A. Lưu Sổ Hộ Khẩu",
+      "B. Làm Game Play",
+      "C. Quản Lý SESSION Đăng Nhập Hoặc MÃ OTP (Xác Nhận). Mã OTP Chỉ Sống 5 Phút, Nếu Lưu Vô SQL, Kỹ Sư Phải Tạo Script Hàng Ngày Quét CSDL Và Chém Bỏ Dòng Quá Hạn (Ngu Và Lỗi). Redis/Mongo Cấp Ngay Lệnh TTL, Đúng 5 Phút Dữ Liệu Bốc Hơi Không Dấu Vết Tự Động 100%.",
+      "D. Cài Giao Diện Đỏ"
+    ],
+    "answer": 2,
+    "explanation": "Quản Lý Dữ liệu Thùng Rác Có Hạn Sử Dụng. Token Phiên Đăng Nhập Website Sống 30 Phút. Thả Tọt Vào Redis Gắn Tag (Expire 1800s). Đến Kỷ Nguyên Đó, Mày Tự Tan Biến. Giải Pháp Tuyệt Đỉnh Trí Tuệ Mà Dân Làm Lõi Hệ Thống Ứng Dụng Web Bái Lạy NoSQL.",
+    "tip": "TTL (Time To Live) = Án Tử Tự Động. Dán Bùa Lên Dữ Liệu (Mã OTP 1 Phút Chết). Tới Giờ Nó Tự Tắt Thở Khỏi Mắc Công Thằng Lập Trình Viên Dọn Xác.",
+    "tags": ["nosql", "ttl", "redis", "mongodb"]
+  },
+  {
+    "id": "D2-011", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "MongoDB đối phó với Rủi Ro MẤT DỮ LIỆU KHI CHÁY MÁY CHỦ Bằng Giải Pháp 'Replica Set' (Bản Sao Liên Kết). Kiến Trúc Của Nó Chạy Ra Sao?",
+    "options": [
+      "A. Đẩy Hình Lên Zalo",
+      "B. Print Ra Giấy",
+      "C. MỘT CỤM CÓ 3 MÁY CHỦ (1 Node PRIMARY Gánh Trọng Trách GHI MỚI DỮ LIỆU. 2 Node SECONDARY Liên Tục Bắt Chước/Copy Data Phía Sau Lưng Thằng Chóp Bu PRIMARY Chuyên Mở Lệnh ĐỌC). Nếu Thằng Primary Bị Rút Phích Cắm, 2 Thằng Đệ Sẽ Tự Vote Cử 1 Thằng Lên Thay Ghế Chớp Nhoáng (Auto Failover).",
+      "D. Tự Xóa Dữ Liệu"
+    ],
+    "answer": 2,
+    "explanation": "MongoDB Setup 1 Server Là Tự Sát Đám Đông. Chuẩn Bắt Buộc Là Bầy Đàn 3 Con Trở Lên. Mọi Thao Tác Ghi (Lưu Data Nóng) Phải Bơm Vào Thằng Vua (Primary). Thằng Vua Đẩy Nhật Ký Phím Tắt (Oplog) Cho 2 Thằng Lính Cần Mẫn Chép Đè Vô Sổ Để Lưu Trữ Giống Nó Y Đúc. Vua Băng Hà, 2 Lính Mở Bầu Cử Cướp Ngôi Liền 0.5 Giây Sau Đảm Bảo Trang Web Vẫn Bán Hàng Mượt Mà Cười Lăn Lộn.",
+    "tip": "Replica Set (3 Máy Khóm) = 1 Vua Ghi Chép, 2 Lính Copy Học Lỏm (Chỉ Đọc). Vua Chết Lính Lên Thay Tự Động Chống Nghẻo Sever (Auto Failover).",
+    "tags": ["nosql", "mongodb", "replica-set", "high-availability"]
+  },
+  {
+    "id": "D2-012", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Nhược Điểm NGU NGỐC Của Việc Lưu Trữ Document Dạng JSON/Nested (Lồng Ghép 5 Lớp) Trong MongoDB Là Khi User Cần CẬP NHẬT 1 Biến Xíu Xiu Sâu Ở Trong Cùng Sẽ Tốn Hao Công Lực Gì?",
+    "options": [
+      "A. Tốn Thời Gian Đợi Màn Hình Tắt",
+      "B. Không Đổi Được",
+      "C. DATABASE SẼ PHẢI LÔI RA NGOÀI VÀ GHI ĐÈ LẠI TOÀN BỘ CỤC DOCUMENT ĐÓ CHỈ ĐỂ THAY 1 CHỮ BÉ XÍU (Nếu Bất Đắc Dĩ Kích Thước Bị Phình To Hơn Dữ Liệu Gốc Cũ). Hoặc Truy Vấn Tìm 1 Biến Chôn Kín Qua 5 Tầng '{A:{B:{C: {D: 5}}}}' Cực Kỳ Thê Thảm (Phải Tạo Chỉ Mục Tốn Kém).",
+      "D. Xóa Rỗng Cột Đen"
+    ],
+    "answer": 2,
+    "explanation": "Nhét Cục Bự Thì Sướng Lúc Đầu. Khách Có Giỏ Hàng Nhét 10 Món. Mai Nó Lấy Giỏ Bỏ Hết Củ Hành Đi Mua Củ Tỏi. Bạn Phải Gửi Lệnh Update Kéo Ban Chành Cái Lớp Chăn Sâu. Đây Là Cảnh Giác Rằng Không Phải Chuyện Gì Cũng Đem Lồng Vô Bụng Nhau (Denormalization Lạm Dụng Gây Độc Hại Khi Cập Nhật Thường Xuyên).",
+    "tip": "Đừng Tưởng Bở Lồng JSON 5 Lớp Là Sướng! Lúc Sửa Chữa 1 Ký Tự Móc Khó Rách Ruột. Rất Lãng Phí Và Chạy Update Ngu Xi.",
+    "tags": ["nosql", "mongodb", "document-db", "design-anti-pattern"]
+  },
+  {
+    "id": "D2-013", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Tính Năng 'Aggregation Pipeline' Của MongoDB Là Đối Trọng Với Cái Gì Bên Giới SQL?",
+    "options": [
+      "A. Bảng Lệnh DROP XÓA",
+      "B. Bảng Hình Chữ Nhật",
+      "C. ĐỐI TRỌNG TRỰC TIẾP VỚI CÚ PHÁP `GROUP BY`, `JOIN`, `HAVING` BÊN SQL. Nó Tạo Ra Một Đường Ống Kế Tiếp Nhau: Dữ Liệu Vô -> Bị Lọc (Match) -> Bị Gom Nhóm Tính Tổng (Group) -> Bị Cắt Cột Sắp Xếp (Project) -> Trả Kết Quả Ra (Khét Lẹt Và Siêu Mạnh Để Làm Báo Cáo Phân Tích Thống Kê).",
+      "D. Ẩn Núp Cảnh Báo"
+    ],
+    "answer": 2,
+    "explanation": "Mọi Người Chê MongoDB Không Gộp Bảng Group By Được Như SQL Nên Không Làm Phân Tích Dữ Liệu (BI) Được. Sai! Lệnh `$lookup` (Tương đương JOIN) Của Mongo Cực Kì Lệnh Lạc Khùng Điên, Và Chuỗi `$group` Trong Đường Ống Aggregation Làm Đứt Ruột Bất Kỳ Bộ Não Data Lọc Lõi Nào Tưởng Mờ Lấp.",
+    "tip": "Aggregation Pipeline (Ống Nước Nhào Lộn MongoDB) = Chính Là Sát Thủ Cú Pháo Sấm Sét Gom Cụm Lọc Lựa Tính Tổng Không Thua Ai Kém SQL (GROUP BY/JOIN).",
+    "tags": ["nosql", "mongodb", "aggregation-pipeline"]
+  },
+  {
+    "id": "D2-014", "module": "D", "topic": "D2", "difficulty": "easy",
+    "question": "ElasticSearch - Một Thành Viên Phi Quan Hệ (NoSQL) Chuyên Biệt Số 1 Trong Lĩnh Vực Cốt Lõi Nào?",
+    "options": [
+      "A. Quản Lý Đơn Mua Hàng Tiền Tỷ",
+      "B. Hack Wifi",
+      "C. CHÚA TỂ TÌM KIẾM TOÀN VĂN BẢN (Full-Text Search). Khi Bạn Lên Shopee Gõ 'Áo Khoác Nữ Lạnh'. Nếu Chạy SQL Lệnh `LIKE %Áo...%` Nó Quét Sập Server Nát Bét. Đẩy Qua ElasticSearch Nó Xài Inverted Index Phun Kết Quả Nổi Bật Nhất Lên Chớp Mắt Siêu Hạng 0.001s Kèm Tính Điểm Đánh Dấu Cắt Chữ Bất Chấp Lỗi Đánh Sai Dấu Tiếng Việt.",
+      "D. Đổi Định Dạng Đuôi Đồ Họa"
+    ],
+    "answer": 2,
+    "explanation": "Mọi Hệ Thống Thanh Tìm Kiếm Của Cty Đều Phải Dùng ES. Nó Tách Rời Văn Bản Băm Nát Trái Bưởi Làm Inverted Index. Xếp Mọi Chữ Rải Rác Gắn Tọa Độ Kèm Thuật Toán BM25 Ngữ Nghĩa Vô Địch (Autocomplete Tự Sửa Lỗi). Đừng Dùng SQL Để Làm Công Cụ Tìm Kiếm Nếu Công Ty Có Trên 10k Chữ Lẻ.",
+    "tip": "ElasticSearch = Cụ Cố Của Tìm Kiếm Tốc Độ Âm Thanh Thanh Tịch Mọi Hệ Gõ Lệnh. Diệt Tuyệt Chủng Câu SQL Cổ Hủ Quét Văn Bản Cực Đoan `LIKE %text%` Rùa Bò.",
+    "tags": ["nosql", "elasticsearch", "full-text-search"]
+  },
+  {
+    "id": "D2-015", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Khái Niệm Inverted Index (Chỉ Mục Ngược) Của ElasticSearch Có Sơ Đồ Cơ Chế Áp Dụng Xoay Chiều Trái Khoáy Thế Nào?",
+    "options": [
+      "A. Móc Tọa Độ Dựa Hàng",
+      "B. Ở SQL (Chỉ mục thuận): Đọc Bài Viết ID #1 -> Thấy Bên Trong Có Chữ 'Mèo'. CÒN Ở ELASTIC (Chỉ Mục Ngược): HỆ THỐNG MỞ TỪ ĐIỂN CHỮ 'MÈO' RA -> BÁO RẰNG CHỮ MÈO ĐANG ẨN LẤP Ở BÀI VIẾT ID #1, VÀ ID #5 VÀ ID #9. Tức Là Tìm Ngược Từ 'Từ Khóa Vựng' Lôi Cổ Thẳng Ra Tờ Báo Bọc Nó Chớp Bạc Vèo Chặn.",
+      "C. Xếp Chữ Z Đến A",
+      "D. Xóa Rỗng Cột Sẵn"
+    ],
+    "answer": 1,
+    "explanation": "Khi Đứa User Khách Gõ Tìm Từ Khóa Trọng Âm. ES Bật Bộ Từ Điển Thuộc Lòng Ra Thấy Cái Chữ Mèo, Nhìn Xung Quanh Nó Găm San Sát List Băng Mã Số. Rớt Bật 3 Cái ID Bài Báo Trả Lên Web Luôn Không Cần Mở Giở Từng Trang Tờ Giấy Tờ Tìm Cực Khổ (Mục Lục Cuối Sách Học Chữ Vị Trí).",
+    "tip": "Inverted Index (Chỉ Mục Ngược) = Mục Lục Chữ Kéo Thấy Vị Trí Ở Cuối Từ Điển. Hỏi Từ Nào Báo Cáo Ngay Vị Trí Nằm Lọt Trang Nào Thay Vì Đi Đọc Mò Từng Trang Kiếm Chữ.",
+    "tags": ["nosql", "elasticsearch", "inverted-index", "search"]
+  },
+  {
+    "id": "D2-016", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Tính Chất Vector Database (như Pinecone, Milvus, Qdrant) Vươn Lên Như Rồng Cuộn Đánh Cắp Show Của Đám NoSQL Cũ Từ Khi ChatGPT (LLM) Bùng Nổ Chết Chóc. Vì Cớ Chức Năng Bất Bại Nào?",
+    "options": [
+      "A. Nâng Băng Thông Mạng Dây",
+      "B. Không Soi Thấy",
+      "C. TÌM KIẾM THEO NGỮ NGHĨA KHOẢNG CÁCH (SIMILARITY SEARCH / RAG). Lập Trình Viên Đổi Hình Ảnh / Bài Báo Thành Dãy SỐ TOÁN HỌC KHỔNG LỒ (Embeddings Vector 1536 Chiều). V-DB Có Sức Mạnh Chạy So Khớp Thuật Toán K-NN Đỉnh Cao Lấy Rớt Tức Thì Các Trích Đoạn Cùng Tầng Nghĩa Cho Con AI Khai Mở Tâm Khảm Đọc Để Giết Bệnh 'Bịa Láo Đâm Chém' Mù Quáng.",
+      "D. Tính Thuế Tự Động"
+    ],
+    "answer": 2,
+    "explanation": "Từ Khóa Tìm Lệnh SQL Hay Mongodb Bị Bó Chết Lọc Khớp Hoàn Toàn 100% Chữ 'Con Chó'. Sang Dòng Đời Vector Database Khai Thác Nghĩa Sâu Lòng Đất 'Khuôn Mặt Xám, Ăn Lạp Xưởng, Chân Ngắn' (Corgi), Nó Khớp Không Trật 1 Tấc (Chả Có Vần Nào Giống Nhưng Nghĩa Thì Thấu). Đem Cho ChatGPT Hỏi Đọc Trước (Mô Hình Khung Xương RAG) Đỉnh Thế Kỷ.",
+    "tip": "Vector Database (VDB) = Ngôi Nhà Của Tọa Độ Nghĩa Bóng (Embeddings). Nhồi Bài Viết Bằng Tọa Độ 1536 Chiều. Phóng Cosine Bắt Trọn Nghĩa Bóng Tức Khắc Để Bơm Cho Thằng AI Phán RAG Trả Lời Ngoan Hơn Vạn Lần.",
+    "tags": ["nosql", "vector-database", "rag", "embeddings"]
+  },
+  {
+    "id": "D2-017", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "Base Framework Khái Niệm Phá Bỏ Khung Rào Cản ACID Trong NoSQL. Nó Được Tóm Gọn Bằng 4 Chữ Chết Tên: BASE Mang Hàm Chỉ Điển Hình Là Gì?",
+    "options": [
+      "A. Báo Cáo Tự Động",
+      "B. Bỏ Mật Mật Mã Mạng Trụ",
+      "C. BASICALLY AVAILABLE (Luôn Có Sẵn Cơ Bản), SOFT STATE (Trạng Thái Chập Chờn Uyển Chuyển Biến Đổi), EVENTUAL CONSISTENCY (Sau Cùng Đồng Bộ Nhất Quán Về 1 Mối Bất Kể Sớm Muộn). Đây Là Đạo Lý Hy Sinh Đồng Nhất (C) Của Cặp Mạng Rắc Rối Đổi Lấy Trạng Thái Server Bất Bại (A) Tuyệt Khối Chịu Tải Hàng Loạt Trăm Cụm Cắm Chạy.",
+      "D. Bảo Tàng Lưu Trữ Xóa Đứt"
+    ],
+    "answer": 2,
+    "explanation": "Ngân Hàng Chạy Tiền ACID Khóa Giao Dịch Chậm Ngắt Điện Chặn Kẻ Khác (An Toàn Lõi Kép Tuyệt Mật Mọi Phút). Shopee Đẩy BASE Của NoSQL Giữ Form Đừng Chết Giữa Đêm Khuyến Mãi 10/10 Rớt Server Xóa Sổ Danh Dự. Thà User Giỏ Hàng Bị Treo Lag Nhỏ 3 Giây Chưa Có Hàng Mới Hiện Hình (Eventual) Cũng Được, Ép Chạy Thông Thoáng Sức Mở Rộng 1 Nghìn Lần Không Kẹt Bể Ống Nước Tắc Vi Mạch Cổ Chai Bán Đảo.",
+    "tip": "NoSQL Đập Nát Luật Rừng Chặt Chẽ ACID (Ngân Hàng). Cầm Theo Biển Hiệu Tên Lóng BASE (Uyển Chuyển Bất Địch). Đảm Bảo Dù Trời Sập Mạng Cúp Web Vẫn Sống Băng Băng Khách Kêu Vẫn Trả Lời Liên Nếp Bám Cửa Cố Sức Bơm Thở (Availability Đỉnh Ráp Sợi).",
+    "tags": ["nosql", "base", "acid", "architecture"]
+  },
+  {
+    "id": "D2-018", "module": "D", "topic": "D2", "difficulty": "easy",
+    "question": "Tính Chất Vượt Kẻ Mạnh (Flexible Schema) Khung Nhờ Vả Lỏng Lẻo Ở Đa Phần NoSQL Cứu Khốn Cái Bệnh Kẹt Tiền Bất Ngờ Khi Đẩy Tính Năng Bổ Sung Database Ở Mạch SQL Là Cái Dạng Sát Chiêu Gì Cụ Thể Tóm Ra?",
+    "options": [
+      "A. Nhét Code Python Vào Bụng Rỗng Cửa Trụ Ràng",
+      "B. TRONG SQL KHI BẠN CẦN TẠO THÊM 1 TÍNH NĂNG ĐỊA CHỈ PHỤ (CỘT MỚI) BẠN PHẢI GÕ LỆNH ALTER TABLE DỪNG HỆ THỐNG MỘT TÍ, KHÓC TIẾNG MÁN NẾU 10 TỶ DÒNG BẢNG BỊ LOCK ĐỂ CHÈN CỘT TRỐNG NULL GÂY CHẾT APP. Trong Môi NoSQL Dẻo Kéo, Sếp Bắt Thêm 1 Trường Dữ Liệu? Cứ Thế Mã Lập Trình App Đẩy Tọt Object Cục Thuộc Tính Mới Mọt Góc Dính Vô, Kệ Mẹ Các Bản Cũ Vẫn Chạy Chả Nóng Quá Máy Hay Khóa Lỗi Sập Đồ Hình Schema Chống Quấy Gãy Nghẽn Gián Đoạn Xước Xác.",
+      "C. Xóa Hết Đống Đuôi Lệnh Mác Thẻ",
+      "D. Vẽ Tranh Phác Họa In Giấy"
+    ],
+    "answer": 1,
+    "explanation": "Dân Dev Sợ Nhất Cảnh Database Admin Kêu: 'Cuối Tuần Tao Cúp Điện Tắt Web 1 Tiếng Đặng Sửa Cấu Trúc Bảng Alter Column Nhé. Chứ Giờ Sửa Cột Mới DB 100GB Đang Load User Văng Máy Hết'. Chuyển Nhà Sang NoSQL (Túi Tạp Hóa Phi Form Lõi), Ông Update Tính Năng Tích Hợp Chèn Cục Trường Nữa Vào App 2024 Còn Bọn Data 2018 Méo Có Vẫn Nằm Yên Nhẹ Tựa Lông Hồng, Trơn Tuột Tuốt Kéo. Schema-Less Linh Động Điên Dại Đổi Đời StartUp Sáng Thấy Tối Ráp Tính Năng Ảo Ma.",
+    "tip": "Schema-less (Tự Do Cột Trống Dẻo Linh): Quẳng Lệnh ALTER TABLE Cứng Của SQL Vô Sọt Rác. Thích Nhét Cái Biến Nào Lúc Chạy App Cứ Nhét, Data Trữ Lộn Xộn Thập Cẩm Nhẹ Đời Phát Triển Nhanh Tốc.",
+    "tags": ["nosql", "schema-less", "flexible-schema"]
+  },
+  {
+    "id": "D2-019", "module": "D", "topic": "D2", "difficulty": "hard",
+    "question": "Time-Series Database (TSDB CSDL Chuỗi Thời Gian Điển Hình Là InfluxDB) Bỏ Chơi SQL Truyền Thống, Nắm Quyền Vua Chúa Tại Vùng Vịnh Dữ Liệu Nào Khốc Liệt Mật Độ Dày Phủ Đáy Cấp Khắc Độ Miliseconds?",
+    "options": [
+      "A. Xóa Trống Lệnh Báo Code Báo Tiếng Gõ",
+      "B. Không Ghi Số Nào",
+      "C. ĐỌC DỮ LIỆU LIÊN TỤC 1000 NHÁT MỘT GIÂY CỦA ĐỒNG HỒ CẢM BIẾN NHIỆT (IoT SENSORS SÓNG SIÊU ÂM), GHI ĐÈ LOGS TRAFFIC SERVER (METRICS). Nó Thiết Kế Trục Dữ Liệu Ngang Căn Đúng Timestamps Điểm Thời Gian Gắn Rập. Khả Năng NÉN Băng Thông Nhồi Dữ Liệu Nóng Cực Ác Hủy Diệt Máy Nổ Tụ Đốt Chống Hư Hỏng Sốc Dòng Ghi Cực Đỉnh Bứt Xé Phép (Write Heavy) Đánh Gục PostgreSQL Tức Thì Cháy Quên Rác.",
+      "D. Đóng Nát Chặn Form In Bằng Giấy"
+    ],
+    "answer": 2,
+    "explanation": "Công Ty Ráp 50 Cái Cảm Biến Cột Mốc Đo Ẩm Trên Trạm Bơm. Mất Quá 3 Giây Báo Tín Hiệu (Mili-s) Vứt SQL Xuống Chịu Trận Viết Lưu Ngợp Dòng (Table Lock Cổ Chai Ghi) Ốm Người. Time-Series Đóng Bùa Gắn Timestamps Điểm Lõi Làm Nền Tảng Chóp Rễ Góc Cột (Nén Giảm Data Lặp Trực Tích Delta-Encoding Thủng Chọc Vèo Quá Đỉnh Nét Khúc).",
+    "tip": "Time-Series Database (InfluxDB) = Cỗ Máy Nuốt Đạn (Write Cắm Nét) Dành Riêng Cho Đám Kỹ Sư Quản Lý Tín Hiệu Sóng Sensor Đo Nhịp IoT (Chuyên Đặc Chữa Trục Thời Gian Cấp Độ Siêu Khắc).",
+    "tags": ["nosql", "time-series", "influxdb", "iot"]
+  },
+  {
+    "id": "D2-020", "module": "D", "topic": "D2", "difficulty": "medium",
+    "question": "NewSQL Là Giấc Mơ Kết Hợp Song Long Hoàn Hảo Khéo Kín Khống Chế Cái Gì Được Trưng Mài Đập Bóng Kỹ Năng Tới Đỉnh Tương Lai Bằng Giải Pháp Mạng (Như Google Spanner Lẫy Lừng)?",
+    "options": [
+      "A. Đổ Vàng Sống Chặn Mất Mã Thẻ Bảng Đen",
+      "B. KẾT HỢP ĐỒNG BỘ NỀN TẢNG ACID SẮT ĐÁ NHẤT QUÁN TOÀN VẸN VĨNH CỬU CỦA ĐẾ QUỐC SQL + NHÚNG CHÍNH DIỆN QUY ĐẠO SCALE BẰNG CÁCH PHÂN MẢNH MÁY RẢI RÁC (SHARDING) CỨU CHỮA KHIỆP BÀN TAY SỨC MẠNH VÔ ĐỐI CỦA DÂN NOSQL. Dẹp Xóa Tội Nhược Điểm Băng Máy Ảo Mơ Nền Kẹt Giới Hạn Của 2 Thằng Kia Đặt Ngồi Ở Giữa Dung Hòa 10/10 Quét Sập Các Mảnh Lỗi Dở.",
+      "C. Xóa Toàn Cục Tắt Phân Vùng Lỗi Rác Tầm Bậy",
+      "D. Code Kịch Bản Mới Ngôn Ngữ Hình Tròn"
+    ],
+    "answer": 1,
+    "explanation": "Ngân Hàng Vẫn Rén Dùng NoSQL Vì Sợ Rớt Mạng Kịp Lệnh Đồng Bộ (Eventual Cons) Làm Mất Ráp Tiền Chốt Sai Kê Tỷ. Ngân Hàng Kẹt Ở Lại SQL Dọc Tăng Lõi 1 Server (Máy Hú 100 Tỷ Mắc Tiền Vẫn Đứng Ló Bóng). Spanner Đập Công Nghệ Đồng Hồ Nguyên Tử Đỉnh Không Gian Vô Để Ép Cái Đám Máy Lác Đác Trải Dài Phân Mảnh Rác Khắp Ngang Châu Lục (NoSQL Sharding) Vẫn Phải Trả Về Độ Khớp Sai Số Không Tì Vết Ở Đúng Lệnh Chuyển Tiền 1 Triệu Đô ACID Lõi Cứng Bất Hoại Cú Đáp Kinh Bức Tường (NewSQL Bùng Nổ Chạm Chức Trụ Kẹp Mép Siêu Vua Tỷ Đô Trị Phá Tường Vững Mảnh Tự Nhiên Nhất Thống Giang Sơn Rung).",
+    "tip": "NewSQL = Lai Giống F1 Vô Địch. Hút Trọn Cái Hồn Nguyên Tử Chặt Chẽ Khóa Chặt ACID (Bảo Chứng Chuyển Tiền Tiền Không Lọt Ác Nét Của SQL) + Vác Đi Mang Chạy Băng Phân Tán Máy Nghèo Ngang Dọc 20 Cái Node Chia Để Trị Băm Sạch Sẽ Hết Xí Quách Mở Rộng Ảo Chơi Của Tụi NoSQL.",
+    "tags": ["nosql", "newsql", "acid", "scalability"]
+  }
+]

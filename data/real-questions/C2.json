@@ -1,0 +1,283 @@
+[
+  {
+    "id": "C2-001", "module": "C", "topic": "C2", "difficulty": "easy",
+    "question": "Tại sao chúng ta KHÔNG BAO GIỜ được đánh giá độ chính xác (Accuracy) của Mô hình Học Máy trên TẬP HUẤN LUYỆN (Train Set)?",
+    "options": [
+      "A. Vì tập Train quá nặng làm treo máy",
+      "B. Vì mô hình có xu hướng HỌC VẸT (Overfitting) dữ liệu Train. Độ chính xác 100% trên tập Train không phản ánh được khả năng dự đoán đúng của mô hình trên DỮ LIỆU MỚI (chưa từng thấy).",
+      "C. Vì tập Train chứa nhiều dữ liệu Null",
+      "D. Đánh giá trên tập Train là cách tốt nhất"
+    ],
+    "answer": 1,
+    "explanation": "Đánh giá trên tập Train giống như cho học sinh thi bằng đúng cái đề cương ôn tập ở nhà. HS được 10 điểm (Overfit), nhưng ra đời gặp bài toán thực tế thì bó tay. Bắt buộc phải đánh giá mô hình bằng một Tập Kiểm Tra (Test Set) được giấu đi hoàn toàn trong quá trình học.",
+    "tip": "Test bằng Tập Train = Cho học sinh thi lại bài đã giải ở nhà. Rất ảo. Phải Test bằng Đề mới (Test Set).",
+    "tags": ["model-evaluation", "overfitting", "train-test-split"]
+  },
+  {
+    "id": "C2-002", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Thuật ngữ K-Fold Cross Validation (Kiểm chứng chéo K-Fold) có nghĩa là gì?",
+    "options": [
+      "A. Chia dữ liệu thành K phần bằng nhau. Giữ lại 1 phần để Test, K-1 phần còn lại để Train. Lặp lại quá trình này K LẦN sao cho phần nào cũng được làm Test 1 lần, rồi lấy trung bình kết quả.",
+      "B. Gấp màn hình K lần",
+      "C. Chạy vòng lặp K lần với cùng 1 tập Train và Test",
+      "D. Bắt chéo K mô hình lại với nhau"
+    ],
+    "answer": 0,
+    "explanation": "Nếu chỉ chia Train/Test 1 lần (Hold-out), nhỡ xui xẻo tập Test toàn dữ liệu cực khó thì model đánh giá bị thấp oan. K-Fold xoay vòng tập Test đều đặn khắp dataset, đảm bảo mọi dòng dữ liệu đều được mang ra thi 1 lần. Đánh giá này cực kỳ đáng tin cậy (thường dùng K=5 hoặc 10).",
+    "tip": "K-Fold = Quay vòng thi cử. Đảm bảo đứa (dữ liệu) nào cũng được gọi lên bảng (Test) 1 lần cho công bằng.",
+    "tags": ["model-evaluation", "cross-validation", "k-fold"]
+  },
+  {
+    "id": "C2-003", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Trong bài toán Phân loại (Classification), Ma trận nhầm lẫn (Confusion Matrix) được dùng để làm gì?",
+    "options": [
+      "A. Vẽ biểu đồ 3D",
+      "B. Làm rối trí người đọc",
+      "C. Bảng thống kê chi tiết số lượng dự đoán ĐÚNG và SAI của mô hình chia theo 4 góc: True Positive (TP), True Negative (TN), False Positive (FP), False Negative (FN).",
+      "D. Đếm số cột dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "Confusion Matrix phơi bày 'bản chất' cái sai của Model. Ví dụ: Model phân loại chó mèo đạt 99%. Nhìn Confusion Matrix mới vỡ lở: Nó bắt đúng 99 con chó, nhưng đoán sai tất cả Mèo thành Chó (False Positive rất cao).",
+    "tip": "Confusion Matrix = Bảng phong thần. Vạch trần xem Model đoán Sai (False) và Đoán đúng (True) ở chỗ nào cụ thể.",
+    "tags": ["model-evaluation", "confusion-matrix", "classification"]
+  },
+  {
+    "id": "C2-004", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Khái niệm Type I Error (Lỗi loại 1) và Type II Error (Lỗi loại 2) trong chuẩn đoán Y khoa tương ứng với các chỉ số nào trong Confusion Matrix?",
+    "options": [
+      "A. Lỗi loại 1 = TP, Lỗi loại 2 = TN",
+      "B. Lỗi loại 1 = False Positive (Báo động giả), Lỗi loại 2 = False Negative (Bỏ lọt tội phạm).",
+      "C. Không liên quan",
+      "D. Cả hai đều là FN"
+    ],
+    "answer": 1,
+    "explanation": "Ví dụ xét nghiệm Ung thư: Type I Error (Dương tính giả - FP): Không bệnh mà bác sĩ phán ung thư -> Bệnh nhân trầm cảm oan. Type II Error (Âm tính giả - FN): Bị ung thư mà bác sĩ phán khỏe mạnh -> Bệnh nhân chết vì không được chữa. Trong y khoa, Lỗi loại 2 (FN) cực kỳ kinh khủng.",
+    "tip": "Type I = False Positive (Dương tính giả/Báo động giả). Type II = False Negative (Âm tính giả/Bỏ lọt tội phạm).",
+    "tags": ["model-evaluation", "type-1-error", "type-2-error"]
+  },
+  {
+    "id": "C2-005", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Precision (Độ chuẩn xác) trả lời cho câu hỏi thống kê nào?",
+    "options": [
+      "A. Trong TẤT CẢ các ca CÓ BỆNH THẬT, mô hình tóm được bao nhiêu %? (TP / (TP + FN))",
+      "B. Trong tất cả những ca mà MÔ HÌNH PHÁN LÀ CÓ BỆNH (Dương tính), thì có bao nhiêu ca là BỆNH THẬT? (TP / (TP + FP))",
+      "C. Tính tổng số ca dự đoán đúng",
+      "D. Tính thời gian dự đoán"
+    ],
+    "answer": 1,
+    "explanation": "Precision (Độ Chuẩn) quan tâm đến CHẤT LƯỢNG của các tiếng súng. Bắn 10 phát trúng 8 -> Precision 80%. Rất quan trọng trong Bộ lọc Spam Email: Nếu Model phán 1 email là Spam, ta cần 99.99% nó phải ĐÚNG LÀ SPAM (tránh xóa nhầm mail công việc quan trọng của sếp - giảm FP).",
+    "tip": "Precision = Độ CHUẨN XÁC của tiếng súng (Bắn phát nào chắc phát đó, thà bắn sót chứ không bắn nhầm).",
+    "tags": ["model-evaluation", "precision", "metrics"]
+  },
+  {
+    "id": "C2-006", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Recall (Độ phủ/Độ thu hồi) trả lời cho câu hỏi thống kê nào?",
+    "options": [
+      "A. Trong TẤT CẢ CÁC TRƯỜNG HỢP CÓ BỆNH THỰC SỰ (Actual Positive), mô hình đã TÌM RA (Bắt được) bao nhiêu %? (TP / (TP + FN))",
+      "B. Trong số dự đoán bệnh, có bao nhiêu % đúng",
+      "C. Đo độ chính xác trên tập Train",
+      "D. Đếm số lượng Model"
+    ],
+    "answer": 0,
+    "explanation": "Recall (Độ Phủ) quan tâm đến việc QUÉT SẠCH tội phạm. Có 10 con bệnh, Model tóm được 9 con -> Recall 90%. (1 con bị Âm tính giả FN). Trong Y khoa, Recall phải cực cao (thà báo động giả bắt nhầm, còn hơn bỏ lót người có bệnh đi về nhà).",
+    "tip": "Recall = Độ PHỦ lưới (Giăng lưới bắt cá, thà bắt nhầm cá con còn hơn để lọt con cá mập - Giảm FN).",
+    "tags": ["model-evaluation", "recall", "metrics"]
+  },
+  {
+    "id": "C2-007", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Chỉ số F1-Score là gì và vì sao phải dùng nó?",
+    "options": [
+      "A. Bằng 1 điểm F",
+      "B. Là Trung bình nhân điều hòa (Harmonic Mean) giữa Precision và Recall. Dùng để CÂN BẰNG cả 2 yếu tố này, đặc biệt hữu ích khi dữ liệu bị Lệch (Imbalanced).",
+      "C. Chỉ số tính tốc độ xử lý",
+      "D. Thay thế cho Accuracy"
+    ],
+    "answer": 1,
+    "explanation": "Nếu bạn tăng Precision thì Recall sẽ giảm, và ngược lại. F1-Score là công thức tính trung bình của 2 ông này. Nếu 1 trong 2 ông (Precision hoặc Recall) rớt xuống bằng 0, F1-Score sẽ rớt thảm hại về 0 theo (Tính chất của Trung bình điều hòa). Giúp bạn tìm ra ngưỡng (Threshold) tối ưu nhất.",
+    "tip": "F1-Score = Người đứng giữa giảng hòa cho Precision và Recall. F1 cao nghĩa là cả Precision và Recall đều ổn.",
+    "tags": ["model-evaluation", "f1-score", "metrics"]
+  },
+  {
+    "id": "C2-008", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Nghịch lý 'Accuracy' (Độ chính xác) vô dụng trong trường hợp Dữ liệu mất cân bằng (Imbalanced Data) xảy ra như thế nào?",
+    "options": [
+      "A. Máy tính bị tràn số",
+      "B. Ví dụ: Dữ liệu phát hiện ung thư có 99% Không bệnh, 1% Có bệnh. Một mô hình CỰC NGU bằng cách LUÔN LUÔN CHỈ ĐOÁN 'KHÔNG BỆNH' cho tất cả mọi người sẽ tự động đạt Accuracy = 99%.",
+      "C. Accuracy bị âm",
+      "D. Dữ liệu quá nhiều khiến Accuracy bị sai"
+    ],
+    "answer": 1,
+    "explanation": "Chỉ số Accuracy = (Số đoán đúng) / (Tổng số). Khi tỷ lệ mất cân đối (Imbalanced) như Fraud Detection (Tội phạm chiếm 0.001%), nhắm mắt đoán 'Người tốt' cũng đúng 99.999%. Nhưng mô hình đó vô giá trị vì ta cần tìm ra Tội phạm (Recall = 0%). Bắt buộc phải xài F1-Score hoặc AUC thay thế.",
+    "tip": "Dữ liệu MẤT CÂN BẰNG (Lệch Class 99-1) -> Vứt mẹ chỉ số Accuracy đi, dùng F1-Score / Recall ngay lập tức.",
+    "tags": ["model-evaluation", "accuracy", "imbalanced-data"]
+  },
+  {
+    "id": "C2-009", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Đường cong ROC (ROC Curve) vẽ trên hệ trục tọa độ nào?",
+    "options": [
+      "A. Trục X là Thời gian, Y là Lỗi",
+      "B. Trục X là Tỷ lệ Dương tính Giả (False Positive Rate - Báo động giả), Trục Y là Tỷ lệ Dương tính Thật (True Positive Rate/Recall - Tóm đúng tội phạm) ở TẤT CẢ các ngưỡng (Threshold) xác suất.",
+      "C. Trục X là Train, Y là Test",
+      "D. Trục X là Precision, Y là Recall"
+    ],
+    "answer": 1,
+    "explanation": "Đường cong ROC đánh giá sức mạnh PHÂN TÁCH của Model mà không bị ảnh hưởng bởi tỷ lệ mất cân bằng dữ liệu. Một Model hoàn hảo sẽ có đường cong ROC vút thẳng lên góc trên cùng bên trái (TPR=1, FPR=0). Đường chéo (50-50) là máy đoán bừa như tung đồng xu.",
+    "tip": "Đường cong ROC (ROC Curve): Model ngon là đường cong phình to, ôm sát góc Trái-Trên (Top-Left). Model lỏ là đường thẳng xéo (Tung đồng xu).",
+    "tags": ["model-evaluation", "roc", "classification"]
+  },
+  {
+    "id": "C2-010", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Chỉ số AUC (Area Under the ROC Curve) mang ý nghĩa trực quan là gì?",
+    "options": [
+      "A. Diện tích phòng máy chủ",
+      "B. Diện tích NẰM DƯỚI ĐƯỜNG CONG ROC. Khối lượng diện tích (từ 0.5 đến 1.0) chấm điểm năng lực phân loại của mô hình. Giá trị Càng gần 1.0 (100%), Model càng xuất sắc.",
+      "C. Tỷ lệ lỗi nén ảnh",
+      "D. Đếm số lượng hình chữ nhật"
+    ],
+    "answer": 1,
+    "explanation": "Thay vì nhìn bằng mắt đường ROC xem đường nào cong hơn, ta dùng máy tính đo TỔNG DIỆN TÍCH nằm dưới cái đường cong đó. Diện tích max = 1.0 (Hoàn hảo). Diện tích = 0.5 (Đoán bừa). Thường AUC > 0.8 là Model xài tốt.",
+    "tip": "AUC = Điểm tổng kết môn Phân Loại (0.5 là Liệt, 1.0 là Thủ khoa).",
+    "tags": ["model-evaluation", "auc", "metrics"]
+  },
+  {
+    "id": "C2-011", "module": "C", "topic": "C2", "difficulty": "easy",
+    "question": "Trong bài toán HỒI QUY (Regression - Dự đoán số liên tục), chỉ số MAE (Mean Absolute Error) tính toán dựa trên điều gì?",
+    "options": [
+      "A. Tính Trung bình GIÁ TRỊ TUYỆT ĐỐI của các Sai số (Lấy Thực tế trừ Dự đoán, rồi bỏ dấu âm).",
+      "B. Bình phương sai số",
+      "C. Đếm xem đoán trúng bao nhiêu phần trăm",
+      "D. Lấy số max trừ số min"
+    ],
+    "answer": 0,
+    "explanation": "Đoán giá nhà: Nhà 3 tỷ đoán 2 tỷ (Sai lệch -1 tỷ). Nhà 1 tỷ đoán 2 tỷ (Sai lệch +1 tỷ). Tính tổng bình thường: -1 + 1 = 0 (Ảo tưởng là Model hoàn hảo). MAE trị tuyệt đối: | -1 | + | 1 | = 2, trung bình sai 1 tỷ/nhà. Rất dễ hiểu cho sếp kinh doanh.",
+    "tip": "MAE (Mean Absolute Error) = Tính sai số TRUNG BÌNH (Dễ hiểu nhất với con người).",
+    "tags": ["model-evaluation", "regression", "mae"]
+  },
+  {
+    "id": "C2-012", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Trong bài toán Hồi quy, chỉ số RMSE (Root Mean Squared Error) KHÁC MAE ở điểm nào quan trọng nhất?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Chạy chậm hơn",
+      "C. Vì sử dụng phép BÌNH PHƯƠNG sai số trước khi lấy căn, RMSE sẽ 'PHẠT RẤT NẶNG' (nhân lên gấp bội) những điểm dữ liệu có sai số CỰC LỚN (Outliers).",
+      "D. Chỉ trả về số âm"
+    ],
+    "answer": 2,
+    "explanation": "Đoán giá 2 cái nhà: Cái 1 sai 2 tỷ (Bình phương = 4). Cái 2 sai 10 tỷ (Bình phương = 100). Do bị bình phương, cái lỗi 10 tỷ kéo vọt RMSE lên cao chót vót. Do đó, nếu bạn RẤT GHÉT Model thỉnh thoảng đoán sai một vố cực to, hãy dùng RMSE làm hàm mất mát (Loss).",
+    "tip": "RMSE = Phóng đại LỖI LỚN lên (Bình phương) để trừng phạt Model. Nhạy cảm với Outlier.",
+    "tags": ["model-evaluation", "regression", "rmse"]
+  },
+  {
+    "id": "C2-013", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Chỉ số R-squared (R-bình phương / Hệ số xác định) trong Hồi quy có giá trị TỐI ĐA là bao nhiêu, và mang ý nghĩa gì?",
+    "options": [
+      "A. Giá trị tối đa là vô cực",
+      "B. Giá trị TỐI ĐA LÀ 1. Nó cho biết 'Mô hình của bạn GIẢI THÍCH (Cover) ĐƯỢC BAO NHIÊU % sự biến thiên của dữ liệu' so với một mô hình ngốc ngếch chỉ biết đoán bằng con số Trung Bình.",
+      "C. Tối đa là 100",
+      "D. Là tỷ lệ phần trăm dữ liệu bị lỗi"
+    ],
+    "answer": 1,
+    "explanation": "Nếu R² = 0.8 (80%), nghĩa là model hồi quy của bạn rất khôn, nó bám sát đường cong dữ liệu và giải thích được 80% sự thay đổi của giá nhà. Nếu R² = 0, model của bạn tồi tệ y hệt như việc đoán bừa bằng giá trị trung bình. (R² CÓ THỂ ÂM nếu model của bạn còn ngu hơn cả lấy trung bình).",
+    "tip": "R² (R-squared) = Model của mình xịn hơn bao nhiêu % so với cái model Ngu ngốc (Baseline Mean). Tối đa = 1 (100%).",
+    "tags": ["model-evaluation", "regression", "r-squared"]
+  },
+  {
+    "id": "C2-014", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Bias (Độ lệch) và Variance (Độ phân tán) trong Machine Learning có sự ĐÁNH ĐỔI (Trade-off) như thế nào?",
+    "options": [
+      "A. Cả hai cùng tăng hoặc cùng giảm",
+      "B. Bias Cao (Underfitting): Model quá đơn giản, không học được quy luật. Variance Cao (Overfitting): Model quá phức tạp, học vẹt cả nhiễu, nhạy cảm với data mới. Giảm Bias thường làm Tăng Variance, và ngược lại.",
+      "C. Bias Cao là tốt nhất",
+      "D. Trừ khử nhau"
+    ],
+    "answer": 1,
+    "explanation": "Tưởng tượng bắn cung: Bias (Độ Lệch) là các mũi tên bắn tụm lại nhưng CÁCH XA tâm (Model lỏ/Ngây thơ). Variance (Độ Phân tán) là các mũi tên bay TỨ TÁN khắp bia, có mũi ngay hồng tâm, mũi bay ra ngoài (Model ảo tưởng/Nhạy cảm). Mục tiêu là tìm điểm cân bằng Bias-Variance (Vừa trúng tâm, vừa tụm lại).",
+    "tip": "Bias-Variance Tradeoff = Cuộc chiến giữa Model Ngu-Đơn-Giản (Bias cao) và Model Ảo tưởng-Phức-tạp (Variance cao).",
+    "tags": ["machine-learning", "bias-variance", "overfitting"]
+  },
+  {
+    "id": "C2-015", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Hyperparameter Tuning (Tinh chỉnh siêu tham số) là làm gì?",
+    "options": [
+      "A. Gắn thêm RAM cho máy",
+      "B. Thay đổi các biến mà MÔ HÌNH TỰ HỌC (Weights/Biases)",
+      "C. Tìm kiếm cấu hình/thiết lập (như độ sâu Cây, số K trong KNN, Learning Rate) MÀ KỸ SƯ PHẢI ĐẶT TRƯỚC BẰNG TAY trước khi Train, nhằm tìm ra bản thể tốt nhất của Model.",
+      "D. Đổi ngôn ngữ Python sang C++"
+    ],
+    "answer": 2,
+    "explanation": "Mô hình (Model) tự học ra Parameter (Trọng số/Weight - Wx+b). Nhưng Kỹ sư phải chỉnh Hyper-parameter (Siêu tham số - như mâm mâm học nhanh hay chậm, cây cao mấy mét). Kỹ thuật phổ biến là Grid Search (Thử cạn kiệt mọi tổ hợp) hoặc Random Search.",
+    "tip": "Hyperparameter (Siêu tham số) = Các Nút vặn do Con người (Kỹ sư AI) chỉnh. Parameter (Tham số) = Các con số máy tự học.",
+    "tags": ["model-evaluation", "hyperparameter-tuning"]
+  },
+  {
+    "id": "C2-016", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Trong Grid Search kết hợp với Cross Validation (GridSearchCV), nếu ta có 3 siêu tham số, mỗi cái cần thử 4 giá trị, và CV=5 (5-fold). Tổng số lần Huấn luyện (Train) model là bao nhiêu?",
+    "options": [
+      "A. 12 lần",
+      "B. 3 x 4 x 5 = 60 lần",
+      "C. Tổ hợp 3^4 = 81 lần",
+      "D. 4 x 4 x 4 = 64 trường hợp, mỗi cái chạy 5 lần CV -> 64 x 5 = 320 lần huấn luyện (Train) ĐỘC LẬP",
+      "E. 4^3 = 64, x 5 = 320"
+    ],
+    "answer": 4,
+    "explanation": "Có 3 nút vặn (Siêu tham số). Nút 1 có 4 giá trị. Nút 2 có 4 giá trị. Nút 3 có 4 giá trị. Vậy tổng số tổ hợp Cấu hình là 4 x 4 x 4 = 64 bản thể Model khác nhau. Vì làm 5-Fold CV (chạy 5 vòng thi cho mỗi bản thể), tổng số lần Fit (Huấn luyện) là 64 x 5 = 320 lần. Rất tốn tính toán!",
+    "tip": "Grid Search CV vét cạn = Cực kỳ tốn CPU/thời gian. (Tổ hợp của TẤT CẢ các tùy chọn nhân với số Fold).",
+    "tags": ["hyperparameter-tuning", "grid-search", "cross-validation"]
+  },
+  {
+    "id": "C2-017", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Để khắc phục sự nặng nề của Grid Search, kỹ sư thường dùng Random Search. Nguyên lý của nó là gì?",
+    "options": [
+      "A. Đánh lụi, không chỉnh gì cả",
+      "B. Thay vì thử 100% tất cả các tổ hợp lưới (Grid), Random Search chỉ BỐC THĂM NGẪU NHIÊN một số lượng tổ hợp nhất định (VD: 50 cấu hình) trong không gian siêu tham số để Train. Thường cho ra kết quả xấp xỉ Grid Search mà tiết kiệm 90% thời gian.",
+      "C. Tự động viết lại code thuật toán",
+      "D. Chạy bằng Quantum Computer"
+    ],
+    "answer": 1,
+    "explanation": "Trong không gian hàng vạn tổ hợp Hyperparameter, thường chỉ có 1-2 tham số thực sự tác động mạnh đến kết quả (như Learning Rate). Random Search rải quân ngẫu nhiên khắp nơi, giúp ta nhanh chóng dò được 'khu vực' có Model tốt mà không cần quét từng mm như Grid Search.",
+    "tip": "Grid Search = Cày xới toàn bộ cánh đồng (Chậm). Random Search = Rải hột ngẫu nhiên, tìm mỏ vàng siêu lẹ.",
+    "tags": ["hyperparameter-tuning", "random-search"]
+  },
+  {
+    "id": "C2-018", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Trong bài toán xử lý Dữ liệu Mất cân bằng (Imbalanced Data - Ví dụ: 99% Âm tính, 1% Dương tính), kỹ thuật SMOTE (Synthetic Minority Over-sampling Technique) thực hiện điều gì?",
+    "options": [
+      "A. Xóa hết 98% dữ liệu Âm tính (Undersampling)",
+      "B. Nhân bản y hệt các dữ liệu Dương tính lên 100 lần (Oversampling cổ điển)",
+      "C. TỔNG HỢP / SINH RA các điểm dữ liệu Dương tính MỚI TINH (Fake data) bằng cách nội suy (nối các điểm gần nhau của nhóm thiểu số), giúp nhóm Dương tính cân bằng số lượng với nhóm Âm tính mà không bị trùng lặp y hệt.",
+      "D. Đổi nhãn dữ liệu"
+    ],
+    "answer": 2,
+    "explanation": "Nhân bản (Copy-Paste) làm Model dễ bị Overfit. SMOTE thông minh hơn, nó tìm các điểm Khách Hàng ( thiểu số) nằm gần nhau, rồi lấy trung bình đoạn thẳng nối chúng để 'Đẻ' ra 1 khách hàng FAKE nhưng có đặc điểm cực kỳ hợp lý. Từ 10 khách, nó đẻ ra 1000 khách khác nhau, giúp Model học khôn hơn.",
+    "tip": "SMOTE = Kỹ thuật đẻ thêm data Ảo (Nội suy) cứu tinh cho bộ Data bị mất cân đối.",
+    "tags": ["imbalanced-data", "smote", "oversampling"]
+  },
+  {
+    "id": "C2-019", "module": "C", "topic": "C2", "difficulty": "medium",
+    "question": "Trong Machine Learning, 'Tập Validation' (Validation Set) dùng để làm gì, và khác gì 'Tập Test' (Test Set)?",
+    "options": [
+      "A. Không khác biệt, gọi chung là 1",
+      "B. Validation Set dùng để KIỂM TRA NHÁP trong quá trình Huấn luyện (giúp Kỹ sư Tinh chỉnh Siêu tham số/chống Overfit). Test Set được KHÓA KÍN hoàn toàn trong tủ két, chỉ đem ra đo điểm số 1 LẦN DUY NHẤT ở cuối dự án trước khi giao cho sếp.",
+      "C. Validation dùng cho Python, Test dùng cho R",
+      "D. Tập Validation có kích thước lớn hơn tập Train"
+    ],
+    "answer": 1,
+    "explanation": "Nếu bạn liên tục Tuning thông số dựa trên điểm số của tập Test, vô tình Mô hình của bạn đang 'rò rỉ' học lỏm kiến thức từ tập Test. Test Set sẽ bị 'vấy bẩn'. Do đó, 3 tập là chuẩn: Train (Học sách giáo khoa), Validation (Thi thử định kỳ để điều chỉnh phương pháp), Test (Kỳ thi Đại học quốc gia).",
+    "tip": "Train = Học trên lớp. Validation = Đề thi thử (Được quyền thi lại). Test Set = Đề thi Đại học (Chỉ thi đúng 1 lần cuối cùng).",
+    "tags": ["model-evaluation", "validation-set", "train-test-split"]
+  },
+  {
+    "id": "C2-020", "module": "C", "topic": "C2", "difficulty": "hard",
+    "question": "Data Leakage (Rò rỉ dữ liệu) thường XẢY RA LỖI TẠI BƯỚC NÀO trong quy trình Tiền xử lý (Preprocessing) nếu làm sai thứ tự?",
+    "options": [
+      "A. Xóa bớt khoảng trắng ở Text",
+      "B. Chia dữ liệu thành Train và Test SAU KHI đã Áp dụng Chuẩn hóa (Standard Scaler) hoặc Điền giá trị thiếu (Imputation) trên TOÀN BỘ DATASET gộp chung.",
+      "C. Chuyển chữ hoa thành thường",
+      "D. Đổi tên cột"
+    ],
+    "answer": 1,
+    "explanation": "NẾU bạn Scale (tính Trung bình/Độ lệch chuẩn) trên 100% dữ liệu. Rồi mới cắt 20% ra làm Test. Thì giá trị Trung bình đó ĐÃ CHỨA THÔNG TIN của tập Test. Mô hình Train trên 80% kia đã lén lút ăn gian 'nhìn lén' phân phối của tập Test. LỖI LỚN NHẤT. Đúng chuẩn: Chia Train/Test TRƯỚC. Fit Scaler CHỈ TRÊN TẬP TRAIN. Rồi dùng Scaler đó Transform cho Train và Test.",
+    "tip": "Luật thép: Chia Cắt Train/Test LÀ BƯỚC SỐ 1 ĐẦU TIÊN. Cấm tuyệt đối đụng tay đụng chân/tính toán (Scale/Impute) khi chưa cắt Test Set giấu đi.",
+    "tags": ["model-evaluation", "data-leakage", "preprocessing", "best-practices"]
+  }
+]

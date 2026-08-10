@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C9-001", "module": "C", "topic": "C9", "difficulty": "easy",
+    "question": "Tính năng ưu việt cốt lõi nhất của Tensor (trong PyTorch/TensorFlow) so với Mảng NumPy (NumPy Array) là gì?",
+    "options": [
+      "A. Lên màu được hình ảnh",
+      "B. Không bị lỗi out of memory",
+      "C. Tensor CÓ THỂ CHẠY TRÊN GPU (Card đồ họa) để tính toán song song ma trận với tốc độ cực cao, và HỖ TRỢ TỰ ĐỘNG TÍNH ĐẠO HÀM (Autograd). NumPy chỉ chạy trên CPU.",
+      "D. Chạy code bằng ngôn ngữ C++"
+    ],
+    "answer": 2,
+    "explanation": "Toán học của Deep Learning (Nhân ma trận) y hệt NumPy. Nhưng CPU chỉ có 4-8 Lõi, GPU có 4000-8000 Lõi. Tensor được thiết kế riêng để nhét thẳng vào 8000 lõi đó nhân song song. Lệnh `tensor.to('cuda')` biến Laptop thường thành siêu máy tính AI.",
+    "tip": "Tensor = Mảng NumPy được gắn 'Động cơ Phản lực GPU' và được nạp 'Phần mềm Tự tính Đạo hàm' (Autograd).",
+    "tags": ["frameworks", "tensor", "pytorch", "tensorflow"]
+  },
+  {
+    "id": "C9-002", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Trong PyTorch, Module `torch.nn.Linear(in_features=128, out_features=64)` đóng vai trò gì trong việc xây dựng mạng Neural?",
+    "options": [
+      "A. Vẽ một đoạn thẳng dài 64cm",
+      "B. Tạo ra 1 LỚP ẨN (Fully Connected / Dense Layer) thực hiện phép biến đổi tuyến tính `y = Wx + b`. Trong đó có 128 Nơ-ron đầu vào, kết nối MỌI DÂY THẦN KINH tới 64 Nơ-ron đầu ra.",
+      "C. Đọc file text độ dài 128",
+      "D. Đổi ảnh 128px thành 64px"
+    ],
+    "answer": 1,
+    "explanation": "Đây là Lớp cơ bản nhất (Tương đương `tf.keras.layers.Dense` trong TensorFlow). PyTorch sẽ tự động tạo ngầm 1 Ma trận Trọng số W (64x128) và Vector Bias b (64) để máy tự học. (Kỹ sư không cần viết vòng lặp For 128 lần).",
+    "tip": "`nn.Linear` (PyTorch) = `Dense` (TensorFlow/Keras). Lớp Nơ-ron Kết Nối Đầy Đủ (Fully Connected).",
+    "tags": ["frameworks", "pytorch", "nn-linear", "dense-layer"]
+  },
+  {
+    "id": "C9-003", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Tính năng `Autograd` (Automatic Differentiation - Đạo hàm tự động) trong PyTorch/TensorFlow giải phóng Kỹ sư AI khỏi công việc kinh khủng nào?",
+    "options": [
+      "A. Xây giao diện App",
+      "B. Trả tiền thuê GPU",
+      "C. Không cần phải MANG GIẤY BÚT RA TỰ GIẢI TÍCH PHÂN/ĐẠO HÀM (Quy tắc chuỗi Chain Rule) dài 100 trang giấy cho hàng tỷ trọng số của hàm Loss. Engine sẽ TỰ ĐỘNG GHI NHỚ ĐỒ THỊ TÍNH TOÁN và tính đạo hàm ngược (Backprop) cực chuẩn với lệnh `loss.backward()`.",
+      "D. Cài đặt Python"
+    ],
+    "answer": 2,
+    "explanation": "Đỉnh cao của AI hiện tại là Autograd. Bạn chỉ việc Xếp Lô-gô (Gắn Lớp A vào Lớp B). Khi gọi lệnh `loss.backward()` ở PyTorch (hay `GradientTape` ở TF), thư viện sẽ chạy ngược từ lớp B về lớp A, tính ra chính xác 100% đạo hàm của hàng tỷ parameter trong 1s.",
+    "tip": "Autograd = Cỗ máy Giải Tích Đạo Hàm. Kỹ sư chỉ việc viết lệnh `loss.backward()`, máy sẽ tự đi tìm Lỗi của Hàng Tỷ biến số.",
+    "tags": ["frameworks", "autograd", "backpropagation"]
+  },
+  {
+    "id": "C9-004", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Trong PyTorch, vòng lặp Training Chuẩn thường phải viết lệnh `optimizer.zero_grad()` ở đầu MỖI BƯỚC (Batch). Nếu QUÊN dòng lệnh này, hậu quả gì sẽ xảy ra?",
+    "options": [
+      "A. Không sao cả, máy tự hiểu",
+      "B. Máy tính bị sập nguồn",
+      "C. ĐẠO HÀM (Gradient) của Bước (Batch) cũ sẽ BỊ CỘNG DỒN / TÍCH LŨY sang Bước Mới. Khiến Mô hình đi sai bét hướng, hàm Loss vọt lên vô cực (Dự đoán rác).",
+      "D. File ảnh bị lưu đè"
+    ],
+    "answer": 2,
+    "explanation": "Hành vi kỳ quặc nhất của PyTorch! Thiết kế mặc định của nó là Cộng Dồn Gradient (để dành xài cho các Batch siêu bự). Nếu bạn xài Batch nhỏ bình thường, bạn BẮT BUỘC phải ra lệnh XÓA SẠCH ĐẠO HÀM CŨ (Zero Grad) trước khi tính Đạo hàm cho ảnh mới. Quên dòng này là lỗi kinh điển 100% người học PyTorch đều dính.",
+    "tip": "Code PyTorch BẮT BUỘC phải có `optimizer.zero_grad()` để chùi sạch bảng nháp cũ, trước khi tính Đạo Hàm cho Batch mới.",
+    "tags": ["frameworks", "pytorch", "training-loop", "zero-grad"]
+  },
+  {
+    "id": "C9-005", "module": "C", "topic": "C9", "difficulty": "easy",
+    "question": "Keras ban đầu là một Thư viện độc lập. Hiện tại (trong TensorFlow 2.x), Keras đóng vai trò gì?",
+    "options": [
+      "A. Bị xóa bỏ hoàn toàn",
+      "B. Lớp VỎ API (Giao diện bậc cao - High-level API) CHÍNH THỨC VÀ DUY NHẤT của TensorFlow. Giúp Lập trình viên xây dựng mạng Neural nhanh như xếp hình Lego bằng lệnh `model = Sequential()`, che giấu toàn bộ toán học phức tạp của TensorFlow lõi.",
+      "C. Giao diện làm Web",
+      "D. Trình quản lý Database"
+    ],
+    "answer": 1,
+    "explanation": "TensorFlow 1.x cực kỳ khó viết (phải tự tạo Đồ thị tĩnh, tự gọi Session). François Chollet viết ra Keras bọc bên ngoài cho dễ xài. Google thấy ngon quá nên đã MUA LẠI Keras và tích hợp thẳng làm Lõi chính của TensorFlow 2. (Gõ `import tensorflow.keras`).",
+    "tip": "Keras = Bộ Lắp Ráp Lego. Lấy sự cực khổ của TensorFlow giấu đi, trả lại 3 dòng code `model.fit()` mượt mà cho dân AI.",
+    "tags": ["frameworks", "keras", "tensorflow"]
+  },
+  {
+    "id": "C9-006", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Trong PyTorch, khi muốn CẮT (Đóng băng) Mô hình sang chế độ Chạy Thực Tế (Inference/Testing), Lệnh NÀO LÀ BẮT BUỘC PHẢI GỌI?",
+    "options": [
+      "A. `model.stop()`",
+      "B. `model.eval()` VÀ kết hợp bọc khối lệnh trong `with torch.no_grad():`",
+      "C. `model.inference()`",
+      "D. `torch.deploy()`"
+    ],
+    "answer": 1,
+    "explanation": "Khi Train, mô hình dùng `Dropout` (Đuổi việc nơ-ron). Khi chạy live, ta phải tắt tính năng đó đi bằng `model.eval()`. Khối lệnh `with torch.no_grad():` thì bảo Engine Autograd: 'Đi ngủ đi, không cần tính đạo hàm nữa', giúp tiết kiệm 70% bộ nhớ GPU và chạy siêu nhanh.",
+    "tip": "Lúc Train: `model.train()`. Lúc Đoán thật (Inference): `model.eval()` + `with torch.no_grad():` (Tắt não học, bật não thi).",
+    "tags": ["frameworks", "pytorch", "inference", "evaluation"]
+  },
+  {
+    "id": "C9-007", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Trong TensorFlow/Keras, Callbacks (như `EarlyStopping`, `ModelCheckpoint`) được truyền vào hàm `model.fit()` có nhiệm vụ LÝ TƯỞNG gì?",
+    "options": [
+      "A. Vẽ đồ thị ra file excel",
+      "B. Đóng ứng dụng khi bị đứng máy",
+      "C. Lắng nghe và CAN THIỆP NGẦM vào từng Vòng lặp (Epoch). Ví dụ: `EarlyStopping` sẽ TỰ ĐỘNG DỪNG TRAINING nếu mô hình bắt đầu bị Overfit (Điểm Validation giảm). `ModelCheckpoint` sẽ tự động SAVE LẠI bản Model Tốt Nhất vào Ổ cứng.",
+      "D. Báo cáo lỗi cho Google"
+    ],
+    "answer": 2,
+    "explanation": "Train Deep Learning tốn vài tuần. Nếu bạn ngủ quên, mô hình bị Overfit nặng. EarlyStopping giống như chuông báo cháy, thấy Loss trên tập Validation 5 vòng liên tiếp không giảm -> Rút điện ngay. ModelCheckpoint thì tự động lưu file `.h5` lỡ cúp điện không mất công sức.",
+    "tip": "Callbacks = Con Robot Canh Gác lúc bạn đi ngủ. Tự ngắt điện (EarlyStopping) và Tự Save game (ModelCheckpoint).",
+    "tags": ["frameworks", "tensorflow", "keras", "callbacks"]
+  },
+  {
+    "id": "C9-008", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Trong PyTorch, `DataLoader` thần thánh đóng vai trò gì khi nạp (Load) hàng triệu ảnh lớn vào Mô hình?",
+    "options": [
+      "A. Resize ảnh",
+      "B. Tự động băm Dữ liệu Khổng Lồ ra thành các Cục nhỏ (BATCHES - vd 32 ảnh/cục), Trộn ngẫu nhiên (SHUFFLE) chống học vẹt, và dùng Đa luồng (Multi-processing Workers) bốc ảnh từ Đĩa cứng nhét liên tục vào GPU để GPU không bị đói Data.",
+      "C. Xóa thư mục rỗng",
+      "D. Chạy Docker"
+    ],
+    "answer": 1,
+    "explanation": "GPU siêu nhanh, nhưng Ổ cứng (HDD/SSD) bốc ảnh rất chậm. Nếu GPU tính xong 32 ảnh, phải nằm chơi xơi nước 1s để đợi Đĩa cứng tìm 32 ảnh tiếp theo -> Nghẽn cổ chai I/O. DataLoader dùng 4-8 luồng (Workers) chạy ngầm bốc sẵn ảnh nhét vào RAM, GPU chỉ việc húp.",
+    "tip": "DataLoader = Dàn nhân viên Bồi Bàn (Workers) chạy lăng xăng bốc thức ăn (Batches) từ Bếp (Ổ cứng) dọn sẵn lên Bàn (RAM) cho Khách VIP (GPU) xơi liên tục.",
+    "tags": ["frameworks", "pytorch", "dataloader", "data-pipeline"]
+  },
+  {
+    "id": "C9-009", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Kiến trúc Định dạng Hình Ảnh Tensors (Shape) mặc định của PyTorch KHÁC BIỆT KỲ LẠ so với TensorFlow/Keras ở thứ tự các Chiều (Channels) như thế nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. TensorFlow xài NCHW (Kênh đứng trước)",
+      "C. TensorFlow dùng format [Batch, Cao, Rộng, Kênh_Màu] (NHWC - Màu để CUỐI). PyTorch ngược ngạo dùng format [Batch, Kênh_Màu, Cao, Rộng] (NCHW - Màu để TRƯỚC Rộng Cao).",
+      "D. PyTorch chỉ hỗ trợ 2 chiều"
+    ],
+    "answer": 2,
+    "explanation": "Ảnh 100x100 RGB (3 kênh). TensorFlow (Keras) sẽ biểu diễn nó là `[1, 100, 100, 3]` (Giống hệ thống OpenCV). PyTorch bắt buộc phải đổi chiều nó thành `[1, 3, 100, 100]`. Lý do: GPU NVIDIA (Cuda) cuộn tích chập với format NCHW (PyTorch) nhanh hơn 20% so với NHWC.",
+    "tip": "Lỗi Cấm Kỵ 1: Keras nhét Kênh màu ở ĐUÔI `[H, W, Channels]`. PyTorch nhét Kênh màu ở GIỮA `[Channels, H, W]`. Nhập sai là code chửi sấp mặt.",
+    "tags": ["frameworks", "pytorch", "tensorflow", "tensor-shape"]
+  },
+  {
+    "id": "C9-010", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Để khắc phục việc Code PyTorch có Vòng Lặp Training quá dài và rườm rà (như C++), cộng đồng đã sinh ra một Thư viện bọc cấp cao (Wrapper) nổi tiếng nào?",
+    "options": [
+      "A. Django",
+      "B. FastAI",
+      "C. PyTorch Lightning (Bây giờ gọi là Lightning). Nó tổ chức lại đống code lộn xộn của PyTorch thành 1 Class duy nhất (LightningModule), tự động hóa các bước `optimizer.step()`, `loss.backward()`, ép Code vào khuôn khổ chuẩn (Giống Keras).",
+      "D. Pandas"
+    ],
+    "answer": 2,
+    "explanation": "Code PyTorch thô (Vanilla) nếu viết không khéo sẽ là một mớ rác, lúc chuyển sang train Đa GPU thì sửa code khóc thét. PyTorch Lightning (PL) lo hết việc kỹ thuật (Phân bổ GPU, Mixed Precision), bạn chỉ tập trung vào viết Logic Lõi (Hàm Loss, Mạng Nơ ron).",
+    "tip": "PyTorch Lightning = Phiên bản Keras (Ngắn Gọn/Chuẩn Form) dành riêng cho PyTorch. Cứu rỗi Lập trình viên khỏi các vòng lặp For mệt mỏi.",
+    "tags": ["frameworks", "pytorch", "pytorch-lightning"]
+  },
+  {
+    "id": "C9-011", "module": "C", "topic": "C9", "difficulty": "easy",
+    "question": "TensorBoard (được tích hợp mặc định trong TensorFlow và PyTorch) là công cụ dùng để làm gì?",
+    "options": [
+      "A. Lướt web",
+      "B. GIAO DIỆN TRỰC QUAN HÓA (Dashboard UI) chạy trên Web, chuyên dùng để vẽ Đồ thị biến thiên của Hàm Loss/Accuracy theo thời gian thực (Lúc đang Train). Ngoài ra còn soi được Kiến trúc mạng (Graph) xem nó kết nối ra sao.",
+      "C. Đọc file text",
+      "D. Hack GPU"
+    ],
+    "answer": 1,
+    "explanation": "Bấm lệnh train 10 tiếng, màn hình terminal trôi text đen ngòm `Loss = 0.5... Loss = 0.4...`. TensorBoard chép lại đống text đó vẽ lên 1 cái Biểu đồ Cực Đẹp trên Chrome. Chỉ cần nhìn thấy Biểu đồ Loss của Train đi xuống, nhưng Loss của Validation đi LÊN, Kỹ sư biết ngay bị Overfit để tắt máy.",
+    "tip": "TensorBoard = Màn hình Camera an ninh. Mở lên xem Con AI đang học Tốt lên hay Đang Ngu đi bằng Đồ thị Trực Quan.",
+    "tags": ["frameworks", "tensorflow", "tensorboard", "visualization"]
+  },
+  {
+    "id": "C9-012", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Trong Keras (TensorFlow), khi xây dựng Mạng bằng `Functional API` (Thay vì Sequential), lợi ích TUYỆT ĐỐI nào giúp nó dựng được các Kiến trúc dị (như ResNet, U-Net)?",
+    "options": [
+      "A. Viết code ngắn hơn",
+      "B. Sequential chỉ cho xếp các Lớp nối đuôi nhau 1 ĐƯỜNG THẲNG TẮP (A->B->C). Functional API cho phép Mạng PHÂN NHÁNH, TÁCH LÀM 2 ĐƯỜNG, NỐI TẮT (Skip Connection) hoặc nhận nhiều Inputs/Outputs cùng lúc.",
+      "C. Chạy trên CPU",
+      "D. Đổi nền giao diện đen"
+    ],
+    "answer": 1,
+    "explanation": "Sequential: `model.add(Layer1)`, `model.add(Layer2)`. Rất dễ, nhưng bí bách nếu bạn muốn Lớp 1 nhảy cóc bọc thẳng qua Lớp 5 (Cầu vượt của ResNet). Functional API giải quyết bằng cách lấy Lớp như Hàm: `x = Layer2(Layer1)`, `y = Layer5(x + Layer1)`. Sức mạnh vô tận.",
+    "tip": "Sequential = Xếp gạch đường thẳng (Chỉ dùng cho Mạng Cùi). Functional API = Vẽ Sơ Đồ Cây/Nhảy cóc 2 Nhánh (Sức mạnh đích thực của Keras).",
+    "tags": ["frameworks", "keras", "tensorflow", "functional-api"]
+  },
+  {
+    "id": "C9-013", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Thuật ngữ 'Eager Execution' (Thực thi hăng hái/tức thì) trong TensorFlow 2.x mang lại trải nghiệm giống HỆT ĐỐI THỦ PyTorch ở điểm nào?",
+    "options": [
+      "A. Load được file JSON",
+      "B. Code TensorFlow 1.x bắt phải dựng 1 Đồ thị (Graph) hoàn chỉnh rồi mới mớm Data vào chạy 1 lúc (Static Graph). TensorFlow 2.x bật Eager Execution mặc định, giúp GỌI HÀM NÀO CHẠY NGAY HÀM ĐÓ, dùng được Print(), gỡ lỗi y như Python bình thường.",
+      "C. Đuổi nơ-ron thừa",
+      "D. Đổi ảnh sang HDF5"
+    ],
+    "answer": 1,
+    "explanation": "TF 1.x là ác mộng. Bạn in `print(tensor)` nó không ra kết quả `5.0`, nó ra chữ `<Tensor object...>`. Bạn mù hoàn toàn lúc Debug. PyTorch thắng thế nhờ tính năng 'Chạy 1 dòng tính 1 dòng' (Đồ thị Động). Google buộc phải ra TF 2.x học lỏm Eager Execution để cứu vãn thị phần.",
+    "tip": "Eager Execution (TF 2.0) = Bắt chước Đồ thị Động của PyTorch. Cho phép dùng Lệnh Print() để Soi Giá trị biến ngay lập tức lúc Code (Dễ Debug).",
+    "tags": ["frameworks", "tensorflow", "eager-execution"]
+  },
+  {
+    "id": "C9-014", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Tính năng TFRecord (TensorFlow Record) là định dạng Dữ liệu SIÊU TỐI ƯU của hệ sinh thái TensorFlow. Tại sao phải phiền phức gom Data ra đuôi file `.tfrecord`?",
+    "options": [
+      "A. Để nén giảm dung lượng file",
+      "B. Khi bạn có 1 Triệu bức ảnh rời rạc (JPEG), việc Ổ cứng quay tốn rất nhiều I/O tìm từng file để đút vào GPU. TFRecord đóng băng toàn bộ 1 triệu ảnh + nhãn đó thành CHUỖI NHỊ PHÂN TUẦN TỰ (Sequential Binary). GPU bốc vào đọc lướt lẹ như bốc rác, Max Speed.",
+      "C. Để đổi sang file Excel",
+      "D. Để lưu đồ thị"
+    ],
+    "answer": 1,
+    "explanation": "Dân Keras nghiệp dư xài thư mục ảnh rời (`flow_from_directory`). Chạy 1 tuần. Kỹ sư xịn nén hết ảnh và Label vào vài cục TFRecord. API `tf.data` đọc Streaming (Luồng) thẳng từ đĩa cứng (Thậm chí đọc song song trên nhiều Máy Chủ Phân Tán) đưa vào TPUs của Google lẹ gấp 10 lần.",
+    "tip": "TFRecord = Xay nhuyễn 1 Triệu bức Ảnh rời rạc thành 1 khối Nhị Phân dài ngoằng. Húp phát một nhanh gấp 10 lần.",
+    "tags": ["frameworks", "tensorflow", "tfrecord", "data-pipeline"]
+  },
+  {
+    "id": "C9-015", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Trong PyTorch, hàm `torch.save(model.state_dict(), 'model.pth')` lưu cụ thể cái gì của mô hình xuống ổ cứng?",
+    "options": [
+      "A. Lưu toàn bộ file code Python chứa kiến trúc Mạng",
+      "B. Chỉ lưu bộ dữ liệu Train",
+      "C. CHỈ LƯU TRẠNG THÁI TRỌNG SỐ (Weights/Biases - tức các con số trí khôn) dưới dạng một cuốn Từ điển (Dictionary). Nó KHÔNG LƯU Kiến trúc mạng (Nơ-ron). Khi Load lại, bạn BẮT BUỘC phải KHỞI TẠO LẠI CLASS KIẾN TRÚC MẠNG TỪ ĐẦU rồi mới nhét Trọng số này vào.",
+      "D. Lưu ảnh mèo"
+    ],
+    "answer": 2,
+    "explanation": "Lỗi cực kỳ ngớ ngẩn: Cầm file `model.pth` chạy qua máy mới rồi kêu PyTorch load lên. PyTorch báo Lỗi vì nó không biết Model này là CNN hay RNN, bao nhiêu lớp (Mất Xác). `state_dict` chỉ là Linh Hồn. Phải dựng lại cái Thể Xác (Class Python) trước, rồi mới `.load_state_dict()` Linh Hồn vào.",
+    "tip": "PyTorch `state_dict` = Chỉ lưu Linh hồn (Trí Khôn Weight). Lúc gọi hồn phải tự nặn Lại Thể xác (Khung Class Model) trước thì mới nhập hồn vô được.",
+    "tags": ["frameworks", "pytorch", "model-saving"]
+  },
+  {
+    "id": "C9-016", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Định dạng Keras HDF5 (`.h5` hoặc `.keras`) KHÁC gì so với kiểu lưu `state_dict` của PyTorch?",
+    "options": [
+      "A. H5 lưu được video",
+      "B. Không khác biệt",
+      "C. Keras H5 LƯU GÓI GỌN CẢ 'THỂ XÁC LẪN LINH HỒN'. Bao gồm Kiến trúc mạng, Bộ trọng số (Weights), Cấu hình Train (Optimizer, Loss). Sang máy mới chỉ cần ĐÚNG 1 LỆNH `load_model('a.h5')` là chạy được luôn (Dễ Deploy).",
+      "D. H5 lưu dưới dạng ảnh"
+    ],
+    "answer": 2,
+    "explanation": "Đó là lý do vì sao Dân Làm Ứng Dụng (Software) khoái TensorFlow/Keras hơn. Đưa Cục `.h5` cho Web Dev, ổng chỉ gõ 1 lệnh là bê nguyên vẹn con AI lên Web. Không cần phải bảo ổng copy mớ code Xây Mạng Nơ ron như bên PyTorch.",
+    "tip": "Keras `.h5` = Đóng gói All-in-One (Cả Code Cấu trúc + Trọng số). Đưa cho Dev xài `load_model` phát ăn ngay. Rất sướng lúc Deploy.",
+    "tags": ["frameworks", "tensorflow", "keras", "model-saving"]
+  },
+  {
+    "id": "C9-017", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Tính năng `@tf.function` trong TensorFlow 2.x cung cấp phép thuật gì cho các Hàm Code Python thông thường?",
+    "options": [
+      "A. Vẽ giao diện Web tự động",
+      "B. Nén Hàm Python (Chạy Chậm, Cồng Kềnh) Biên dịch thành ĐỒ THỊ TĨNH CỦA C++ (Static Graph/AutoGraph). Đem lại TỐC ĐỘ CHẠY BÀN THỜ, loại bỏ chi phí dịch mã của Python, tận dụng 100% Cuda GPU.",
+      "C. Đổi file hàm sang PDF",
+      "D. Phóng to chữ"
+    ],
+    "answer": 1,
+    "explanation": "Eager Execution (Chạy động) của TF 2.0 rất dễ Debug, nhưng khi thả lên Server thật (Production) thì chạy chậm hơn Đồ thị tĩnh của TF 1.0. `@tf.function` là lá bùa dán lên đầu 1 cái hàm Python. Lúc Train nó vẫn là Python, nhưng khi Lưu Model nó sẽ tự dịch ngầm thành Đồ thị C++ cứng ngắc siêu nhanh.",
+    "tip": "`@tf.function` = Lá bùa AutoGraph. Dán vào Code Python để biến nó thành Code Đồ Thị C++ Siêu Cấp Vô Địch (Vừa dễ viết như TF2, vừa chạy lẹ như TF1).",
+    "tags": ["frameworks", "tensorflow", "tf-function", "optimization"]
+  },
+  {
+    "id": "C9-018", "module": "C", "topic": "C9", "difficulty": "easy",
+    "question": "TensorFlow Lite (TF Lite) được dùng khi Kỹ sư muốn đẩy (Deploy) Model AI xuống đâu?",
+    "options": [
+      "A. Chạy trên Server khổng lồ",
+      "B. Máy tính lượng tử",
+      "C. THIẾT BỊ DI ĐỘNG, NHÚNG (Mobile iOS/Android, Raspberry Pi, IoT). TF Lite bóp nát và Cắt xén (Quantization) Model 10GB thành Model 10MB để điện thoại yếu xìu cũng chạy nhận diện khuôn mặt được mà không hết pin.",
+      "D. Chạy Web"
+    ],
+    "answer": 2,
+    "explanation": "Điện thoại không có RAM bự và GPU 400W như Server. Đưa Model gốc vào là nổ điện thoại. TF Lite tối ưu hóa kiến trúc, ép số thực (Float32) thành số nguyên (INT8), cho phép Camera quét mã vạch/mặt người Offline trơn tru.",
+    "tip": "TF Lite = Phiên bản 'Cắt Giảm Đồ Họa' (Siêu Nhẹ). Dành riêng cho Mobile (Android/iOS) và Bo mạch IoT nhúng.",
+    "tags": ["frameworks", "tensorflow-lite", "deployment", "edge-computing"]
+  },
+  {
+    "id": "C9-019", "module": "C", "topic": "C9", "difficulty": "hard",
+    "question": "Công cụ Gradient Accumulation (Tích lũy Đạo hàm) trong PyTorch là 'Nghệ thuật Lừa Dối Máy Tính' để giải quyết tình trạng nghèo nàn gì của Kỹ sư?",
+    "options": [
+      "A. Hết tiền mua màn hình",
+      "B. Không biết viết code",
+      "C. KHI THIẾU RAM GPU (OOM Error). Nếu Model/Ảnh quá to, GPU 8GB chỉ chứa nổi BATCH SIZE = 2 (Quá nhỏ để model hội tụ ổn định). Kỹ sư sẽ Tính Đạo Hàm (backward) 16 lần nhưng KHÔNG XÓA (Giữ nguyên `zero_grad`). Ở vòng thứ 16, ta mới Cập Nhật Trọng Số (step). AI sẽ bị LỪA TƯỞNG RẰNG nó vừa Train với Batch Size = 32.",
+      "D. Bị rớt mạng wifi"
+    ],
+    "answer": 2,
+    "explanation": "Người giàu xài Batch Size 32 1 nhát ăn ngay. Con nhà nghèo VRAM GPU bé (Ví dụ Train LLM), 1 cái ảnh nạp vào đã đầy RAM. Phải húp từ từ: Nạp 1 Ảnh -> Tính Lỗi để đó (Chưa Sửa Lỗi). Nạp ảnh 2 -> Tính lỗi. Cộng dồn 32 lần rồi xả 1 lần. Hiệu quả thuật toán y chang nhà giàu.",
+    "tip": "Gradient Accumulation = Mưu hèn Kế bẩn của Con Nhà Nghèo (VRAM ÍT). Cộng dồn từng mớ lỗi nhỏ lại rồi Xử Phạt (Update Weight) 1 lần to, lừa AI tưởng Batch Size bự.",
+    "tags": ["frameworks", "pytorch", "gradient-accumulation", "optimization"]
+  },
+  {
+    "id": "C9-020", "module": "C", "topic": "C9", "difficulty": "medium",
+    "question": "Bảng tóm tắt: TensorFlow vs PyTorch. Đâu là định vị CHÍNH XÁC NHẤT hiện tại của 2 ông lớn này?",
+    "options": [
+      "A. Đều thuộc về Apple",
+      "B. TensorFlow (Google) là VUA SÂN CHƠI DOANH NGHIỆP (Production/Deploy) với hệ sinh thái TF Serving, TF Lite trọn gói. PyTorch (Meta) là VUA SÂN CHƠI NGHIÊN CỨU (Research/Academia) vì tính năng dễ viết, dễ Debug, cộng đồng Hugging Face hùng hậu.",
+      "C. PyTorch chạy Web, TF chạy C++",
+      "D. Cả hai bị cấm dùng"
+    ],
+    "answer": 1,
+    "explanation": "Đọc các Bài Báo Khoa Học (Paper) AI sinh ra mỗi ngày: 90% Code mẫu viết bằng PyTorch. Nhưng vào Tập Đoàn lớn Build App cho 1 triệu người xài: Đội ngũ DevOps sẽ thích TensorFlow hơn vì Pipeline triển khai (Serving, Mobile) của nó đồng bộ như 1 dây chuyền nhà máy.",
+    "tip": "PyTorch = Thánh Nghiên cứu Khoa học (Linh hoạt, Dễ viết). TensorFlow = Thánh Sản xuất Thực tế (Đóng gói lẹ, Cứng cáp dẻo dai bảo vệ hệ thống).",
+    "tags": ["frameworks", "pytorch", "tensorflow", "comparison"]
+  }
+]

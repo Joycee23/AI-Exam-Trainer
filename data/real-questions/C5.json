@@ -1,0 +1,282 @@
+[
+  {
+    "id": "C5-001", "module": "C", "topic": "C5", "difficulty": "easy",
+    "question": "Đối với máy tính, một bức ảnh màu (RGB) kích thước 100x100 pixel thực chất là gì?",
+    "options": [
+      "A. Một mảng nhị phân 0 và 1",
+      "B. Một ma trận số học 3 chiều (3D Tensor) có kích thước 100 x 100 x 3. Trong đó 3 là số Kênh Màu (Red, Green, Blue), mỗi điểm ảnh là một số nguyên từ 0 đến 255.",
+      "C. Một chuỗi văn bản XML",
+      "D. Một ma trận 1 chiều duy nhất"
+    ],
+    "answer": 1,
+    "explanation": "Máy tính không nhìn thấy mặt người, nó chỉ thấy những con số cường độ sáng từ 0 (Đen thui) đến 255 (Sáng chói). Ảnh màu trộn 3 lớp Đỏ, Xanh lá, Xanh dương đè lên nhau. Ảnh xám (Grayscale) thì chỉ có 1 kênh (100x100x1).",
+    "tip": "Ảnh màu (RGB) = Khối lập phương Ma Trận 3 Chiều (Dài x Rộng x 3 Lớp Màu).",
+    "tags": ["computer-vision", "image-representation", "rgb"]
+  },
+  {
+    "id": "C5-002", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Phép Tích Chập (Convolution Operation) hoạt động trên ảnh bằng cách nào?",
+    "options": [
+      "A. Chia ảnh cho 2",
+      "B. Lấy một Ma trận cửa sổ nhỏ (Kernel/Filter, ví dụ 3x3) TRƯỢT DỌC VÀ NGANG trên toàn bộ bức ảnh. Tại mỗi bước, lấy các con số nhân với nhau rồi Cộng lại (Dot Product) tạo ra một điểm ảnh mới.",
+      "C. Xóa ngẫu nhiên các pixel",
+      "D. Thay đổi màu sắc của ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Đây là linh hồn của mạng CNN. Nếu Kernel đó được cấu hình các con số đặc biệt, khi trượt qua ảnh nó có thể biến ảnh thường thành ảnh 'Lấy viền' (Edge detection), hoặc làm mờ ảnh (Blur). CNN tự học ra các con số trong Kernel này.",
+    "tip": "Tích chập = Cầm 1 cái Kính lúp (Kernel) rà qua rà lại bức ảnh để dò tìm Nét (Đường thẳng, Góc cạnh).",
+    "tags": ["computer-vision", "convolution", "kernel"]
+  },
+  {
+    "id": "C5-003", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Thuật ngữ 'Stride' (Bước trượt) trong mạng CNN là gì?",
+    "options": [
+      "A. Độ sáng của bức ảnh",
+      "B. Là SỐ LƯỢNG PIXEL mà Kính lúp (Filter) nhảy/dịch chuyển sau mỗi phép tính tích chập. Stride lớn (ví dụ = 2) sẽ nhảy cóc nhanh hơn, làm cho kích thước bức ảnh đầu ra BỊ NHỎ ĐI.",
+      "C. Là lớp học sâu nhất của mạng",
+      "D. Là số lượng bộ lọc (Filters)"
+    ],
+    "answer": 1,
+    "explanation": "Mặc định Stride = 1 (trượt từng ô một). Nếu thiết lập Stride = 2, nó sẽ nhảy cóc qua 2 ô. Hệ quả là nó giúp tính toán lẹ hơn rất nhiều và hạ độ phân giải (Bóp nhỏ chiều không gian ảnh).",
+    "tip": "Stride = Sải chân nhảy cóc của cái Kính lúp (Filter). Nhảy càng dài, ảnh thu được càng nhỏ.",
+    "tags": ["computer-vision", "stride", "cnn"]
+  },
+  {
+    "id": "C5-004", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Padding (Đệm viền) thường dùng là 'Zero Padding' giải quyết vấn đề gì khi Tích chập?",
+    "options": [
+      "A. Tăng màu sắc",
+      "B. Mỗi lần trượt Kính lúp (Filter), bức ảnh sẽ bị co nhỏ lại 1 chút và các pixel ở góc rìa bị ít được quét qua. Padding đắp thêm một lớp Viền số 0 (Zero) bao quanh ảnh để ĐẢM BẢO KÍCH THƯỚC ẢNH ĐẦU RA BẰNG ẢNH GỐC.",
+      "C. Xóa các điểm nhiễu",
+      "D. Chống hiện tượng vỡ ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Ảnh 32x32 qua Filter 3x3 sẽ teo lại thành 30x30. Nếu mạng sâu 100 lớp, ảnh sẽ teo biến mất. Zero-padding đắp 1 viền số 0 (màu đen) bọc ngoài bức ảnh 32x32 biến nó thành 34x34. Sau khi bị Filter bào đi, nó quay về ĐÚNG kích thước 32x32.",
+    "tip": "Padding = Đắp thêm viền lốp xe (Viền số 0) xung quanh bức ảnh, để chống việc ảnh bị teo nhỏ lại sau nhiều lớp CNN.",
+    "tags": ["computer-vision", "padding", "cnn"]
+  },
+  {
+    "id": "C5-005", "module": "C", "topic": "C5", "difficulty": "easy",
+    "question": "Bài toán Image Classification (Phân loại ảnh) yêu cầu đầu ra là gì?",
+    "options": [
+      "A. Dịch ảnh sang tiếng Việt",
+      "B. Gán đúng 1 Nhãn/Từ vựng duy nhất (Ví dụ: 'Chó' hoặc 'Mèo') cho TOÀN BỘ bức ảnh.",
+      "C. Tạo ra một bức ảnh mới đẹp hơn",
+      "D. Chấm tọa độ mắt mũi trên ảnh"
+    ],
+    "answer": 1,
+    "explanation": "Đây là bài toán thô sơ nhất của CV. Đưa ảnh vào, model phán 1 câu: 'Đây là Mèo'. Nó không thèm quan tâm con mèo nằm ở góc nào trong ảnh, nó chỉ biết ảnh có con mèo. (Dùng Softmax ở lớp cuối).",
+    "tip": "Image Classification = Gọi tên 1 phát ăn ngay. Cả tấm ảnh = 1 Nhãn.",
+    "tags": ["computer-vision", "image-classification"]
+  },
+  {
+    "id": "C5-006", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Bài toán Object Detection (Phát hiện đối tượng) nâng cấp hơn Classification ở điểm nào?",
+    "options": [
+      "A. Nhận diện được 3D",
+      "B. Không chỉ gọi tên được Đối tượng (Chó, Mèo), mà còn phải VẼ ĐƯỢC MỘT HỘP CHỮ NHẬT (Bounding Box) bọc quanh đối tượng đó để xác định VỊ TRÍ của nó, và có thể tìm thấy NHIỀU đối tượng trong 1 ảnh.",
+      "C. Chạy nhanh gấp 10 lần",
+      "D. Thay đổi màu lông của mèo"
+    ],
+    "answer": 1,
+    "explanation": "Trong xe tự lái, không chỉ cần biết 'Có người đi bộ', mà phải biết 'Người đi bộ NẰM Ở ĐÂU (Tọa độ X,Y)' để xe bẻ lái. Output của Object Detection là (Class, x, y, width, height).",
+    "tip": "Object Detection = Gọi tên (Classification) + Khoanh vùng Hộp chữ nhật (Bounding Box) chỗ đứng của vật thể đó.",
+    "tags": ["computer-vision", "object-detection", "bounding-box"]
+  },
+  {
+    "id": "C5-007", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "YOLO (You Only Look Once) là một thuật toán Object Detection khét tiếng. Tại sao nó được dùng cực nhiều trong Thực tế (Camera an ninh, Xe tự lái)?",
+    "options": [
+      "A. Vì nó có tên hay",
+      "B. Vì tốc độ quét của nó CỰC KỲ NHANH (Real-time). Khác với các thuật toán cũ phải quét ảnh nhiều lần, YOLO dùng 1 mạng nơ-ron duy nhất phán đoán Tọa độ và Nhãn cho toàn bộ bức ảnh CHỈ TRONG 1 LẦN NHÌN.",
+      "C. Vì nó phát hiện được ảnh mờ 100%",
+      "D. Vì nó không cần cài cắm gì"
+    ],
+    "answer": 1,
+    "explanation": "Trước YOLO, R-CNN phải cắt ảnh ra 2000 mảnh rồi xử lý từng mảnh (rất chậm, ~1 frame/s). YOLO chia ảnh thành các ô lưới (Grid) lưới và dự đoán 1 phát xong ngay, đạt 45-150 Frame/s, đủ sức chạy trên điện thoại hoặc camera an ninh (Real-time).",
+    "tip": "YOLO = You Only Look Once. Vua tốc độ (Real-time), chớp mắt 1 phát khoanh vùng được luôn mọi vật thể.",
+    "tags": ["computer-vision", "yolo", "object-detection", "real-time"]
+  },
+  {
+    "id": "C5-008", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Bài toán Image Segmentation (Phân vùng ảnh) yêu cầu ĐỘ CHI TIẾT khủng khiếp như thế nào?",
+    "options": [
+      "A. Dịch ảnh ra văn bản rất dài",
+      "B. Thay vì chỉ vẽ Bounding Box hình chữ nhật thô thiển, Segmentation yêu cầu phải phân loại ĐẾN TỪNG ĐIỂM ẢNH (Pixel-level). Nghĩa là nó tô màu ÔM SÁT ĐƯỜNG CONG cơ thể con mèo.",
+      "C. Thay đổi kích thước ảnh lên 8K",
+      "D. Biến ảnh 2D thành 3D"
+    ],
+    "answer": 1,
+    "explanation": "Semantic Segmentation là đỉnh cao. Ứng dụng: Chụp X-Quang ung thư, bác sĩ cần AI tô màu CHÍNH XÁC rìa của khối u (từng pixel một) để mổ, chứ không thể khoanh 1 cái hình vuông chung chung được. Xe tự lái cũng dùng nó để tô màu mép vỉa hè, lòng đường.",
+    "tip": "Segmentation = Tô màu viền ÔM SÁT 100% hình thể (Mức độ Pixel) chứ không xài Hộp chữ nhật vuông vức.",
+    "tags": ["computer-vision", "image-segmentation"]
+  },
+  {
+    "id": "C5-009", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Chỉ số IoU (Intersection over Union) được dùng để chấm điểm độ chuẩn xác của việc VẼ BOUNDING BOX. Công thức của nó là gì?",
+    "options": [
+      "A. Diện tích trừ Tọa độ X",
+      "B. DIỆN TÍCH PHẦN GIAO NHAU (Intersection - Phần đè lên nhau) CHIA CHO DIỆN TÍCH PHẦN HỢP NHAU (Union - Tổng diện tích) giữa Hộp dự đoán (Predict) và Hộp thực tế (Ground Truth).",
+      "C. Đo độ chênh lệch thời gian",
+      "D. Tính số điểm ảnh màu đỏ"
+    ],
+    "answer": 1,
+    "explanation": "Ground truth (Người gạch tay) và Predict (AI khoanh). Nếu AI khoanh lệch hoàn toàn (Không giao nhau), IoU = 0. Nếu AI khoanh chuẩn xác 100% đè khít lên Ground Truth, IoU = 1. Thường IoU > 0.5 được coi là bắt trúng vật thể.",
+    "tip": "IoU = Đo độ KHỚP/CHỒNG LÊN NHAU của cái Hộp AI khoanh với Hộp Chuẩn (Ground Truth). Càng đè khít (IoU = 1) càng tốt.",
+    "tags": ["computer-vision", "iou", "evaluation"]
+  },
+  {
+    "id": "C5-010", "module": "C", "topic": "C5", "difficulty": "easy",
+    "question": "Data Augmentation (Tăng cường dữ liệu) trong xử lý ảnh là kỹ thuật làm gì?",
+    "options": [
+      "A. Nén ảnh lại cho nhẹ",
+      "B. Chỉnh màu sắc để đẹp hơn đăng Facebook",
+      "C. Từ 1 bức ảnh gốc, tạo ra hàng chục ảnh MỚI bằng cách: Lật ngang, Cắt xén (Crop), Xoay (Rotate), Đổi độ sáng, Đóng nhiễu (Noise) để AI học cách nhận diện bất chấp hoàn cảnh.",
+      "D. Đổi đuôi ảnh sang PNG"
+    ],
+    "answer": 2,
+    "explanation": "Ảnh con mèo nằm ngửa hay nằm ngang thì vẫn là con mèo. Việc Lật ảnh giúp nhân đôi kho dữ liệu (nhà nghèo không có nhiều Data), đồng thời ép mạng CNN không được học vẹt 1 góc nhìn, giúp chống Overfitting cực mạnh.",
+    "tip": "Data Augmentation = Thuật phân thân (Lật, xoay, bóp méo, đổi màu). Nhân 10 lần Data để AI học được muôn hình vạn trạng.",
+    "tags": ["computer-vision", "data-augmentation", "preprocessing"]
+  },
+  {
+    "id": "C5-011", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Kiến trúc U-Net (Cực kỳ nổi tiếng trong Phân vùng ảnh Y tế / Segmentation) có đặc điểm nổi bật nhất là hình dạng Đồng Hồ Cát (U-shape) chứa cái gì?",
+    "options": [
+      "A. Chứa 1000 lớp Linear",
+      "B. Chứa các KẾT NỐI TẮT (Skip Connections) nối trực tiếp các đặc trưng Không Gian ở nhánh Đi Xuống (Encoder) CHÉO SANG nhánh Đi Lên (Decoder), giúp khôi phục chính xác vị trí Pixel viền của khối u.",
+      "C. Phân loại chữ và số",
+      "D. Đọc được video thời gian thực"
+    ],
+    "answer": 1,
+    "explanation": "Khi bóp ảnh (Encoder), mô hình hiểu 'đây là khối u' (Mất vị trí). Khi phóng to ảnh lại (Decoder) để tô màu, nó không biết khối u ở tọa độ nào. Skip Connection chôm luôn tọa độ Không Gian của ảnh lúc chưa bị bóp, ném thẳng qua nhánh phóng to. Nhờ thế, U-Net tô màu viền tế bào thần sầu.",
+    "tip": "U-Net = Vua phân vùng ảnh Y Tế (Segmentation). Dùng Kết nối Tắt (Skip Connection) để nhớ vị trí Pixel.",
+    "tags": ["computer-vision", "u-net", "image-segmentation"]
+  },
+  {
+    "id": "C5-012", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Non-Maximum Suppression (NMS) trong Object Detection được dùng để DỌN RÁC gì?",
+    "options": [
+      "A. Xóa ảnh mờ",
+      "B. YOLO thường VẼ HÀNG CHỤC HỘP CHỮ NHẬT đè lên cùng 1 con chó. NMS loại bỏ các hộp trùng lặp, chỉ giữ lại DUY NHẤT một hộp có điểm tự tin (Confidence Score) cao nhất cho mỗi vật thể.",
+      "C. Xóa nền ảnh",
+      "D. Chỉnh sáng tối"
+    ],
+    "answer": 1,
+    "explanation": "Lỗi ngớ ngẩn của AI: Thấy 1 con chó nhưng nó hoảng hốt vẽ 5 cái Bounding Box đè lên nhau. Thuật toán NMS quét qua, thấy 5 cái hộp có IoU giao nhau rất lớn (chung 1 con), nó xóa hết 4 thằng hộp có điểm thấp, chỉ để lại thằng Hộp đỉnh nhất (99%).",
+    "tip": "NMS (Non-Maximum Suppression) = Quản quản gác cổng. Gạch bỏ bớt các Hộp khoanh (Bounding box) trùng lặp đè lên nhau.",
+    "tags": ["computer-vision", "nms", "object-detection"]
+  },
+  {
+    "id": "C5-013", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Vision Transformer (ViT) năm 2020 đã tạo ra cơn địa chấn khi Dùng kiến trúc Transformer của NLP để xử lý ẢNH (Bóp nghẹt CNN). Nó làm thế nào?",
+    "options": [
+      "A. Dịch ảnh sang văn bản",
+      "B. Nó chặt bức ảnh thành nhiều MIẾNG NHỎ (Patches - vd 16x16), coi MỖI MIẾNG NHỎ NHƯ MỘT 'TỪ' (Word) trong một câu, và dùng cơ chế Self-Attention để tìm hiểu mối quan hệ giữa các 'miếng' ảnh đó với nhau.",
+      "C. Chạy trên CPU cực nhanh",
+      "D. Nhân đôi bức ảnh"
+    ],
+    "answer": 1,
+    "explanation": "CNN chỉ nhìn cục bộ (Kính lúp nhỏ). ViT nhìn Toàn cục bằng cách băm ảnh ra thành 16 cục hình vuông, ném cho Transformer. Miếng ảnh 'Con Mắt' có thể chú ý (Self-Attention) trực tiếp với miếng ảnh 'Cái Đuôi' dù ở xa nhau. ViT cần Dữ liệu khổng lồ (hàng tỷ ảnh) để Train, nhưng khi đã Train xong thì vượt trội hoàn toàn CNN.",
+    "tip": "Vision Transformer (ViT) = Đem thuật cắt ảnh (Patches) ném cho Bộ não Ngôn ngữ (Transformer). Sức mạnh áp đảo CNN.",
+    "tags": ["computer-vision", "vision-transformer", "vit"]
+  },
+  {
+    "id": "C5-014", "module": "C", "topic": "C5", "difficulty": "easy",
+    "question": "Thư viện MÃ NGUỒN MỞ kinh điển và lâu đời nhất dùng để xử lý Ảnh bằng C/C++ và Python (như Đọc, Cắt, Đổi màu, Dò Cạnh, Tìm khuôn mặt) là gì?",
+    "options": [
+      "A. Pandas",
+      "B. BeautifulSoup",
+      "C. OpenCV (cv2)",
+      "D. Regex"
+    ],
+    "answer": 2,
+    "explanation": "Import `cv2` (Open Source Computer Vision) là dòng code đầu tiên của mọi dân CV. Nó không phải Deep Learning, nhưng nó cung cấp mọi công cụ Tiền Xử Lý mạnh mẽ nhất (Đổi màu BGR sang RGB, cắt ảnh, đọc luồng Webcam).",
+    "tip": "Xử lý ảnh/Bật Webcam = OpenCV (`cv2`).",
+    "tags": ["computer-vision", "opencv", "preprocessing"]
+  },
+  {
+    "id": "C5-015", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Hệ màu BGR (Blue-Green-Red) là 'Đặc sản' khó chịu của thư viện OpenCV khác biệt với chuẩn thế giới (RGB) như thế nào?",
+    "options": [
+      "A. Không khác biệt",
+      "B. Khi `cv2.imread()` đọc một bức ảnh màu, nó xếp kênh Xanh Dương (B) đầu tiên, trong khi Matplotlib hay PyTorch cần Xanh Đỏ (R) đầu tiên. Nếu quên đổi `cv2.COLOR_BGR2RGB`, mặt người in ra sẽ xanh lè như Avatar.",
+      "C. BGR không hiển thị được màu đen",
+      "D. BGR chỉ chạy được trên Linux"
+    ],
+    "answer": 1,
+    "explanation": "Đây là cái bẫy 100% tân binh mắc phải. Đọc ảnh bằng OpenCV xong ném thẳng vào `plt.imshow()`, ra bức hình âm bản gớm ghiếc. Bắt buộc phải chạy bước tiền xử lý: `image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)` trước khi làm trò khác.",
+    "tip": "Cú lừa OpenCV: Đọc ảnh hệ BGR (Ngược đời). Phải nhớ ép sang RGB nếu không ảnh sẽ có màu xanh Avatar cõi âm.",
+    "tags": ["computer-vision", "opencv", "rgb", "bgr"]
+  },
+  {
+    "id": "C5-016", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Bài toán Optical Character Recognition (OCR) dùng để giải quyết vấn đề gì?",
+    "options": [
+      "A. Tăng độ sáng quang học",
+      "B. Đọc nội dung CHỮ VIẾT (Text) nằm bên trong một BỨC ẢNH/FILE SCAN và chuyển đổi nó thành dạng Dữ Liệu Văn Bản (String/Docx) có thể Copy/Paste được.",
+      "C. Chỉnh sửa mắt đỏ",
+      "D. Tự động vẽ tranh"
+    ],
+    "answer": 1,
+    "explanation": "OCR (Quang nhận dạng chữ) là công nghệ đằng sau các App như Google Lens dịch biển báo đường phố, hay các hệ thống Tự động đọc và nhập số Chứng minh nhân dân/Căn cước công dân vào máy tính. (Thường kết hợp CNN dò vùng chữ + RNN/LSTM để dịch chữ).",
+    "tip": "OCR = Bóc chữ ra khỏi ảnh (Biến ảnh chụp CMND thành Text gõ tay).",
+    "tags": ["computer-vision", "ocr"]
+  },
+  {
+    "id": "C5-017", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Zero-shot Image Classification (như mô hình CLIP của OpenAI) đã định nghĩa lại bài toán Phân loại ảnh như thế nào?",
+    "options": [
+      "A. Không cần GPU",
+      "B. Thay vì Training để gán Nhãn cứng nhắc (VD Nhãn 0 là Chó), CLIP học mối quan hệ giữa ẢNH và ĐOẠN VĂN BẢN (Text) miêu tả nó. Nhờ đó, bạn Đưa 1 bức ảnh mới tinh và gõ Text 'phi hành gia cưỡi ngựa', mô hình sẽ dự đoán khớp mà KHÔNG CẦN TRAIN TRƯỚC.",
+      "C. Phân loại 0 bức ảnh",
+      "D. Tắt mô hình ngay lập tức"
+    ],
+    "answer": 1,
+    "explanation": "CLIP (Contrastive Language-Image Pre-training) là bước ngoặt. Nó nối Computer Vision với NLP. Khả năng Zero-shot (Đoán được cái chưa từng học) giúp CLIP trở thành lõi của các cỗ máy tạo ảnh DALL-E hay Midjourney.",
+    "tip": "CLIP (Zero-shot) = Nhìn Hình đoán Văn Bản. Mở khóa cho khả năng Vẽ Tranh bằng AI (Midjourney).",
+    "tags": ["computer-vision", "clip", "zero-shot"]
+  },
+  {
+    "id": "C5-018", "module": "C", "topic": "C5", "difficulty": "hard",
+    "question": "Kỹ thuật Feature Pyramid Network (FPN) trong Object Detection được sinh ra để khắc phục nhược điểm gì?",
+    "options": [
+      "A. Xóa hình tam giác",
+      "B. Khắc phục việc CNN rất KÉM TRONG VIỆC NHÌN VẬT THỂ QUÁ NHỎ. FPN tạo ra một 'Kim tự tháp' các kích thước ảnh khác nhau, giúp mô hình bắt được vật thể khổng lồ ở lớp sâu, và soi được vật thể ly ti ở lớp nông.",
+      "C. Xóa các màu xám",
+      "D. Tự động tạo ảnh 3D"
+    ],
+    "answer": 1,
+    "explanation": "Đếm xe cộ trên đường: Xe tải bự thì CNN bắt dễ, xe đạp ở xa tít mù tắp chỉ to bằng 5 pixels bị CNN 'bóp' (Max Pooling) teo biến mất. FPN kết hợp các Feature Map ở nhiều độ phân giải khác nhau để không bỏ lọt con kiến nào.",
+    "tip": "FPN (Kim tự tháp đặc trưng) = Trị bách bệnh 'Không thấy vật thể quá nhỏ (Small Objects)'.",
+    "tags": ["computer-vision", "fpn", "object-detection"]
+  },
+  {
+    "id": "C5-019", "module": "C", "topic": "C5", "difficulty": "easy",
+    "question": "Trong xử lý video, sự khác biệt giữa xử lý Ảnh đơn và Video là chiều dữ liệu nào được thêm vào?",
+    "options": [
+      "A. Chiều cao",
+      "B. Chiều sâu",
+      "C. Chiều THỜI GIAN (Temporal dimension/Frames). Video thực chất là một xấp hàng ngàn bức ảnh (Frames) xếp chồng lên nhau và chiếu liên tục theo Trục Thời Gian (vd: 30 Frame/s).",
+      "D. Chiều màu sắc"
+    ],
+    "answer": 2,
+    "explanation": "Để hiểu hành động 'Tát vào mặt', AI không thể nhìn 1 ảnh tĩnh. Nó phải nhìn 1 chuỗi 30 tấm ảnh liên tiếp: tay vung lên -> tay chạm mặt -> mặt méo đi. (Dùng CNN trích xuất ảnh tĩnh 2D, đẩy qua RNN/3D-CNN để học chuyển động thời gian).",
+    "tip": "Video = Hàng ngàn bức Ảnh Tĩnh (Frame) + Trục Thời Gian (Time).",
+    "tags": ["computer-vision", "video-processing", "temporal"]
+  },
+  {
+    "id": "C5-020", "module": "C", "topic": "C5", "difficulty": "medium",
+    "question": "Kỹ thuật Transfer Learning bằng ResNet50 (pre-trained trên tập ImageNet) rất phổ biến. Tập dữ liệu ImageNet có tầm vóc như thế nào?",
+    "options": [
+      "A. Chứa 100 ảnh",
+      "B. Là một Kho Dữ Liệu khổng lồ chứa hơn 14 TRIỆU BỨC ẢNH đã được con người gán nhãn thủ công với 1.000 DANH MỤC KHÁC NHAU. Đây là 'Trường đại học' mà mọi mô hình CV đều phải thi đỗ.",
+      "C. Chỉ chứa ảnh trắng đen",
+      "D. Ảnh được tạo bởi AI"
+    ],
+    "answer": 1,
+    "explanation": "Khi tải mô hình ResNet50 `pretrained=True`, bạn đang kế thừa một bộ não đã tốt nghiệp Đại học ImageNet (nhận mặt được từ Xe hơi, Chó, Mèo, đến Cốc nước). Mạng đã có sẵn khả năng bóc tách đường nét, màu sắc cực tốt.",
+    "tip": "ImageNet = Trường Đại Học lớn nhất giới Ảnh (14 triệu ảnh, 1000 Nhãn). Trái tim cung cấp Tri Thức cho Transfer Learning.",
+    "tags": ["computer-vision", "imagenet", "transfer-learning"]
+  }
+]

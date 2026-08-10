@@ -1,0 +1,282 @@
+[
+  {
+    "id": "A10-001", "module": "A", "topic": "A10", "difficulty": "easy",
+    "question": "Chuỗi thời gian (Time Series) là gì?",
+    "options": [
+      "A. Tập hợp các điểm dữ liệu không liên quan đến nhau",
+      "B. Chuỗi các điểm dữ liệu được thu thập và sắp xếp theo thứ tự thời gian liên tiếp (thường là đều đặn)",
+      "C. Các giá trị được sắp xếp theo độ lớn",
+      "D. Chuỗi các chữ cái ngẫu nhiên"
+    ],
+    "answer": 1,
+    "explanation": "Đặc trưng lớn nhất của Time Series là thứ tự dữ liệu có ý nghĩa cực kỳ quan trọng, thời gian là trục X (ví dụ: nhiệt độ hàng ngày, giá cổ phiếu). Việc tráo đổi thứ tự (shuffle) sẽ làm hỏng hoàn toàn cấu trúc của dữ liệu.",
+    "tip": "Time Series = Dữ liệu mà Thứ tự thời gian (Order) là sinh mạng.",
+    "tags": ["time-series", "basics"]
+  },
+  {
+    "id": "A10-002", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Trong phân tích Time Series, 4 thành phần (components) chính thường được tách ra (Decomposition) là gì?",
+    "options": [
+      "A. Trend (Xu hướng), Seasonality (Tính mùa vụ), Cyclical (Tính chu kỳ), và Noise/Residual (Nhiễu)",
+      "B. Mean (Trung bình), Median (Trung vị), Mode (Mode), Variance (Phương sai)",
+      "C. Train, Validation, Test, Deploy",
+      "D. Amplitude, Frequency, Phase, Signal"
+    ],
+    "answer": 0,
+    "explanation": "Phân tích rã (Decomposition) chia chuỗi thời gian thành: Trend (xu hướng tăng/giảm dài hạn), Seasonality (biến động lặp lại theo chu kỳ cố định như quý/tháng), Cyclical (chu kỳ không cố định, ví dụ chu kỳ kinh tế) và Residual/Noise (nhiễu ngẫu nhiên không dự đoán được).",
+    "tip": "Time Series = Trend (Dài) + Season (Mùa vụ đều) + Cycle (Chu kỳ ko đều) + Noise (Nhiễu ngẫu nhiên).",
+    "tags": ["time-series", "decomposition", "components"]
+  },
+  {
+    "id": "A10-003", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Tính dừng (Stationarity) là một khái niệm cực kỳ quan trọng trong Time Series. Chuỗi dừng là chuỗi có đặc điểm gì?",
+    "options": [
+      "A. Giá trị của nó bằng 0",
+      "B. Trung bình (Mean) và Phương sai (Variance) không thay đổi theo thời gian",
+      "C. Nó chỉ có xu hướng tăng",
+      "D. Nó là các con số âm"
+    ],
+    "answer": 1,
+    "explanation": "Chuỗi dừng (Stationary Time Series) có các thuộc tính thống kê (Kỳ vọng, Phương sai, Tương quan) không thay đổi theo thời gian. Các mô hình cổ điển như ARIMA yêu cầu dữ liệu phải 'dừng' mới dự đoán chính xác được.",
+    "tip": "Stationarity (Dừng) = Mean và Variance ổn định (hằng số), không bị dốc lên/xuống hay xòe ra.",
+    "tags": ["time-series", "stationarity"]
+  },
+  {
+    "id": "A10-004", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Để kiểm tra xem một chuỗi thời gian có 'Dừng' (Stationary) hay không, ta thường dùng phép kiểm định thống kê nào?",
+    "options": [
+      "A. T-test",
+      "B. ANOVA",
+      "C. Augmented Dickey-Fuller (ADF) Test",
+      "D. Chi-square Test"
+    ],
+    "answer": 2,
+    "explanation": "ADF Test là kiểm định nghiệm đơn vị (unit root test) tiêu chuẩn. H0 của ADF là chuỗi KHÔNG DỪNG (có unit root). Nếu p-value < 0.05, ta bác bỏ H0 và kết luận chuỗi đã DỪNG.",
+    "tip": "ADF Test: p-value < 0.05 => Dừng (Stationary).",
+    "tags": ["time-series", "adf-test", "stationarity"]
+  },
+  {
+    "id": "A10-005", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Nếu dữ liệu có xu hướng tăng đều (Trend), cách ĐƠN GIẢN NHẤT để biến nó thành chuỗi dừng (Stationary) là gì?",
+    "options": [
+      "A. Lấy logarit tự nhiên",
+      "B. Lấy sai phân bậc 1 (First Differencing: Y_t - Y_{t-1})",
+      "C. Cộng thêm một hằng số",
+      "D. Lấy căn bậc 2"
+    ],
+    "answer": 1,
+    "explanation": "Differencing (Lấy sai phân) tính sự thay đổi giữa thời điểm t và t-1. Nếu chuỗi có trend tuyến tính (ví dụ y = at+b), sai phân bậc 1 sẽ loại bỏ t và để lại hằng số a, giúp chuỗi trở nên dừng.",
+    "tip": "Khử Trend (Dốc) -> Dùng Lấy sai phân (Differencing). Khử Phương sai xòe -> Dùng Log/Box-Cox.",
+    "tags": ["time-series", "differencing", "stationarity"]
+  },
+  {
+    "id": "A10-006", "module": "A", "topic": "A10", "difficulty": "easy",
+    "question": "Tính thời vụ (Seasonality) trong Time Series là gì?",
+    "options": [
+      "A. Sự xuất hiện của các giá trị outlier ngẫu nhiên",
+      "B. Sự biến động tăng giảm lặp đi lặp lại với một chu kỳ CỐ ĐỊNH (ví dụ: cuối tuần, các tháng mùa hè)",
+      "C. Xu hướng tăng dài hạn",
+      "D. Sự thay đổi ngẫu nhiên"
+    ],
+    "answer": 1,
+    "explanation": "Tính mùa vụ (Seasonality) là những mẫu hình (pattern) tăng/giảm lặp lại trong một khoảng thời gian xác định (như 24 giờ, 7 ngày, 12 tháng). Ví dụ: Doanh số bán kem luôn tăng vào tháng 6-7 hàng năm.",
+    "tip": "Seasonality = Lặp lại CỐ ĐỊNH. Cyclical = Lặp lại NHƯNG KHÔNG CỐ ĐỊNH thời gian (như suy thoái kinh tế).",
+    "tags": ["time-series", "seasonality"]
+  },
+  {
+    "id": "A10-007", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Khái niệm Độ tự tương quan (Autocorrelation - ACF) là gì?",
+    "options": [
+      "A. Sự tương quan giữa dữ liệu hiện tại (Y_t) và chính nó trong quá khứ bị trễ k bước (Y_{t-k})",
+      "B. Sự tương quan giữa hai chuỗi thời gian khác nhau",
+      "C. Mức độ lỗi của mô hình dự đoán",
+      "D. Phân phối của nhiễu (noise)"
+    ],
+    "answer": 0,
+    "explanation": "ACF (Autocorrelation Function) đo lường hệ số tương quan tuyến tính giữa một chuỗi thời gian và phiên bản bị trễ (lagged) của chính nó. Ví dụ Lag 1 là tương quan giữa hôm nay và hôm qua.",
+    "tip": "Auto-correlation = Tự tương quan với CHÍNH MÌNH trong quá khứ.",
+    "tags": ["time-series", "autocorrelation", "acf"]
+  },
+  {
+    "id": "A10-008", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Độ tự tương quan riêng phần (PACF - Partial Autocorrelation) khác ACF ở điểm nào?",
+    "options": [
+      "A. Khác nhau về tên gọi",
+      "B. PACF chỉ đo tương quan của các số âm",
+      "C. PACF đo tương quan trực tiếp giữa Y_t và Y_{t-k} SAU KHI ĐÃ LOẠI BỎ ảnh hưởng của các độ trễ trung gian (Y_{t-1} đến Y_{t-k+1})",
+      "D. PACF luôn lớn hơn ACF"
+    ],
+    "answer": 2,
+    "explanation": "Ví dụ, hôm nay (t) chịu ảnh hưởng của hôm qua (t-1), và hôm qua chịu ảnh hưởng của hôm kia (t-2). ACF sẽ thấy tương quan giữa t và t-2 rất cao. Nhưng PACF sẽ loại trừ tác động 'bắc cầu' qua t-1, chỉ giữ lại ảnh hưởng trực tiếp (thuần túy) của t-2 lên t.",
+    "tip": "ACF = Tương quan tổng hợp (có bắc cầu). PACF = Tương quan trực tiếp (loại bỏ bắc cầu).",
+    "tags": ["time-series", "pacf", "autocorrelation"]
+  },
+  {
+    "id": "A10-009", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Trong mô hình ARIMA(p, d, q), tham số 'p' đại diện cho điều gì?",
+    "options": [
+      "A. Bậc của phần Lấy sai phân (Differencing)",
+      "B. Bậc của phần Tự hồi quy (Auto-Regressive - AR), tức là số độ trễ (lags) dùng để dự đoán",
+      "C. Bậc của phần Trung bình trượt (Moving Average - MA)",
+      "D. Độ dài mùa vụ"
+    ],
+    "answer": 1,
+    "explanation": "ARIMA viết tắt của AutoRegressive Integrated Moving Average. Tham số p là số lượng giá trị quá khứ (lags) của chính nó được dùng làm biến số để dự đoán (Mô hình AR).",
+    "tip": "ARIMA(p, d, q): p = AR (dùng quá khứ để đoán). d = I (lấy sai phân khử trend). q = MA (dùng sai số quá khứ để đoán).",
+    "tags": ["time-series", "arima", "ar"]
+  },
+  {
+    "id": "A10-010", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Trong mô hình ARIMA(p, d, q), tham số 'q' (phần Moving Average - MA) sử dụng dữ liệu gì để dự đoán giá trị hiện tại?",
+    "options": [
+      "A. Giá trị thực tế của biến phụ thuộc trong quá khứ",
+      "B. Các sai số dự báo (Forecast errors / residuals) trong quá khứ",
+      "C. Giá trị trung bình của toàn bộ dữ liệu",
+      "D. Các biến ngoại sinh"
+    ],
+    "answer": 1,
+    "explanation": "Phần MA (Moving Average) không dùng Y_t-1, Y_t-2 để dự đoán. Nó giả định Y_t phụ thuộc tuyến tính vào các cú sốc ngẫu nhiên, hay sai số (errors) của dự đoán ở các bước thời gian trước đó.",
+    "tip": "Mô hình AR(p) -> Nhìn vào GIÁ TRỊ quá khứ. Mô hình MA(q) -> Nhìn vào SAI SỐ (Lỗi) quá khứ.",
+    "tags": ["time-series", "arima", "ma"]
+  },
+  {
+    "id": "A10-011", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Một nguyên tắc ngón tay cái để chọn (p, q) cho mô hình ARMA khi nhìn vào biểu đồ ACF và PACF là gì?",
+    "options": [
+      "A. Chọn điểm cao nhất trên biểu đồ",
+      "B. Nếu PACF cắt (cut off) sau độ trễ p và ACF giảm dần (tail off), mô hình phù hợp là AR(p). Nếu ngược lại, mô hình là MA(q).",
+      "C. Không thể chọn bằng biểu đồ",
+      "D. p = số lượng vạch dương, q = số lượng vạch âm"
+    ],
+    "answer": 1,
+    "explanation": "Đây là luật chuẩn xác: PACF ngắt đứt sau p -> AR(p). ACF ngắt đứt sau q -> MA(q). Nếu cả hai đều giảm từ từ thì dùng mô hình hỗn hợp ARMA(p,q).",
+    "tip": "PACF Cắt ngang (Cut-off) -> Chọn AR(p). ACF Cắt ngang -> Chọn MA(q).",
+    "tags": ["time-series", "acf", "pacf", "arima"]
+  },
+  {
+    "id": "A10-012", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Mô hình SARIMA khác gì so với ARIMA thông thường?",
+    "options": [
+      "A. Thêm các tham số về biến ngoại sinh (Exogenous variables)",
+      "B. Thêm thành phần Tự hồi quy không gian (Spatial AR)",
+      "C. Thêm khả năng xử lý Tính mùa vụ (Seasonal components)",
+      "D. Sử dụng mạng Neural"
+    ],
+    "answer": 2,
+    "explanation": "Chữ S viết tắt cho Seasonal. SARIMA bổ sung thêm một tập hợp các tham số (P, D, Q, s) để xử lý riêng biệt các xu hướng lặp lại theo mùa (với s là chu kỳ mùa, ví dụ s=12 cho dữ liệu hàng tháng).",
+    "tip": "S trong SARIMA = Seasonal (Mùa vụ). Giải quyết bài toán có chu kỳ cố định.",
+    "tags": ["time-series", "sarima", "seasonality"]
+  },
+  {
+    "id": "A10-013", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Mô hình ETS (Error, Trend, Seasonality) hay Phương pháp làm trơn số mũ (Exponential Smoothing) cho trọng số như thế nào đối với dữ liệu quá khứ?",
+    "options": [
+      "A. Mọi dữ liệu đều có trọng số bằng nhau",
+      "B. Trọng số giảm dần theo hàm số mũ đối với các dữ liệu càng xa trong quá khứ",
+      "C. Chỉ quan tâm 5 ngày gần nhất",
+      "D. Dữ liệu cũ nhất có trọng số cao nhất"
+    ],
+    "answer": 1,
+    "explanation": "Exponential Smoothing tin rằng 'Dữ liệu càng gần hiện tại càng mang nhiều ý nghĩa dự báo'. Do đó, nó gán trọng số giảm dần (theo cấp số nhân) cho các quan sát càng cũ.",
+    "tip": "Exponential Smoothing (Làm trơn số mũ): Việc hôm qua quan trọng hơn việc năm ngoái.",
+    "tags": ["time-series", "exponential-smoothing", "ets"]
+  },
+  {
+    "id": "A10-014", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Nhiễu trắng (White Noise) trong chuỗi thời gian có tính chất nào?",
+    "options": [
+      "A. Là một chuỗi tăng dần đều",
+      "B. Mean = 0, Variance = hằng số, và hoàn toàn không có tương quan (ACF = 0 ở mọi độ trễ k > 0)",
+      "C. Theo phân phối đều (Uniform)",
+      "D. Mean thay đổi liên tục"
+    ],
+    "answer": 1,
+    "explanation": "White Noise là chuỗi hoàn toàn ngẫu nhiên. Vì không có quy luật và không tự tương quan, ta KHÔNG THỂ dự đoán được White Noise. Một mô hình Time Series tốt là mô hình mà phần Residual (Phần dư) của nó còn lại trông giống hệt như White Noise (tức là đã 'vắt kiệt' mọi quy luật để dự báo).",
+    "tip": "White noise = Mù tịt, không có quy luật, không thể đoán. Residual của model tốt phải là White Noise.",
+    "tags": ["time-series", "white-noise", "residuals"]
+  },
+  {
+    "id": "A10-015", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Kỹ thuật Validation nào sau đây là BẮT BUỘC (và đúng đắn) cho dữ liệu Time Series thay vì K-Fold Cross Validation ngẫu nhiên?",
+    "options": [
+      "A. Leave-One-Out CV",
+      "B. Time Series Split (Rolling-window / Walk-forward Validation)",
+      "C. K-Fold với K = 10",
+      "D. K-Fold có Stratified"
+    ],
+    "answer": 1,
+    "explanation": "Trong K-Fold CV thông thường, dữ liệu bị xáo trộn ngẫu nhiên. Đối với Time Series, nếu bạn xáo trộn, bạn đang dùng tương lai để dự đoán quá khứ (Data Leakage). Phải dùng Time Series Split (Walk-forward), luôn giữ nguyên trục thời gian: Train trên quá khứ, Test ở tương lai liền kề.",
+    "tip": "Time Series CẤM xáo trộn (shuffle) dữ liệu. Dùng tương lai đoán quá khứ là ăn gian (Data Leakage).",
+    "tags": ["time-series", "validation", "cross-validation"]
+  },
+  {
+    "id": "A10-016", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Thước đo (Metric) MASE (Mean Absolute Scaled Error) có ưu điểm gì so với MAPE (Mean Absolute Percentage Error)?",
+    "options": [
+      "A. Dễ tính toán hơn",
+      "B. Không bị lỗi chia cho 0 khi giá trị thực (y) = 0 và không phụ thuộc vào scale dữ liệu",
+      "C. Nó là số âm",
+      "D. MASE chỉ dùng cho bài toán Classification"
+    ],
+    "answer": 1,
+    "explanation": "MAPE tính % sai số bằng cách chia cho y_true. Nếu y_true = 0, nó sẽ gây ra lỗi vô cực (chia cho 0). Hơn nữa MAPE phạt việc dự đoán cao (overcast) nặng hơn dự đoán thấp. MASE chia cho sai số của mô hình Naive (dự đoán ngày mai bằng ngày hôm nay), do đó rất ổn định và không phụ thuộc thang đo.",
+    "tip": "MAPE rất dễ chết (vô cực) nếu y = 0. Dùng MASE (Scaled Error) hoặc sMAPE để an toàn hơn.",
+    "tags": ["time-series", "metrics", "mase", "mape"]
+  },
+  {
+    "id": "A10-017", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Trong Deep Learning cho Time Series, mạng RNN/LSTM khắc phục được nhược điểm gì của mạng MLP truyền thống?",
+    "options": [
+      "A. Khắc phục vấn đề biến ngoại sinh",
+      "B. Có khả năng ghi nhớ và duy trì trạng thái (hidden state) từ các time-steps trước đó, nắm bắt được thứ tự (Order/Sequence)",
+      "C. Tự động lấy sai phân (Differencing)",
+      "D. Chạy nhanh hơn MLP"
+    ],
+    "answer": 1,
+    "explanation": "MLP (Mạng nơ-ron truyền thẳng) xem các đầu vào là độc lập, nó không hiểu tính 'tuần tự'. RNN và LSTM có vòng lặp trạng thái (hidden state) truyền thông tin từ bước thời gian (time-step) t-1 sang t, giúp 'nhớ' ngữ cảnh chuỗi.",
+    "tip": "RNN/LSTM sinh ra là để xử lý Dữ liệu Tuần tự (Sequence / Time Series) nhờ khả năng ghi nhớ (Memory).",
+    "tags": ["time-series", "deep-learning", "lstm"]
+  },
+  {
+    "id": "A10-018", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Khái niệm 'Random Walk' (Bước đi ngẫu nhiên) trong Time Series, mô tả ví dụ kinh điển giá cổ phiếu, có công thức nào sau đây?",
+    "options": [
+      "A. Y_t = Y_{t-1} + ε_t (với ε_t là White Noise)",
+      "B. Y_t = a * Y_{t-1} (với a > 1)",
+      "C. Y_t = ε_t",
+      "D. Y_t = t^2"
+    ],
+    "answer": 0,
+    "explanation": "Random Walk có nghĩa là giá trị ngày hôm nay bằng giá trị ngày hôm qua cộng thêm một cú sốc ngẫu nhiên (nhiễu trắng). Nó là một chuỗi KHÔNG DỪNG (Non-stationary) nhưng nếu lấy sai phân bậc 1 (Y_t - Y_{t-1} = ε_t) thì nó trở thành White Noise (chuỗi dừng).",
+    "tip": "Random Walk = Hôm nay = Hôm qua + Hên/Xui ngẫu nhiên. Không thể dự đoán (như thị trường chứng khoán).",
+    "tags": ["time-series", "random-walk", "white-noise"]
+  },
+  {
+    "id": "A10-019", "module": "A", "topic": "A10", "difficulty": "medium",
+    "question": "Công cụ 'Prophet' do Meta (Facebook) phát triển dùng để dự báo Time Series dựa trên cơ chế nào yếu?",
+    "options": [
+      "A. Mạng Neural LSTM sâu",
+      "B. Mô hình Cây quyết định Gradient Boosting (XGBoost)",
+      "C. Phân tích rã dữ liệu dạng additive (Additive Decomposition: Trend + Seasonality + Holidays)",
+      "D. Thuật toán k-Means"
+    ],
+    "answer": 2,
+    "explanation": "Prophet là mô hình 'đường cong khớp' (curve-fitting) rất phổ biến. Nó phân rã Time series thành tổng của Trend (mô phỏng bằng hàm logistic piecewise), Seasonality (chuỗi Fourier) và Holidays (các sự kiện/ngày lễ nhảy vọt).",
+    "tip": "Prophet (Facebook) = Mô hình Additive. Rất mạnh về xử lý Seasonality (mùa vụ) và Holidays (ngày lễ).",
+    "tags": ["time-series", "prophet", "forecasting"]
+  },
+  {
+    "id": "A10-020", "module": "A", "topic": "A10", "difficulty": "hard",
+    "question": "Trong bài toán Multivariate Time Series (Nhiều biến cùng lúc), mô hình nào là bản mở rộng của AR (Auto-Regressive) cho vector?",
+    "options": [
+      "A. VAR (Vector Auto-Regression)",
+      "B. PCA (Principal Component Analysis)",
+      "C. K-NN",
+      "D. Exponential Smoothing"
+    ],
+    "answer": 0,
+    "explanation": "VAR là mô hình kinh điển cho chuỗi thời gian đa biến. Trong VAR, mỗi biến số được hồi quy tuyến tính (predicted) bằng các giá trị trễ của CHÍNH NÓ và CẢ các giá trị trễ của TẤT CẢ các biến khác trong hệ thống.",
+    "tip": "VAR (Vector Auto-Regression) = AR nhưng cho nhiều biến tác động qua lại lẫn nhau.",
+    "tags": ["time-series", "var", "multivariate"]
+  }
+]
