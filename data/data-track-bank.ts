@@ -1,4 +1,5 @@
 import { midtermQuestions, type MidtermQuestion } from './midterm';
+import { workSampleCases } from './work-samples';
 
 type Scenario = {
   day: string;
@@ -144,6 +145,15 @@ iouCases.forEach(([areaA,areaB,intersection],i) => {
   add({kind:'single',day:'Ngày 02',topic:'IoU / bounding box',prompt:`Case box ${i+1}: diện tích box dự đoán=${areaA}, ground truth=${areaB}, phần giao=${intersection}. IoU bằng bao nhiêu?`,options,answer:[0],explanation:`IoU = intersection / union; union = ${areaA} + ${areaB} − ${intersection} = ${union}. Kết quả xấp xỉ ${correct}.`});
 });
 
+for (const item of workSampleCases) {
+  const material = item.material;
+  const shared = {day:item.day,topic:item.topic,caseMaterial:material,workSample:true};
+  add({...shared,kind:'single',prompt:`[${item.label}] Đọc artifact và chọn vấn đề cần được review trước tiên.`,options:[item.issue,'Artifact hợp lệ; không cần kiểm tra thêm','Chỉ cần đổi tên file để tránh lỗi','Có thể release nếu ứng dụng chưa báo lỗi'],answer:[0],explanation:item.fix});
+  add({...shared,kind:'multiple',prompt:`[${item.label}] Chọn hai bằng chứng trực tiếp cần thu thập để xử lý case này.`,options:[...item.evidence,...item.noise],answer:[0,1],explanation:`Bằng chứng cần thiết: ${item.evidence.join('; ')}.`});
+  add({...shared,kind:'single',prompt:`[${item.label}] Hành động tiếp theo nào an toàn và có thể audit nhất?`,options:[item.fix,'Sửa hàng loạt theo phỏng đoán, không lưu thay đổi','Bỏ qua cảnh báo để kịp tiến độ','Thay đổi schema/source để record hiện tại qua validator'],answer:[0],explanation:item.fix});
+  add({...shared,kind:'written',prompt:`[${item.label}] Viết một review note ngắn: nêu lỗi, phạm vi cần kiểm tra, cách sửa và điều kiện cho phép release/đóng task.`,explanation:'Tự đánh giá theo rubric. Câu trả lời tốt cần chỉ ra artifact cụ thể, evidence và bước xác nhận sau sửa.',rubric:[...item.rubric]});
+}
+
 export const dataTrackQuestions: MidtermQuestion[] = [...midtermQuestions,...generated];
 export const dataTrackQuestionCount = dataTrackQuestions.length;
 
@@ -160,12 +170,17 @@ function shuffle<T>(items: T[], random: () => number): T[] {
 
 export function pickExamQuestions(random = Math.random, excludedIds: number[] = []): MidtermQuestion[] {
   const quotas: Record<MidtermQuestion['kind'], number> = {single:30,multiple:8,boolean:6,written:6};
+  const practicalQuotas: Partial<Record<MidtermQuestion['kind'], number>> = {single:5,multiple:2,written:1};
   const excluded = new Set(excludedIds);
   const picked = questionKinds.flatMap((kind) => {
     const fullPool = dataTrackQuestions.filter((question) => question.kind === kind);
     const unseenPool = fullPool.filter((question) => !excluded.has(question.id));
     const pool = unseenPool.length >= quotas[kind] ? unseenPool : fullPool;
-    return shuffle(pool,random).slice(0,quotas[kind]);
+    const practicalCount = practicalQuotas[kind] ?? 0;
+    const practical = shuffle(pool.filter((question) => question.workSample),random).slice(0,practicalCount);
+    const regularPool = pool.filter((question) => !question.workSample);
+    const regular = shuffle(regularPool,random).slice(0,quotas[kind]-practical.length);
+    return [...practical,...regular];
   });
   return shuffle(picked,random);
 }

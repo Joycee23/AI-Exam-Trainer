@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Data Track Midterm Practice
 
-- `/data-track` provides topic-based practice from a 360-question bank built around annotation, detection, tracking, pose, segmentation, data QA, camera and LiDAR work scenarios.
+- `/data-track` provides topic-based practice from a 512-question bank including 38 hands-on artifacts (YOLO/COCO labels, tracking tables, keypoints, masks, QC logs, privacy, LiDAR and calibration). Each artifact feeds four distinct review tasks; every 50-question mock exam includes eight artifact-based questions.
 - Practice sessions draw 10 questions and store seen question IDs in browser local storage to prefer unseen items until the bank is exhausted.
 - `/midterm` samples a fresh 50-question, 90-minute mock exam with 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions.
 - Objective answers are scored automatically. Written responses include a checklist rubric for self-review.

@@ -43,12 +43,13 @@ function getSeenIds(): number[] {
 export default function DataTrackPracticePage() {
   const [phase, setPhase] = useState<Phase>('setup');
   const [topic, setTopic] = useState('Tất cả chủ đề');
+  const [practiceOnly, setPracticeOnly] = useState(false);
   const [session, setSession] = useState<MidtermQuestion[]>([]);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number[] | string>>({});
   const [revealed, setRevealed] = useState<number[]>([]);
   const [rubricChecks, setRubricChecks] = useState<Record<number, boolean[]>>({});
-  const pool = useMemo(() => topic === 'Tất cả chủ đề' ? dataTrackQuestions : dataTrackQuestions.filter((question) => topicGroups.find((group)=>group.label===topic)?.matches.test(question.topic)), [topic]);
+  const pool = useMemo(() => dataTrackQuestions.filter((question) => (!practiceOnly || question.workSample) && (topic === 'Tất cả chủ đề' || Boolean(topicGroups.find((group)=>group.label===topic)?.matches.test(question.topic)))), [topic, practiceOnly]);
   const question = session[index];
   const answerCount = Object.keys(answers).length;
   const scoredQuestions = session.filter((item) => item.kind !== 'written');
@@ -58,7 +59,7 @@ export default function DataTrackPracticePage() {
   }).length;
 
   const start = () => {
-    const eligible = pool.length > SESSION_SIZE ? pool : dataTrackQuestions;
+    const eligible = pool.length >= SESSION_SIZE ? pool : practiceOnly ? dataTrackQuestions.filter((item)=>item.workSample) : dataTrackQuestions;
     const seen = new Set(getSeenIds());
     let unseen = eligible.filter((item) => !seen.has(item.id));
     if (unseen.length < SESSION_SIZE) {
@@ -90,10 +91,11 @@ export default function DataTrackPracticePage() {
     <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
       <p className="text-sm font-semibold text-violet-300 mb-3">DATA TRACK · LUYỆN THEO CHỦ ĐỀ</p>
       <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Học để xử lý tình huống thật</h1>
-      <p className="mt-4 max-w-2xl text-gray-300 leading-7">Luyện ngẫu nhiên từ {dataTrackQuestions.length} câu hỏi về annotation xe tự hành, QA dữ liệu, model-assisted labeling, camera nhiều góc và LiDAR. Câu đã gặp được ghi nhớ trên thiết bị để ưu tiên câu chưa làm.</p>
+      <p className="mt-4 max-w-2xl text-gray-300 leading-7">Luyện ngẫu nhiên từ {dataTrackQuestions.length} câu hỏi, trong đó có {dataTrackQuestions.filter((item)=>item.workSample).length} bài đọc artifact và xử lý dữ liệu về annotation xe tự hành, QA dữ liệu, model-assisted labeling, camera nhiều góc và LiDAR. Câu đã gặp được ghi nhớ trên thiết bị để ưu tiên câu chưa làm.</p>
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">{[[String(dataTrackQuestions.length),'câu trong ngân hàng'],[String(topics.length),'chủ đề'],['10 câu','mỗi lượt'],['Không lặp','đến khi hết lượt']].map(([value,label])=><div key={`${value}-${label}`}><p className="text-xl font-bold text-white">{value}</p><p className="mt-1 text-sm text-gray-400">{label}</p></div>)}</div>
       <label htmlFor="practice-topic" className="mt-7 block text-sm font-semibold text-white">Chọn chủ đề</label>
       <select id="practice-topic" value={topic} onChange={(event)=>setTopic(event.target.value)} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option>Tất cả chủ đề</option>{topics.map((item)=><option key={item.label}>{item.label}</option>)}</select>
+      <label className="mt-4 flex w-fit items-center gap-3 text-sm text-gray-200"><input type="checkbox" checked={practiceOnly} onChange={(event)=>setPracticeOnly(event.target.checked)} className="accent-violet-400"/>Chỉ bài lab thực hành · artifact để review/sửa</label>
       <p className="mt-3 text-sm text-gray-400">{pool.length} câu thuộc lựa chọn này. Nếu chủ đề có ít hơn 10 câu, lượt luyện sẽ bổ sung câu từ ngân hàng chung.</p>
       <button onClick={start} className="mt-7 inline-flex items-center gap-2 rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white hover:bg-violet-400"><Shuffle size={17}/> Bắt đầu lượt luyện</button>
       <div className="mt-6 border-t border-white/10 pt-5"><Link href="/midterm" className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"><BookOpenCheck size={16}/> Thi mô phỏng 50 câu / 90 phút <ArrowRight size={15}/></Link></div>
@@ -120,6 +122,7 @@ export default function DataTrackPracticePage() {
     <div className="grid lg:grid-cols-[minmax(0,1fr)_260px] gap-5 items-start">
       <section className="min-h-[480px] rounded-2xl border border-white/10 bg-[#151923] p-5 md:p-8">
         <p className="text-xs font-semibold text-violet-300">{question.day} · {question.topic} · {question.kind==='single'?'Một đáp án':question.kind==='multiple'?'Chọn các đáp án đúng':question.kind==='boolean'?'Đúng / sai':'Tự luận tình huống'}</p>
+        {question.workSample && question.caseMaterial && <div className="mt-5 overflow-x-auto rounded-xl border border-white/10 bg-[#0d1016] p-4"><div className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-300">Artifact cần review · {question.topic}</div><pre className="whitespace-pre-wrap break-words font-mono text-xs leading-6 text-gray-200">{question.caseMaterial}</pre></div>}
         <h2 className="mt-5 text-lg font-semibold leading-8 text-white">{question.prompt}</h2>
         {question.kind==='written' ? <div className="mt-5"><label htmlFor="practice-written" className="sr-only">Câu trả lời</label><textarea id="practice-written" rows={7} value={typeof answers[question.id]==='string'?answers[question.id] as string:''} onChange={(event)=>setAnswers({...answers,[question.id]:event.target.value})} placeholder="Ghi quyết định, evidence và bước tiếp theo…" className="w-full rounded-xl border border-white/10 bg-[#0f1117] p-4 text-sm leading-6 text-white placeholder:text-gray-500 focus:border-violet-400 focus:outline-none"/></div> : <div className="mt-6 space-y-3">{question.options?.map((option,optionIndex)=>{const active=selected.includes(optionIndex);return <button key={`${question.id}-${optionIndex}`} onClick={()=>choose(optionIndex)} aria-pressed={active} className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm leading-6 transition-colors ${active?'border-violet-400/60 bg-violet-400/10 text-white':'border-white/10 bg-[#10131a] text-gray-200 hover:border-white/25'}`}><span className="w-6 shrink-0 font-semibold text-gray-400">{question.kind==='boolean'?'•':String.fromCharCode(65+optionIndex)}</span>{option}</button>})}</div>}
         {isRevealed && <div className={`mt-5 rounded-xl p-4 ${question.kind==='written'?'bg-sky-500/10':isCorrect?'bg-emerald-500/10':'bg-amber-500/10'}`}><p className={`font-semibold ${question.kind==='written'?'text-sky-200':isCorrect?'text-emerald-300':'text-amber-200'}`}>{question.kind==='written'?'Rubric tự đối chiếu':isCorrect?'Chính xác':'Hãy xem lại cách xử lý'}</p><p className="mt-1 text-sm leading-6 text-gray-300">{question.explanation}</p>{question.kind==='written'&&<div className="mt-3 space-y-2">{question.rubric?.map((item,idx)=><label key={item} className="flex gap-3 rounded-lg bg-black/10 p-3 text-sm text-gray-200"><input type="checkbox" checked={rubricChecks[question.id]?.[idx]??false} onChange={(event)=>setRubricChecks({...rubricChecks,[question.id]:question.rubric!.map((_,n)=>n===idx?event.target.checked:(rubricChecks[question.id]?.[n]??false))})} className="mt-0.5 accent-violet-400"/>{item}</label>)}</div>}</div>}
