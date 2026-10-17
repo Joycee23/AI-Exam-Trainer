@@ -12,6 +12,12 @@ An exam practice site for AI engineering course material.
 
 Each exam has 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions. Practice sessions draw up to 10 questions and store seen IDs separately per track in browser local storage. Objective answers are scored automatically. Written responses include rubrics for self-review.
 
+## Unique visitors
+
+The dashboard shows unique visitor browsers, deduplicated with a first-party HTTP-only cookie. It does not store IP addresses or personal information. Without accounts, the same person using another browser or device will be counted separately.
+
+To enable the shared count in local and deployed environments, create an Upstash Redis database and add the values from `.env.example` to `.env.local` and the deployment environment. The count is not a page-view counter.
+
 ## Development
 
 ```bash

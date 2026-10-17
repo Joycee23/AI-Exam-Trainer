@@ -5,6 +5,7 @@ import { modules, getModuleTotalQuestions } from '@/data/modules';
 import { getQuestionsByModule } from '@/data/questions';
 import { getOverallStats, getModuleStats } from '@/lib/storage';
 import StatsCard from '@/components/StatsCard';
+import UniqueVisitorsCard from '@/components/UniqueVisitorsCard';
 import ModuleCard from '@/components/ModuleCard';
 import { allQuestions } from '@/data/questions';
 import { dataTrackQuestionCount } from '@/data/data-track-bank';
@@ -101,7 +102,7 @@ export default function DashboardPage() {
       </section>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8 md:mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-12">
         <StatsCard
           label="Tổng câu hỏi"
           value={totalAvailableQuestions}
@@ -132,6 +133,7 @@ export default function DashboardPage() {
           icon={<Trophy size={18} />}
           color="#EF4444"
         />
+        <UniqueVisitorsCard />
       </div>
 
       {/* Module Cards */}
