@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Bookmark, Check, Clock3, FileCheck2, RotateCcw } from 'lucide-react';
 import { dataTrackQuestionCount, dataTrackQuestions, pickExamQuestions } from '@/data/data-track-bank';
 import { midtermQuestions, type MidtermQuestion } from '@/data/midterm';
+import { aiThucChienQuestionsByTrack, aiThucChienTrackStats, pickAiThucChienExam, type AiThucChienTrack } from '@/data/ai-thuc-chien-bank';
 
 type Phase = 'intro' | 'exam' | 'result';
 const EXAM_SECONDS = 90 * 60;
 const EXAM_HISTORY_KEY = 'ai-exam-trainer-midterm-seen';
+type ExamTrack = 'data-track' | AiThucChienTrack;
 
 function formatTime(seconds: number) {
   const safe = Math.max(0, seconds);
@@ -17,6 +19,7 @@ function formatTime(seconds: number) {
 
 export default function MidtermPage() {
   const [phase, setPhase] = useState<Phase>('intro');
+  const [examTrack, setExamTrack] = useState<ExamTrack>('data-track');
   const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState<MidtermQuestion[]>(midtermQuestions);
   const [answers, setAnswers] = useState<Record<number, number[] | string>>({});
@@ -63,11 +66,14 @@ export default function MidtermPage() {
   };
 
   const start = () => {
+    const historyKey = `${EXAM_HISTORY_KEY}-${examTrack}`;
     let recentIds: number[] = [];
     try {
-      recentIds = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY) ?? '[]') as number[];
+      recentIds = JSON.parse(localStorage.getItem(historyKey) ?? '[]') as number[];
     } catch { /* A new exam can still start when browser storage is unavailable. */ }
-    const nextQuestions = pickExamQuestions(Math.random, recentIds);
+    const nextQuestions = examTrack === 'data-track'
+      ? pickExamQuestions(Math.random, recentIds)
+      : pickAiThucChienExam(examTrack, Math.random, recentIds);
     setQuestions(nextQuestions);
     setIndex(0);
     setAnswers({});
@@ -77,7 +83,7 @@ export default function MidtermPage() {
     setPhase('exam');
     setRemaining(EXAM_SECONDS);
     try {
-      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
+      localStorage.setItem(historyKey, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
     } catch { /* Exam history is an enhancement; the exam itself does not depend on it. */ }
   };
   const submit = () => setPhase('result');
@@ -88,11 +94,25 @@ export default function MidtermPage() {
     <div className="max-w-5xl mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16} /> Về trang học tập</Link>
       <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
-        <p className="text-sm text-violet-300 font-semibold mb-3">AI DATA TRACK · ĐỀ LUYỆN TẬP</p>
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">Midterm: dữ liệu cho AI xe tự hành</h1>
-        <p className="mt-4 max-w-2xl text-gray-300 leading-7">Mỗi lượt thi rút ngẫu nhiên 50 câu (trong đó có 8 bài đọc artifact) từ ngân hàng Data Track, phủ annotation 2D/3D, detection, tracking, pose, segmentation, quy trình QC, camera 360° và LiDAR.</p>
+        <p className="text-sm text-violet-300 font-semibold mb-3">MIDTERM · ĐỀ LUYỆN TẬP</p>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">Chọn chương trình để thi thử</h1>
+        <p className="mt-4 max-w-2xl text-gray-300 leading-7">Mỗi đề lấy câu hỏi từ đúng ngân hàng của chương trình đã chọn. Track 1 và Track 4 có nội dung riêng, không bị trộn lẫn.</p>
+        <div className="mt-7 grid gap-3 md:grid-cols-3" role="group" aria-label="Chọn track thi thử">
+          {([
+            { id: 'data-track', name: 'Data Track', description: 'Annotation và dữ liệu cho AI xe tự hành', count: dataTrackQuestionCount, tone: 'violet' },
+            { id: 'track-1', name: 'AI Thực Chiến · Track 1', description: 'AI Builder, agent, RAG và vận hành hệ thống AI', count: aiThucChienTrackStats['track-1'].questions, tone: 'violet' },
+            { id: 'track-4', name: 'AI Thực Chiến · Track 4', description: 'Computer vision, robotics và sensor fusion', count: aiThucChienTrackStats['track-4'].questions, tone: 'cyan' },
+          ] as const).map((track) => {
+            const active = examTrack === track.id;
+            return <button key={track.id} type="button" aria-pressed={active} onClick={() => setExamTrack(track.id)} className={`min-h-32 rounded-xl border p-4 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 ${active ? 'border-violet-300/60 bg-violet-400/10' : 'border-white/10 bg-[#10131a] hover:border-white/25'}`}>
+              <span className="block font-semibold text-white">{track.name}</span>
+              <span className="mt-2 block text-sm leading-5 text-gray-300">{track.description}</span>
+              <span className="mt-3 block text-xs text-gray-400">{track.count} câu trong ngân hàng</span>
+            </button>;
+          })}
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-y border-white/10 py-6">
-          {[[String(dataTrackQuestionCount),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String(dataTrackQuestions.filter((item)=>item.workSample).length),'bài thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
+          {[[String(examTrack === 'data-track' ? dataTrackQuestionCount : aiThucChienQuestionsByTrack[examTrack].length),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String((examTrack === 'data-track' ? dataTrackQuestions : aiThucChienQuestionsByTrack[examTrack]).filter((item)=>item.workSample).length),'bài thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
         </div>
         <div className="grid md:grid-cols-2 gap-7 mt-7">
           <div><h2 className="font-semibold text-white">Cấu trúc đề</h2><ul className="mt-3 space-y-2 text-sm text-gray-300"><li>30 câu trắc nghiệm một đáp án</li><li>8 câu chọn nhiều đáp án</li><li>6 câu đúng / sai</li><li>6 câu tự luận ngắn có rubric tự đối chiếu</li></ul></div>
@@ -121,7 +141,7 @@ export default function MidtermPage() {
   const selected = Array.isArray(answers[question.id]) ? answers[question.id] as number[] : [];
   const correct = question.kind !== 'written' && selected.length === question.answer?.length && selected.every((n) => question.answer?.includes(n));
   return <div className="max-w-6xl mx-auto">
-    <header className="flex flex-wrap items-center justify-between gap-4 mb-6"><div><p className="text-sm text-violet-300 font-semibold">MIDTERM · DATA TRACK</p><h1 className="text-xl md:text-2xl font-bold text-white mt-1">Đề mô phỏng</h1></div><div className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono tabular-nums ${remaining<300?'border-rose-400/40 text-rose-300':'border-white/10 text-white'}`}><Clock3 size={17}/>{formatTime(remaining)}</div></header>
+    <header className="flex flex-wrap items-center justify-between gap-4 mb-6"><div><p className="text-sm text-violet-300 font-semibold">MIDTERM · {examTrack === 'data-track' ? 'DATA TRACK' : examTrack === 'track-1' ? 'AI THỰC CHIẾN · TRACK 1' : 'AI THỰC CHIẾN · TRACK 4'}</p><h1 className="text-xl md:text-2xl font-bold text-white mt-1">Đề mô phỏng</h1></div><div className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono tabular-nums ${remaining<300?'border-rose-400/40 text-rose-300':'border-white/10 text-white'}`}><Clock3 size={17}/>{formatTime(remaining)}</div></header>
     <div className="h-1.5 rounded-full bg-white/10 mb-6 overflow-hidden"><div className="h-full bg-violet-400 transition-all" style={{width:`${(answered/questions.length)*100}%`}}/></div>
     <div className="grid lg:grid-cols-[minmax(0,1fr)_270px] gap-5 items-start">
       <section className="rounded-2xl border border-white/10 bg-[#151923] p-5 md:p-8 min-h-[490px]">
