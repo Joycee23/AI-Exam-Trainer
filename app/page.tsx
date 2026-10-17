@@ -75,6 +75,17 @@ export default function DashboardPage() {
         </div>
       </div>
 
+      <section className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-sky-300/20 bg-sky-400/[0.05] p-5 md:p-6">
+        <div>
+          <h2 className="text-lg font-bold text-white">AI Thực Chiến · L3–4 · 308 câu</h2>
+          <p className="mt-1 text-sm text-gray-300">77 artifact lab từ slide: agent, RAG, deployment, vision, sensing, tracking, fusion và data pipeline.</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/data-track" className="inline-flex shrink-0 items-center justify-center rounded-lg border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/5">Luyện · chọn bộ học</Link>
+          <Link href="/midterm" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-600">Thi thử · chọn bộ học</Link>
+        </div>
+      </section>
+
       <section className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-300/20 bg-violet-400/[0.07] p-5 md:p-6">
         <div>
           <p className="text-xs font-semibold tracking-wide text-violet-300">ÔN TẬP DATA TRACK</p>

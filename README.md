@@ -41,3 +41,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+- `/data-track` (choose AI Thực Chiến · L3–4 from the course selector) adds the L3–4 AI Thực Chiến bank: 308 questions generated from 77 practical artifacts reviewed from the AIthucchien slide PDFs. The `/midterm` (choose AI Thực Chiến · L3–4 before starting) mock exam draws 50 questions in 90 minutes with the same 30/8/6/6 mix.
