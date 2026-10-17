@@ -21,6 +21,7 @@ const navItems = [
   { href: '/modules', label: 'Modules', icon: BookOpen },
   { href: '/quick-practice', label: 'Quick Practice', icon: Zap },
   { href: '/exam', label: 'Exam Mode', icon: ClipboardCheck },
+  { href: '/midterm', label: 'Midterm · 90 phút', icon: FileText },
   { href: '/mistakes', label: 'Mistakes', icon: XCircle },
   { href: '/cheatsheet', label: 'Cheat Sheet', icon: FileText },
   { href: '/statistics', label: 'Statistics', icon: BarChart3 },
