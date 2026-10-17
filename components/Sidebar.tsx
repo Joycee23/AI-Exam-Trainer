@@ -21,7 +21,7 @@ const navItems = [
   { href: '/modules', label: 'Modules', icon: BookOpen },
   { href: '/quick-practice', label: 'Quick Practice', icon: Zap },
   { href: '/data-track', label: 'Data Track', icon: BookOpen },
-  { href: '/ai-thuc-chien', label: 'AI Thực Chiến L3–4', icon: Brain },
+  { href: '/ai-thuc-chien', label: 'AI Thực Chiến · Chọn track', icon: Brain },
   { href: '/exam', label: 'Exam Mode', icon: ClipboardCheck },
   { href: '/midterm', label: 'Midterm · 90 phút', icon: FileText },
   { href: '/mistakes', label: 'Mistakes', icon: XCircle },

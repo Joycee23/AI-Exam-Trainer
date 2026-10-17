@@ -3,13 +3,12 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, RotateCcw, Shuffle } from 'lucide-react';
-import { aiThucChienQuestions } from '@/data/ai-thuc-chien-bank';
+import { aiThucChienQuestionsByTrack, type AiThucChienTrack } from '@/data/ai-thuc-chien-bank';
 import type { MidtermQuestion } from '@/data/midterm';
 
 type Phase = 'setup' | 'practice' | 'result';
 const HISTORY_KEY = 'ai-exam-trainer-ai-thuc-chien-seen';
 const SESSION_SIZE = 10;
-const topics = [...new Set(aiThucChienQuestions.map((question) => question.topic))].sort((a, b) => a.localeCompare(b, 'vi'));
 
 function randomize<T>(values: T[]) {
   const shuffled = [...values];
@@ -20,14 +19,18 @@ function randomize<T>(values: T[]) {
   return shuffled;
 }
 
-function getSeenIds(): number[] {
+function getSeenIds(key: string): number[] {
   try {
-    const value = localStorage.getItem(HISTORY_KEY);
+    const value = localStorage.getItem(key);
     return value ? JSON.parse(value) as number[] : [];
   } catch { return []; }
 }
 
-export default function AiThucChienPracticePage() {
+export default function AiThucChienPracticePage({ track }: { track: AiThucChienTrack }) {
+  const questions = aiThucChienQuestionsByTrack[track];
+  const trackName = track === 'track-1' ? 'Track 1 · AI Builder & Vận hành' : 'Track 4 · Computer Vision & Robotics';
+  const topics = [...new Set(questions.map((question) => question.topic))].sort((a, b) => a.localeCompare(b, 'vi'));
+  const historyKey = `${HISTORY_KEY}-${track}`;
   const [phase, setPhase] = useState<Phase>('setup');
   const [topic, setTopic] = useState('Tất cả chủ đề');
   const [session, setSession] = useState<MidtermQuestion[]>([]);
@@ -35,7 +38,7 @@ export default function AiThucChienPracticePage() {
   const [answers, setAnswers] = useState<Record<number, number[] | string>>({});
   const [revealed, setRevealed] = useState<number[]>([]);
   const [rubricChecks, setRubricChecks] = useState<Record<number, boolean[]>>({});
-  const pool = useMemo(() => aiThucChienQuestions.filter((question) => topic === 'Tất cả chủ đề' || question.topic === topic), [topic]);
+  const pool = useMemo(() => questions.filter((question) => topic === 'Tất cả chủ đề' || question.topic === topic), [questions, topic]);
   const question = session[index];
   const answerCount = Object.keys(answers).length;
   const scoredQuestions = session.filter((item) => item.kind !== 'written');
@@ -46,7 +49,7 @@ export default function AiThucChienPracticePage() {
 
   const start = () => {
     const eligible = pool;
-    const seen = new Set(getSeenIds());
+    const seen = new Set(getSeenIds(historyKey));
     let unseen = eligible.filter((item) => !seen.has(item.id));
     if (unseen.length === 0) {
       seen.clear();
@@ -60,7 +63,7 @@ export default function AiThucChienPracticePage() {
     setRubricChecks({});
     setPhase('practice');
     try {
-      localStorage.setItem(HISTORY_KEY, JSON.stringify([...seen,...selected.map((item)=>item.id)]));
+      localStorage.setItem(historyKey, JSON.stringify([...seen,...selected.map((item)=>item.id)]));
     } catch { /* Practice remains available when browser storage is blocked. */ }
   };
 
@@ -73,16 +76,16 @@ export default function AiThucChienPracticePage() {
   };
 
   if (phase === 'setup') return <div className="max-w-5xl mx-auto">
-      <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16}/> Về trang học tập</Link>
+      <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16}/> Chọn track ôn tập</Link>
     <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
-      <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Học để xử lý tình huống thật</h1>
-      <p className="mt-4 max-w-2xl text-gray-300 leading-7">Ngân hàng {aiThucChienQuestions.length} câu tạo từ artifact thực hành trong slide L3–4. Chẩn đoán lỗi, chọn bằng chứng, phản biện quyết định kỹ thuật và viết review note cho các tình huống AI ngoài công việc.</p>
+      <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Luyện tập theo tình huống thực tế</h1>
+      <p className="mt-4 max-w-2xl text-gray-300 leading-7">{trackName} · {questions.length} câu hỏi từ {questions.filter((item) => item.workSample).length / 4} artifact trong các slide của track này. Chẩn đoán lỗi, chọn bằng chứng, phản biện quyết định kỹ thuật và viết review note cho các tình huống thực tế.</p>
       <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-y border-white/10 py-5 text-sm text-gray-300"><span><strong className="text-white">{topics.length}</strong> chủ đề</span><span><strong className="text-white">4</strong> dạng câu hỏi</span><span><strong className="text-white">10</strong> câu mỗi lượt tối đa</span><span>Ưu tiên câu chưa gặp</span></div>
       <label htmlFor="practice-topic" className="mt-7 block text-sm font-semibold text-white">Chọn chủ đề</label>
       <select id="practice-topic" value={topic} onChange={(event)=>setTopic(event.target.value)} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option>Tất cả chủ đề</option>{topics.map((item)=><option key={item}>{item}</option>)}</select>
       <p className="mt-3 text-sm text-gray-400">{pool.length} câu thuộc lựa chọn này. Lượt luyện giữ đúng chủ đề đã chọn; chỉ các câu chưa gặp được ưu tiên.</p>
       <button onClick={start} className="mt-7 inline-flex items-center gap-2 rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white hover:bg-violet-400"><Shuffle size={17}/> Bắt đầu lượt luyện</button>
-      <div className="mt-6 border-t border-white/10 pt-5"><Link href="/ai-thuc-chien/thi" className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"><BookOpenCheck size={16}/> Thi thử L3–4 · 50 câu / 90 phút <ArrowRight size={15}/></Link></div>
+      <div className="mt-6 border-t border-white/10 pt-5"><Link href={`/ai-thuc-chien/${track}/thi`} className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"><BookOpenCheck size={16}/> Thi thử riêng Track {track === 'track-1' ? '1' : '4'} · 50 câu / 90 phút <ArrowRight size={15}/></Link></div>
     </section>
   </div>;
 

@@ -4,12 +4,13 @@ An exam practice site for AI engineering course material.
 
 ## Learning areas
 
-- `/data-track` offers topic-based Data Track practice from its own question bank.
-- `/midterm` offers the Data Track mock exam.
-- `/ai-thuc-chien` is the dedicated L3–4 practice page. Its bank contains 308 questions generated from 77 practical artifacts reviewed from the AI Thực Chiến slide materials. Questions cover LLM and API work, product discovery, agents, RAG, data pipelines, deployment and operations, neural networks, computer vision, 3D perception, tracking, sensor fusion and annotation.
-- `/ai-thuc-chien/thi` offers a separate 50-question, 90-minute L3–4 mock exam: 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions.
+- `/data-track` and `/midterm` are the separate Data Track practice and exam.
+- `/ai-thuc-chien` lets learners choose between two independent course banks. Track 1 uses the 14 slide PDFs in `PDF track 1st`: AI/LLM foundations, product discovery, agents, RAG, data pipelines, deployment and evaluation. It has 160 questions from 40 practical artifacts.
+- `/ai-thuc-chien/track-1` practices only Track 1. `/ai-thuc-chien/track-1/thi` samples its own 50-question, 90-minute exam.
+- Track 4 uses the 9 slide PDFs in `PDF track 4`: neural networks, computer vision, sensing, tracking, fusion and annotation. It has 148 questions from 37 practical artifacts.
+- `/ai-thuc-chien/track-4` practices only Track 4. `/ai-thuc-chien/track-4/thi` samples its own 50-question, 90-minute exam.
 
-Practice sessions draw up to 10 questions and store seen IDs in browser local storage to prefer unseen items. Objective answers are scored automatically. Written responses include rubrics for self-review.
+Each exam has 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions. Practice sessions draw up to 10 questions and store seen IDs separately per track in browser local storage. Objective answers are scored automatically. Written responses include rubrics for self-review.
 
 ## Development
 

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Bookmark, Check, Clock3, FileCheck2, RotateCcw } from 'lucide-react';
-import { aiThucChienQuestionCount, aiThucChienQuestions, pickAiThucChienExam } from '@/data/ai-thuc-chien-bank';
+import { aiThucChienTrackStats, pickAiThucChienExam, type AiThucChienTrack } from '@/data/ai-thuc-chien-bank';
 import type { MidtermQuestion } from '@/data/midterm';
 
 type Phase = 'intro' | 'exam' | 'result';
@@ -15,7 +15,11 @@ function formatTime(seconds: number) {
   return `${String(Math.floor(safe / 3600)).padStart(2, '0')}:${String(Math.floor((safe % 3600) / 60)).padStart(2, '0')}:${String(safe % 60).padStart(2, '0')}`;
 }
 
-export default function AiThucChienExamPage() {
+export default function AiThucChienExamPage({ track }: { track: AiThucChienTrack }) {
+  const trackTitle = track === 'track-1' ? 'Track 1 · AI Builder & Vận hành' : 'Track 4 · Computer Vision & Robotics';
+  const trackNumber = track === 'track-1' ? '1' : '4';
+  const trackStats = aiThucChienTrackStats[track];
+  const historyKey = `${EXAM_HISTORY_KEY}-${track}`;
   const [phase, setPhase] = useState<Phase>('intro');
   const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState<MidtermQuestion[]>([]);
@@ -65,9 +69,9 @@ export default function AiThucChienExamPage() {
   const start = () => {
     let recentIds: number[] = [];
     try {
-      recentIds = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY) ?? '[]') as number[];
+      recentIds = JSON.parse(localStorage.getItem(historyKey) ?? '[]') as number[];
     } catch { /* A new exam can still start when browser storage is unavailable. */ }
-    const nextQuestions = pickAiThucChienExam(Math.random, recentIds);
+    const nextQuestions = pickAiThucChienExam(track, Math.random, recentIds);
     setQuestions(nextQuestions);
     setIndex(0);
     setAnswers({});
@@ -77,7 +81,7 @@ export default function AiThucChienExamPage() {
     setPhase('exam');
     setRemaining(EXAM_SECONDS);
     try {
-      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
+      localStorage.setItem(historyKey, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
     } catch { /* Exam history is an enhancement; the exam itself does not depend on it. */ }
   };
   const submit = () => setPhase('result');
@@ -86,17 +90,17 @@ export default function AiThucChienExamPage() {
 
   if (phase === 'intro') return (
     <div className="max-w-5xl mx-auto">
-      <Link href="/ai-thuc-chien" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16} /> Về trang học tập</Link>
+      <Link href={`/ai-thuc-chien/${track}`} className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16} /> Về trang luyện Track {trackNumber}</Link>
       <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
-        <p className="text-sm text-violet-300 font-semibold mb-3">AI THỰC CHIẾN L3–4 · THI THỬ</p>
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">Đề thi thử AI Thực Chiến L3–4</h1>
-        <p className="mt-4 max-w-2xl text-gray-300 leading-7">Mỗi lượt rút ngẫu nhiên 50 câu từ ngân hàng L3–4, kết hợp kiến thức bài giảng và tình huống thực tế về xây dựng, đánh giá, triển khai AI cùng các bài toán thị giác máy tính.</p>
+        <p className="text-sm text-violet-300 font-semibold mb-3">{trackTitle} · THI THỬ</p>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">{`Đề thi thử riêng ${trackTitle}`}</h1>
+        <p className="mt-4 max-w-2xl text-gray-300 leading-7">{`Mỗi lượt rút ngẫu nhiên 50 câu chỉ từ ngân hàng của ${trackTitle}, kết hợp kiến thức bài giảng và tình huống thực tế của track.`}</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-y border-white/10 py-6">
-          {[[String(aiThucChienQuestionCount),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String(aiThucChienQuestions.filter((item)=>item.workSample).length),'bài thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
+          {[[String(trackStats.questions),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String(trackStats.artifacts),'bài thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
         </div>
         <div className="grid md:grid-cols-2 gap-7 mt-7">
           <div><h2 className="font-semibold text-white">Cấu trúc đề</h2><ul className="mt-3 space-y-2 text-sm text-gray-300"><li>30 câu trắc nghiệm một đáp án</li><li>8 câu chọn nhiều đáp án</li><li>6 câu đúng / sai</li><li>6 câu tự luận ngắn có rubric tự đối chiếu</li></ul></div>
-          <div><h2 className="font-semibold text-white">Lưu ý khi làm</h2><ul className="mt-3 space-y-2 text-sm text-gray-300"><li>Đề sẽ tự nộp khi hết giờ.</li><li>Câu tự luận không được chấm tự động; dùng rubric để tự đánh giá sau khi nộp.</li><li>Đề ôn tập được xây dựng từ nội dung slide L3–4 và các tình huống thực hành mô phỏng công việc.</li></ul></div>
+          <div><h2 className="font-semibold text-white">Lưu ý khi làm</h2><ul className="mt-3 space-y-2 text-sm text-gray-300"><li>Đề sẽ tự nộp khi hết giờ.</li><li>Câu tự luận không được chấm tự động; dùng rubric để tự đánh giá sau khi nộp.</li><li>Đề chỉ lấy câu hỏi từ ngân hàng của {trackTitle}.</li></ul></div>
         </div>
         <button onClick={start} className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-violet-500 hover:bg-violet-400 px-6 py-3 font-semibold text-white transition-colors"><FileCheck2 size={18} /> Bắt đầu làm bài</button>
         <p className="text-xs text-gray-500 mt-3">Ngày thi 23 hoặc 24/10 là lịch dự kiến do lớp thông báo; đây là đề ôn tập, không phải đề thi chính thức.</p>
@@ -121,7 +125,7 @@ export default function AiThucChienExamPage() {
   const selected = Array.isArray(answers[question.id]) ? answers[question.id] as number[] : [];
   const correct = question.kind !== 'written' && selected.length === question.answer?.length && selected.every((n) => question.answer?.includes(n));
   return <div className="max-w-6xl mx-auto">
-    <header className="flex flex-wrap items-center justify-between gap-4 mb-6"><div><p className="text-sm text-violet-300 font-semibold">AI THỰC CHIẾN L3–4</p><h1 className="text-xl md:text-2xl font-bold text-white mt-1">Đề thi thử</h1></div><div className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono tabular-nums ${remaining<300?'border-rose-400/40 text-rose-300':'border-white/10 text-white'}`}><Clock3 size={17}/>{formatTime(remaining)}</div></header>
+    <header className="flex flex-wrap items-center justify-between gap-4 mb-6"><div><p className="text-sm text-violet-300 font-semibold">{trackTitle}</p><h1 className="text-xl md:text-2xl font-bold text-white mt-1">Đề thi thử Track {trackNumber}</h1></div><div className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono tabular-nums ${remaining<300?'border-rose-400/40 text-rose-300':'border-white/10 text-white'}`}><Clock3 size={17}/>{formatTime(remaining)}</div></header>
     <div className="h-1.5 rounded-full bg-white/10 mb-6 overflow-hidden"><div className="h-full bg-violet-400 transition-all" style={{width:`${(answered/questions.length)*100}%`}}/></div>
     <div className="grid lg:grid-cols-[minmax(0,1fr)_270px] gap-5 items-start">
       <section className="rounded-2xl border border-white/10 bg-[#151923] p-5 md:p-8 min-h-[490px]">

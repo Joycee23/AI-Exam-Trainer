@@ -12,6 +12,7 @@ export type MidtermQuestion = {
   rubric?: string[];
   caseMaterial?: string;
   workSample?: boolean;
+  track?: 'track-1' | 'track-4';
 };
 
 const single = (id: number, day: string, topic: string, prompt: string, options: string[], answer: number, explanation: string): MidtermQuestion => ({ id, kind: 'single', day, topic, prompt, options, answer: [answer], explanation });

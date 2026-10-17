@@ -8,7 +8,7 @@ import StatsCard from '@/components/StatsCard';
 import ModuleCard from '@/components/ModuleCard';
 import { allQuestions } from '@/data/questions';
 import { dataTrackQuestionCount } from '@/data/data-track-bank';
-import { aiThucChienQuestionCount, aiThucChienArtifactCount } from '@/data/ai-thuc-chien-bank';
+import { aiThucChienTrackStats } from '@/data/ai-thuc-chien-bank';
 import {
   Target,
   CheckCircle2,
@@ -89,14 +89,14 @@ export default function DashboardPage() {
       </section>
 
       <section className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-cyan-300/20 bg-cyan-400/[0.06] p-5 md:p-6">
-        <div>
-          <p className="text-xs font-semibold tracking-wide text-cyan-300">BỘ LUYỆN THI RIÊNG</p>
-          <h2 className="mt-1 text-lg font-bold text-white">AI Thực Chiến L3–4 · {aiThucChienQuestionCount} câu</h2>
-          <p className="mt-1 text-sm text-gray-300">Tình huống thực tế xây dựng và vận hành AI, tạo từ {aiThucChienArtifactCount} artifact bài giảng.</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href="/ai-thuc-chien" className="inline-flex shrink-0 items-center justify-center rounded-lg border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/5">Luyện L3–4</Link>
-          <Link href="/ai-thuc-chien/thi" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-cyan-500">Thi thử 90 phút</Link>
+        <div className="w-full">
+          <p className="text-xs font-semibold tracking-wide text-cyan-300">HAI NGÂN HÀNG RIÊNG BIỆT</p>
+          <h2 className="mt-1 text-lg font-bold text-white">AI Thực Chiến · chọn đúng track</h2>
+          <p className="mt-1 text-sm text-gray-300">Mỗi track có câu hỏi và đề thi riêng, không trộn nội dung.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href="/ai-thuc-chien/track-1" className="inline-flex shrink-0 items-center justify-center rounded-lg border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/5">Track 1 · {aiThucChienTrackStats['track-1'].questions} câu</Link>
+            <Link href="/ai-thuc-chien/track-4" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-cyan-500">Track 4 · {aiThucChienTrackStats['track-4'].questions} câu</Link>
+          </div>
         </div>
       </section>
 
