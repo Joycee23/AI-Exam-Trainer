@@ -7,6 +7,7 @@ import { getOverallStats, getModuleStats } from '@/lib/storage';
 import StatsCard from '@/components/StatsCard';
 import ModuleCard from '@/components/ModuleCard';
 import { allQuestions } from '@/data/questions';
+import { dataTrackQuestionCount } from '@/data/data-track-bank';
 import {
   Target,
   CheckCircle2,
@@ -74,14 +75,17 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <Link href="/midterm" className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-300/20 bg-violet-400/[0.07] p-5 md:p-6 transition-colors hover:bg-violet-400/[0.11]">
+      <section className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-300/20 bg-violet-400/[0.07] p-5 md:p-6">
         <div>
           <p className="text-xs font-semibold tracking-wide text-violet-300">ÔN TẬP DATA TRACK</p>
-          <h2 className="mt-1 text-lg font-bold text-white">Đề Midterm mô phỏng · 50 câu / 90 phút</h2>
-          <p className="mt-1 text-sm text-gray-300">Detection, tracking, segmentation, annotation QC, camera 360° và LiDAR.</p>
+          <h2 className="mt-1 text-lg font-bold text-white">Ngân hàng Data Track · {dataTrackQuestionCount} câu</h2>
+          <p className="mt-1 text-sm text-gray-300">Luyện theo chủ đề hoặc thi thử 50 câu / 90 phút.</p>
         </div>
-        <span className="inline-flex shrink-0 items-center justify-center rounded-lg bg-violet-500 px-4 py-2.5 text-sm font-semibold text-white">Vào đề thi</span>
-      </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/data-track" className="inline-flex shrink-0 items-center justify-center rounded-lg border border-white/15 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/5">Luyện theo chủ đề</Link>
+          <Link href="/midterm" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-violet-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-violet-400">Thi thử Midterm</Link>
+        </div>
+      </section>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8 md:mb-12">

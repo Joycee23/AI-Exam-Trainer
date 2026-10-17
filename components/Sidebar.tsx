@@ -20,6 +20,7 @@ const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/modules', label: 'Modules', icon: BookOpen },
   { href: '/quick-practice', label: 'Quick Practice', icon: Zap },
+  { href: '/data-track', label: 'Data Track', icon: BookOpen },
   { href: '/exam', label: 'Exam Mode', icon: ClipboardCheck },
   { href: '/midterm', label: 'Midterm · 90 phút', icon: FileText },
   { href: '/mistakes', label: 'Mistakes', icon: XCircle },

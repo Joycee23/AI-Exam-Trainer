@@ -16,6 +16,13 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Data Track Midterm Practice
+
+- `/data-track` provides topic-based practice from a 360-question bank built around annotation, detection, tracking, pose, segmentation, data QA, camera and LiDAR work scenarios.
+- Practice sessions draw 10 questions and store seen question IDs in browser local storage to prefer unseen items until the bank is exhausted.
+- `/midterm` samples a fresh 50-question, 90-minute mock exam with 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions.
+- Objective answers are scored automatically. Written responses include a checklist rubric for self-review.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
