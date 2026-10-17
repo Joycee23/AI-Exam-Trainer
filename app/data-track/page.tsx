@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, RotateCcw, Shuffle } from 'lucide-react';
 import { dataTrackQuestions } from '@/data/data-track-bank';
-import { aiThucChienQuestions, aiThucChienQuestionCount, aiThucChienArtifactCount, aiThucChienCurriculum } from '@/data/ai-thuc-chien-bank';
 import type { MidtermQuestion } from '@/data/midterm';
 
 type Phase = 'setup' | 'practice' | 'result';
@@ -23,6 +22,7 @@ const topicGroups = [
   {label:'LiDAR & 3D cuboids',matches:/LiDAR|3D cuboid/i},
   {label:'Calibration & multi-sensor',matches:/calibration|multi-sensor/i},
 ];
+const topics = topicGroups.filter((group)=>dataTrackQuestions.some((question)=>group.matches.test(question.topic)));
 
 function randomize<T>(values: T[]) {
   const shuffled = [...values];
@@ -33,9 +33,9 @@ function randomize<T>(values: T[]) {
   return shuffled;
 }
 
-function getSeenIds(course: 'data-track'|'ai-thuc-chien'): number[] {
+function getSeenIds(): number[] {
   try {
-    const value = localStorage.getItem(`${HISTORY_KEY}-${course}`);
+    const value = localStorage.getItem(HISTORY_KEY);
     return value ? JSON.parse(value) as number[] : [];
   } catch { return []; }
 }
@@ -43,16 +43,13 @@ function getSeenIds(course: 'data-track'|'ai-thuc-chien'): number[] {
 export default function DataTrackPracticePage() {
   const [phase, setPhase] = useState<Phase>('setup');
   const [topic, setTopic] = useState('Tất cả chủ đề');
-  const [course, setCourse] = useState<'data-track'|'ai-thuc-chien'>('data-track');
   const [practiceOnly, setPracticeOnly] = useState(false);
   const [session, setSession] = useState<MidtermQuestion[]>([]);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number[] | string>>({});
   const [revealed, setRevealed] = useState<number[]>([]);
   const [rubricChecks, setRubricChecks] = useState<Record<number, boolean[]>>({});
-  const courseQuestions = course === 'ai-thuc-chien' ? aiThucChienQuestions : dataTrackQuestions;
-  const courseTopics = course === 'ai-thuc-chien' ? [...new Set(aiThucChienQuestions.map((question)=>question.topic))] : topicGroups.filter((group)=>dataTrackQuestions.some((question)=>group.matches.test(question.topic))).map((group)=>group.label);
-  const pool = useMemo(() => courseQuestions.filter((question) => (!practiceOnly || question.workSample) && (topic === 'Tất cả chủ đề' || (course === 'ai-thuc-chien' ? question.topic === topic : Boolean(topicGroups.find((group)=>group.label===topic)?.matches.test(question.topic))))), [topic, practiceOnly, course, courseQuestions]);
+  const pool = useMemo(() => dataTrackQuestions.filter((question) => (!practiceOnly || question.workSample) && (topic === 'Tất cả chủ đề' || Boolean(topicGroups.find((group)=>group.label===topic)?.matches.test(question.topic)))), [topic, practiceOnly]);
   const question = session[index];
   const answerCount = Object.keys(answers).length;
   const scoredQuestions = session.filter((item) => item.kind !== 'written');
@@ -62,8 +59,8 @@ export default function DataTrackPracticePage() {
   }).length;
 
   const start = () => {
-    const eligible = pool.length >= SESSION_SIZE ? pool : practiceOnly ? courseQuestions.filter((item)=>item.workSample) : courseQuestions;
-    const seen = new Set(getSeenIds(course));
+    const eligible = pool.length >= SESSION_SIZE ? pool : practiceOnly ? dataTrackQuestions.filter((item)=>item.workSample) : dataTrackQuestions;
+    const seen = new Set(getSeenIds());
     let unseen = eligible.filter((item) => !seen.has(item.id));
     if (unseen.length < SESSION_SIZE) {
       seen.clear();
@@ -77,7 +74,7 @@ export default function DataTrackPracticePage() {
     setRubricChecks({});
     setPhase('practice');
     try {
-      localStorage.setItem(`${HISTORY_KEY}-${course}`, JSON.stringify([...seen,...selected.map((item)=>item.id)]));
+      localStorage.setItem(HISTORY_KEY, JSON.stringify([...seen,...selected.map((item)=>item.id)]));
     } catch { /* Practice remains available when browser storage is blocked. */ }
   };
 
@@ -92,22 +89,14 @@ export default function DataTrackPracticePage() {
   if (phase === 'setup') return <div className="max-w-5xl mx-auto">
     <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16}/> Về trang học tập</Link>
     <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
-      <p className="text-sm font-semibold text-violet-300 mb-3">{course === 'ai-thuc-chien' ? 'AI THỰC CHIẾN · LUYỆN THEO CHỦ ĐỀ' : 'DATA TRACK · LUYỆN THEO CHỦ ĐỀ'}</p>
+      <p className="text-sm font-semibold text-violet-300 mb-3">DATA TRACK · LUYỆN THEO CHỦ ĐỀ</p>
       <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Học để xử lý tình huống thật</h1>
-      <label htmlFor="practice-course" className="mt-6 block text-sm font-semibold text-white">Chọn bộ học</label><select id="practice-course" value={course} onChange={(event)=>{setCourse(event.target.value as 'data-track'|'ai-thuc-chien');setTopic('Tất cả chủ đề');}} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option value="data-track">Data Track · dữ liệu xe tự hành</option><option value="ai-thuc-chien">AI Thực Chiến · L3–4</option></select>
-      <p className="mt-4 max-w-2xl text-gray-300 leading-7">{course === 'ai-thuc-chien' ? `Luyện ${aiThucChienQuestionCount} câu được xây từ ${aiThucChienArtifactCount} artifact trong slide L3–4: AI product, agent, RAG, vận hành, computer vision, cảm biến, tracking, fusion và data pipeline.` : `Luyện ${dataTrackQuestions.length} câu về dữ liệu xe tự hành, annotation, detection, tracking, camera, LiDAR và QA.`} Câu đã gặp được ghi nhớ trên thiết bị để ưu tiên câu chưa làm.</p>
-      {course === 'ai-thuc-chien' && <details className="mt-5 rounded-xl border border-white/10 bg-[#10131a] p-4">
-        <summary className="cursor-pointer font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-300">Xem tổng hợp nội dung slide L3–4</summary>
-        <div className="mt-4 grid gap-5 md:grid-cols-2">
-          <div><h2 className="font-semibold text-sky-200">L3 · AI builder & vận hành</h2><ul className="mt-2 space-y-2 text-sm leading-6 text-gray-300">{aiThucChienCurriculum.l3.map((item)=><li key={item}>{item}</li>)}</ul></div>
-          <div><h2 className="font-semibold text-sky-200">L4 · Computer vision & robotics</h2><ul className="mt-2 space-y-2 text-sm leading-6 text-gray-300">{aiThucChienCurriculum.l4.map((item)=><li key={item}>{item}</li>)}</ul></div>
-        </div>
-      </details>}
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">{[[String(courseQuestions.length),'câu trong ngân hàng'],[String(courseTopics.length),'chủ đề'],[String(courseQuestions.filter((item)=>item.workSample).length),'câu thực hành'],['10 câu','mỗi lượt']].map(([value,label])=><div key={`${value}-${label}`}><p className="text-xl font-bold text-white">{value}</p><p className="mt-1 text-sm text-gray-400">{label}</p></div>)}</div>
+      <p className="mt-4 max-w-2xl text-gray-300 leading-7">Luyện ngẫu nhiên từ {dataTrackQuestions.length} câu hỏi, trong đó có {dataTrackQuestions.filter((item)=>item.workSample).length} bài đọc artifact và xử lý dữ liệu về annotation xe tự hành, QA dữ liệu, model-assisted labeling, camera nhiều góc và LiDAR. Câu đã gặp được ghi nhớ trên thiết bị để ưu tiên câu chưa làm.</p>
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">{[[String(dataTrackQuestions.length),'câu trong ngân hàng'],[String(topics.length),'chủ đề'],['10 câu','mỗi lượt'],['Không lặp','đến khi hết lượt']].map(([value,label])=><div key={`${value}-${label}`}><p className="text-xl font-bold text-white">{value}</p><p className="mt-1 text-sm text-gray-400">{label}</p></div>)}</div>
       <label htmlFor="practice-topic" className="mt-7 block text-sm font-semibold text-white">Chọn chủ đề</label>
-      <select id="practice-topic" value={topic} onChange={(event)=>setTopic(event.target.value)} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option>Tất cả chủ đề</option>{courseTopics.map((item)=><option key={item}>{item}</option>)}</select>
+      <select id="practice-topic" value={topic} onChange={(event)=>setTopic(event.target.value)} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option>Tất cả chủ đề</option>{topics.map((item)=><option key={item.label}>{item.label}</option>)}</select>
       <label className="mt-4 flex w-fit items-center gap-3 text-sm text-gray-200"><input type="checkbox" checked={practiceOnly} onChange={(event)=>setPracticeOnly(event.target.checked)} className="accent-violet-400"/>Chỉ bài lab thực hành · artifact để review/sửa</label>
-      <p className="mt-3 text-sm text-gray-400">{pool.length} câu thuộc lựa chọn này. Nếu chủ đề có ít hơn 10 câu, lượt luyện sẽ bổ sung từ cùng bộ học.</p>
+      <p className="mt-3 text-sm text-gray-400">{pool.length} câu thuộc lựa chọn này. Nếu chủ đề có ít hơn 10 câu, lượt luyện sẽ bổ sung câu từ ngân hàng chung.</p>
       <button onClick={start} className="mt-7 inline-flex items-center gap-2 rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white hover:bg-violet-400"><Shuffle size={17}/> Bắt đầu lượt luyện</button>
       <div className="mt-6 border-t border-white/10 pt-5"><Link href="/midterm" className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"><BookOpenCheck size={16}/> Thi mô phỏng 50 câu / 90 phút <ArrowRight size={15}/></Link></div>
     </section>
@@ -132,7 +121,7 @@ export default function DataTrackPracticePage() {
     <div className="mb-6 h-1.5 overflow-hidden rounded-full bg-white/10"><div className="h-full bg-violet-400 transition-all" style={{width:`${((index+1)/session.length)*100}%`}}/></div>
     <div className="grid lg:grid-cols-[minmax(0,1fr)_260px] gap-5 items-start">
       <section className="min-h-[480px] rounded-2xl border border-white/10 bg-[#151923] p-5 md:p-8">
-        <p className="text-xs font-semibold text-violet-300">{question.day} · {question.topic} · {question.workSample?'Lab thực chiến · ':''}{question.kind==='single'?'Một đáp án':question.kind==='multiple'?'Chọn các đáp án đúng':question.kind==='boolean'?'Đúng / sai':'Tự luận tình huống'}</p>
+        <p className="text-xs font-semibold text-violet-300">{question.day} · {question.topic} · {question.kind==='single'?'Một đáp án':question.kind==='multiple'?'Chọn các đáp án đúng':question.kind==='boolean'?'Đúng / sai':'Tự luận tình huống'}</p>
         {question.workSample && question.caseMaterial && <div className="mt-5 overflow-x-auto rounded-xl border border-white/10 bg-[#0d1016] p-4"><div className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-300">Artifact cần review · {question.topic}</div><pre className="whitespace-pre-wrap break-words font-mono text-xs leading-6 text-gray-200">{question.caseMaterial}</pre></div>}
         <h2 className="mt-5 text-lg font-semibold leading-8 text-white">{question.prompt}</h2>
         {question.kind==='written' ? <div className="mt-5"><label htmlFor="practice-written" className="sr-only">Câu trả lời</label><textarea id="practice-written" rows={7} value={typeof answers[question.id]==='string'?answers[question.id] as string:''} onChange={(event)=>setAnswers({...answers,[question.id]:event.target.value})} placeholder="Ghi quyết định, evidence và bước tiếp theo…" className="w-full rounded-xl border border-white/10 bg-[#0f1117] p-4 text-sm leading-6 text-white placeholder:text-gray-500 focus:border-violet-400 focus:outline-none"/></div> : <div className="mt-6 space-y-3">{question.options?.map((option,optionIndex)=>{const active=selected.includes(optionIndex);return <button key={`${question.id}-${optionIndex}`} onClick={()=>choose(optionIndex)} aria-pressed={active} className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm leading-6 transition-colors ${active?'border-violet-400/60 bg-violet-400/10 text-white':'border-white/10 bg-[#10131a] text-gray-200 hover:border-white/25'}`}><span className="w-6 shrink-0 font-semibold text-gray-400">{question.kind==='boolean'?'•':String.fromCharCode(65+optionIndex)}</span>{option}</button>})}</div>}

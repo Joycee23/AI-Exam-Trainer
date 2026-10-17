@@ -1,45 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Exam Trainer
 
-## Getting Started
+An exam practice site for AI engineering course material.
 
-First, run the development server:
+## Learning areas
+
+- `/data-track` offers topic-based Data Track practice from its own question bank.
+- `/midterm` offers the Data Track mock exam.
+- `/ai-thuc-chien` is the dedicated L3–4 practice page. Its bank contains 308 questions generated from 77 practical artifacts reviewed from the AI Thực Chiến slide materials. Questions cover LLM and API work, product discovery, agents, RAG, data pipelines, deployment and operations, neural networks, computer vision, 3D perception, tracking, sensor fusion and annotation.
+- `/ai-thuc-chien/thi` offers a separate 50-question, 90-minute L3–4 mock exam: 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions.
+
+Practice sessions draw up to 10 questions and store seen IDs in browser local storage to prefer unseen items. Objective answers are scored automatically. Written responses include rubrics for self-review.
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Data Track Midterm Practice
-
-- `/data-track` provides topic-based practice from a 512-question bank including 38 hands-on artifacts (YOLO/COCO labels, tracking tables, keypoints, masks, QC logs, privacy, LiDAR and calibration). Each artifact feeds four distinct review tasks; every 50-question mock exam includes eight artifact-based questions.
-- Practice sessions draw 10 questions and store seen question IDs in browser local storage to prefer unseen items until the bank is exhausted.
-- `/midterm` samples a fresh 50-question, 90-minute mock exam with 30 single-choice, 8 multiple-choice, 6 true/false and 6 written questions.
-- Objective answers are scored automatically. Written responses include a checklist rubric for self-review.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-- `/data-track` (choose AI Thực Chiến · L3–4 from the course selector) adds the L3–4 AI Thực Chiến bank: 308 questions generated from 77 practical artifacts reviewed from the AIthucchien slide PDFs. The `/midterm` (choose AI Thực Chiến · L3–4 before starting) mock exam draws 50 questions in 90 minutes with the same 30/8/6/6 mix.

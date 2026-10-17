@@ -5,12 +5,10 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Bookmark, Check, Clock3, FileCheck2, RotateCcw } from 'lucide-react';
 import { dataTrackQuestionCount, dataTrackQuestions, pickExamQuestions } from '@/data/data-track-bank';
 import { midtermQuestions, type MidtermQuestion } from '@/data/midterm';
-import { aiThucChienQuestions, aiThucChienQuestionCount, aiThucChienArtifactCount, pickAiThucChienExam } from '@/data/ai-thuc-chien-bank';
 
 type Phase = 'intro' | 'exam' | 'result';
 const EXAM_SECONDS = 90 * 60;
 const EXAM_HISTORY_KEY = 'ai-exam-trainer-midterm-seen';
-type ExamCourse = 'data-track'|'ai-thuc-chien';
 
 function formatTime(seconds: number) {
   const safe = Math.max(0, seconds);
@@ -19,7 +17,6 @@ function formatTime(seconds: number) {
 
 export default function MidtermPage() {
   const [phase, setPhase] = useState<Phase>('intro');
-  const [course, setCourse] = useState<ExamCourse>('data-track');
   const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState<MidtermQuestion[]>(midtermQuestions);
   const [answers, setAnswers] = useState<Record<number, number[] | string>>({});
@@ -68,9 +65,9 @@ export default function MidtermPage() {
   const start = () => {
     let recentIds: number[] = [];
     try {
-      recentIds = JSON.parse(localStorage.getItem(`${EXAM_HISTORY_KEY}-${course}`) ?? '[]') as number[];
+      recentIds = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY) ?? '[]') as number[];
     } catch { /* A new exam can still start when browser storage is unavailable. */ }
-    const nextQuestions = course === 'ai-thuc-chien' ? pickAiThucChienExam(Math.random, recentIds) : pickExamQuestions(Math.random, recentIds);
+    const nextQuestions = pickExamQuestions(Math.random, recentIds);
     setQuestions(nextQuestions);
     setIndex(0);
     setAnswers({});
@@ -80,7 +77,7 @@ export default function MidtermPage() {
     setPhase('exam');
     setRemaining(EXAM_SECONDS);
     try {
-      localStorage.setItem(`${EXAM_HISTORY_KEY}-${course}`, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
+      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify([...recentIds,...nextQuestions.map((item)=>item.id)].slice(-200)));
     } catch { /* Exam history is an enhancement; the exam itself does not depend on it. */ }
   };
   const submit = () => setPhase('result');
@@ -91,12 +88,11 @@ export default function MidtermPage() {
     <div className="max-w-5xl mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8"><ArrowLeft size={16} /> Về trang học tập</Link>
       <section className="rounded-3xl border border-white/10 bg-[#151923] p-6 md:p-10">
-        <p className="text-sm text-violet-300 font-semibold mb-3">{course === 'ai-thuc-chien' ? 'AI THỰC CHIẾN · ĐỀ LUYỆN TẬP' : 'AI DATA TRACK · ĐỀ LUYỆN TẬP'}</p>
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">{course === 'ai-thuc-chien' ? 'Đề mô phỏng AI Thực Chiến · L3–4' : 'Midterm: dữ liệu cho AI xe tự hành'}</h1>
-        <label htmlFor="exam-course" className="mt-6 block text-sm font-semibold text-white">Chọn chương trình</label><select id="exam-course" value={course} onChange={(event)=>setCourse(event.target.value as ExamCourse)} className="mt-2 w-full max-w-xl rounded-xl border border-white/10 bg-[#0f1117] px-4 py-3 text-white focus:border-violet-400 focus:outline-none"><option value="data-track">Data Track · dữ liệu xe tự hành</option><option value="ai-thuc-chien">AI Thực Chiến · L3–4</option></select>
-        <p className="mt-4 max-w-2xl text-gray-300 leading-7">{course === 'ai-thuc-chien' ? `Mỗi lượt rút 50 câu từ ${aiThucChienQuestionCount} câu L3–4, có ${aiThucChienArtifactCount} artifact thực hành; phủ AI foundation, product, agent, RAG, vận hành hệ thống, neural networks, vision, sensing, tracking, fusion và data pipeline.` : `Mỗi lượt thi rút ngẫu nhiên 50 câu từ ngân hàng Data Track, phủ annotation 2D/3D, detection, tracking, pose, segmentation, quy trình QC, camera 360° và LiDAR.`}</p>
+        <p className="text-sm text-violet-300 font-semibold mb-3">AI DATA TRACK · ĐỀ LUYỆN TẬP</p>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-3xl">Midterm: dữ liệu cho AI xe tự hành</h1>
+        <p className="mt-4 max-w-2xl text-gray-300 leading-7">Mỗi lượt thi rút ngẫu nhiên 50 câu (trong đó có 8 bài đọc artifact) từ ngân hàng Data Track, phủ annotation 2D/3D, detection, tracking, pose, segmentation, quy trình QC, camera 360° và LiDAR.</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-y border-white/10 py-6">
-          {[[String(course === 'ai-thuc-chien' ? aiThucChienQuestionCount : dataTrackQuestionCount),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String((course === 'ai-thuc-chien' ? aiThucChienQuestions : dataTrackQuestions).filter((item)=>item.workSample).length),'câu thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
+          {[[String(dataTrackQuestionCount),'câu trong ngân hàng'],['90 phút','thời lượng'],['4 dạng','câu hỏi'],[String(dataTrackQuestions.filter((item)=>item.workSample).length),'bài thực hành có artifact']].map(([value,label]) => <div key={`${value}-${label}`}><div className="text-xl font-bold text-white">{value}</div><div className="text-sm text-gray-400 mt-1">{label}</div></div>)}
         </div>
         <div className="grid md:grid-cols-2 gap-7 mt-7">
           <div><h2 className="font-semibold text-white">Cấu trúc đề</h2><ul className="mt-3 space-y-2 text-sm text-gray-300"><li>30 câu trắc nghiệm một đáp án</li><li>8 câu chọn nhiều đáp án</li><li>6 câu đúng / sai</li><li>6 câu tự luận ngắn có rubric tự đối chiếu</li></ul></div>
